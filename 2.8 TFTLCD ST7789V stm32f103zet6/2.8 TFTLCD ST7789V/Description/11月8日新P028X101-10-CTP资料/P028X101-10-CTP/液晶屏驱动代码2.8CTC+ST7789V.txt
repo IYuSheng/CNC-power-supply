@@ -1,0 +1,159 @@
+
+
+
+Void ST7789V CTC 28panelgamma(void) 
+{ 
+
+//-----------------------------------ST7789V reset sequence------------------------------------// 
+
+
+LCD_RESET=1; 
+Delayms(1);                  //Delay 1ms 
+LCD_RESET=0; 
+Delayms(10);                  //Delay 10ms 
+LCD_RESET=1; 
+Delayms(120);                //Delay 120ms 
+//----------------------------------------------------------------------------------------------------// 
+LCD_CtrlWrite_ST7789V(0x11);
+LCD_Delayms(120); //Delay 120ms
+//------------------------------display and color format setting-------------
+LCD_CtrlWrite_ST7789V(0x36);
+LCD_DataWrite_ST7789V(0x00);
+LCD_CtrlWrite_ST7789V(0x3a);
+LCD_DataWrite_ST7789V(0x05);//0x55
+//--------------------------------ST7789V Frame rate setting-----------------
+
+LCD_CtrlWrite_ST7789V(0xb2);
+LCD_DataWrite_ST7789V(0x0c);
+LCD_DataWrite_ST7789V(0x0c);
+LCD_DataWrite_ST7789V(0x00);
+LCD_DataWrite_ST7789V(0x33);
+LCD_DataWrite_ST7789V(0x33);
+LCD_CtrlWrite_ST7789V(0xb7);
+LCD_DataWrite_ST7789V(0x35);
+//---------------------------------ST7789V Power setting---------------------
+
+LCD_CtrlWrite_ST7789V(0xbb);
+LCD_DataWrite_ST7789V(0x19);//0x28
+LCD_CtrlWrite_ST7789V(0xc0);
+LCD_DataWrite_ST7789V(0x2c);
+LCD_CtrlWrite_ST7789V(0xc2);
+LCD_DataWrite_ST7789V(0x01);
+LCD_CtrlWrite_ST7789V(0xc3);
+LCD_DataWrite_ST7789V(0x12);//0x10
+LCD_CtrlWrite_ST7789V(0xc4);
+LCD_DataWrite_ST7789V(0x20);
+LCD_CtrlWrite_ST7789V(0xc6);
+LCD_DataWrite_ST7789V(0x0f);
+LCD_CtrlWrite_ST7789V(0xd0);
+LCD_DataWrite_ST7789V(0xa4);
+LCD_DataWrite_ST7789V(0xa1);
+//--------------------------------ST7789V gamma setting----------------------
+
+LCD_CtrlWrite_ST7789V(0xe0);
+LCD_DataWrite_ST7789V(0xd0);
+LCD_DataWrite_ST7789V(0x04);//0x00
+LCD_DataWrite_ST7789V(0x0d);//0x02
+LCD_DataWrite_ST7789V(0x11);//0x07
+LCD_DataWrite_ST7789V(0x13);//0x0a
+LCD_DataWrite_ST7789V(0x2b);//0x28
+LCD_DataWrite_ST7789V(0x3f);//0x32
+LCD_DataWrite_ST7789V(0x54);//0x44
+LCD_DataWrite_ST7789V(0x4c);//0x42
+LCD_DataWrite_ST7789V(0x18);//0x06
+LCD_DataWrite_ST7789V(0x0d);//0x0e
+LCD_DataWrite_ST7789V(0x0b);//0x12
+LCD_DataWrite_ST7789V(0x1f);//0x14
+LCD_DataWrite_ST7789V(0x23);//0x17
+LCD_CtrlWrite_ST7789V(0xe1);
+LCD_DataWrite_ST7789V(0xd0);//0xd0
+LCD_DataWrite_ST7789V(0x04);//0x00
+LCD_DataWrite_ST7789V(0x0c);//0x02
+LCD_DataWrite_ST7789V(0x11);//0x07
+LCD_DataWrite_ST7789V(0x13);//0x0a
+LCD_DataWrite_ST7789V(0x2c);//0x28
+LCD_DataWrite_ST7789V(0x3f);//0x31
+LCD_DataWrite_ST7789V(0x44);//0x54
+LCD_DataWrite_ST7789V(0x51);//0x47
+LCD_DataWrite_ST7789V(0x2f);//0x0e
+LCD_DataWrite_ST7789V(0x1f);//0x1c
+LCD_DataWrite_ST7789V(0x1f);//0x17
+LCD_DataWrite_ST7789V(0x20);//0x1b
+LCD_DataWrite_ST7789V(0x23);//0x1e
+
+LCD_CtrlWrite_ST7789V(0x29);
+
+}
+
+
+
+
+
+
+Void ST7789VPanelTurnOnDisplay (void) 
+{ 
+Write command 0x29; 
+} 
+ 
+Void ST7789VPanelTurnOffDisplay (void) 
+{ 
+Write command 0x28; 
+} 
+ 
+Void ST7789VPanelTurnOnPartial (void) 
+{ 
+Write command 0x30; 
+Write data 0x00; 
+Write PSL;    //PSL: Start Line 
+Write data 0x00; 
+Write PEL;    //PEL: End Line 
+Write command 0x12; 
+} 
+ 
+Void ST7789VPanelTurnOffPartial (void) 
+{ 
+Write command 0x13; 
+} 
+ 
+Void ST7789VPanelTurnOnIdle (void) 
+{ 
+Write command 0x39; 
+} 
+ 
+Void ST7789VPanelTurnOffIdle (void) 
+{ 
+Write command 0x38; 
+} 
+  
+Void ST7789VPanelSleepInMode (void) 
+{ 
+Write command 0x10;
+
+Delayms (120); 
+} 
+ 
+Void ST7789VPanelSleepOutMode (void) 
+{ 
+Write command 0x11; 
+Delayms (120); 
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    

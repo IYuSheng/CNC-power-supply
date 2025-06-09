@@ -1,0 +1,17 @@
+--cpu=Cortex-M4.fp.sp
+"g473_gather\startup_stm32g473xx.o"
+"g473_gather\main.o"
+"g473_gather\gpio.o"
+"g473_gather\adc.o"
+"g473_gather\stm32g4xx_it.o"
+"g473_gather\stm32g4xx_ll_utils.o"
+"g473_gather\stm32g4xx_ll_exti.o"
+"g473_gather\stm32g4xx_ll_gpio.o"
+"g473_gather\stm32g4xx_ll_adc.o"
+"g473_gather\stm32g4xx_ll_dma.o"
+"g473_gather\stm32g4xx_ll_pwr.o"
+"g473_gather\system_stm32g4xx.o"
+--strict --scatter "G473_Gather\G473_Gather.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "G473_Gather.map" -o G473_Gather\G473_Gather.axf

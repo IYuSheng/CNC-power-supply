@@ -23,6 +23,7 @@
 #include "stm32g4xx_hal.h"
 #include "usbd_def.h"
 #include "usbd_core.h"
+#include "stm32g4xx_ll_rcc.h"
 
 #include "usbd_cdc.h"
 

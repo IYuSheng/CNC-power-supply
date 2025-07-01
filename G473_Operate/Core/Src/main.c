@@ -2,190 +2,36 @@
 /**
   ******************************************************************************
   * @file           : main.c
-  * @brief          : Main program body
+  * @brief          : 低保真(已黑化) 出品：STM32G473数控电源操作端
   ******************************************************************************
   * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
+  * 这玩意儿不是什么精致活儿——就是给数控电源做的操作终端，核心用的STM32G473。
+  * 别扯那些花里胡哨的协议，能稳定调压调流、扛得住电磁干扰就够了。
+  * 代码里没那么多注释，反正编译能过、烧进去不炸，就是合格产品。
+  * 
+  * （注：叫我的网名是请一定要加上(已黑化)，谢谢！）
   ******************************************************************************
   */
 /* USER CODE END Header */
-/* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "i2c.h"
-#include "spi.h"
-#include "tim.h"
-#include "usart.h"
-#include "usb_device.h"
-#include "gpio.h"
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-
-/* USER CODE END Includes */
-
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
-
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
-
-/* Private function prototypes -----------------------------------------------*/
-void SystemClock_Config(void);
-/* USER CODE BEGIN PFP */
-
-/* USER CODE END PFP */
-
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
-
-/**
-  * @brief  The application entry point.
-  * @retval int
-  */
 int main(void)
 {
+	SystemClock_Config();//系统时钟初始化
+	Init_Hardware();//硬件层初始化
 
-  /* USER CODE BEGIN 1 */
+  /* ------------------------------ FreeRTOS任务创建 -------------------------------------- */
+	
+	Debug_uart_task_create();//调试串口初始化
+	Monitor_task_create();//系统监视器初始化
+	
+	
+  /* ---------------------------------- 启动调度器 -------------------------------------- */
+  vTaskStartScheduler();
 
-  /* USER CODE END 1 */
-
-  /* MCU Configuration--------------------------------------------------------*/
-
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
-
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
-
-  /* Configure the system clock */
-  SystemClock_Config();
-
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
-
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_SPI1_Init();
-  MX_USART1_UART_Init();
-  MX_USB_Device_Init();
-  MX_I2C1_Init();
-  MX_TIM2_Init();
-  MX_TIM3_Init();
-  MX_USART3_UART_Init();
-  MX_TIM15_Init();
-  /* USER CODE BEGIN 2 */
-
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
-  }
-  /* USER CODE END 3 */
+	for(;;) {}
 }
 
-/**
-  * @brief System Clock Configuration
-  * @retval None
-  */
-void SystemClock_Config(void)
-{
-  LL_FLASH_SetLatency(LL_FLASH_LATENCY_4);
-  while(LL_FLASH_GetLatency() != LL_FLASH_LATENCY_4)
-  {
-  }
-  LL_PWR_EnableRange1BoostMode();
-  LL_RCC_HSE_Enable();
-   /* Wait till HSE is ready */
-  while(LL_RCC_HSE_IsReady() != 1)
-  {
-  }
-
-  LL_RCC_HSI48_Enable();
-   /* Wait till HSI48 is ready */
-  while(LL_RCC_HSI48_IsReady() != 1)
-  {
-  }
-
-  LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSE, LL_RCC_PLLM_DIV_2, 85, LL_RCC_PLLR_DIV_2);
-  LL_RCC_PLL_EnableDomain_SYS();
-  LL_RCC_PLL_Enable();
-   /* Wait till PLL is ready */
-  while(LL_RCC_PLL_IsReady() != 1)
-  {
-  }
-
-  LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
-  LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_2);
-   /* Wait till System clock is ready */
-  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL)
-  {
-  }
-
-  /* Insure 1us transition state at intermediate medium speed clock*/
-  for (__IO uint32_t i = (170 >> 1); i !=0; i--);
-
-  /* Set AHB prescaler*/
-  LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
-  LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_1);
-  LL_RCC_SetAPB2Prescaler(LL_RCC_APB2_DIV_1);
-  LL_SetSystemCoreClock(170000000);
-
-   /* Update the time base */
-  if (HAL_InitTick (TICK_INT_PRIORITY) != HAL_OK)
-  {
-    Error_Handler();
-  }
-}
-
-/* USER CODE BEGIN 4 */
-
-/* USER CODE END 4 */
-
-/**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
-void Error_Handler(void)
-{
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
-  /* USER CODE END Error_Handler_Debug */
-}
 
 #ifdef  USE_FULL_ASSERT
 /**
@@ -203,3 +49,30 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
+
+/* FreeRTOS回调函数 */
+void vApplicationMallocFailedHook(void)
+{
+  for(;;) { /* 内存分配失败时系统挂起 */ }
+}
+
+/* FreeRTOS空闲任务 */
+void vApplicationIdleHook(void)
+{
+
+}
+
+void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName)
+{
+  /* 堆栈溢出处理 */
+  (void)xTask;
+  (void)pcTaskName;
+  fr_printf("\r\n!!! Stack Overflow in %s !!!\r\n", pcTaskName);
+  while (1);
+}
+
+void vApplicationTickHook(void)
+{
+  /* 时钟节拍处理 ,可放置lvgl的时钟刷新*/
+
+}

@@ -1,0 +1,14 @@
+g473_operate\heap_4.o: ..\FreeRTOS\port\heap_4.c
+g473_operate\heap_4.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdlib.h
+g473_operate\heap_4.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
+g473_operate\heap_4.o: ..\FreeRTOS\inc\FreeRTOS.h
+g473_operate\heap_4.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
+g473_operate\heap_4.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdint.h
+g473_operate\heap_4.o: ..\FreeRTOS\FreeRTOSConfig.h
+g473_operate\heap_4.o: ..\FreeRTOS\inc\projdefs.h
+g473_operate\heap_4.o: ..\FreeRTOS\inc\portable.h
+g473_operate\heap_4.o: ..\FreeRTOS\inc\deprecated_definitions.h
+g473_operate\heap_4.o: ..\FreeRTOS\port\portmacro.h
+g473_operate\heap_4.o: ..\FreeRTOS\inc\mpu_wrappers.h
+g473_operate\heap_4.o: ..\FreeRTOS\inc\task.h
+g473_operate\heap_4.o: ..\FreeRTOS\inc\list.h

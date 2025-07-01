@@ -44,6 +44,25 @@ extern "C" {
 #include "stm32g4xx_ll_usart.h"
 #include "stm32g4xx_ll_gpio.h"
 
+#include "freertos.h"
+#include "freertosconfig.h"
+
+#include "main.h"
+#include "i2c.h"
+#include "spi.h"
+#include "tim.h"
+#include "usart.h"
+#include "usb_device.h"
+#include "gpio.h"
+#include "task.h"
+#include <string.h>
+
+#include "UART_DEBUG.h"
+#include "Init.h"
+#include "Task_init.h"
+#include "Monitor.h"
+#include "Debug.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -64,8 +83,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
-/* Exported functions prototypes ---------------------------------------------*/
-void Error_Handler(void);
+///* Exported functions prototypes ---------------------------------------------*/
+//void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 

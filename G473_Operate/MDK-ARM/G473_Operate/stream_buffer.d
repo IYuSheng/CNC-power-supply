@@ -1,0 +1,14 @@
+g473_operate\stream_buffer.o: ..\FreeRTOS\src\stream_buffer.c
+g473_operate\stream_buffer.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdint.h
+g473_operate\stream_buffer.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
+g473_operate\stream_buffer.o: ..\FreeRTOS\inc\FreeRTOS.h
+g473_operate\stream_buffer.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
+g473_operate\stream_buffer.o: ..\FreeRTOS\FreeRTOSConfig.h
+g473_operate\stream_buffer.o: ..\FreeRTOS\inc\projdefs.h
+g473_operate\stream_buffer.o: ..\FreeRTOS\inc\portable.h
+g473_operate\stream_buffer.o: ..\FreeRTOS\inc\deprecated_definitions.h
+g473_operate\stream_buffer.o: ..\FreeRTOS\port\portmacro.h
+g473_operate\stream_buffer.o: ..\FreeRTOS\inc\mpu_wrappers.h
+g473_operate\stream_buffer.o: ..\FreeRTOS\inc\task.h
+g473_operate\stream_buffer.o: ..\FreeRTOS\inc\list.h
+g473_operate\stream_buffer.o: ..\FreeRTOS\inc\stream_buffer.h

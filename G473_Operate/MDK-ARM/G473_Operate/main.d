@@ -46,6 +46,14 @@ g473_operate\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_spi.h
 g473_operate\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h
 g473_operate\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h
 g473_operate\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h
+g473_operate\main.o: ..\FreeRTOS\inc\freertos.h
+g473_operate\main.o: ..\FreeRTOS\FreeRTOSConfig.h
+g473_operate\main.o: ..\FreeRTOS\inc\projdefs.h
+g473_operate\main.o: ..\FreeRTOS\inc\portable.h
+g473_operate\main.o: ..\FreeRTOS\inc\deprecated_definitions.h
+g473_operate\main.o: ..\FreeRTOS\port\portmacro.h
+g473_operate\main.o: ..\FreeRTOS\inc\mpu_wrappers.h
+g473_operate\main.o: ../Core/Inc/main.h
 g473_operate\main.o: ../Core/Inc/i2c.h
 g473_operate\main.o: ../Core/Inc/spi.h
 g473_operate\main.o: ../Core/Inc/tim.h
@@ -57,3 +65,11 @@ g473_operate\main.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 g473_operate\main.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdlib.h
 g473_operate\main.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
 g473_operate\main.o: ../Core/Inc/gpio.h
+g473_operate\main.o: ..\FreeRTOS\inc\task.h
+g473_operate\main.o: ..\FreeRTOS\inc\list.h
+g473_operate\main.o: ..\Hardware\UART_DEBUG.h
+g473_operate\main.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
+g473_operate\main.o: ..\bsp\Init.h
+g473_operate\main.o: ..\bsp\Task_init.h
+g473_operate\main.o: ..\bsp\Monitor.h
+g473_operate\main.o: ..\bsp\Debug.h

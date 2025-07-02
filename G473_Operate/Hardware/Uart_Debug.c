@@ -7,7 +7,7 @@ static void InitHardUart(void)
   // 启用接收中断
   LL_USART_EnableIT_RXNE(USART3);
 	uint32_t priority_group = NVIC_GetPriorityGrouping(); // 获取系统优先级分组
-  NVIC_SetPriority(USART3_IRQn, NVIC_EncodePriority(priority_group, 5, 0)); // 抢占优先级5，子优先级0
+  NVIC_SetPriority(USART3_IRQn, NVIC_EncodePriority(priority_group, 3, 0)); // 抢占优先级3，子优先级0
   NVIC_EnableIRQ(USART3_IRQn);
 }
 
@@ -18,19 +18,28 @@ static void UartVarInit(void)
 
 void UART_Send_IT(USART_TypeDef *USARTx, uint8_t *pData, uint16_t Size)
 {
-  // 等待上次发送完成
-  while(uart3_dev.tx_busy);
+  // 等待上一次发送完成（超时时间延长至100ms，根据系统时钟调整）
+  uint32_t timeout = 1000000; // 约100ms（假设系统时钟170MHz）
+  while(uart3_dev.tx_busy && timeout-- > 0) {
+    // 空循环等待，可加入nop指令减少CPU占用
+    __NOP();
+  }
+  
+  // 若超时，强制复位发送状态（避免永久阻塞）
+  if (timeout == 0) {
+    uart3_dev.tx_busy = 0;
+    fr_printf("UART send timeout!\r\n"); // 调试用，可删除
+  }
 
-  // 复制数据到发送缓冲区
+  // 复制数据到发送缓冲区（限制最大长度）
   uint16_t copy_size = Size > UART3_TX_BUF_SIZE ? UART3_TX_BUF_SIZE : Size;
   memcpy(uart3_dev.tx_buf, pData, copy_size);
 
-  // 启用发送中断
+  // 启动发送
   uart3_dev.tx_index = 0;
   uart3_dev.tx_size = copy_size;
   uart3_dev.tx_busy = 1;
 
-  // 修改为USART3
   LL_USART_TransmitData8(USART3, uart3_dev.tx_buf[uart3_dev.tx_index++]);
   LL_USART_EnableIT_TC(USART3);
 }
@@ -42,7 +51,6 @@ void fr_printf(const char *format, ...)
   va_start(args, format);
   vsnprintf(buffer, sizeof(buffer), format, args);
   va_end(args);
-  // 修改为USART3
   UART_Send_IT(USART3, (uint8_t *)buffer, strlen(buffer));
 }
 
@@ -57,7 +65,8 @@ void UART_Init(void)
 void vUartProcessTask(void *pvParameters)
 {
   (void)pvParameters;
-
+	uint8_t data;
+	
 #if Monitor_Flag
   static uint8_t cmdIndex = 0;              /* 命令缓冲区索引 */
   static char cmdBuffer[64] = {0};          /* 命令缓冲区（Rule 8.12：静态存储期） */
@@ -67,7 +76,6 @@ void vUartProcessTask(void *pvParameters)
     {
       if (uart3_dev.rx_buf.head != uart3_dev.rx_buf.tail) /* 检测接收缓冲数据 */
         {
-          uint8_t data;
           taskENTER_CRITICAL();                 /* 进入临界区（Rule 20.7：保护共享资源） */
           data = uart3_dev.rx_buf.buffer[uart3_dev.rx_buf.tail];
           uart3_dev.rx_buf.tail = (uart3_dev.rx_buf.tail + 1) % UART3_RX_BUF_SIZE;
@@ -92,8 +100,7 @@ void vUartProcessTask(void *pvParameters)
             }
 #endif
         }
-
-      vTaskDelay(20 / portTICK_PERIOD_MS);    /* 50Hz检测频率 */
+      vTaskDelay(10 / portTICK_PERIOD_MS);    /* 100Hz检测频率 */
     }
 }
 

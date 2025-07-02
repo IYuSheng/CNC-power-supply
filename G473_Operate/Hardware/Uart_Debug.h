@@ -1,15 +1,16 @@
 #ifndef __UART_H
 #define __UART_H
-#include "main.h"
+
 #include <string.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include "FreeRTOS.h"
 #include "task.h"
 #include "stm32g4xx_ll_usart.h"
+#include "usart.h"
 
-#define UART3_TX_BUF_SIZE	512
-#define UART3_RX_BUF_SIZE	512
+#define UART3_TX_BUF_SIZE	1024 * 1
+#define UART3_RX_BUF_SIZE	1024 * 1
 
 /* 串口环形缓冲区结构体 */
 typedef struct

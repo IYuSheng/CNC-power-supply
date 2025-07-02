@@ -14,23 +14,15 @@ void Init_Hardware(void)
 
   /* 2. 初始化所有外设（GPIO、UART、SPI等） */
 	UART_Init();
-	fr_printf("Debug Init Success");
+	fr_printf("HR20250703CNCPOWERSUPPLY\r\n");//当前版本号
   MX_GPIO_Init();
-	fr_printf("GPIO Init Success");
   MX_SPI1_Init();
-	fr_printf("SPI1 Init Success");
   MX_USART1_UART_Init();
-	fr_printf("USART1 Init Success");
   MX_USB_Device_Init();
-	fr_printf("USB_Device Init Success");
   MX_I2C1_Init();
-	fr_printf("I2C1 Init Success");
   MX_TIM2_Init();
-	fr_printf("TIM2 Init Success");
   MX_TIM3_Init();
-	fr_printf("TIM3 Init Success");
   MX_TIM15_Init();
-	fr_printf("TIM15 Init Success");
 }
 
 /**
@@ -54,20 +46,27 @@ void Init_Monitor(void)
 #endif
 }
 
-
+/**
+  * @brief  初始化系统时钟
+  */
 void SystemClock_Config(void)
 {
-	/* 2. 配置系统时钟（G473核心时钟配置） */
+	/* 配置系统时钟（G473核心时钟配置） */
   LL_FLASH_SetLatency(LL_FLASH_LATENCY_4);
   while(LL_FLASH_GetLatency() != LL_FLASH_LATENCY_4)
     {
     }
-  LL_PWR_EnableRange1BoostMode();
-  LL_RCC_HSE_Enable();
+		LL_PWR_EnableRange1BoostMode();
+		//LL_RCC_HSI_Enable();
+		LL_RCC_HSE_Enable();
   /* Wait till HSE is ready */
-  while(LL_RCC_HSE_IsReady() != 1)
+		uint32_t timeout1 = 100000;
+		while(LL_RCC_HSE_IsReady() != 1 && timeout1-- > 0)
     {
     }
+//		while(LL_RCC_HSI_IsReady() != 1)
+//    {
+//    }
 
   LL_RCC_HSI48_Enable();
   /* Wait till HSI48 is ready */
@@ -76,17 +75,20 @@ void SystemClock_Config(void)
     }
 
   LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSE, LL_RCC_PLLM_DIV_2, 85, LL_RCC_PLLR_DIV_2);
+	//LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSI, LL_RCC_PLLM_DIV_1, 85, LL_RCC_PLLR_DIV_2);
   LL_RCC_PLL_EnableDomain_SYS();
   LL_RCC_PLL_Enable();
   /* Wait till PLL is ready */
-  while(LL_RCC_PLL_IsReady() != 1)
+	uint32_t timeout2 = 100000;
+  while(LL_RCC_PLL_IsReady() != 1 && timeout2-- > 0)
     {
     }
 
   LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
   LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_2);
   /* Wait till System clock is ready */
-  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL)
+	uint32_t timeout3 = 100000;
+  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL && timeout3-- > 0)
     {
     }
 
@@ -111,6 +113,6 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
     {
-			// 可添加错误闪烁逻辑
+			fr_printf("System Error\r\n");
     }
 }

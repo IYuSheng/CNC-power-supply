@@ -2,10 +2,10 @@
 #ifndef __TASK_INIT_H
 #define __TASK_INIT_H
 
-#include "main.h"
 #include "Monitor.h"
 #include "Init.h"
 #include "UART_DEBUG.h"
+#include "Watchdog.h"
 
 #define Monitor_Flag configGENERATE_RUN_TIME_STATS	/* ÏµÍ³¼à¿ØÆôÍ£ºê */
 
@@ -15,5 +15,6 @@
 
 void Debug_uart_task_create(void);
 void Monitor_task_create(void);
+void Watchdog_task_create(void);
 
 #endif /* __TASK_INIT_H */

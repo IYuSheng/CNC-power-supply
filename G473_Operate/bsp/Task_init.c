@@ -12,12 +12,12 @@ void Debug_uart_task_create(void)
 		xReturn = xTaskCreate(vUartProcessTask, "UartProc", 512, 
                           NULL, TASK_PRIO_UART, NULL);
     if (xReturn != pdPASS) {
-				fr_printf("Debug task create Failed");
+				fr_printf("Debug task create Failed\r\n");
         Error_Handler();
     }
 		else
 		{
-			fr_printf("Debug task create Success");
+			fr_printf("Debug task create Success\r\n");
 		}
 }
 
@@ -34,13 +34,32 @@ void Monitor_task_create(void)
     xReturn = xTaskCreate(vSystemMonitorTask, "Monitor", 256, 
                           NULL, TASK_PRIO_MONITOR, NULL);
     if (xReturn != pdPASS) {
-				fr_printf("Monitor task create Failed");
+				fr_printf("Monitor task create Failed\r\n");
         Error_Handler();
     }
 		else
 		{
-			fr_printf("Monitor task create Success");
+			fr_printf("Monitor task create Success\r\n");
 		}
 		
 #endif
 }
+
+/**
+  * @brief  初始化看门狗任务
+  */
+void Watchdog_task_create(void)
+{
+	IWDG_Init(2000); // 2000ms超时
+	
+	xReturn = xTaskCreate(vWatchdogTask, "Watchdog", 128, NULL, 3, NULL);
+	  if (xReturn != pdPASS) {
+				fr_printf("Watchdog task create Failed\r\n");
+        Error_Handler();
+    }
+		else
+		{
+			fr_printf("Watchdog task create Success\r\n");
+		}
+}
+

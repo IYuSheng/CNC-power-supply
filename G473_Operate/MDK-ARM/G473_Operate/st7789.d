@@ -68,9 +68,11 @@ g473_operate\st7789.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
 g473_operate\st7789.o: ../Core/Inc/gpio.h
 g473_operate\st7789.o: ..\FreeRTOS\inc\task.h
 g473_operate\st7789.o: ..\FreeRTOS\inc\list.h
-g473_operate\st7789.o: ..\Hardware\UART_DEBUG.h
-g473_operate\st7789.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 g473_operate\st7789.o: ..\bsp\Init.h
 g473_operate\st7789.o: ..\bsp\Task_init.h
 g473_operate\st7789.o: ..\bsp\Monitor.h
+g473_operate\st7789.o: ..\Hardware\UART_DEBUG.h
+g473_operate\st7789.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
+g473_operate\st7789.o: ..\App\Watchdog.h
+g473_operate\st7789.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h
 g473_operate\st7789.o: ..\bsp\Debug.h

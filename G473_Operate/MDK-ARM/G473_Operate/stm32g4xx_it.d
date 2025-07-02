@@ -67,10 +67,12 @@ g473_operate\stm32g4xx_it.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
 g473_operate\stm32g4xx_it.o: ../Core/Inc/gpio.h
 g473_operate\stm32g4xx_it.o: ..\FreeRTOS\inc\task.h
 g473_operate\stm32g4xx_it.o: ..\FreeRTOS\inc\list.h
-g473_operate\stm32g4xx_it.o: ..\Hardware\UART_DEBUG.h
-g473_operate\stm32g4xx_it.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 g473_operate\stm32g4xx_it.o: ..\bsp\Init.h
 g473_operate\stm32g4xx_it.o: ..\bsp\Task_init.h
 g473_operate\stm32g4xx_it.o: ..\bsp\Monitor.h
+g473_operate\stm32g4xx_it.o: ..\Hardware\UART_DEBUG.h
+g473_operate\stm32g4xx_it.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
+g473_operate\stm32g4xx_it.o: ..\App\Watchdog.h
+g473_operate\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h
 g473_operate\stm32g4xx_it.o: ..\bsp\Debug.h
 g473_operate\stm32g4xx_it.o: ../Core/Inc/stm32g4xx_it.h

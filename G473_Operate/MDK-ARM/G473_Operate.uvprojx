@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_FULL_LL_DRIVER,USE_HAL_DRIVER,STM32G473xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../USB_Device/App;../USB_Device/Target;../Drivers/STM32G4xx_HAL_Driver/Inc;../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy;../Middlewares/ST/STM32_USB_Device_Library/Core/Inc;../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc;../Drivers/CMSIS/Device/ST/STM32G4xx/Include;../Drivers/CMSIS/Include;..\FreeRTOS;..\FreeRTOS\inc;..\FreeRTOS\port;..\FreeRTOS\src;..\Hardware;..\bsp</IncludePath>
+              <IncludePath>../Core/Inc;../USB_Device/App;../USB_Device/Target;../Drivers/STM32G4xx_HAL_Driver/Inc;../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy;../Middlewares/ST/STM32_USB_Device_Library/Core/Inc;../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc;../Drivers/CMSIS/Device/ST/STM32G4xx/Include;../Drivers/CMSIS/Include;..\FreeRTOS;..\FreeRTOS\inc;..\FreeRTOS\port;..\FreeRTOS\src;..\Hardware;..\bsp;..\App</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -420,14 +420,14 @@
               <FilePath>../Core/Src/tim.c</FilePath>
             </File>
             <File>
-              <FileName>usart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Core/Src/usart.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32g4xx_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32g4xx_it.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Core/Src/usart.c</FilePath>
             </File>
             <File>
               <FileName>stm32g4xx_hal_msp.c</FileName>
@@ -814,6 +814,36 @@
               <FileType>5</FileType>
               <FilePath>..\Hardware\st7789.h</FilePath>
             </File>
+            <File>
+              <FileName>m24c64.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\m24c64.c</FilePath>
+            </File>
+            <File>
+              <FileName>m24c64.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Hardware\m24c64.h</FilePath>
+            </File>
+            <File>
+              <FileName>Key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\Key.c</FilePath>
+            </File>
+            <File>
+              <FileName>key.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Hardware\key.h</FilePath>
+            </File>
+            <File>
+              <FileName>Uart_comm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\Uart_comm.c</FilePath>
+            </File>
+            <File>
+              <FileName>Uart_comm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Hardware\Uart_comm.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -858,6 +888,41 @@
               <FileName>Monitor.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\bsp\Monitor.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>App</GroupName>
+          <Files>
+            <File>
+              <FileName>Control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\Control.c</FilePath>
+            </File>
+            <File>
+              <FileName>Control.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\App\Control.h</FilePath>
+            </File>
+            <File>
+              <FileName>Watchdog.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\Watchdog.c</FilePath>
+            </File>
+            <File>
+              <FileName>Watchdog.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\App\Watchdog.h</FilePath>
+            </File>
+            <File>
+              <FileName>Comm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\Comm.c</FilePath>
+            </File>
+            <File>
+              <FileName>Comm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\App\Comm.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -38,6 +38,7 @@ void configureTimerForRuntimeStats(void)
   LL_TIM_EnableCounter(TIM4);
 }
 
+#if Monitor_Flag
 /**
   * @brief  系统监控任务（打印任务状态、CPU占用率）
   */
@@ -71,7 +72,7 @@ void vSystemMonitorTask(void *pvParameters)
       if (deltaTotal > 0)
       {
         char buffer[128];
-        UART_Send_IT(USART3, (uint8_t*)"\r\n=== System Status ===\r\n", 23);
+        //UART_Send_IT(USART3, (uint8_t*)"\r\n=== System Status ===\r\n", 23);
         
         /* 遍历所有任务计算CPU占用率 */
         for (UBaseType_t i = 0; i < numTasks; i++)
@@ -100,6 +101,7 @@ void vSystemMonitorTask(void *pvParameters)
     prevTotalRuntime = currentTotalRuntime;
     prevNumTasks = numTasks;
 
-    vTaskDelay(pdMS_TO_TICKS(2000)); /* 2秒更新一次 */
+    vTaskDelay(pdMS_TO_TICKS(500)); /* 5秒更新一次 */
   }
 }
+#endif

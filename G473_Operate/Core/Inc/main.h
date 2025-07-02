@@ -57,11 +57,11 @@ extern "C" {
 #include "task.h"
 #include <string.h>
 
-#include "UART_DEBUG.h"
 #include "Init.h"
 #include "Task_init.h"
 #include "Monitor.h"
 #include "Debug.h"
+#include "Watchdog.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */

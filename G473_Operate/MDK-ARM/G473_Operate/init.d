@@ -68,9 +68,11 @@ g473_operate\init.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
 g473_operate\init.o: ../Core/Inc/gpio.h
 g473_operate\init.o: ..\FreeRTOS\inc\task.h
 g473_operate\init.o: ..\FreeRTOS\inc\list.h
-g473_operate\init.o: ..\Hardware\UART_DEBUG.h
-g473_operate\init.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 g473_operate\init.o: ..\bsp\Init.h
 g473_operate\init.o: ..\bsp\Task_init.h
 g473_operate\init.o: ..\bsp\Monitor.h
+g473_operate\init.o: ..\Hardware\UART_DEBUG.h
+g473_operate\init.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
+g473_operate\init.o: ..\App\Watchdog.h
+g473_operate\init.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h
 g473_operate\init.o: ..\bsp\Debug.h

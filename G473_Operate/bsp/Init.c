@@ -3,6 +3,8 @@
 
 void Error_Handler(void);
 
+uint8_t S_F = 0;	// 共享内存，定义操作系统是否启动
+
 /**
   * @brief  初始化硬件
   */
@@ -13,8 +15,9 @@ void Init_Hardware(void)
   HAL_Init();
 
   /* 2. 初始化所有外设（GPIO、UART、SPI等） */
-	UART_Init();
-	fr_printf("HR20250703CNCPOWERSUPPLY\r\n");//当前版本号
+  UART_Init();
+	UART1_Init();
+  fr_printf("HR20250703CNCPOWERSUPPLY\r\n");//  当前版本号
   MX_GPIO_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
@@ -25,25 +28,11 @@ void Init_Hardware(void)
   MX_TIM15_Init();
 }
 
-/**
-  * @brief  初始化系统监控功能任务
-  */
-void Init_Monitor(void)
+void Init_App(void)
 {
-#if Monitor_Flag
-  BaseType_t xReturn;
-  
-  /* 初始化运行时间统计定时器 */
-  configureTimerForRuntimeStats();
-
-  /* 创建系统监控任务 */
-  xReturn = xTaskCreate(vSystemMonitorTask, "Monitor", 256,
-                        NULL, TASK_PRIO_MONITOR, NULL);
-  if (xReturn != pdPASS)
-  {
-    Error_Handler();
-  }
-#endif
+  /* ------------------------------ 应用初始化 ------------------------------------------- */
+  Key_Init(); //  按键初始化
+	
 }
 
 /**
@@ -51,44 +40,36 @@ void Init_Monitor(void)
   */
 void SystemClock_Config(void)
 {
-	/* 配置系统时钟（G473核心时钟配置） */
+  /* 配置系统时钟（G473核心时钟配置） */
   LL_FLASH_SetLatency(LL_FLASH_LATENCY_4);
   while(LL_FLASH_GetLatency() != LL_FLASH_LATENCY_4)
     {
     }
-		LL_PWR_EnableRange1BoostMode();
-		//LL_RCC_HSI_Enable();
-		LL_RCC_HSE_Enable();
+  LL_PWR_EnableRange1BoostMode();
+  LL_RCC_HSE_Enable();
   /* Wait till HSE is ready */
-		uint32_t timeout1 = 100000;
-		while(LL_RCC_HSE_IsReady() != 1 && timeout1-- > 0)
+  while(LL_RCC_HSE_IsReady())
     {
     }
-//		while(LL_RCC_HSI_IsReady() != 1)
-//    {
-//    }
-
+		
   LL_RCC_HSI48_Enable();
   /* Wait till HSI48 is ready */
   while(LL_RCC_HSI48_IsReady() != 1)
     {
     }
 
-  LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSE, LL_RCC_PLLM_DIV_2, 85, LL_RCC_PLLR_DIV_2);
-	//LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSI, LL_RCC_PLLM_DIV_1, 85, LL_RCC_PLLR_DIV_2);
+  LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSE, LL_RCC_PLLM_DIV_2, 85, LL_RCC_PLLR_DIV_4);
+	LL_RCC_PLL_Enable();
   LL_RCC_PLL_EnableDomain_SYS();
-  LL_RCC_PLL_Enable();
   /* Wait till PLL is ready */
-	uint32_t timeout2 = 100000;
-  while(LL_RCC_PLL_IsReady() != 1 && timeout2-- > 0)
+  while(LL_RCC_PLL_IsReady())
     {
     }
-
   LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
   LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_2);
   /* Wait till System clock is ready */
-	uint32_t timeout3 = 100000;
-  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL && timeout3-- > 0)
+  uint32_t timeout3 = 100000;
+  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL && timeout3-- > 0)//检查时钟周期是否来源于PLL
     {
     }
 
@@ -113,6 +94,6 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
     {
-			fr_printf("System Error\r\n");
+      fr_printf("System Error\r\n");
     }
 }

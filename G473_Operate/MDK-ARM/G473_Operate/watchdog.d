@@ -45,6 +45,8 @@ g473_operate\watchdog.o: ..\Hardware\UART_DEBUG.h
 g473_operate\watchdog.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
 g473_operate\watchdog.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 g473_operate\watchdog.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
+g473_operate\watchdog.o: ..\FreeRTOS\inc\semphr.h
+g473_operate\watchdog.o: ..\FreeRTOS\inc\queue.h
 g473_operate\watchdog.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h
 g473_operate\watchdog.o: ../Core/Inc/usart.h
 g473_operate\watchdog.o: ../Core/Inc/main.h
@@ -77,4 +79,9 @@ g473_operate\watchdog.o: ..\bsp\Task_init.h
 g473_operate\watchdog.o: ..\bsp\Monitor.h
 g473_operate\watchdog.o: ..\Hardware\UART_DEBUG.h
 g473_operate\watchdog.o: ..\App\Watchdog.h
+g473_operate\watchdog.o: ..\Hardware\Uart_comm.h
 g473_operate\watchdog.o: ..\bsp\Debug.h
+g473_operate\watchdog.o: ..\Hardware\st7789.h
+g473_operate\watchdog.o: ..\Hardware\DWT_Delay.h
+g473_operate\watchdog.o: ..\Hardware\Key.h
+g473_operate\watchdog.o: ..\Hardware\m24c64.h

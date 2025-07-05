@@ -72,6 +72,13 @@ g473_operate\stm32g4xx_hal_msp.o: ..\bsp\Task_init.h
 g473_operate\stm32g4xx_hal_msp.o: ..\bsp\Monitor.h
 g473_operate\stm32g4xx_hal_msp.o: ..\Hardware\UART_DEBUG.h
 g473_operate\stm32g4xx_hal_msp.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
+g473_operate\stm32g4xx_hal_msp.o: ..\FreeRTOS\inc\semphr.h
+g473_operate\stm32g4xx_hal_msp.o: ..\FreeRTOS\inc\queue.h
 g473_operate\stm32g4xx_hal_msp.o: ..\App\Watchdog.h
 g473_operate\stm32g4xx_hal_msp.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h
+g473_operate\stm32g4xx_hal_msp.o: ..\Hardware\Uart_comm.h
 g473_operate\stm32g4xx_hal_msp.o: ..\bsp\Debug.h
+g473_operate\stm32g4xx_hal_msp.o: ..\Hardware\st7789.h
+g473_operate\stm32g4xx_hal_msp.o: ..\Hardware\DWT_Delay.h
+g473_operate\stm32g4xx_hal_msp.o: ..\Hardware\Key.h
+g473_operate\stm32g4xx_hal_msp.o: ..\Hardware\m24c64.h

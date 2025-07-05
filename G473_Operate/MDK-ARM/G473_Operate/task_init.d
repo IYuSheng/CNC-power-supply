@@ -77,3 +77,10 @@ g473_operate\task_init.o: ..\App\Watchdog.h
 g473_operate\task_init.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h
 g473_operate\task_init.o: ..\Hardware\UART_DEBUG.h
 g473_operate\task_init.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
+g473_operate\task_init.o: ..\FreeRTOS\inc\semphr.h
+g473_operate\task_init.o: ..\FreeRTOS\inc\queue.h
+g473_operate\task_init.o: ..\Hardware\st7789.h
+g473_operate\task_init.o: ..\Hardware\DWT_Delay.h
+g473_operate\task_init.o: ..\Hardware\Key.h
+g473_operate\task_init.o: ..\Hardware\m24c64.h
+g473_operate\task_init.o: ..\Hardware\Uart_comm.h

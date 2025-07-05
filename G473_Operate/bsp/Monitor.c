@@ -32,7 +32,7 @@ void configureTimerForRuntimeStats(void)
   TIM_InitStruct.CounterMode = LL_TIM_COUNTERMODE_UP;
   TIM_InitStruct.Autoreload = 0xFFFFFFFF;         // 最大计数范围
   TIM_InitStruct.ClockDivision = LL_TIM_CLOCKDIVISION_DIV1;
-  
+
   LL_TIM_Init(TIM4, &TIM_InitStruct);
   LL_TIM_DisableARRPreload(TIM4);
   LL_TIM_EnableCounter(TIM4);
@@ -48,60 +48,60 @@ void vSystemMonitorTask(void *pvParameters)
   TaskStatus_t *taskStatusArray = pvPortMalloc(maxTasks * sizeof(TaskStatus_t));
 
   if (!taskStatusArray)
-  {
-    vTaskDelete(NULL);
-    return;
-  }
+    {
+      vTaskDelete(NULL);
+      return;
+    }
 
   while (1)
-  {
-    UBaseType_t numTasks = uxTaskGetSystemState(taskStatusArray, maxTasks, NULL);
-    if (numTasks > maxTasks) numTasks = maxTasks;
-
-    // 计算总运行时间
-    uint32_t currentTotalRuntime = 0;
-    for (UBaseType_t i = 0; i < numTasks; i++)
     {
-      currentTotalRuntime += taskStatusArray[i].ulRunTimeCounter;
-    }
+      UBaseType_t numTasks = uxTaskGetSystemState(taskStatusArray, maxTasks, NULL);
+      if (numTasks > maxTasks) numTasks = maxTasks;
 
-    /* 状态变化检测与打印 */
-    if (prevNumTasks != 0)
-    {
-      uint32_t deltaTotal = currentTotalRuntime - prevTotalRuntime;
-      if (deltaTotal > 0)
-      {
-        char buffer[128];
-        //UART_Send_IT(USART3, (uint8_t*)"\r\n=== System Status ===\r\n", 23);
-        
-        /* 遍历所有任务计算CPU占用率 */
-        for (UBaseType_t i = 0; i < numTasks; i++)
+      // 计算总运行时间
+      uint32_t currentTotalRuntime = 0;
+      for (UBaseType_t i = 0; i < numTasks; i++)
         {
-          for (UBaseType_t j = 0; j < prevNumTasks; j++)
-          {
-            if (taskStatusArray[i].xHandle == prevTaskStatusArray[j].xHandle)
-            {
-              uint32_t deltaTask = taskStatusArray[i].ulRunTimeCounter - prevTaskStatusArray[j].ulRunTimeCounter;
-              float percent = (100.0f * deltaTask) / deltaTotal;
-              snprintf(buffer, sizeof(buffer),
-                       "%-12s CPU:%5.2f%% Stack:%5u\r\n",
-                       taskStatusArray[i].pcTaskName,
-                       percent,
-                       taskStatusArray[i].usStackHighWaterMark);
-              UART_Send_IT(USART3, (uint8_t*)buffer, strlen(buffer));
-              break;
-            }
-          }
+          currentTotalRuntime += taskStatusArray[i].ulRunTimeCounter;
         }
-      }
+
+      /* 状态变化检测与打印 */
+      if (prevNumTasks != 0)
+        {
+          uint32_t deltaTotal = currentTotalRuntime - prevTotalRuntime;
+          if (deltaTotal > 0)
+            {
+              char buffer[128];
+              UART_Send_IT(USART3, (uint8_t*)"\r\n", 1);
+
+              /* 遍历所有任务计算CPU占用率 */
+              for (UBaseType_t i = 0; i < numTasks; i++)
+                {
+                  for (UBaseType_t j = 0; j < prevNumTasks; j++)
+                    {
+                      if (taskStatusArray[i].xHandle == prevTaskStatusArray[j].xHandle)
+                        {
+                          uint32_t deltaTask = taskStatusArray[i].ulRunTimeCounter - prevTaskStatusArray[j].ulRunTimeCounter;
+                          float percent = (100.0f * deltaTask) / deltaTotal;
+                          snprintf(buffer, sizeof(buffer),
+                                   "%-12s CPU:%5.2f%% Stack:%5u\r\n",
+                                   taskStatusArray[i].pcTaskName,
+                                   percent,
+                                   taskStatusArray[i].usStackHighWaterMark);
+                          UART_Send_IT(USART3, (uint8_t*)buffer, strlen(buffer));
+                          break;
+                        }
+                    }
+                }
+            }
+        }
+
+      /* 保存当前状态用于下次对比 */
+      memcpy(prevTaskStatusArray, taskStatusArray, numTasks * sizeof(TaskStatus_t));
+      prevTotalRuntime = currentTotalRuntime;
+      prevNumTasks = numTasks;
+
+      vTaskDelay(pdMS_TO_TICKS(500)); /* 5秒更新一次 */
     }
-
-    /* 保存当前状态用于下次对比 */
-    memcpy(prevTaskStatusArray, taskStatusArray, numTasks * sizeof(TaskStatus_t));
-    prevTotalRuntime = currentTotalRuntime;
-    prevNumTasks = numTasks;
-
-    vTaskDelay(pdMS_TO_TICKS(500)); /* 5秒更新一次 */
-  }
 }
 #endif

@@ -62,6 +62,12 @@ extern "C" {
 #include "Monitor.h"
 #include "Debug.h"
 #include "Watchdog.h"
+#include "st7789.h"
+#include "Key.h"
+#include "m24c64.h"
+#include "Uart_comm.h"
+
+extern uint8_t S_F;	//定义操作系统是否启动
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */

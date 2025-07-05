@@ -8,7 +8,8 @@
 #include "UART_DEBUG.h"
 
 // 关键任务心跳标志（每个关键任务对应一个，定期更新）
-typedef struct {
+typedef struct
+{
   uint32_t task1_heartbeat; // 任务1心跳（如监控任务）
   uint32_t task2_heartbeat; // 任务2心跳（如通信任务）
   // ... 其他关键任务

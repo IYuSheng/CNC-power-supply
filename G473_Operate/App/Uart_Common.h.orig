@@ -1,0 +1,46 @@
+#ifndef __UART_COMMON_H
+#define __UART_COMMON_H
+
+#include "stm32g4xx_ll_usart.h"
+#include "FreeRTOS.h"
+#include "task.h"
+#include "semphr.h"
+#include "queue.h"
+#include <string.h>
+#include <stdarg.h>
+#include <stdio.h>
+
+// 串口配置宏
+#define UART_TX_BUF_SIZE    512
+#define UART_RX_BUF_SIZE    1024
+
+extern uint8_t S_F;	//定义操作系统是否启动
+
+/* 串口环形缓冲区结构体 */
+typedef struct {
+  uint8_t buffer[UART_RX_BUF_SIZE];
+  volatile uint16_t head;
+  volatile uint16_t tail;
+} UartRingBuffer;
+
+/* 串口设备结构体 */
+typedef struct {
+  USART_TypeDef *uart;            // 硬件USART实例
+  UartRingBuffer rx_buf;          // 接收环形缓冲区
+  uint8_t tx_buf[UART_TX_BUF_SIZE]; 
+  volatile uint8_t tx_busy; 
+  volatile uint16_t tx_index;   
+  volatile uint16_t tx_size;    
+  SemaphoreHandle_t tx_mutex;     // 发送互斥锁
+  QueueHandle_t cmd_queue;        // 命令队列
+} UartDevice;
+
+// 通用串口函数声明
+void Uart_Init(UartDevice *dev, USART_TypeDef *uart);
+void Uart_Send(UartDevice *dev, uint8_t *data, uint16_t size);
+void Uart_Printf(UartDevice *dev, const char *format, ...);
+void Uart_ProcessTask(void *pvParameters);
+void Uart_EchoTask(void *pvParameters);
+void Uart_ErrorHandler(UartDevice *dev);
+
+#endif /* __UART_COMMON_H */

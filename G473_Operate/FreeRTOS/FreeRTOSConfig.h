@@ -6,16 +6,17 @@
 	extern uint32_t SystemCoreClock;
 #endif
 
+//#define configSYSTICK_CLOCK_HZ SystemCoreClock
 #define configUSE_PREEMPTION			1	//抢占式调度
-#define configUSE_TIME_SLICING           1	// 启用时间片轮转
+#define configUSE_TIME_SLICING    1	// 启用时间片轮转
 #define configUSE_IDLE_HOOK				1	//空闲任务钩子，允许定义 vApplicationIdleHook() 函数，在空闲任务中执行后台操作（如低功耗模式）
 #define configUSE_TICK_HOOK				1	//允许定义 vApplicationTickHook() 函数，在系统节拍中断中执行周期性操作
 #define configCPU_CLOCK_HZ				( SystemCoreClock )
 #define configTICK_RATE_HZ				( ( TickType_t ) 1000 )
 #define configMAX_PRIORITIES			( 5 )	//定义系统支持的任务优先级数量。
-#define configMINIMAL_STACK_SIZE		( ( unsigned short ) 130 )	//空闲任务的最小堆栈大小
-#define configTOTAL_HEAP_SIZE			( ( size_t ) ( 16 * 1024 ) )	//FreeRTOS 动态内存池的总大小
-#define configMAX_TASK_NAME_LEN			( 10 )
+#define configMINIMAL_STACK_SIZE		( ( unsigned short ) 128 )	//空闲任务的最小堆栈大小
+#define configTOTAL_HEAP_SIZE			( ( size_t ) ( 30 * 1024 ) )	//FreeRTOS 动态内存池的总大小
+#define configMAX_TASK_NAME_LEN			( 16 )
 #define configUSE_TRACE_FACILITY		1
 #define configUSE_16_BIT_TICKS			0
 #define configIDLE_SHOULD_YIELD			1
@@ -63,7 +64,7 @@ to exclude the API function. */
 
 /* The lowest interrupt priority that can be used in a call to a "set priority"
 function. */
-#define configLIBRARY_LOWEST_INTERRUPT_PRIORITY			0xf		//定义最低中断优先级（数值越大，优先级越低）
+#define configLIBRARY_LOWEST_INTERRUPT_PRIORITY			0xf		//定义最低中断优先级
 
 /* The highest interrupt priority that can be used by any interrupt service
 routine that makes calls to interrupt safe FreeRTOS API functions.  DO NOT CALL

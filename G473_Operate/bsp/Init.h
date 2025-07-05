@@ -13,5 +13,6 @@ uint32_t getRuntimeCounterValue(void);
 
 void Init_Hardware(void);
 void SystemClock_Config(void);
+void Init_App(void);
 
 #endif /* __INIT_H */

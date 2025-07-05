@@ -1,16 +1,19 @@
-#ifndef __UART_H
-#define __UART_H
+#ifndef __UART_DEBUG_H
+#define __UART_DEBUG_H
 
 #include <string.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include "FreeRTOS.h"
 #include "task.h"
+#include "semphr.h"
 #include "stm32g4xx_ll_usart.h"
 #include "usart.h"
 
-#define UART3_TX_BUF_SIZE	1024 * 1
-#define UART3_RX_BUF_SIZE	1024 * 1
+extern uint8_t S_F;	//定义操作系统是否启动
+
+#define UART3_TX_BUF_SIZE	512
+#define UART3_RX_BUF_SIZE	1024
 
 /* 串口环形缓冲区结构体 */
 typedef struct

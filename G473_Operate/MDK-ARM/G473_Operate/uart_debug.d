@@ -1,5 +1,5 @@
 g473_operate\uart_debug.o: ..\Hardware\Uart_Debug.c
-g473_operate\uart_debug.o: ..\Hardware\UART_DEBUG.h
+g473_operate\uart_debug.o: ..\Hardware\Uart_Debug.h
 g473_operate\uart_debug.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
 g473_operate\uart_debug.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 g473_operate\uart_debug.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
@@ -14,6 +14,8 @@ g473_operate\uart_debug.o: ..\FreeRTOS\port\portmacro.h
 g473_operate\uart_debug.o: ..\FreeRTOS\inc\mpu_wrappers.h
 g473_operate\uart_debug.o: ..\FreeRTOS\inc\task.h
 g473_operate\uart_debug.o: ..\FreeRTOS\inc\list.h
+g473_operate\uart_debug.o: ..\FreeRTOS\inc\semphr.h
+g473_operate\uart_debug.o: ..\FreeRTOS\inc\queue.h
 g473_operate\uart_debug.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h
 g473_operate\uart_debug.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h
 g473_operate\uart_debug.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h
@@ -76,4 +78,9 @@ g473_operate\uart_debug.o: ..\bsp\Monitor.h
 g473_operate\uart_debug.o: ..\Hardware\UART_DEBUG.h
 g473_operate\uart_debug.o: ..\App\Watchdog.h
 g473_operate\uart_debug.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h
+g473_operate\uart_debug.o: ..\Hardware\Uart_comm.h
 g473_operate\uart_debug.o: ..\bsp\Debug.h
+g473_operate\uart_debug.o: ..\Hardware\st7789.h
+g473_operate\uart_debug.o: ..\Hardware\DWT_Delay.h
+g473_operate\uart_debug.o: ..\Hardware\Key.h
+g473_operate\uart_debug.o: ..\Hardware\m24c64.h

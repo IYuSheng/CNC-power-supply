@@ -73,6 +73,13 @@ g473_operate\i2c.o: ..\bsp\Task_init.h
 g473_operate\i2c.o: ..\bsp\Monitor.h
 g473_operate\i2c.o: ..\Hardware\UART_DEBUG.h
 g473_operate\i2c.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
+g473_operate\i2c.o: ..\FreeRTOS\inc\semphr.h
+g473_operate\i2c.o: ..\FreeRTOS\inc\queue.h
 g473_operate\i2c.o: ..\App\Watchdog.h
 g473_operate\i2c.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h
+g473_operate\i2c.o: ..\Hardware\Uart_comm.h
 g473_operate\i2c.o: ..\bsp\Debug.h
+g473_operate\i2c.o: ..\Hardware\st7789.h
+g473_operate\i2c.o: ..\Hardware\DWT_Delay.h
+g473_operate\i2c.o: ..\Hardware\Key.h
+g473_operate\i2c.o: ..\Hardware\m24c64.h

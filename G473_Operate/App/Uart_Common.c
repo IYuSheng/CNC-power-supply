@@ -1,0 +1,150 @@
+#include "Uart_Common.h"
+
+// 串口初始化
+void Uart_Init(UartDevice *dev, USART_TypeDef *uart)
+{
+  memset(dev, 0, sizeof(UartDevice));
+  dev->uart = uart;
+  dev->rx_buf.head = 0;
+  dev->rx_buf.tail = 0;
+
+  // 创建互斥锁
+  dev->tx_mutex = xSemaphoreCreateMutex();
+  configASSERT(dev->tx_mutex != NULL);
+
+  // 创建命令队列
+  dev->cmd_queue = xQueueCreate(10, UART_RX_BUF_SIZE);
+  configASSERT(dev->cmd_queue != NULL);
+
+  // 启用硬件中断
+  LL_USART_EnableIT_RXNE(uart);
+
+  // 设置中断优先级
+  IRQn_Type irq;
+  if (uart == USART1) irq = USART1_IRQn;
+  else if (uart == USART2) irq = USART2_IRQn;
+  else if (uart == USART3) irq = USART3_IRQn;
+  else return;
+
+  uint32_t priority_group = NVIC_GetPriorityGrouping();
+  NVIC_SetPriority(irq, NVIC_EncodePriority(priority_group, 3, 1));
+  NVIC_EnableIRQ(irq);
+}
+
+// 发送数据
+void Uart_Send(UartDevice *dev, uint8_t *data, uint16_t size)
+{
+  if(S_F)
+    {
+      if (xSemaphoreTake(dev->tx_mutex, pdMS_TO_TICKS(100)) != pdTRUE)
+        {
+          return;
+        }
+      // 等待上次发送完成
+      uint32_t timeout = 10; // 100ms超时
+      while (dev->tx_busy && timeout-- > 0)
+        {
+          vTaskDelay(pdMS_TO_TICKS(1));
+        }
+    }
+  else	//系统启动前
+    {
+      // 等待上次发送完成
+      uint32_t timeout = 10000;
+      while (dev->tx_busy && timeout-- > 0)
+        {
+          __NOP();
+        }
+    }
+
+  if (dev->tx_busy)
+    {
+      LL_USART_DisableIT_TC(dev->uart);
+      dev->tx_busy = 0;
+    }
+
+  uint16_t copy_size = (size > UART_TX_BUF_SIZE) ? UART_TX_BUF_SIZE : size;
+  memcpy(dev->tx_buf, data, copy_size);
+
+  dev->tx_index = 0;
+  dev->tx_size = copy_size;
+  dev->tx_busy = 1;
+
+  // 启动发送
+  LL_USART_TransmitData8(dev->uart, dev->tx_buf[dev->tx_index++]);
+  LL_USART_EnableIT_TC(dev->uart);
+  if(S_F == 1)
+    {
+      xSemaphoreGive(dev->tx_mutex);
+    }
+}
+
+// 格式化打印
+void Uart_Printf(UartDevice *dev, const char *format, ...)
+{
+  static char buffer[UART_TX_BUF_SIZE];
+  va_list args;
+
+  va_start(args, format);
+  int len = vsnprintf(buffer, sizeof(buffer), format, args);
+  va_end(args);
+
+  if (len <= 0) return;
+
+  // 添加换行符
+  if ((size_t)len < sizeof(buffer) - 2)
+    {
+      buffer[len++] = '\r';
+      buffer[len++] = '\n';
+      buffer[len] = '\0';
+    }
+
+  Uart_Send(dev, (uint8_t *)buffer, len);
+}
+
+// 串口回显任务
+void Uart_EchoTask(void *pvParameters)
+{
+  UartDevice *dev = (UartDevice *)pvParameters;
+
+  for (;;)
+    {
+      if (dev->rx_buf.head != dev->rx_buf.tail)
+        {
+          uint8_t data;
+
+          taskENTER_CRITICAL();
+          data = dev->rx_buf.buffer[dev->rx_buf.tail];
+          dev->rx_buf.tail = (dev->rx_buf.tail + 1) % UART_RX_BUF_SIZE;
+          taskEXIT_CRITICAL();
+
+          // 仅回显可打印字符
+          if (data >= 0x20 && data <= 0x7E)
+            {
+              Uart_Send(dev, &data, 1);
+            }
+        }
+      vTaskDelay(pdMS_TO_TICKS(5));
+    }
+}
+
+// 串口处理任务
+void Uart_ProcessTask(void *pvParameters)
+{
+  UartDevice *dev = (UartDevice *)pvParameters;
+  char cmd_buffer[64];
+
+  for (;;)
+    {
+      // 从队列获取完整命令
+      if (xQueueReceive(dev->cmd_queue, cmd_buffer, portMAX_DELAY) == pdPASS)
+        {
+          // 处理命令
+          if (strcmp(cmd_buffer, "status") == 0)
+            {
+              Uart_Printf(dev, "System status: OK");
+            }
+          // 添加其他命令处理...
+        }
+    }
+}

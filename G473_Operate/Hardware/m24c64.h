@@ -3,6 +3,41 @@
 #define __M24C64_H
 
 #include "main.h"
+#include <stdint.h>
 
+// M24C64参数定义
+#define M24C64_SIZE           (8*1024)    // 8KBytes
+#define M24C64_PAGE_SIZE      32      // 页大小（字节）
+#define M24C64_PAGES          (M24C64_SIZE / M24C64_PAGE_SIZE)  // 总页数
+
+// I2C地址（根据A0/A1/A2引脚连接调整，默认全接地为0xA0）
+#define M24C64_DEVICE_ADDR    0xA0    // 7位地址（不含R/W位）
+
+// 错误码
+typedef enum
+{
+  M24C64_OK = 0,
+  M24C64_ERROR_I2C,     // I2C通信错误
+  M24C64_ERROR_TIMEOUT, // 超时
+  M24C64_ERROR_PARAM    // 参数错误
+} M24C64_Status_t;// 初始化M24C64（检查连接）
+M24C64_Status_t M24C64_Init(void);
+
+// 读取单个字节
+M24C64_Status_t M24C64_ReadByte(uint16_t addr, uint8_t *data);
+
+// 写入单个字节
+M24C64_Status_t M24C64_WriteByte(uint16_t addr, uint8_t data);
+
+// 页写入（一次最多写入一个页，32字节，地址需页对齐）
+M24C64_Status_t M24C64_PageWrite(uint16_t addr, const uint8_t *data, uint16_t len);
+
+// 连续读取（可跨页）
+M24C64_Status_t M24C64_Read(uint16_t addr, uint8_t *data, uint16_t len);
+
+// 检查设备是否就绪（写入后需等待EEPROM完成内部编程）
+M24C64_Status_t M24C64_CheckReady(void);
+
+void vStorageTask(void *pvParameters);
 
 #endif /* __M24C64_H */

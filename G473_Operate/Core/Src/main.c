@@ -19,13 +19,19 @@ int main(void)
 {
 	SystemClock_Config();//系统时钟初始化
 	Init_Hardware();//硬件层初始化
-
+	Init_App();//应用层初始化
   /* ------------------------------ 任务创建 -------------------------------------- */
 	Watchdog_task_create();//看门狗初始化
 	Debug_uart_task_create();//调试串口初始化
 	Monitor_task_create();//系统监视器初始化
+	Comm_task_create();//通信串口初始化
+	TFT_task_create();//屏幕初始化
+	Storage_task_create();//EEPROM初始化
+	Key_task_create();//按键任务初始化
 	
+	S_F = 1;	//启动操作系统标志
   /* ------------------------------ 启动调度器 ---------------------------------- */
+	
   vTaskStartScheduler();
 
 	for(;;) {}
@@ -52,6 +58,7 @@ void assert_failed(uint8_t *file, uint32_t line)
 /* FreeRTOS回调函数 */
 void vApplicationMallocFailedHook(void)
 {
+	fr_printf("Application malloc failed");
   for(;;) { /* 内存分配失败时系统挂起 */ }
 }
 

@@ -1,8 +1,8 @@
 Dependencies for Project 'G473_Operate', Target 'G473_Operate': (DO NOT MODIFY !)
 CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
-F (startup_stm32g473xx.s)(0x6863DD96)(--cpu Cortex-M4.fp.sp -g --apcs=interwork -I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include--pd "__UVISION_VERSION SETA 540" --pd "STM32G473xx SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32g473xx.lst --xref -o g473_operate\startup_stm32g473xx.o --depend g473_operate\startup_stm32g473xx.d)
-F (../Core/Src/main.c)(0x68655B61)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\main.o --omf_browse g473_operate\main.crf --depend g473_operate\main.d)
-I (../Core/Inc/main.h)(0x68651F0E)
+F (startup_stm32g473xx.s)(0x6867C4BF)(--cpu Cortex-M4.fp.sp -g --apcs=interwork -I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include--pd "__UVISION_VERSION SETA 540" --pd "STM32G473xx SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32g473xx.lst --xref -o g473_operate\startup_stm32g473xx.o --depend g473_operate\startup_stm32g473xx.d)
+F (../Core/Src/main.c)(0x68693788)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\main.o --omf_browse g473_operate\main.crf --depend g473_operate\main.d)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
@@ -49,7 +49,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -68,17 +68,24 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (../Core/Inc/gpio.h)(0x68348834)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\bsp\Init.h)(0x686523D5)
-I (..\bsp\Task_init.h)(0x686520AA)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
 I (..\bsp\Monitor.h)(0x68640696)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-I (..\App\Watchdog.h)(0x68652174)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
 I (..\bsp\Debug.h)(0x6864046A)
-F (../Core/Src/gpio.c)(0x68348834)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\gpio.o --omf_browse g473_operate\gpio.crf --depend g473_operate\gpio.d)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
+F (../Core/Src/gpio.c)(0x6867D93F)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\gpio.o --omf_browse g473_operate\gpio.crf --depend g473_operate\gpio.d)
 I (../Core/Inc/gpio.h)(0x68348834)
-I (../Core/Inc/main.h)(0x68651F0E)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
@@ -125,7 +132,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -143,17 +150,24 @@ I (D:\Keilv5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\bsp\Init.h)(0x686523D5)
-I (..\bsp\Task_init.h)(0x686520AA)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
 I (..\bsp\Monitor.h)(0x68640696)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-I (..\App\Watchdog.h)(0x68652174)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
 I (..\bsp\Debug.h)(0x6864046A)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
 F (../Core/Src/i2c.c)(0x686544B0)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\i2c.o --omf_browse g473_operate\i2c.crf --depend g473_operate\i2c.d)
 I (../Core/Inc/i2c.h)(0x68348835)
-I (../Core/Inc/main.h)(0x68651F0E)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
@@ -200,7 +214,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -218,17 +232,24 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (../Core/Inc/gpio.h)(0x68348834)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\bsp\Init.h)(0x686523D5)
-I (..\bsp\Task_init.h)(0x686520AA)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
 I (..\bsp\Monitor.h)(0x68640696)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-I (..\App\Watchdog.h)(0x68652174)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
 I (..\bsp\Debug.h)(0x6864046A)
-F (../Core/Src/spi.c)(0x68348836)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\spi.o --omf_browse g473_operate\spi.crf --depend g473_operate\spi.d)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
+F (../Core/Src/spi.c)(0x6868AF3B)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\spi.o --omf_browse g473_operate\spi.crf --depend g473_operate\spi.d)
 I (../Core/Inc/spi.h)(0x68348836)
-I (../Core/Inc/main.h)(0x68651F0E)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
@@ -275,7 +296,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -293,17 +314,24 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (../Core/Inc/gpio.h)(0x68348834)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\bsp\Init.h)(0x686523D5)
-I (..\bsp\Task_init.h)(0x686520AA)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
 I (..\bsp\Monitor.h)(0x68640696)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-I (..\App\Watchdog.h)(0x68652174)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
 I (..\bsp\Debug.h)(0x6864046A)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
 F (../Core/Src/tim.c)(0x68348836)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\tim.o --omf_browse g473_operate\tim.crf --depend g473_operate\tim.d)
 I (../Core/Inc/tim.h)(0x68348836)
-I (../Core/Inc/main.h)(0x68651F0E)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
@@ -350,7 +378,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -368,16 +396,23 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (../Core/Inc/gpio.h)(0x68348834)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\bsp\Init.h)(0x686523D5)
-I (..\bsp\Task_init.h)(0x686520AA)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
 I (..\bsp\Monitor.h)(0x68640696)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-I (..\App\Watchdog.h)(0x68652174)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
 I (..\bsp\Debug.h)(0x6864046A)
-F (../Core/Src/stm32g4xx_it.c)(0x6863EC94)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\stm32g4xx_it.o --omf_browse g473_operate\stm32g4xx_it.crf --depend g473_operate\stm32g4xx_it.d)
-I (../Core/Inc/main.h)(0x68651F0E)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
+F (../Core/Src/stm32g4xx_it.c)(0x6867B53D)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\stm32g4xx_it.o --omf_browse g473_operate\stm32g4xx_it.crf --depend g473_operate\stm32g4xx_it.d)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
@@ -424,7 +459,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -443,18 +478,25 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (../Core/Inc/gpio.h)(0x68348834)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\bsp\Init.h)(0x686523D5)
-I (..\bsp\Task_init.h)(0x686520AA)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
 I (..\bsp\Monitor.h)(0x68640696)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-I (..\App\Watchdog.h)(0x68652174)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
 I (..\bsp\Debug.h)(0x6864046A)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
 I (../Core/Inc/stm32g4xx_it.h)(0x68348837)
-F (../Core/Src/usart.c)(0x686553B9)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\usart.o --omf_browse g473_operate\usart.crf --depend g473_operate\usart.d)
+F (../Core/Src/usart.c)(0x68693AA7)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\usart.o --omf_browse g473_operate\usart.crf --depend g473_operate\usart.d)
 I (../Core/Inc/usart.h)(0x68348836)
-I (../Core/Inc/main.h)(0x68651F0E)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
@@ -501,7 +543,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -519,16 +561,23 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (../Core/Inc/gpio.h)(0x68348834)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\bsp\Init.h)(0x686523D5)
-I (..\bsp\Task_init.h)(0x686520AA)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
 I (..\bsp\Monitor.h)(0x68640696)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-I (..\App\Watchdog.h)(0x68652174)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
 I (..\bsp\Debug.h)(0x6864046A)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
 F (../Core/Src/stm32g4xx_hal_msp.c)(0x68348837)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\stm32g4xx_hal_msp.o --omf_browse g473_operate\stm32g4xx_hal_msp.crf --depend g473_operate\stm32g4xx_hal_msp.d)
-I (../Core/Inc/main.h)(0x68651F0E)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
@@ -575,7 +624,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -594,14 +643,21 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (../Core/Inc/gpio.h)(0x68348834)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\bsp\Init.h)(0x686523D5)
-I (..\bsp\Task_init.h)(0x686520AA)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
 I (..\bsp\Monitor.h)(0x68640696)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-I (..\App\Watchdog.h)(0x68652174)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
 I (..\bsp\Debug.h)(0x6864046A)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
 F (../USB_Device/Target/usbd_conf.c)(0x6863DEAB)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\usbd_conf.o --omf_browse g473_operate\usbd_conf.crf --depend g473_operate\usbd_conf.d)
 I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h)(0x683467F8)
 I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h)(0x683467F8)
@@ -1790,7 +1846,7 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x64020E50)
 I (D:\Keilv5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
 I (D:\Keilv5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -1802,7 +1858,7 @@ F (..\FreeRTOS\port\port.c)(0x64020E50)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x64020E50)
 I (D:\Keilv5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
 I (D:\Keilv5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -1814,7 +1870,7 @@ F (..\FreeRTOS\src\croutine.c)(0x64020E50)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x64020E50)
 I (D:\Keilv5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
 I (D:\Keilv5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -1828,7 +1884,7 @@ I (D:\Keilv5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x64020E50)
 I (D:\Keilv5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
 I (D:\Keilv5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -1843,7 +1899,7 @@ I (D:\Keilv5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x64020E50)
 I (D:\Keilv5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
 I (D:\Keilv5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -1856,7 +1912,7 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x64020E50)
 I (D:\Keilv5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
 I (D:\Keilv5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -1870,7 +1926,7 @@ I (D:\Keilv5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
 I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x64020E50)
 I (D:\Keilv5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -1885,7 +1941,7 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x64020E50)
 I (D:\Keilv5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
 I (D:\Keilv5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -1901,7 +1957,7 @@ I (D:\Keilv5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x64020E50)
 I (D:\Keilv5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
 I (D:\Keilv5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -1929,16 +1985,16 @@ F (..\FreeRTOS\inc\StackMacros.h)(0x64020E50)()
 F (..\FreeRTOS\inc\stream_buffer.h)(0x64020E50)()
 F (..\FreeRTOS\inc\task.h)(0x64020E50)()
 F (..\FreeRTOS\inc\timers.h)(0x64020E50)()
-F (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)()
-F (..\Hardware\Uart_Debug.c)(0x68655CAC)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\uart_debug.o --omf_browse g473_operate\uart_debug.crf --depend g473_operate\uart_debug.d)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+F (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)()
+F (..\Hardware\Uart_Debug.c)(0x6868E265)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\uart_debug.o --omf_browse g473_operate\uart_debug.crf --depend g473_operate\uart_debug.d)
+I (..\Hardware\Uart_Debug.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
 I (D:\Keilv5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (..\FreeRTOS\inc\FreeRTOS.h)(0x64020E50)
 I (D:\Keilv5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
 I (D:\Keilv5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -1946,6 +2002,8 @@ I (..\FreeRTOS\port\portmacro.h)(0x64020E50)
 I (..\FreeRTOS\inc\mpu_wrappers.h)(0x64020E50)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h)(0x683467F8)
 I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h)(0x683467F8)
@@ -1976,7 +2034,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pcd_ex.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h)(0x683467F8)
 I (../Core/Inc/usart.h)(0x68348836)
-I (../Core/Inc/main.h)(0x68651F0E)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_i2c.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h)(0x683467F8)
@@ -1999,93 +2057,21 @@ I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h)(0x683467E6)
 I (../USB_Device/Target/usbd_conf.h)(0x68348836)
 I (D:\Keilv5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (../Core/Inc/gpio.h)(0x68348834)
-I (..\bsp\Init.h)(0x686523D5)
-I (..\bsp\Task_init.h)(0x686520AA)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
 I (..\bsp\Monitor.h)(0x68640696)
-I (..\App\Watchdog.h)(0x68652174)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
 I (..\bsp\Debug.h)(0x6864046A)
-F (..\Hardware\Uart_Debug.h)(0x68655107)()
-F (..\Hardware\st7789.c)(0x68640ACB)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\st7789.o --omf_browse g473_operate\st7789.crf --depend g473_operate\st7789.d)
-I (..\Hardware\st7789.h)(0x68640ACB)
-I (../Core/Inc/main.h)(0x68651F0E)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
-I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h)(0x683467F8)
-I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h)(0x683467F8)
-I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h)(0x683467F8)
-I (../Drivers/CMSIS/Include/core_cm4.h)(0x683467E5)
-I (D:\Keilv5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (../Drivers/CMSIS/Include/cmsis_version.h)(0x683467E5)
-I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x683467E5)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x683467E5)
-I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x683467E5)
-I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x683467F8)
-I (D:\Keilv5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc_ex.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio_ex.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pcd.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usb.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pcd_ex.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_i2c.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_crs.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_system.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_cortex.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_utils.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_pwr.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_spi.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
-I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
-I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
-I (..\FreeRTOS\inc\portable.h)(0x64020E50)
-I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
-I (..\FreeRTOS\port\portmacro.h)(0x64020E50)
-I (..\FreeRTOS\inc\mpu_wrappers.h)(0x64020E50)
-I (../Core/Inc/i2c.h)(0x68348835)
-I (../Core/Inc/spi.h)(0x68348836)
-I (../Core/Inc/tim.h)(0x68348836)
-I (../Core/Inc/usart.h)(0x68348836)
-I (../USB_Device/App/usb_device.h)(0x68348836)
-I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h)(0x683467E6)
-I (../USB_Device/Target/usbd_conf.h)(0x68348836)
-I (D:\Keilv5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
-I (D:\Keilv5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
-I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
-I (../Core/Inc/gpio.h)(0x68348834)
-I (..\FreeRTOS\inc\task.h)(0x64020E50)
-I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\bsp\Init.h)(0x686523D5)
-I (..\bsp\Task_init.h)(0x686520AA)
-I (..\bsp\Monitor.h)(0x68640696)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
-I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-I (..\App\Watchdog.h)(0x68652174)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
-I (..\bsp\Debug.h)(0x6864046A)
-F (..\Hardware\st7789.h)(0x68640ACB)()
-F (..\Hardware\m24c64.c)(0x68641006)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\m24c64.o --omf_browse g473_operate\m24c64.crf --depend g473_operate\m24c64.d)
-I (..\Hardware\m24c64.h)(0x68641006)
-I (../Core/Inc/main.h)(0x68651F0E)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
+F (..\Hardware\Uart_Debug.h)(0x6868E216)()
+F (..\Hardware\st7789.c)(0x6868B47F)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\st7789.o --omf_browse g473_operate\st7789.crf --depend g473_operate\st7789.d)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
@@ -2132,7 +2118,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -2151,18 +2137,24 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (../Core/Inc/gpio.h)(0x68348834)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\bsp\Init.h)(0x686523D5)
-I (..\bsp\Task_init.h)(0x686520AA)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
 I (..\bsp\Monitor.h)(0x68640696)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-I (..\App\Watchdog.h)(0x68652174)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
 I (..\bsp\Debug.h)(0x6864046A)
-F (..\Hardware\m24c64.h)(0x68641006)()
-F (..\Hardware\Key.c)(0x68641006)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\key.o --omf_browse g473_operate\key.crf --depend g473_operate\key.d)
-I (..\Hardware\Key.h)(0x68641006)
-I (../Core/Inc/main.h)(0x68651F0E)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+F (..\Hardware\st7789.h)(0x6868AD98)()
+F (..\Hardware\m24c64.c)(0x6867C918)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\m24c64.o --omf_browse g473_operate\m24c64.crf --depend g473_operate\m24c64.d)
+I (..\Hardware\m24c64.h)(0x6867C746)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
@@ -2209,7 +2201,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -2228,21 +2220,150 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (../Core/Inc/gpio.h)(0x68348834)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\bsp\Init.h)(0x686523D5)
-I (..\bsp\Task_init.h)(0x686520AA)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
 I (..\bsp\Monitor.h)(0x68640696)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-I (..\App\Watchdog.h)(0x68652174)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
+I (..\App\Watchdog.h)(0x6868DD42)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
+I (..\bsp\Debug.h)(0x6864046A)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+F (..\Hardware\m24c64.h)(0x6867C746)()
+F (..\Hardware\Key.c)(0x68692D18)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\key.o --omf_browse g473_operate\key.crf --depend g473_operate\key.d)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (D:\Keilv5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
+I (D:\Keilv5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
+I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\inc\portable.h)(0x64020E50)
+I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\port\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\inc\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\inc\task.h)(0x64020E50)
+I (..\FreeRTOS\inc\list.h)(0x64020E50)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h)(0x683467F8)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h)(0x683467F8)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x683467E5)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x683467E5)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x683467E5)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x683467E5)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x683467E5)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
+I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc_ex.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio_ex.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pcd.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usb.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pcd_ex.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h)(0x683467F8)
+F (..\Hardware\key.h)(0x6867B83F)()
+F (..\Hardware\Uart_comm.h)(0x6869265A)()
+F (..\Hardware\Uart_comm.c)(0x68692C09)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\uart_comm.o --omf_browse g473_operate\uart_comm.crf --depend g473_operate\uart_comm.d)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
+I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
+I (D:\Keilv5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (..\FreeRTOS\inc\FreeRTOS.h)(0x64020E50)
+I (D:\Keilv5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (D:\Keilv5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
+I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
+I (..\FreeRTOS\inc\portable.h)(0x64020E50)
+I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
+I (..\FreeRTOS\port\portmacro.h)(0x64020E50)
+I (..\FreeRTOS\inc\mpu_wrappers.h)(0x64020E50)
+I (..\FreeRTOS\inc\task.h)(0x64020E50)
+I (..\FreeRTOS\inc\list.h)(0x64020E50)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h)(0x683467F8)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h)(0x683467F8)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x683467E5)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x683467E5)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x683467E5)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x683467E5)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x683467E5)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
+I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc_ex.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio_ex.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pcd.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usb.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pcd_ex.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h)(0x683467F8)
+I (../Core/Inc/usart.h)(0x68348836)
+I (../Core/Inc/main.h)(0x6868E547)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_i2c.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_crs.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_system.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_cortex.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_utils.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_pwr.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_spi.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
+I (../Core/Inc/i2c.h)(0x68348835)
+I (../Core/Inc/spi.h)(0x68348836)
+I (../Core/Inc/tim.h)(0x68348836)
+I (../USB_Device/App/usb_device.h)(0x68348836)
+I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h)(0x683467E6)
+I (../USB_Device/Target/usbd_conf.h)(0x68348836)
+I (D:\Keilv5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (../Core/Inc/gpio.h)(0x68348834)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
+I (..\bsp\Monitor.h)(0x68640696)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
 I (..\bsp\Debug.h)(0x6864046A)
-F (..\Hardware\key.h)(0x68641006)()
-F (..\Hardware\Uart_comm.c)(0x686525D2)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\uart_comm.o --omf_browse g473_operate\uart_comm.crf --depend g473_operate\uart_comm.d)
-I (..\Hardware\Uart_comm.h)(0x686525D2)
-F (..\Hardware\Uart_comm.h)(0x686525D2)()
-F (..\bsp\Init.c)(0x68655B27)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\init.o --omf_browse g473_operate\init.crf --depend g473_operate\init.d)
-I (..\bsp\Init.h)(0x686523D5)
-I (../Core/Inc/main.h)(0x68651F0E)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
+F (..\bsp\Init.c)(0x68693950)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\init.o --omf_browse g473_operate\init.crf --depend g473_operate\init.d)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
@@ -2289,7 +2410,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -2308,18 +2429,25 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (../Core/Inc/gpio.h)(0x68348834)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\bsp\Task_init.h)(0x686520AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
 I (..\bsp\Monitor.h)(0x68640696)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-I (..\App\Watchdog.h)(0x68652174)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
 I (..\bsp\Debug.h)(0x6864046A)
-F (..\bsp\Init.h)(0x686523D5)()
-F (..\bsp\Task_init.c)(0x68655A18)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\task_init.o --omf_browse g473_operate\task_init.crf --depend g473_operate\task_init.d)
-I (..\bsp\Task_init.h)(0x686520AA)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
+F (..\bsp\Init.h)(0x6867B6AA)()
+F (..\bsp\Task_init.c)(0x686927F0)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\task_init.o --omf_browse g473_operate\task_init.crf --depend g473_operate\task_init.d)
+I (..\bsp\Task_init.h)(0x6868EDAE)
 I (..\bsp\Monitor.h)(0x68640696)
-I (../Core/Inc/main.h)(0x68651F0E)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
@@ -2366,7 +2494,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -2385,16 +2513,23 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (../Core/Inc/gpio.h)(0x68348834)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\bsp\Init.h)(0x686523D5)
+I (..\bsp\Init.h)(0x6867B6AA)
 I (..\bsp\Debug.h)(0x6864046A)
-I (..\App\Watchdog.h)(0x68652174)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-F (..\bsp\Task_init.h)(0x686520AA)()
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
+F (..\bsp\Task_init.h)(0x6868EDAE)()
 F (..\bsp\Debug.c)(0x686404D8)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\debug.o --omf_browse g473_operate\debug.crf --depend g473_operate\debug.d)
 I (..\bsp\Debug.h)(0x6864046A)
-I (../Core/Inc/main.h)(0x68651F0E)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
@@ -2441,7 +2576,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -2460,17 +2595,24 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (../Core/Inc/gpio.h)(0x68348834)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\bsp\Init.h)(0x686523D5)
-I (..\bsp\Task_init.h)(0x686520AA)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
 I (..\bsp\Monitor.h)(0x68640696)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-I (..\App\Watchdog.h)(0x68652174)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
 F (..\bsp\Debug.h)(0x6864046A)()
-F (..\bsp\Monitor.c)(0x68655D8C)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\monitor.o --omf_browse g473_operate\monitor.crf --depend g473_operate\monitor.d)
+F (..\bsp\Monitor.c)(0x6868B580)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\monitor.o --omf_browse g473_operate\monitor.crf --depend g473_operate\monitor.d)
 I (..\bsp\Monitor.h)(0x68640696)
-I (../Core/Inc/main.h)(0x68651F0E)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x683467F8)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x68348838)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x683467F8)
@@ -2517,7 +2659,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -2536,18 +2678,25 @@ I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (../Core/Inc/gpio.h)(0x68348834)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\bsp\Init.h)(0x686523D5)
-I (..\bsp\Task_init.h)(0x686520AA)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
-I (..\App\Watchdog.h)(0x68652174)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
 I (..\bsp\Debug.h)(0x6864046A)
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
 F (..\bsp\Monitor.h)(0x68640696)()
 F (..\App\Control.c)(0x68651CD2)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\control.o --omf_browse g473_operate\control.crf --depend g473_operate\control.d)
 F (..\App\Control.h)(0x68651CEB)()
-F (..\App\Watchdog.c)(0x68655DD5)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\watchdog.o --omf_browse g473_operate\watchdog.crf --depend g473_operate\watchdog.d)
-I (..\App\Watchdog.h)(0x68652174)
+F (..\App\Watchdog.c)(0x6868DD42)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\watchdog.o --omf_browse g473_operate\watchdog.crf --depend g473_operate\watchdog.d)
+I (..\App\Watchdog.h)(0x6868DD42)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
 I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h)(0x683467F8)
 I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h)(0x683467F8)
@@ -2580,7 +2729,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pcd_ex.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h)(0x683467F8)
 I (..\FreeRTOS\inc\freertos.h)(0x64020E50)
-I (..\FreeRTOS\FreeRTOSConfig.h)(0x68655132)
+I (..\FreeRTOS\FreeRTOSConfig.h)(0x68693360)
 I (..\FreeRTOS\inc\projdefs.h)(0x64020E50)
 I (..\FreeRTOS\inc\portable.h)(0x64020E50)
 I (..\FreeRTOS\inc\deprecated_definitions.h)(0x64020E50)
@@ -2588,13 +2737,15 @@ I (..\FreeRTOS\port\portmacro.h)(0x64020E50)
 I (..\FreeRTOS\inc\mpu_wrappers.h)(0x64020E50)
 I (..\FreeRTOS\inc\task.h)(0x64020E50)
 I (..\FreeRTOS\inc\list.h)(0x64020E50)
-I (..\Hardware\UART_DEBUG.h)(0x68655107)
+I (..\Hardware\UART_DEBUG.h)(0x6868E216)
 I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (D:\Keilv5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
 I (D:\Keilv5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (..\FreeRTOS\inc\semphr.h)(0x64020E50)
+I (..\FreeRTOS\inc\queue.h)(0x64020E50)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h)(0x683467F8)
 I (../Core/Inc/usart.h)(0x68348836)
-I (../Core/Inc/main.h)(0x68651F0E)
+I (../Core/Inc/main.h)(0x6868E547)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_i2c.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h)(0x683467F8)
@@ -2617,11 +2768,16 @@ I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h)(0x683467E6)
 I (../USB_Device/Target/usbd_conf.h)(0x68348836)
 I (D:\Keilv5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (../Core/Inc/gpio.h)(0x68348834)
-I (..\bsp\Init.h)(0x686523D5)
-I (..\bsp\Task_init.h)(0x686520AA)
+I (..\bsp\Init.h)(0x6867B6AA)
+I (..\bsp\Task_init.h)(0x6868EDAE)
 I (..\bsp\Monitor.h)(0x68640696)
+I (..\Hardware\Uart_comm.h)(0x6869265A)
 I (..\bsp\Debug.h)(0x6864046A)
-F (..\App\Watchdog.h)(0x68652174)()
+I (..\Hardware\st7789.h)(0x6868AD98)
+I (..\Hardware\DWT_Delay.h)(0x6867B969)
+I (..\Hardware\Key.h)(0x6867B83F)
+I (..\Hardware\m24c64.h)(0x6867C746)
+F (..\App\Watchdog.h)(0x6868DD42)()
 F (..\App\Comm.c)(0x6865235B)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_Device/App -I ../USB_Device/Target -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\FreeRTOS -I ..\FreeRTOS\inc -I ..\FreeRTOS\port -I ..\FreeRTOS\src -I ..\Hardware -I ..\bsp -I ..\App-I.\RTE\_G473_Operate-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER -DSTM32G473xx-o g473_operate\comm.o --omf_browse g473_operate\comm.crf --depend g473_operate\comm.d)
 I (..\App\Comm.h)(0x6865235B)
 F (..\App\Comm.h)(0x6865235B)()

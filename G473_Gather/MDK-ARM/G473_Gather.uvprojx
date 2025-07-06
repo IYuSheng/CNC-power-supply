@@ -534,6 +534,26 @@
               <FileType>5</FileType>
               <FilePath>..\Hardware\Uart_Debug.h</FilePath>
             </File>
+            <File>
+              <FileName>SGM58031.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\SGM58031.c</FilePath>
+            </File>
+            <File>
+              <FileName>SGM58031.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Hardware\SGM58031.h</FilePath>
+            </File>
+            <File>
+              <FileName>DAC8562.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\DAC8562.c</FilePath>
+            </File>
+            <File>
+              <FileName>DAC8562.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Hardware\DAC8562.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

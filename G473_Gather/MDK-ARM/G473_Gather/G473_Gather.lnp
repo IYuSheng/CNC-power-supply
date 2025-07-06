@@ -20,6 +20,8 @@
 "g473_gather\sys_timer.o"
 "g473_gather\uart_comm.o"
 "g473_gather\uart_debug.o"
+"g473_gather\sgm58031.o"
+"g473_gather\dac8562.o"
 "g473_gather\task.o"
 --strict --scatter "G473_Gather\G473_Gather.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols

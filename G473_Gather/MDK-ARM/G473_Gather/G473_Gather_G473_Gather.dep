@@ -383,6 +383,32 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h)(0x683467F8)
 F (..\Hardware\Uart_Debug.h)(0x686A7B7D)()
+F (..\Hardware\SGM58031.c)(0x686A9B57)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\App -I ..\BSP -I ..\Hardware-I.\RTE\_G473_Gather-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32G473xx -DHSE_VALUE="8000000" -DHSE_STARTUP_TIMEOUT="1000" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="0" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1"-o g473_gather\sgm58031.o --omf_browse g473_gather\sgm58031.crf --depend g473_gather\sgm58031.d)
+I (..\Hardware\SGM58031.h)(0x686A9B44)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h)(0x683467F8)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h)(0x683467F8)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x683467E5)
+I (D:\Keilv5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x683467E5)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x683467E5)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x683467E5)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x683467E5)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h)(0x683467F8)
+F (..\Hardware\SGM58031.h)(0x686A9B44)()
+F (..\Hardware\DAC8562.c)(0x686A9C1C)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\App -I ..\BSP -I ..\Hardware-I.\RTE\_G473_Gather-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32G473xx -DHSE_VALUE="8000000" -DHSE_STARTUP_TIMEOUT="1000" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="0" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1"-o g473_gather\dac8562.o --omf_browse g473_gather\dac8562.crf --depend g473_gather\dac8562.d)
+I (..\Hardware\DAC8562.h)(0x686A9C06)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h)(0x683467F8)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h)(0x683467F8)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x683467E5)
+I (D:\Keilv5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x683467E5)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x683467E5)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x683467E5)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x683467E5)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h)(0x683467F8)
+F (..\Hardware\DAC8562.h)(0x686A9C06)()
 F (..\App\Task.c)(0x686A8E30)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\App -I ..\BSP -I ..\Hardware-I.\RTE\_G473_Gather-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32G473xx -DHSE_VALUE="8000000" -DHSE_STARTUP_TIMEOUT="1000" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="0" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1"-o g473_gather\task.o --omf_browse g473_gather\task.crf --depend g473_gather\task.d)
 I (..\App\Task.h)(0x686A8CBB)
 I (..\Hardware\Sys_Timer.h)(0x686A7BC1)

@@ -1,0 +1,11 @@
+g473_gather\stm32g4xx_ll_rcc.o: ..\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_rcc.c
+g473_gather\stm32g4xx_ll_rcc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h
+g473_gather\stm32g4xx_ll_rcc.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h
+g473_gather\stm32g4xx_ll_rcc.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h
+g473_gather\stm32g4xx_ll_rcc.o: ../Drivers/CMSIS/Include/core_cm4.h
+g473_gather\stm32g4xx_ll_rcc.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdint.h
+g473_gather\stm32g4xx_ll_rcc.o: ../Drivers/CMSIS/Include/cmsis_version.h
+g473_gather\stm32g4xx_ll_rcc.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+g473_gather\stm32g4xx_ll_rcc.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+g473_gather\stm32g4xx_ll_rcc.o: ../Drivers/CMSIS/Include/mpu_armv7.h
+g473_gather\stm32g4xx_ll_rcc.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h

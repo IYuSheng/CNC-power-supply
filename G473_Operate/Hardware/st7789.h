@@ -5,7 +5,6 @@
 #include "main.h"
 #include <stdint.h>
 #include "stm32g4xx_ll_spi.h"
-#include <DWT_Delay.h>
 
 // 屏幕分辨率定义
 #define ST7789_WIDTH  320

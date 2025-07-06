@@ -22,3 +22,17 @@ g473_gather\adc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_pwr.h
 g473_gather\adc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h
 g473_gather\adc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h
 g473_gather\adc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h
+g473_gather\adc.o: ../Core/Inc/adc.h
+g473_gather\adc.o: ../Core/Inc/gpio.h
+g473_gather\adc.o: ../Core/Inc/main.h
+g473_gather\adc.o: ..\BSP\Init.h
+g473_gather\adc.o: ..\App\Task.h
+g473_gather\adc.o: ..\Hardware\Sys_Timer.h
+g473_gather\adc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h
+g473_gather\adc.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
+g473_gather\adc.o: ..\Hardware\Uart_Debug.h
+g473_gather\adc.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
+g473_gather\adc.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
+g473_gather\adc.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
+g473_gather\adc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h
+g473_gather\adc.o: ..\Hardware\Uart_comm.h

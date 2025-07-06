@@ -3,7 +3,7 @@
 <title>Static Call Graph - [G473_Operate\G473_Operate.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image G473_Operate\G473_Operate.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Jul 05 22:46:02 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Jul 06 22:56:57 2025
 <BR><P>
 <H3>Maximum Stack Usage =        872 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1811,6 +1811,7 @@ Global Symbols
 <LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Hardware
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Init
 </UL>
 
 <P><STRONG><a name="[15e]"></a>MX_USART3_UART_Init</STRONG> (Thumb, 212 bytes, Stack size 80 bytes, usart.o(i.MX_USART3_UART_Init))
@@ -1967,14 +1968,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[135]"></a>UART1_Init</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, uart_comm.o(i.UART1_Init))
+<P><STRONG><a name="[135]"></a>UART1_Init</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, uart_comm.o(i.UART1_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 728 + Unknown Stack Size
 <LI>Call Chain = UART1_Init &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
+<BR>[Calls]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
+<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitHardUart1
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueCreateMutex
 <LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
-<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitHardUart1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Hardware
 </UL>

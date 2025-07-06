@@ -79,6 +79,5 @@ g473_operate\stm32g4xx_hal_msp.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_
 g473_operate\stm32g4xx_hal_msp.o: ..\Hardware\Uart_comm.h
 g473_operate\stm32g4xx_hal_msp.o: ..\bsp\Debug.h
 g473_operate\stm32g4xx_hal_msp.o: ..\Hardware\st7789.h
-g473_operate\stm32g4xx_hal_msp.o: ..\Hardware\DWT_Delay.h
 g473_operate\stm32g4xx_hal_msp.o: ..\Hardware\Key.h
 g473_operate\stm32g4xx_hal_msp.o: ..\Hardware\m24c64.h

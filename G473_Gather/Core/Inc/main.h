@@ -40,6 +40,19 @@ extern "C" {
 #include "stm32g4xx_ll_dma.h"
 #include "stm32g4xx_ll_gpio.h"
 
+#include "adc.h"
+#include "gpio.h"
+
+#include "Init.h"
+#include "Task.h"
+#include "Sys_Timer.h"
+#include "Uart_Debug.h"
+#include "Uart_comm.h"
+
+extern volatile bool task1_flag;
+extern volatile bool task2_flag;
+extern volatile bool task3_flag;
+
 #if defined(USE_FULL_ASSERT)
 #include "stm32_assert.h"
 #endif /* USE_FULL_ASSERT */

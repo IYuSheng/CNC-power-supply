@@ -10,7 +10,17 @@
 "g473_gather\stm32g4xx_ll_adc.o"
 "g473_gather\stm32g4xx_ll_dma.o"
 "g473_gather\stm32g4xx_ll_pwr.o"
+"g473_gather\stm32g4xx_ll_usart.o"
+"g473_gather\stm32g4xx_ll_tim.o"
+"g473_gather\stm32g4xx_ll_spi.o"
+"g473_gather\stm32g4xx_ll_i2c.o"
+"g473_gather\stm32g4xx_ll_rcc.o"
 "g473_gather\system_stm32g4xx.o"
+"g473_gather\init.o"
+"g473_gather\sys_timer.o"
+"g473_gather\uart_comm.o"
+"g473_gather\uart_debug.o"
+"g473_gather\task.o"
 --strict --scatter "G473_Gather\G473_Gather.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

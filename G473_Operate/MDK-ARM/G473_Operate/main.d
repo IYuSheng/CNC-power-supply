@@ -79,6 +79,5 @@ g473_operate\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h
 g473_operate\main.o: ..\Hardware\Uart_comm.h
 g473_operate\main.o: ..\bsp\Debug.h
 g473_operate\main.o: ..\Hardware\st7789.h
-g473_operate\main.o: ..\Hardware\DWT_Delay.h
 g473_operate\main.o: ..\Hardware\Key.h
 g473_operate\main.o: ..\Hardware\m24c64.h

@@ -66,7 +66,7 @@ void MX_GPIO_Init(void)
   LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_13);
 
   /**/
-  LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_3);
+  LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_3);
 
   /**/
   LL_GPIO_SetOutputPin(GPIOA, LL_GPIO_PIN_4);

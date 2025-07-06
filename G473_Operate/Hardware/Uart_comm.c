@@ -152,6 +152,7 @@ void UART1_Parse_Data(void)
 
 void UART1_Init(void)
 {
+	MX_USART1_UART_Init();
   InitHardUart1();
   Uart1VarInit();
 }

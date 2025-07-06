@@ -82,4 +82,3 @@ g473_operate\st7789.o: ..\bsp\Debug.h
 g473_operate\st7789.o: ..\Hardware\st7789.h
 g473_operate\st7789.o: ..\Hardware\Key.h
 g473_operate\st7789.o: ..\Hardware\m24c64.h
-g473_operate\st7789.o: ..\Hardware\DWT_Delay.h

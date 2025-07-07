@@ -5,6 +5,7 @@
 #include "stm32g4xx_ll_tim.h"
 #include "stm32g4xx_ll_rcc.h"
 #include "stm32g4xx_ll_bus.h"
+#include "Uart_Debug.h"
 #include <stdbool.h>
 
 #define SYSTICK_FREQUENCY_HZ    1000    // ÏµÍ³µÎ´ðÆµÂÊ£¬1000Hz = 1ms

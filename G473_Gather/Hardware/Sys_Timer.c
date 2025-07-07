@@ -24,21 +24,21 @@ static const uint32_t task3_period = SYSTICK_FREQUENCY_HZ / TASK_3_FREQUENCY_HZ;
   * @retval None
   */
 void MX_TIM2_Init(void)
-{
+{	
   /* 使能定时器2时钟 */
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM2);
 
   /* 定时器基本配置 */
-  LL_TIM_SetPrescaler(TIM2, (SystemCoreClock / SYSTICK_FREQUENCY_HZ) - 1);
+  LL_TIM_SetPrescaler(TIM2, (SystemCoreClock / 1000000) - 1);
   LL_TIM_SetCounterMode(TIM2, LL_TIM_COUNTERMODE_UP);
-  LL_TIM_SetAutoReload(TIM2, 0xFFFF);
+  LL_TIM_SetAutoReload(TIM2, 1000-1);
   LL_TIM_DisableARRPreload(TIM2);
 
   /* 使能定时器中断 */
   LL_TIM_EnableIT_UPDATE(TIM2);
 
   /* 配置NVIC */
-  NVIC_SetPriority(TIM2_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 5, 0));
+  NVIC_SetPriority(TIM2_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 2, 0));
   NVIC_EnableIRQ(TIM2_IRQn);
 
   /* 使能定时器 */

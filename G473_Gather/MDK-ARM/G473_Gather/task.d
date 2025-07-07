@@ -13,11 +13,11 @@ g473_gather\task.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 g473_gather\task.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h
 g473_gather\task.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h
 g473_gather\task.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h
-g473_gather\task.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
 g473_gather\task.o: ..\Hardware\Uart_Debug.h
 g473_gather\task.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
 g473_gather\task.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 g473_gather\task.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 g473_gather\task.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h
 g473_gather\task.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h
+g473_gather\task.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
 g473_gather\task.o: ..\Hardware\Uart_comm.h

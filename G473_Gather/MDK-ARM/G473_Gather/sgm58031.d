@@ -10,3 +10,13 @@ g473_gather\sgm58031.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 g473_gather\sgm58031.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 g473_gather\sgm58031.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 g473_gather\sgm58031.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h
+g473_gather\sgm58031.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_i2c.h
+g473_gather\sgm58031.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h
+g473_gather\sgm58031.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_system.h
+g473_gather\sgm58031.o: ..\Hardware\Uart_Debug.h
+g473_gather\sgm58031.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
+g473_gather\sgm58031.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
+g473_gather\sgm58031.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
+g473_gather\sgm58031.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h
+g473_gather\sgm58031.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h
+g473_gather\sgm58031.o: ..\BSP\DWT_Delay.h

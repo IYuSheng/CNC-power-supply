@@ -36,3 +36,8 @@ g473_gather\adc.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 g473_gather\adc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h
 g473_gather\adc.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
 g473_gather\adc.o: ..\Hardware\Uart_comm.h
+g473_gather\adc.o: ..\Hardware\DAC8562.h
+g473_gather\adc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_spi.h
+g473_gather\adc.o: ..\Hardware\SGM58031.h
+g473_gather\adc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_i2c.h
+g473_gather\adc.o: ..\BSP\DWT_Delay.h

@@ -48,6 +48,9 @@ extern "C" {
 #include "Sys_Timer.h"
 #include "Uart_Debug.h"
 #include "Uart_comm.h"
+#include "DAC8562.h"
+#include "SGM58031.h"
+#include "DWT_Delay.h"
 
 extern volatile bool task1_flag;
 extern volatile bool task2_flag;

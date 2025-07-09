@@ -11,12 +11,16 @@ void Init_Hardware(void)
   MX_ADC4_Init();
 	MX_TIM2_Init();
 	UART1_Init();
-	Debug_printf("Hardware Init");
+	I2C1_Init();
+	Debug_printf("Hardware Init Success");
 }
 
 void Init_App(void)
 {
-	
+	DWT_Init();
+	DAC8562_Init();
+	SGM58031_Init(I2C1);
+	Debug_printf("App Init Success");
 }
 
 void Init_Sys(void)

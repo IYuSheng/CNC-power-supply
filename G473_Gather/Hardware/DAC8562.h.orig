@@ -1,0 +1,35 @@
+/* DAC8562.h 文件 */ 
+#ifndef __DAC8562_H 
+#define __DAC8562_H 
+
+#include "stm32g4xx_ll_spi.h" 
+#include "stm32g4xx_ll_gpio.h" 
+#include "stm32g4xx_ll_rcc.h" 
+#include "stm32g4xx_ll_system.h" 
+#include "stm32g4xx_ll_bus.h" 
+
+/* 引脚定义 */ 
+#define DAC_SCLK_PIN LL_GPIO_PIN_5 
+#define DAC_SCLK_PORT GPIOA 
+#define DAC_MOSI_PIN LL_GPIO_PIN_7 
+#define DAC_MOSI_PORT GPIOA 
+#define DAC_SYNC_PIN LL_GPIO_PIN_3 
+#define DAC_SYNC_PORT GPIOA 
+#define DAC_LDAC_PIN LL_GPIO_PIN_4 #define DAC_LDAC_PORT GPIOA 
+#define DAC_CLR_PIN LL_GPIO_PIN_6 
+#define DAC_CLR_PORT GPIOA 
+/* DAC8562 命令码 */ 
+#define CMD_WRITE_INPUT_REG 0x00 // 写入输入寄存器
+#define CMD_UPDATE_DAC 0x01 // 更新 DAC 寄存器
+#define CMD_WRITE_INPUT_AND_UPDATE 0x02 // 写入输入寄存器并更新 DAC 
+#define CMD_POWER 0x04 // 电源控制
+#define CMD_RESET 0x05 // 复位
+#define CMD_LDAC_MASK 0x06 // LDAC 掩码配置
+#define CMD_INTERNAL_REF 0x07 // 内部参考控制
+/* DAC 通道地址 */ 
+#define ADDR_CHANNEL_A 0x00 // 通道 A 
+#define ADDR_CHANNEL_B 0x01 // 通道 B 
+#define ADDR_BOTH_CHANNELS 0x07 // 双通道
+void DAC8562_Init(void); 
+
+#endif /* __DAC8562_H */

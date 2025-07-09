@@ -1,6 +1,6 @@
 g473_gather\dac8562.o: ..\Hardware\DAC8562.c
 g473_gather\dac8562.o: ..\Hardware\DAC8562.h
-g473_gather\dac8562.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h
+g473_gather\dac8562.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_spi.h
 g473_gather\dac8562.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h
 g473_gather\dac8562.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h
 g473_gather\dac8562.o: ../Drivers/CMSIS/Include/core_cm4.h
@@ -10,3 +10,7 @@ g473_gather\dac8562.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 g473_gather\dac8562.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 g473_gather\dac8562.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 g473_gather\dac8562.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h
+g473_gather\dac8562.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h
+g473_gather\dac8562.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h
+g473_gather\dac8562.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_system.h
+g473_gather\dac8562.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h

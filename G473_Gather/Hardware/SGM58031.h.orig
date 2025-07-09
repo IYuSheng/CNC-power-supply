@@ -1,0 +1,52 @@
+#ifndef __SGM58031_H
+#define __SGM58031_H
+
+#include "stm32g4xx_ll_gpio.h"
+#include "stm32g4xx_ll_i2c.h"
+#include "stm32g4xx_ll_bus.h"
+#include "stm32g4xx_ll_system.h"
+#include "DWT_Delay.h"
+
+// 超时设置
+#define I2C_TIMEOUT 10000
+
+typedef struct {
+    int16_t ch0_value;  // 通道0的ADC值
+    int16_t ch1_value;  // 通道1的ADC值
+    int16_t ch2_value;  // 通道2的ADC值
+    int16_t ch3_value;  // 通道3的ADC值
+} ADC_Results;
+
+// ADC转换状态类型
+typedef enum
+{
+  ADC_OK,
+  ADC_ERROR,
+  ADC_TIMEOUT
+} ADC_StatusTypeDef;
+
+// I2C 地址配置 (ADDR引脚决定)
+#define SGM58031_I2C_ADDR    0x48  // 默认地址 (ADDR接地)
+
+// 寄存器地址
+#define SGM58031_REG_CONV    0x00
+#define SGM58031_REG_CONFIG  0x01
+
+// 配置寄存器设置
+#define SGM58031_CONFIG_OS_SINGLE    0x8000  // 单次转换模式
+#define SGM58031_CONFIG_MUX_CH0      0x4000  // 通道0 (AINP=AIN0, AINN=GND)
+#define SGM58031_CONFIG_MUX_CH1      0x5000  // 通道1 (AINP=AIN1, AINN=GND)
+#define SGM58031_CONFIG_MUX_CH2      0x6000  // 通道2 (AINP=AIN2, AINN=GND)
+#define SGM58031_CONFIG_MUX_CH3      0x7000  // 通道3 (AINP=AIN3, AINN=GND)
+#define SGM58031_CONFIG_PGA_4096    0x0000  // PGA增益=1 (±4.096V)
+#define SGM58031_CONFIG_MODE_CONT    0x0000  // 连续转换模式
+#define SGM58031_CONFIG_DR_100       0x0080  // 100SPS数据速率
+
+void I2C1_Init(void);
+void SGM58031_Init(I2C_TypeDef *I2Cx);
+ADC_StatusTypeDef I2C_Write16(I2C_TypeDef *I2Cx, uint8_t slave_addr, uint8_t reg_addr, uint16_t reg_data);
+ADC_StatusTypeDef I2C_Read16(I2C_TypeDef *I2Cx, uint8_t slave_addr, uint8_t reg_addr, uint16_t *data);
+ADC_StatusTypeDef SGM58031_ReadAllChannels(I2C_TypeDef *I2Cx, int16_t results[4]);
+ADC_StatusTypeDef SGM58031_ReadChannel(I2C_TypeDef *I2Cx, uint8_t channel, int16_t *result);
+
+#endif /* __SGM58031_H */

@@ -8,13 +8,13 @@ int main(void)
   SystemClock_Config();
 	//硬件初始化
 	Init_Hardware();
-	//接口函数初始化
+	//App接口函数初始化
 	Init_App();
 	
   while (1)
   {
 	/* --------------------前台任务-------------------- */
-		/* 检查并处理任务1 */
+		/* 指令接收及发送数据任务 */
     if (task1_flag)
     {
       task1_flag = false;

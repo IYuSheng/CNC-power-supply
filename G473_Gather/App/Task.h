@@ -5,6 +5,8 @@
 #include "Sys_Timer.h"
 #include "Uart_Debug.h"
 #include "Uart_comm.h"
+#include "DAC8562.h"
+#include "SGM58031.h"
 
 void Task1_Handler(void);
 void Task2_Handler(void);

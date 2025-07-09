@@ -24,7 +24,7 @@ static const uint32_t task3_period = SYSTICK_FREQUENCY_HZ / TASK_3_FREQUENCY_HZ;
   * @retval None
   */
 void MX_TIM2_Init(void)
-{	
+{
   /* 使能定时器2时钟 */
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM2);
 

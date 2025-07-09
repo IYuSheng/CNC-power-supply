@@ -82,6 +82,7 @@ void ST7789_Init(void)
 
   // 9. 开启显示
   ST7789_WriteCmd(0x29);
+  ST7789_WriteCmd(0x2C);
   vTaskDelay(pdMS_TO_TICKS(10));
 
   // 10. 开启背光
@@ -177,10 +178,10 @@ void ST7789_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint8_
   ST7789_DC_HIGH();  // 数据模式
   uint8_t col_data[4] =
   {
-    (x0 >> 8) & 0xFF,  // x0高8位
-    x0 & 0xFF,         // x0低8位
-    (x1 >> 8) & 0xFF,  // x1高8位
-    x1 & 0xFF          // x1低8位
+    ((x0) >> 8),  // x0高8位
+    (x0),         // x0低8位
+    ((x1) >> 8),  // x1高8位
+    (x1)           // x1低8位
   };
 
   for (uint32_t i = 0; i < 4; i++)
@@ -200,10 +201,10 @@ void ST7789_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint8_
   ST7789_DC_HIGH();
   uint8_t row_data[4] =
   {
-    (y0 >> 8) & 0xFF,  // y0高8位
-    y0 & 0xFF,         // y0低8位
-    (y1 >> 8) & 0xFF,  // y1高8位
-    y1 & 0xFF          // y1低8位
+    (y0 >> 8),  // y0高8位
+    y0,         // y0低8位
+    (y1 >> 8),  // y1高8位
+    y1         // y1低8位
   };
 
   for (uint32_t i = 0; i < 4; i++)

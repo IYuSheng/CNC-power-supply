@@ -17,12 +17,14 @@
 "g473_gather\stm32g4xx_ll_rcc.o"
 "g473_gather\system_stm32g4xx.o"
 "g473_gather\init.o"
+"g473_gather\dwt_delay.o"
 "g473_gather\sys_timer.o"
 "g473_gather\uart_comm.o"
 "g473_gather\uart_debug.o"
 "g473_gather\sgm58031.o"
 "g473_gather\dac8562.o"
 "g473_gather\task.o"
+"g473_gather\calculate.o"
 --strict --scatter "G473_Gather\G473_Gather.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

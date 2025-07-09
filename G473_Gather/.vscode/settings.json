@@ -1,0 +1,7 @@
+{
+    "Codegeex.RepoIndex": true,
+    "files.associations": {
+        "stm32g4xx_ll_i2c.h": "c",
+        "task.h": "c"
+    }
+}

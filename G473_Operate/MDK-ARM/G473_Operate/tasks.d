@@ -14,4 +14,3 @@ g473_operate\tasks.o: ..\FreeRTOS\inc\task.h
 g473_operate\tasks.o: ..\FreeRTOS\inc\list.h
 g473_operate\tasks.o: ..\FreeRTOS\inc\timers.h
 g473_operate\tasks.o: ..\FreeRTOS\inc\stack_macros.h
-g473_operate\tasks.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h

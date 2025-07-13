@@ -28,7 +28,7 @@
 #define configUSE_APPLICATION_TASK_TAG	0
 #define configUSE_COUNTING_SEMAPHORES	1
 
-#define configGENERATE_RUN_TIME_STATS	1	//启用任务 CPU 使用率统计
+#define configGENERATE_RUN_TIME_STATS	0	//启用任务 CPU 使用率统计
 #if configGENERATE_RUN_TIME_STATS
 extern void configureTimerForRuntimeStats(void);
 extern uint32_t getRuntimeCounterValue(void);

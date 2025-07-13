@@ -26,6 +26,7 @@ g473_gather\adc.o: ../Core/Inc/adc.h
 g473_gather\adc.o: ../Core/Inc/gpio.h
 g473_gather\adc.o: ../Core/Inc/main.h
 g473_gather\adc.o: ..\BSP\Init.h
+g473_gather\adc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h
 g473_gather\adc.o: ..\App\Task.h
 g473_gather\adc.o: ..\Hardware\Sys_Timer.h
 g473_gather\adc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h

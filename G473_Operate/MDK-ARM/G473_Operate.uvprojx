@@ -924,6 +924,16 @@
               <FileType>5</FileType>
               <FilePath>..\App\Comm.h</FilePath>
             </File>
+            <File>
+              <FileName>CommandHandlers.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\CommandHandlers.c</FilePath>
+            </File>
+            <File>
+              <FileName>CommandHandlers.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\App\CommandHandlers.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -9,8 +9,17 @@
 #include "stm32g4xx_ll_gpio.h"
 #include "stm32g4xx_ll_rcc.h"
 
-#define UART3_TX_BUF_SIZE	512
+#define UART3_TX_BUF_SIZE	1024
 #define UART3_RX_BUF_SIZE	1024
+
+// 定义发送队列结构
+#define UART_TX_QUEUE_SIZE 5
+typedef struct
+{
+  uint8_t buffer[UART3_TX_BUF_SIZE];
+  uint16_t size;
+  uint8_t in_use;
+} UART_TX_MESSAGE;
 
 /* 串口环形缓冲区结构体 */
 typedef struct

@@ -1,6 +1,106 @@
 #include "Uart_Debug.h"
 
 UART_DEV uart3_dev = {0};
+UART_TX_MESSAGE uart3_tx_queue[UART_TX_QUEUE_SIZE];
+uint8_t uart3_tx_queue_head = 0;
+uint8_t uart3_tx_queue_tail = 0;
+
+// 初始化发送队列
+static void UartTxQueueInit(void)
+{
+  memset(uart3_tx_queue, 0, sizeof(uart3_tx_queue));
+  uart3_tx_queue_head = 0;
+  uart3_tx_queue_tail = 0;
+}
+
+// 检查发送队列是否已满
+static uint8_t UartTxQueueIsFull(void)
+{
+  uint8_t next_head = (uart3_tx_queue_head + 1) % UART_TX_QUEUE_SIZE;
+  return (next_head == uart3_tx_queue_tail);
+}
+
+// 检查发送队列是否为空
+static uint8_t UartTxQueueIsEmpty(void)
+{
+  return (uart3_tx_queue_head == uart3_tx_queue_tail);
+}
+
+// 将消息添加到发送队列
+static uint8_t UartTxQueueAdd(const uint8_t *data, uint16_t size)
+{
+  uint8_t result = 0;
+  __disable_irq(); // 禁止中断，保护临界区
+
+  if (!UartTxQueueIsFull())
+    {
+      uint8_t index = uart3_tx_queue_head;
+      uint16_t copy_size = (size < UART3_TX_BUF_SIZE) ? size : UART3_TX_BUF_SIZE;
+      memcpy(uart3_tx_queue[index].buffer, data, copy_size);
+      uart3_tx_queue[index].size = copy_size;
+      uart3_tx_queue[index].in_use = 1;
+      uart3_tx_queue_head = (uart3_tx_queue_head + 1) % UART_TX_QUEUE_SIZE;
+      result = 1;
+    }
+
+  __enable_irq(); // 恢复中断
+  return result;
+}
+
+// 从队列中获取下一个要发送的消息
+static uint8_t UartTxQueueGetNext(uint8_t **data, uint16_t *size)
+{
+  if (UartTxQueueIsEmpty())
+    {
+      return 0; // 队列为空
+    }
+
+  uint8_t index = uart3_tx_queue_tail;
+  if (!uart3_tx_queue[index].in_use)
+    {
+      return 0; // 无有效消息
+    }
+
+  *data = uart3_tx_queue[index].buffer;
+  *size = uart3_tx_queue[index].size;
+  return 1; // 获取成功
+}
+
+// 标记当前消息发送完成
+static void UartTxQueueMarkComplete(void)
+{
+  if (!UartTxQueueIsEmpty())
+    {
+      uart3_tx_queue[uart3_tx_queue_tail].in_use = 0;
+      uart3_tx_queue_tail = (uart3_tx_queue_tail + 1) % UART_TX_QUEUE_SIZE;
+    }
+}
+
+// 启动下一个消息发送
+static void UartStartNextTransmission(void)
+{
+  uint8_t *data;
+  uint16_t size;
+
+  if (UartTxQueueGetNext(&data, &size))
+    {
+      // 复制数据到发送缓冲区
+      memcpy(uart3_dev.tx_buf, data, size);
+
+      // 启动发送
+      uart3_dev.tx_index = 0;
+      uart3_dev.tx_size = size;
+      uart3_dev.tx_busy = 1;
+
+      LL_USART_TransmitData8(USART3, uart3_dev.tx_buf[uart3_dev.tx_index++]);
+      LL_USART_EnableIT_TC(USART3);
+    }
+  else
+    {
+      // 队列中没有更多消息
+      uart3_dev.tx_busy = 0;
+    }
+}
 
 static void MX_USART3_UART_Init(void)
 {
@@ -51,8 +151,6 @@ static void MX_USART3_UART_Init(void)
   USART_InitStruct.HardwareFlowControl = LL_USART_HWCONTROL_NONE;
   USART_InitStruct.OverSampling = LL_USART_OVERSAMPLING_16;
   LL_USART_Init(USART3, &USART_InitStruct);
-  LL_USART_SetTXFIFOThreshold(USART3, LL_USART_FIFOTHRESHOLD_1_8);
-  LL_USART_SetRXFIFOThreshold(USART3, LL_USART_FIFOTHRESHOLD_1_8);
   LL_USART_DisableFIFO(USART3);
   LL_USART_ConfigAsyncMode(USART3);
 
@@ -78,7 +176,7 @@ static void InitHardUart(void)
   LL_USART_EnableIT_RXNE(USART3);
 
   uint32_t priority_group = NVIC_GetPriorityGrouping(); // 获取系统优先级分组
-  NVIC_SetPriority(USART3_IRQn, NVIC_EncodePriority(priority_group, 3, 1)); // 抢占优先级3，子优先级0
+  NVIC_SetPriority(USART3_IRQn, NVIC_EncodePriority(priority_group, 3, 0)); // 抢占优先级3，子优先级0
   NVIC_EnableIRQ(USART3_IRQn);
 }
 
@@ -87,35 +185,32 @@ static void UartVarInit(void)
   memset(&uart3_dev, 0, sizeof(UART_DEV));
   uart3_dev.rx_buf.head = 0;
   uart3_dev.rx_buf.tail = 0;
+  UartTxQueueInit(); // 初始化发送队列
 }
 
 void UART_Send_IT(USART_TypeDef *USARTx, uint8_t *pData, uint16_t Size)
 {
-  // 等待上次发送完成
+  // 如果队列已满，等待
   uint32_t timeout = 10000;
-  while (uart3_dev.tx_busy && timeout-- > 0)
+  while (UartTxQueueIsFull() && timeout-- > 0)
     {
       __NOP();
     }
 
-  if (uart3_dev.tx_busy)
+  if (UartTxQueueIsFull())
     {
-      // 强制终止前一次发送
-      LL_USART_DisableIT_TC(USART3);
-      uart3_dev.tx_busy = 0;
+      return; // 队列仍然满，放弃发送
     }
 
-  // 复制数据到发送缓冲区（限制最大长度）
-  uint16_t copy_size = Size > UART3_TX_BUF_SIZE ? UART3_TX_BUF_SIZE : Size;
-  memcpy(uart3_dev.tx_buf, pData, copy_size);
-
-  // 启动发送
-  uart3_dev.tx_index = 0;
-  uart3_dev.tx_size = copy_size;
-  uart3_dev.tx_busy = 1;
-
-  LL_USART_TransmitData8(USART3, uart3_dev.tx_buf[uart3_dev.tx_index++]);
-  LL_USART_EnableIT_TC(USART3);
+  // 将数据添加到发送队列
+  if (UartTxQueueAdd(pData, Size))
+    {
+      // 如果当前没有正在进行的传输，启动新的传输
+      if (!uart3_dev.tx_busy)
+        {
+          UartStartNextTransmission();
+        }
+    }
 }
 
 void Debug_printf(const char *format, ...)
@@ -164,6 +259,7 @@ void USART3_IRQHandler(void)
   if(LL_USART_IsActiveFlag_TC(USART3) && LL_USART_IsEnabledIT_TC(USART3))
     {
       LL_USART_ClearFlag_TC(USART3);
+
       if (uart3_dev.tx_index < uart3_dev.tx_size)
         {
           // 发送下一个字节
@@ -171,9 +267,14 @@ void USART3_IRQHandler(void)
         }
       else
         {
-          // 所有数据发送完成
-          LL_USART_DisableIT_TC(USART3); // 关闭TC中断
-          uart3_dev.tx_busy = 0;        // 标记发送完成
+          // 当前消息所有数据发送完成
+          LL_USART_DisableIT_TC(USART3);
+
+          // 标记当前消息发送完成
+          UartTxQueueMarkComplete();
+
+          // 尝试启动下一个消息发送
+          UartStartNextTransmission();
         }
     }
 }

@@ -11,8 +11,16 @@
 #include "stm32g4xx_ll_rcc.h"
 #include "Uart_Debug.h"
 
-#define UART1_TX_BUF_SIZE	2048
+#define UART1_TX_BUF_SIZE	1024
 #define UART1_RX_BUF_SIZE	512
+#define UART1_TX_QUEUE_SIZE 10  // 队列容量
+
+typedef struct
+{
+  uint8_t buffer[UART1_TX_BUF_SIZE];  // 单条消息缓冲区
+  uint16_t size;                      // 消息长度
+  uint8_t in_use;                     // 消息是否有效
+} UART1_TX_MESSAGE;
 
 /* 发送结构体：包含电压、电流、温度信息 */
 typedef struct
@@ -61,6 +69,9 @@ typedef struct
 extern UART_DevTypeDef uart1_dev;
 // 全局接收数据（供其他模块使用）
 extern volatile UART_RxStruct uart_rx_data;
+extern UART1_TX_MESSAGE uart1_tx_queue[UART1_TX_QUEUE_SIZE];
+extern uint8_t uart1_tx_queue_head;
+extern uint8_t uart1_tx_queue_tail;
 
 void UART1_Init(void);
 void UART1_Send_IT(USART_TypeDef *USARTx, uint8_t *pData, uint16_t Size);

@@ -16,8 +16,8 @@ void Init_Hardware(void)
 
   /* 2. 初始化所有外设（GPIO、UART、SPI等） */
   UART_Init();
-	UART1_Init();
-  fr_printf("HR20250703CNCPOWERSUPPLY\r\n");//  当前版本号
+  UART1_Init();
+  
   MX_GPIO_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
@@ -26,13 +26,19 @@ void Init_Hardware(void)
   MX_TIM2_Init();
   MX_TIM3_Init();
   MX_TIM15_Init();
+	fr_printf("\r\n[version]HR CNC POWER SUPPLY V1.0");//  当前版本号
+	fr_printf("Hardware Init Success");
 }
 
 void Init_App(void)
 {
   /* ------------------------------ 应用初始化 ------------------------------------------- */
   Key_Init(); //  按键初始化
-	
+  /* 初始化命令处理器 */
+  CommandProcessorInit();
+	/* 初始化命令指令 */
+  RegisterAllCommands();
+	fr_printf("App Init Success");
 }
 
 /**
@@ -51,7 +57,7 @@ void SystemClock_Config(void)
   while(LL_RCC_HSE_IsReady())
     {
     }
-		
+
   LL_RCC_HSI48_Enable();
   /* Wait till HSI48 is ready */
   while(LL_RCC_HSI48_IsReady() != 1)
@@ -59,7 +65,7 @@ void SystemClock_Config(void)
     }
 
   LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSE, LL_RCC_PLLM_DIV_2, 85, LL_RCC_PLLR_DIV_4);
-	LL_RCC_PLL_Enable();
+  LL_RCC_PLL_Enable();
   LL_RCC_PLL_EnableDomain_SYS();
   /* Wait till PLL is ready */
   while(LL_RCC_PLL_IsReady())

@@ -81,6 +81,8 @@ g473_operate\watchdog.o: ..\Hardware\UART_DEBUG.h
 g473_operate\watchdog.o: ..\App\Watchdog.h
 g473_operate\watchdog.o: ..\Hardware\Uart_comm.h
 g473_operate\watchdog.o: ..\bsp\Debug.h
+g473_operate\watchdog.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
 g473_operate\watchdog.o: ..\Hardware\st7789.h
 g473_operate\watchdog.o: ..\Hardware\Key.h
 g473_operate\watchdog.o: ..\Hardware\m24c64.h
+g473_operate\watchdog.o: ..\App\CommandHandlers.h

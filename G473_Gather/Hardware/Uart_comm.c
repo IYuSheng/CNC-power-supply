@@ -4,10 +4,108 @@
 UART_DevTypeDef uart1_dev;
 // 全局接收数据（供其他模块使用）
 volatile UART_RxStruct  uart_rx_data;
+// 发送队列（全局变量）
+UART1_TX_MESSAGE uart1_tx_queue[UART1_TX_QUEUE_SIZE];
+uint8_t uart1_tx_queue_head = 0;  // 队列头指针（写入位置）
+uint8_t uart1_tx_queue_tail = 0;  // 队列尾指针（读取位置）
+
+// 初始化发送队列
+static void Uart1TxQueueInit(void)
+{
+  memset(uart1_tx_queue, 0, sizeof(uart1_tx_queue));
+  uart1_tx_queue_head = 0;
+  uart1_tx_queue_tail = 0;
+}
+
+// 检查队列是否已满
+static uint8_t Uart1TxQueueIsFull(void)
+{
+  uint8_t next_head = (uart1_tx_queue_head + 1) % UART1_TX_QUEUE_SIZE;
+  return (next_head == uart1_tx_queue_tail);
+}
+
+// 检查队列是否为空
+static uint8_t Uart1TxQueueIsEmpty(void)
+{
+  return (uart1_tx_queue_head == uart1_tx_queue_tail);
+}
+
+// 将数据加入队列
+static uint8_t Uart1TxQueueAdd(const uint8_t *data, uint16_t size)
+{
+  if (Uart1TxQueueIsFull())
+    {
+      return 0;  // 队列满，添加失败
+    }
+
+  uint8_t index = uart1_tx_queue_head;
+  uint16_t copy_size = (size <= UART1_TX_BUF_SIZE) ? size : UART1_TX_BUF_SIZE;
+
+  memcpy(uart1_tx_queue[index].buffer, data, copy_size);
+  uart1_tx_queue[index].size = copy_size;
+  uart1_tx_queue[index].in_use = 1;
+
+  uart1_tx_queue_head = (uart1_tx_queue_head + 1) % UART1_TX_QUEUE_SIZE;
+  return 1;  // 添加成功
+}
+
+// 从队列取数据
+static uint8_t Uart1TxQueueGetNext(uint8_t **data, uint16_t *size)
+{
+  if (Uart1TxQueueIsEmpty())
+    {
+      return 0;  // 队列空
+    }
+
+  uint8_t index = uart1_tx_queue_tail;
+  if (!uart1_tx_queue[index].in_use)
+    {
+      return 0;  // 数据无效
+    }
+
+  *data = uart1_tx_queue[index].buffer;
+  *size = uart1_tx_queue[index].size;
+  return 1;  // 获取成功
+}
+
+// 标记当前消息发送完成
+static void Uart1TxQueueMarkComplete(void)
+{
+  if (!Uart1TxQueueIsEmpty())
+    {
+      uart1_tx_queue[uart1_tx_queue_tail].in_use = 0;
+      uart1_tx_queue_tail = (uart1_tx_queue_tail + 1) % UART1_TX_QUEUE_SIZE;
+    }
+}
+
+// 启动下一个消息发送
+static void Uart1StartNextTransmission(void)
+{
+  uint8_t *data;
+  uint16_t size;
+
+  if (Uart1TxQueueGetNext(&data, &size))
+    {
+      // 复制数据到发送缓冲区
+      memcpy(uart1_dev.tx_buf.buffer, data, size);
+
+      // 启动发送
+      uart1_dev.tx_buf.tx_index = 0;
+      uart1_dev.tx_buf.tx_size = size;
+      uart1_dev.tx_buf.tx_busy = 1;
+
+      LL_USART_TransmitData8(USART1, uart1_dev.tx_buf.buffer[uart1_dev.tx_buf.tx_index++]);
+      LL_USART_EnableIT_TC(USART1);
+    }
+  else
+    {
+      // 队列空，标记为空闲
+      uart1_dev.tx_buf.tx_busy = 0;
+    }
+}
 
 static void MX_USART1_UART_Init(void)
 {
-
   /* USER CODE BEGIN USART1_Init 0 */
 
   /* USER CODE END USART1_Init 0 */
@@ -45,6 +143,7 @@ static void MX_USART1_UART_Init(void)
   /* USART1 interrupt Init */
   NVIC_SetPriority(USART1_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
   NVIC_EnableIRQ(USART1_IRQn);
+  //LL_USART_EnableFIFO(USART1);
 
   /* USER CODE BEGIN USART1_Init 1 */
 
@@ -97,6 +196,7 @@ static void Uart1VarInit(void)
   memset(&uart1_dev, 0, sizeof(UART_DevTypeDef));
   // 初始化全局接收数据
   memset((void*)&uart_rx_data, 0, sizeof(UART_TxStruct));
+  Uart1TxQueueInit();  // 初始化发送队列
 }
 
 /**
@@ -112,34 +212,26 @@ void UART1_Send_IT(USART_TypeDef *USARTx, uint8_t *pData, uint16_t Size)
       return;
     }
 
-  // 等待上次发送完成
+  // 等待队列有空位（超时退出）
   uint32_t timeout = 100000;
-  while (uart1_dev.tx_buf.tx_busy && timeout-- > 0)
+  while (Uart1TxQueueIsFull() && timeout-- > 0)
     {
       __NOP();
     }
 
-  // 超时处理
-  if (timeout == 0)
+  if (Uart1TxQueueIsFull())
     {
-      LL_USART_DisableIT_TC(USART1);
-      uart1_dev.tx_buf.tx_busy = 0;
+      return;  // 队列满，放弃发送
     }
 
-  // 复制数据到发送缓冲区（注意修改为tx_buf.buffer）
-  uint16_t copy_size = (Size > UART1_TX_BUF_SIZE) ? UART1_TX_BUF_SIZE : Size;
-  memcpy(uart1_dev.tx_buf.buffer, pData, copy_size);  // 修改为tx_buf.buffer
-
-  // 启动发送
-  if (!uart1_dev.tx_buf.tx_busy)
+  // 将数据加入队列
+  if (Uart1TxQueueAdd(pData, Size))
     {
-      uart1_dev.tx_buf.tx_index = 0;
-      uart1_dev.tx_buf.tx_size = copy_size;
-      uart1_dev.tx_buf.tx_busy = 1;
-
-      // 发送第一个字节
-      LL_USART_TransmitData8(USART1, uart1_dev.tx_buf.buffer[uart1_dev.tx_buf.tx_index++]);
-      LL_USART_EnableIT_TC(USART1);
+      // 若当前无发送，启动发送
+      if (!uart1_dev.tx_buf.tx_busy)
+        {
+          Uart1StartNextTransmission();
+        }
     }
 }
 
@@ -236,7 +328,6 @@ void UART1_Parse_Data(void)
     }
 }
 
-
 /**
   * @brief  初始化UART1（总入口）
   */
@@ -265,19 +356,22 @@ void USART1_IRQHandler(void)
         }
     }
 
-  // 发送完成中断
+  // 发送完成中断（修改为队列模式）
   if (LL_USART_IsActiveFlag_TC(USART1) && LL_USART_IsEnabledIT_TC(USART1))
     {
       LL_USART_ClearFlag_TC(USART1);
 
       if (uart1_dev.tx_buf.tx_index < uart1_dev.tx_buf.tx_size)
         {
+          // 发送当前消息的下一字节
           LL_USART_TransmitData8(USART1, uart1_dev.tx_buf.buffer[uart1_dev.tx_buf.tx_index++]);
         }
       else
         {
+          // 当前消息发送完成，处理队列下一消息
           LL_USART_DisableIT_TC(USART1);
-          uart1_dev.tx_buf.tx_busy = 0;  // 修改为tx_buf.tx_busy
+          Uart1TxQueueMarkComplete();  // 标记当前消息完成
+          Uart1StartNextTransmission(); // 启动下一消息发送
         }
     }
 }

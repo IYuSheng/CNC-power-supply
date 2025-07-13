@@ -2,6 +2,7 @@
 #ifndef __TASK_H
 #define __TASK_H
 
+#include "stm32g4xx_ll_iwdg.h"
 #include "Sys_Timer.h"
 #include "Uart_Debug.h"
 #include "Uart_comm.h"

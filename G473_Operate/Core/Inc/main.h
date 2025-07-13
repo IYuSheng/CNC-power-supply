@@ -66,6 +66,7 @@ extern "C" {
 #include "Key.h"
 #include "m24c64.h"
 #include "Uart_comm.h"
+#include "CommandHandlers.h"
 
 extern uint8_t S_F;	//定义操作系统是否启动
 

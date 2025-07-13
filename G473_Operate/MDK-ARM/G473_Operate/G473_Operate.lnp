@@ -64,6 +64,7 @@
 "g473_operate\control.o"
 "g473_operate\watchdog.o"
 "g473_operate\comm.o"
+"g473_operate\commandhandlers.o"
 --strict --scatter "G473_Operate\G473_Operate.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

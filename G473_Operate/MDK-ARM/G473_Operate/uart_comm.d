@@ -76,10 +76,13 @@ g473_operate\uart_comm.o: ..\bsp\Monitor.h
 g473_operate\uart_comm.o: ..\Hardware\UART_DEBUG.h
 g473_operate\uart_comm.o: ..\FreeRTOS\inc\semphr.h
 g473_operate\uart_comm.o: ..\FreeRTOS\inc\queue.h
+g473_operate\uart_comm.o: ..\App\CommandHandlers.h
+g473_operate\uart_comm.o: ..\bsp\Debug.h
+g473_operate\uart_comm.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
+g473_operate\uart_comm.o: ..\Hardware\Uart_Debug.h
 g473_operate\uart_comm.o: ..\App\Watchdog.h
 g473_operate\uart_comm.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h
 g473_operate\uart_comm.o: ..\Hardware\Uart_comm.h
-g473_operate\uart_comm.o: ..\bsp\Debug.h
 g473_operate\uart_comm.o: ..\Hardware\st7789.h
 g473_operate\uart_comm.o: ..\Hardware\Key.h
 g473_operate\uart_comm.o: ..\Hardware\m24c64.h

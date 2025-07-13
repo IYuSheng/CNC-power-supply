@@ -44,6 +44,7 @@ void configureTimerForRuntimeStats(void)
   */
 void vSystemMonitorTask(void *pvParameters)
 {
+
   const UBaseType_t maxTasks = 10;
   TaskStatus_t *taskStatusArray = pvPortMalloc(maxTasks * sizeof(TaskStatus_t));
 
@@ -53,7 +54,7 @@ void vSystemMonitorTask(void *pvParameters)
       return;
     }
 
-  while (1)
+  for(;;)
     {
       UBaseType_t numTasks = uxTaskGetSystemState(taskStatusArray, maxTasks, NULL);
       if (numTasks > maxTasks) numTasks = maxTasks;

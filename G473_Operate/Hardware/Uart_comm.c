@@ -214,10 +214,10 @@ void vUart1ProcessTask(void *pvParameters)
       UART1_Send_Struct(&ua);
       UART1_Parse_Data(); // 解析接收数据
       // 访问解析后的结果
-      fr_printf("Voltage: %dmV, Current: %dmA, Temp: %d℃\r\n",
-                uart_rx_data.voltage,
-                uart_rx_data.current,
-                uart_rx_data.temperature);
+//      fr_printf("Voltage: %dmV, Current: %dmA, Temp: %d℃\r\n",
+//                uart_rx_data.voltage,
+//                uart_rx_data.current,
+//                uart_rx_data.temperature);
       vTaskDelay(pdMS_TO_TICKS(100));
     }
 }

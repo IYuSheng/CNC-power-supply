@@ -4,6 +4,8 @@ int main(void)
 {
 	//系统初始化
 	Init_Sys();
+	//系统看门狗初始化
+	IWDG_Init(1000);
 	//系统时钟初始化
   SystemClock_Config();
 	//硬件初始化

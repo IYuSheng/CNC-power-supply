@@ -1,7 +1,6 @@
 g473_gather\task.o: ..\App\Task.c
 g473_gather\task.o: ..\App\Task.h
-g473_gather\task.o: ..\Hardware\Sys_Timer.h
-g473_gather\task.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h
+g473_gather\task.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h
 g473_gather\task.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h
 g473_gather\task.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h
 g473_gather\task.o: ../Drivers/CMSIS/Include/core_cm4.h
@@ -11,6 +10,8 @@ g473_gather\task.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 g473_gather\task.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 g473_gather\task.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 g473_gather\task.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h
+g473_gather\task.o: ..\Hardware\Sys_Timer.h
+g473_gather\task.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h
 g473_gather\task.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h
 g473_gather\task.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h
 g473_gather\task.o: ..\Hardware\Uart_Debug.h

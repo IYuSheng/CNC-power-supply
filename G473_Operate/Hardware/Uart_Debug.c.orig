@@ -110,10 +110,8 @@ void vUartProcessTask(void *pvParameters)
   (void)pvParameters;
   uint8_t data;
 
-#if Monitor_Flag
   static uint8_t cmdIndex = 0;              /* 命令缓冲区索引 */
   static char cmdBuffer[64] = {0};          /* 命令缓冲区（Rule 8.12：静态存储期） */
-#endif
 
   for(;;)
     {
@@ -125,50 +123,24 @@ void vUartProcessTask(void *pvParameters)
           taskEXIT_CRITICAL();
 
           UART_Send_IT(USART1, &data, 1);       /* 回显接收数据 */
-
-          /* 命令解析逻辑 */
-      if ((data == '\r') || (data == '\n'))  /* 检测行结束符 */
-      {
-        cmdBuffer[cmdIndex] = '\0';  // 确保字符串以null结尾
-        
-        // 解析SetA命令
-        if (strncmp(cmdBuffer, "SetA:", 5) == 0)
-        {
-          // 将冒号后的字符串转换为整数
-          char* endPtr;
-          long value = strtol(cmdBuffer + 5, &endPtr, 10);
-          
-          // 验证转换是否成功
-          if (endPtr != cmdBuffer + 5 && *endPtr == '\0') 
-          {
-            ua.reserved[0] = (uint8_t)value;
-            fr_printf("SetA updated to: %d", ua.reserved[0]);
-          }
-          else
-          {
-            fr_printf("Invalid SetA format: %s", cmdBuffer);
-          }
-        }
-        // 解析SetB命令
-        else if (strncmp(cmdBuffer, "SetB:", 5) == 0)
-        {
-          // 将冒号后的字符串转换为整数
-          char* endPtr;
-          long value = strtol(cmdBuffer + 5, &endPtr, 10);
-          
-          // 验证转换是否成功
-          if (endPtr != cmdBuffer + 5 && *endPtr == '\0') 
-          {
-            ua.reserved[1] = (uint8_t)value;
-            fr_printf("SetB updated to: %d", ua.reserved[1]);
-          }
-          else
-          {
-            fr_printf("Invalid SetB format: %s", cmdBuffer);
-          }
-        }
-        
+					              /* 使用命令处理器处理命令 */
+              ProcessCommand(cmdBuffer);
 #if Monitor_Flag
+          /* 命令解析逻辑 */
+          if ((data == '\r') || (data == '\n'))  /* 检测行结束符 */
+            {
+              cmdBuffer[cmdIndex] = '\0';  // 确保字符串以null结尾
+
+              /* 使用命令处理器处理命令 */
+              ProcessCommand(cmdBuffer);
+
+              cmdIndex = 0;  // 重置缓冲区索引
+            }
+          else if (cmdIndex < (sizeof(cmdBuffer)-1U)) /* 防止缓冲区溢出 */
+            {
+              cmdBuffer[cmdIndex++] = data;       /* 存储有效字符 */
+            }
+						
           /* 命令解析逻辑 */
           if ((data == '\r') || (data == '\n'))  /* 检测行结束符 */
             {

@@ -152,6 +152,22 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
+          <LineNumber>31</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>../Core/Src/main.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
           <LineNumber>89</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>134228928</Address>
@@ -166,7 +182,7 @@
           <Expression>\\G473_Operate\../Core/Src/stm32g4xx_it.c\89</Expression>
         </Bp>
         <Bp>
-          <Number>1</Number>
+          <Number>2</Number>
           <Type>0</Type>
           <LineNumber>35</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -182,7 +198,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>2</Number>
+          <Number>3</Number>
           <Type>0</Type>
           <LineNumber>20</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -198,7 +214,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>3</Number>
+          <Number>4</Number>
           <Type>0</Type>
           <LineNumber>148</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -214,7 +230,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>4</Number>
+          <Number>5</Number>
           <Type>0</Type>
           <LineNumber>149</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -230,7 +246,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>5</Number>
+          <Number>6</Number>
           <Type>0</Type>
           <LineNumber>152</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -246,7 +262,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>6</Number>
+          <Number>7</Number>
           <Type>0</Type>
           <LineNumber>153</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -262,7 +278,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>7</Number>
+          <Number>8</Number>
           <Type>0</Type>
           <LineNumber>157</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -278,7 +294,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>8</Number>
+          <Number>9</Number>
           <Type>0</Type>
           <LineNumber>161</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -1605,6 +1621,30 @@
       <bDave2>0</bDave2>
       <PathWithFileName>..\App\Comm.h</PathWithFileName>
       <FilenameWithoutPath>Comm.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>13</GroupNumber>
+      <FileNumber>97</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\App\CommandHandlers.c</PathWithFileName>
+      <FilenameWithoutPath>CommandHandlers.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>13</GroupNumber>
+      <FileNumber>98</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\App\CommandHandlers.h</PathWithFileName>
+      <FilenameWithoutPath>CommandHandlers.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

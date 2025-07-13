@@ -80,6 +80,8 @@ g473_operate\uart_debug.o: ..\App\Watchdog.h
 g473_operate\uart_debug.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h
 g473_operate\uart_debug.o: ..\Hardware\Uart_comm.h
 g473_operate\uart_debug.o: ..\bsp\Debug.h
+g473_operate\uart_debug.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
 g473_operate\uart_debug.o: ..\Hardware\st7789.h
 g473_operate\uart_debug.o: ..\Hardware\Key.h
 g473_operate\uart_debug.o: ..\Hardware\m24c64.h
+g473_operate\uart_debug.o: ..\App\CommandHandlers.h

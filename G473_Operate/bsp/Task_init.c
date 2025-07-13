@@ -33,7 +33,7 @@ void Monitor_task_create(void)
   configureTimerForRuntimeStats();
   /* 创建系统监控任务 */
   xReturn = xTaskCreate(vSystemMonitorTask, "Monitor", 256,
-												NULL, TASK_PRIO_MONITOR, NULL);
+                        NULL, TASK_PRIO_MONITOR, NULL);
   if (xReturn != pdPASS)
     {
       fr_printf("Monitor task create Failed");
@@ -53,7 +53,7 @@ void Monitor_task_create(void)
 void Comm_task_create(void)
 {
   xReturn = xTaskCreate(vUart1ProcessTask, "Comm", 1024,
-												NULL, TASK_PRIO_Comm, NULL);
+                        NULL, TASK_PRIO_Comm, NULL);
   if (xReturn != pdPASS)
     {
       fr_printf("Comm task create Failed");
@@ -72,8 +72,8 @@ void Watchdog_task_create(void)
 {
   IWDG_Init(3000); // 3000ms超时
 
-  xReturn = xTaskCreate(vWatchdogTask, "Watchdog", 64, 
-												NULL, TASK_PRIO_WATCHDOG, NULL);
+  xReturn = xTaskCreate(vWatchdogTask, "Watchdog", 64,
+                        NULL, TASK_PRIO_WATCHDOG, NULL);
   if (xReturn != pdPASS)
     {
       fr_printf("Watchdog task create Failed");
@@ -91,7 +91,7 @@ void Watchdog_task_create(void)
 void Key_task_create(void)
 {
   xReturn = xTaskCreate(vKeyScanTask, "Key", 128,
-												NULL, TASK_PRIO_KEY, NULL);
+                        NULL, TASK_PRIO_KEY, NULL);
   if (xReturn != pdPASS)
     {
       fr_printf("Key task create Failed");
@@ -109,7 +109,7 @@ void Key_task_create(void)
 void TFT_task_create(void)
 {
   xReturn = xTaskCreate(vTFTTask, "TFT", 1024,
-												NULL,TASK_PRIO_TFT, NULL);
+                        NULL,TASK_PRIO_TFT, NULL);
   if (xReturn != pdPASS)
     {
       fr_printf("TFT task create Failed");
@@ -127,7 +127,7 @@ void TFT_task_create(void)
 void Storage_task_create(void)
 {
   xReturn = xTaskCreate(vStorageTask, "Storage", 128,
-												NULL, TASK_PRIO_STORAGE, NULL);
+                        NULL, TASK_PRIO_STORAGE, NULL);
   if (xReturn != pdPASS)
     {
       fr_printf("Storage task create Failed");

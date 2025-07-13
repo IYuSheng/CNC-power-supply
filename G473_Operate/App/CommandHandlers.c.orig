@@ -1,0 +1,53 @@
+#include "CommandHandlers.h"
+
+extern UART_TxStruct ua;
+
+/* 处理SetA命令 */
+static void HandleSetA(const char* param) {
+    if (param == NULL) {
+        fr_printf("SetA: missing parameter");
+        return;
+    }
+    
+    char* endPtr;
+    long value = strtol(param, &endPtr, 10);
+    
+    if (endPtr != param && *endPtr == '\0') {
+        ua.reserved[0] = (uint8_t)value;
+        fr_printf("SetA updated to: %d", ua.reserved[0]);
+    } else {
+        fr_printf("SetA: invalid parameter");
+    }
+}
+
+/* 处理SetB命令 */
+static void HandleSetB(const char* param) {
+    if (param == NULL) {
+        fr_printf("SetB: missing parameter");
+        return;
+    }
+    
+    char* endPtr;
+    long value = strtol(param, &endPtr, 10);
+    
+    if (endPtr != param && *endPtr == '\0') {
+        ua.reserved[1] = (uint8_t)value;
+        fr_printf("SetB updated to: %d", ua.reserved[1]);
+    } else {
+        fr_printf("SetB: invalid parameter");
+    }
+}
+
+/* 处理status命令 */
+static void HandleStatus(const char* param) {
+    (void)param; /* 未使用参数 */
+    vSystemMonitorTask(NULL);
+}
+
+/* 注册所有命令处理函数 */
+void RegisterAllCommands(void) {
+    RegisterCommand("SetA", HandleSetA);
+    RegisterCommand("SetB", HandleSetB);
+    RegisterCommand("status", HandleStatus);
+    /* 这里可以添加更多命令... */
+}

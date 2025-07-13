@@ -17,6 +17,7 @@ key_pin_map[KEY_MAX] =
   {GPIOA, GPIO_PIN_8},   // KEY_FUNC2 (PA8)
   {GPIOB, GPIO_PIN_1}    // KEY_FUNC3 (PB1)
 };
+
 // 按键状态（内部维护）
 typedef struct
 {

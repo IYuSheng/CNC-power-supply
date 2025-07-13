@@ -3,11 +3,11 @@
 <title>Static Call Graph - [G473_Gather\G473_Gather.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image G473_Gather\G473_Gather.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Jul 10 00:51:25 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Jul 11 22:18:10 2025
 <BR><P>
-<H3>Maximum Stack Usage =        744 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =       1224 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; Task1_Handler &rArr; SGM58031_ReadChannel &rArr; I2C_Read16 &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+__rt_entry_main &rArr; main &rArr; Task1_Handler &rArr; SGM58031_ReadVoltage &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 <P>
 <H3>
 Functions with no stack information
@@ -155,9 +155,9 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
 </UL>
 
-<P><STRONG><a name="[11b]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[128]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
-<P><STRONG><a name="[11c]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[129]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
 <P><STRONG><a name="[73]"></a>__scatterload_copy</STRONG> (Thumb, 26 bytes, Stack size unknown bytes, __scatter_copy.o(!!handler_copy), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
@@ -165,7 +165,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
 </UL>
 
-<P><STRONG><a name="[11d]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
+<P><STRONG><a name="[12a]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
 
 <P><STRONG><a name="[74]"></a>_printf_n</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_n.o(.ARM.Collect$$_printf_percent$$00000001))
 <BR><BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_charcount
@@ -210,7 +210,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex
 </UL>
 
-<P><STRONG><a name="[11e]"></a>_printf_ll</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_ll.o(.ARM.Collect$$_printf_percent$$00000007))
+<P><STRONG><a name="[12b]"></a>_printf_ll</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_ll.o(.ARM.Collect$$_printf_percent$$00000007))
 
 <P><STRONG><a name="[7e]"></a>_printf_i</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_i.o(.ARM.Collect$$_printf_percent$$00000008))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72 + Unknown Stack Size
@@ -282,7 +282,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_ll_hex
 </UL>
 
-<P><STRONG><a name="[11f]"></a>_printf_l</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_l.o(.ARM.Collect$$_printf_percent$$00000012))
+<P><STRONG><a name="[12c]"></a>_printf_l</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_l.o(.ARM.Collect$$_printf_percent$$00000012))
 
 <P><STRONG><a name="[8e]"></a>_printf_c</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_c.o(.ARM.Collect$$_printf_percent$$00000013))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
@@ -312,7 +312,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_wstring
 </UL>
 
-<P><STRONG><a name="[120]"></a>_printf_percent_end</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_percent_end.o(.ARM.Collect$$_printf_percent$$00000017))
+<P><STRONG><a name="[12d]"></a>_printf_percent_end</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_percent_end.o(.ARM.Collect$$_printf_percent$$00000017))
 
 <P><STRONG><a name="[a0]"></a>__rt_lib_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_li
@@ -322,19 +322,19 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_init
 </UL>
 
-<P><STRONG><a name="[121]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
+<P><STRONG><a name="[12e]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
 
 <P><STRONG><a name="[98]"></a>__rt_lib_init_lc_common</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000F))
 <BR><BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_locale
 </UL>
 
-<P><STRONG><a name="[122]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
+<P><STRONG><a name="[12f]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
 
-<P><STRONG><a name="[123]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
+<P><STRONG><a name="[130]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
 
-<P><STRONG><a name="[124]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
+<P><STRONG><a name="[131]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
 
-<P><STRONG><a name="[125]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
+<P><STRONG><a name="[132]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
 
 <P><STRONG><a name="[9a]"></a>__rt_lib_init_lc_ctype_2</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000012))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -343,9 +343,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_ctype
 </UL>
 
-<P><STRONG><a name="[126]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
+<P><STRONG><a name="[133]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
 
-<P><STRONG><a name="[127]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
+<P><STRONG><a name="[134]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
 
 <P><STRONG><a name="[9b]"></a>__rt_lib_init_lc_numeric_2</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000016))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -354,56 +354,56 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_numeric
 </UL>
 
-<P><STRONG><a name="[128]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
+<P><STRONG><a name="[135]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
 
-<P><STRONG><a name="[129]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
+<P><STRONG><a name="[136]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
 
-<P><STRONG><a name="[12a]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
+<P><STRONG><a name="[137]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
 
-<P><STRONG><a name="[12b]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
+<P><STRONG><a name="[138]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
 
-<P><STRONG><a name="[12c]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
+<P><STRONG><a name="[139]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
 
-<P><STRONG><a name="[12d]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
+<P><STRONG><a name="[13a]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
 
-<P><STRONG><a name="[12e]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
+<P><STRONG><a name="[13b]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
 
-<P><STRONG><a name="[12f]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
+<P><STRONG><a name="[13c]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
 
-<P><STRONG><a name="[130]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
+<P><STRONG><a name="[13d]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
 
-<P><STRONG><a name="[131]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
+<P><STRONG><a name="[13e]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
 
-<P><STRONG><a name="[132]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
+<P><STRONG><a name="[13f]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
 
-<P><STRONG><a name="[133]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
+<P><STRONG><a name="[140]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
 
-<P><STRONG><a name="[134]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
+<P><STRONG><a name="[141]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
 
 <P><STRONG><a name="[a5]"></a>__rt_lib_shutdown</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_ls
 </UL>
 
-<P><STRONG><a name="[135]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
+<P><STRONG><a name="[142]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
 
-<P><STRONG><a name="[136]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000007))
+<P><STRONG><a name="[143]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000007))
 
-<P><STRONG><a name="[137]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
+<P><STRONG><a name="[144]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
 
-<P><STRONG><a name="[138]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000010))
+<P><STRONG><a name="[145]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000010))
 
-<P><STRONG><a name="[139]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A))
+<P><STRONG><a name="[146]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A))
 
-<P><STRONG><a name="[13a]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
+<P><STRONG><a name="[147]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
 
-<P><STRONG><a name="[13b]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
+<P><STRONG><a name="[148]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
 
 <P><STRONG><a name="[71]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
 </UL>
 
-<P><STRONG><a name="[13c]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
+<P><STRONG><a name="[149]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
 
 <P><STRONG><a name="[9d]"></a>__rt_entry_sh</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry4.o(.ARM.Collect$$rtentry$$00000004))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -416,17 +416,17 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init
 </UL>
 
-<P><STRONG><a name="[13d]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
+<P><STRONG><a name="[14a]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[a1]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 744 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; Task1_Handler &rArr; SGM58031_ReadChannel &rArr; I2C_Read16 &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 1224 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; Task1_Handler &rArr; SGM58031_ReadVoltage &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 </UL>
 
-<P><STRONG><a name="[13e]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
+<P><STRONG><a name="[14b]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
 
 <P><STRONG><a name="[cb]"></a>__rt_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -436,7 +436,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_shutdown
 </UL>
 
-<P><STRONG><a name="[13f]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
+<P><STRONG><a name="[14c]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
 
 <P><STRONG><a name="[a6]"></a>__rt_exit_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
@@ -739,18 +739,20 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_printf
 </UL>
 
-<P><STRONG><a name="[117]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_IT
+<P><STRONG><a name="[121]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart1TxQueueAdd
+<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart1StartNextTransmission
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UartTxQueueAdd
+<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UartStartNextTransmission
 </UL>
 
 <P><STRONG><a name="[ab]"></a>__rt_memcpy</STRONG> (Thumb, 138 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 
-<P><STRONG><a name="[140]"></a>_memcpy_lastbytes</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_v6.o(.text), UNUSED)
+<P><STRONG><a name="[14d]"></a>_memcpy_lastbytes</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_v6.o(.text), UNUSED)
 
-<P><STRONG><a name="[115]"></a>__aeabi_memclr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text))
+<P><STRONG><a name="[118]"></a>__aeabi_memclr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Init
 </UL>
@@ -759,7 +761,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset_w
 </UL>
 
-<P><STRONG><a name="[141]"></a>_memset</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr.o(.text), UNUSED)
+<P><STRONG><a name="[14e]"></a>_memset</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr.o(.text), UNUSED)
 
 <P><STRONG><a name="[dd]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = __aeabi_memclr4
@@ -774,19 +776,19 @@ Global Symbols
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
 </UL>
 
-<P><STRONG><a name="[142]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
+<P><STRONG><a name="[14f]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
 
-<P><STRONG><a name="[143]"></a>__rt_memclr_w</STRONG> (Thumb, 78 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
+<P><STRONG><a name="[150]"></a>__rt_memclr_w</STRONG> (Thumb, 78 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
 
 <P><STRONG><a name="[ae]"></a>_memset_w</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr_w.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memclr
 </UL>
 
-<P><STRONG><a name="[144]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[151]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[145]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[152]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[146]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[153]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
 <P><STRONG><a name="[b0]"></a>_printf_pre_padding</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, _printf_pad.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _printf_pre_padding
@@ -957,11 +959,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memcpy
 </UL>
 
-<P><STRONG><a name="[147]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
+<P><STRONG><a name="[154]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
 
-<P><STRONG><a name="[148]"></a>__rt_memcpy_w</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
+<P><STRONG><a name="[155]"></a>__rt_memcpy_w</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
 
-<P><STRONG><a name="[149]"></a>_memcpy_lastbytes_aligned</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_w.o(.text), UNUSED)
+<P><STRONG><a name="[156]"></a>_memcpy_lastbytes_aligned</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_w.o(.text), UNUSED)
 
 <P><STRONG><a name="[b8]"></a>_ll_udiv10</STRONG> (Thumb, 138 bytes, Stack size 12 bytes, lludiv10.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = _ll_udiv10
@@ -982,17 +984,17 @@ Global Symbols
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_dec
 </UL>
 
-<P><STRONG><a name="[14a]"></a>__lib_sel_fp_printf</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, _printf_fp_dec.o(.text), UNUSED)
+<P><STRONG><a name="[157]"></a>__lib_sel_fp_printf</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, _printf_fp_dec.o(.text), UNUSED)
 
 <P><STRONG><a name="[c2]"></a>_printf_fp_dec_real</STRONG> (Thumb, 620 bytes, Stack size 104 bytes, _printf_fp_dec.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 324<LI>Call Chain = _printf_fp_dec_real &rArr; _fp_digits &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
+<BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_locale
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec
 </UL>
@@ -1000,10 +1002,10 @@ Global Symbols
 <P><STRONG><a name="[c5]"></a>_printf_fp_hex_real</STRONG> (Thumb, 756 bytes, Stack size 72 bytes, _printf_fp_hex.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = _printf_fp_hex_real &rArr; _printf_fp_infnan &rArr; _printf_post_padding
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
+<BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex
 </UL>
@@ -1118,28 +1120,28 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[14b]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[158]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[c9]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[14c]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[159]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
-<P><STRONG><a name="[11a]"></a>strcmp</STRONG> (Thumb, 128 bytes, Stack size 0 bytes, strcmpv7m.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_ctype
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_numeric
+<P><STRONG><a name="[124]"></a>strcmp</STRONG> (Thumb, 128 bytes, Stack size 0 bytes, strcmpv7m.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_numeric
+<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_ctype
 </UL>
 
 <P><STRONG><a name="[a7]"></a>_sys_exit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
 </UL>
 
-<P><STRONG><a name="[14d]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[15a]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[14e]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[15b]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[14f]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, indicate_semi.o(.text), UNUSED)
+<P><STRONG><a name="[15c]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, indicate_semi.o(.text), UNUSED)
 
 <P><STRONG><a name="[bf]"></a>_btod_d2e</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, btod.o(CL$$btod_d2e))
 <BR><BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2e_norm_op1
@@ -1221,11 +1223,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC8562_SendCommand
 </UL>
-<BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task2_Handler
+<BR>[Called By]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task2_Handler
 </UL>
 
-<P><STRONG><a name="[10b]"></a>DWT_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dwt_delay.o(i.DWT_GetTick))
-<BR><BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGM58031_ReadChannel
+<P><STRONG><a name="[10b]"></a>DWT_Delayms</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, dwt_delay.o(i.DWT_Delayms))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = DWT_Delayms
+</UL>
+<BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGM58031_ReadChannel
 </UL>
 
 <P><STRONG><a name="[e5]"></a>DWT_Init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, dwt_delay.o(i.DWT_Init))
@@ -1235,20 +1239,18 @@ Global Symbols
 <P><STRONG><a name="[a]"></a>DebugMon_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g4xx_it.o(i.DebugMon_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g473xx.o(RESET)
 </UL>
-<P><STRONG><a name="[d9]"></a>Debug_printf</STRONG> (Thumb, 76 bytes, Stack size 536 bytes, uart_debug.o(i.Debug_printf))
-<BR><BR>[Stack]<UL><LI>Max Depth = 664 + Unknown Stack Size
+<P><STRONG><a name="[d9]"></a>Debug_printf</STRONG> (Thumb, 82 bytes, Stack size 1048 bytes, uart_debug.o(i.Debug_printf))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1176 + Unknown Stack Size
 <LI>Call Chain = Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vsnprintf
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_IT
 </UL>
-<BR>[Called By]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task1_Handler
+<BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task1_Handler
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Hardware
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_App
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGM58031_ReadChannel
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Write16
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Read16
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGM58031_ReadVoltage
 </UL>
 
 <P><STRONG><a name="[5]"></a>HardFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g4xx_it.o(i.HardFault_Handler))
@@ -1258,8 +1260,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g473xx.o(RESET)
 </UL>
-<P><STRONG><a name="[dc]"></a>I2C1_Init</STRONG> (Thumb, 194 bytes, Stack size 64 bytes, sgm58031.o(i.I2C1_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = I2C1_Init &rArr; LL_GPIO_Init
+<P><STRONG><a name="[dc]"></a>I2C1_Init</STRONG> (Thumb, 214 bytes, Stack size 80 bytes, sgm58031.o(i.I2C1_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = I2C1_Init &rArr; LL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_GPIO_Init
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_I2C_Init
@@ -1269,30 +1271,30 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Hardware
 </UL>
 
-<P><STRONG><a name="[e1]"></a>I2C_Read16</STRONG> (Thumb, 290 bytes, Stack size 40 bytes, sgm58031.o(i.I2C_Read16))
-<BR><BR>[Stack]<UL><LI>Max Depth = 704 + Unknown Stack Size
-<LI>Call Chain = I2C_Read16 &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[e1]"></a>I2C_Read16</STRONG> (Thumb, 244 bytes, Stack size 32 bytes, sgm58031.o(i.I2C_Read16))
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = I2C_Read16 &rArr; LL_I2C_HandleTransfer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_printf
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_I2C_HandleTransfer
+<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_I2C_HandleTransfer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGM58031_ReadChannel
 </UL>
 
-<P><STRONG><a name="[e3]"></a>I2C_Write16</STRONG> (Thumb, 204 bytes, Stack size 32 bytes, sgm58031.o(i.I2C_Write16))
-<BR><BR>[Stack]<UL><LI>Max Depth = 696 + Unknown Stack Size
-<LI>Call Chain = I2C_Write16 &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[e3]"></a>I2C_Write16</STRONG> (Thumb, 198 bytes, Stack size 32 bytes, sgm58031.o(i.I2C_Write16))
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = I2C_Write16 &rArr; LL_I2C_HandleTransfer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_printf
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_I2C_HandleTransfer
+<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_I2C_HandleTransfer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGM58031_Init
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGM58031_ReadChannel
 </UL>
 
+<P><STRONG><a name="[123]"></a>IWDG_Init</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, init.o(i.IWDG_Init))
+<BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
 <P><STRONG><a name="[e4]"></a>Init_App</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, init.o(i.Init_App))
-<BR><BR>[Stack]<UL><LI>Max Depth = 704 + Unknown Stack Size
-<LI>Call Chain = Init_App &rArr; SGM58031_Init &rArr; I2C_Write16 &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 1184 + Unknown Stack Size
+<LI>Call Chain = Init_App &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGM58031_Init
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_printf
@@ -1303,7 +1305,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[e7]"></a>Init_Hardware</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, init.o(i.Init_Hardware))
-<BR><BR>[Stack]<UL><LI>Max Depth = 672 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1184 + Unknown Stack Size
 <LI>Call Chain = Init_Hardware &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC4_Init
@@ -1320,7 +1322,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[119]"></a>Init_Sys</STRONG> (Thumb, 112 bytes, Stack size 8 bytes, init.o(i.Init_Sys))
+<P><STRONG><a name="[122]"></a>Init_Sys</STRONG> (Thumb, 112 bytes, Stack size 8 bytes, init.o(i.Init_Sys))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Init_Sys
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1370,8 +1372,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C1_Init
 </UL>
 
-<P><STRONG><a name="[10e]"></a>LL_Init1msTick</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32g4xx_ll_utils.o(i.LL_Init1msTick))
-<BR><BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<P><STRONG><a name="[111]"></a>LL_Init1msTick</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32g4xx_ll_utils.o(i.LL_Init1msTick))
+<BR><BR>[Called By]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[f0]"></a>LL_RCC_GetUARTClockFreq</STRONG> (Thumb, 130 bytes, Stack size 16 bytes, stm32g4xx_ll_rcc.o(i.LL_RCC_GetUARTClockFreq))
@@ -1399,8 +1401,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_USART_Init
 </UL>
 
-<P><STRONG><a name="[10f]"></a>LL_SetSystemCoreClock</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32g4xx_ll_utils.o(i.LL_SetSystemCoreClock))
-<BR><BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<P><STRONG><a name="[112]"></a>LL_SetSystemCoreClock</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32g4xx_ll_utils.o(i.LL_SetSystemCoreClock))
+<BR><BR>[Called By]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[f8]"></a>LL_USART_Init</STRONG> (Thumb, 218 bytes, Stack size 24 bytes, stm32g4xx_ll_usart.o(i.LL_USART_Init))
@@ -1491,7 +1493,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Hardware
 </UL>
 
-<P><STRONG><a name="[e8]"></a>MX_GPIO_Init</STRONG> (Thumb, 582 bytes, Stack size 64 bytes, gpio.o(i.MX_GPIO_Init))
+<P><STRONG><a name="[e8]"></a>MX_GPIO_Init</STRONG> (Thumb, 540 bytes, Stack size 64 bytes, gpio.o(i.MX_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = MX_GPIO_Init &rArr; LL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_GPIO_Init
@@ -1524,25 +1526,38 @@ Global Symbols
 <P><STRONG><a name="[b]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g4xx_it.o(i.PendSV_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g473xx.o(RESET)
 </UL>
+<P><STRONG><a name="[10d]"></a>SGM58031_ConvertToVoltage_4096V</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, sgm58031.o(i.SGM58031_ConvertToVoltage_4096V))
+<BR><BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGM58031_ReadVoltage
+</UL>
+
 <P><STRONG><a name="[e6]"></a>SGM58031_Init</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, sgm58031.o(i.SGM58031_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 696 + Unknown Stack Size
-<LI>Call Chain = SGM58031_Init &rArr; I2C_Write16 &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = SGM58031_Init &rArr; I2C_Write16 &rArr; LL_I2C_HandleTransfer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Write16
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_App
 </UL>
 
-<P><STRONG><a name="[10a]"></a>SGM58031_ReadChannel</STRONG> (Thumb, 122 bytes, Stack size 24 bytes, sgm58031.o(i.SGM58031_ReadChannel))
-<BR><BR>[Stack]<UL><LI>Max Depth = 728 + Unknown Stack Size
-<LI>Call Chain = SGM58031_ReadChannel &rArr; I2C_Read16 &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[10a]"></a>SGM58031_ReadChannel</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, sgm58031.o(i.SGM58031_ReadChannel))
+<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = SGM58031_ReadChannel &rArr; I2C_Write16 &rArr; LL_I2C_HandleTransfer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_GetTick
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_printf
+<BR>[Calls]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Delayms
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Write16
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Read16
 </UL>
-<BR>[Called By]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task1_Handler
+<BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGM58031_ReadVoltage
+</UL>
+
+<P><STRONG><a name="[10c]"></a>SGM58031_ReadVoltage</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, sgm58031.o(i.SGM58031_ReadVoltage))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1200 + Unknown Stack Size
+<LI>Call Chain = SGM58031_ReadVoltage &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_printf
+<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGM58031_ReadChannel
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGM58031_ConvertToVoltage_4096V
+</UL>
+<BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task1_Handler
 </UL>
 
 <P><STRONG><a name="[9]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g4xx_it.o(i.SVC_Handler))
@@ -1551,12 +1566,12 @@ Global Symbols
 <P><STRONG><a name="[c]"></a>SysTick_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g4xx_it.o(i.SysTick_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g473xx.o(RESET)
 </UL>
-<P><STRONG><a name="[10c]"></a>SystemClock_Config</STRONG> (Thumb, 182 bytes, Stack size 16 bytes, init.o(i.SystemClock_Config))
+<P><STRONG><a name="[10f]"></a>SystemClock_Config</STRONG> (Thumb, 182 bytes, Stack size 16 bytes, init.o(i.SystemClock_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SystemClock_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_SetSystemCoreClock
-<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_Init1msTick
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_RCC_SetAHBPrescaler
+<BR>[Calls]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_SetSystemCoreClock
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_Init1msTick
+<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_RCC_SetAHBPrescaler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1567,18 +1582,19 @@ Global Symbols
 <P><STRONG><a name="[29]"></a>TIM2_IRQHandler</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, sys_timer.o(i.TIM2_IRQHandler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g473xx.o(RESET)
 </UL>
-<P><STRONG><a name="[110]"></a>Task1_Handler</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, task.o(i.Task1_Handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 744 + Unknown Stack Size
-<LI>Call Chain = Task1_Handler &rArr; SGM58031_ReadChannel &rArr; I2C_Read16 &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[113]"></a>Task1_Handler</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, task.o(i.Task1_Handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1224 + Unknown Stack Size
+<LI>Call Chain = Task1_Handler &rArr; SGM58031_ReadVoltage &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Parse_Data
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_printf
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGM58031_ReadChannel
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_printf
+<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGM58031_ReadVoltage
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Parse_Data
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[112]"></a>Task2_Handler</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, task.o(i.Task2_Handler))
+<P><STRONG><a name="[115]"></a>Task2_Handler</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, task.o(i.Task2_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = Task2_Handler &rArr; DAC8562_SetVoltage &rArr; DAC8562_SendCommand
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC8562_SetVoltage
@@ -1586,73 +1602,81 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[113]"></a>Task3_Handler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, task.o(i.Task3_Handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = Task3_Handler &rArr; UART1_Send_Struct &rArr; UART1_Send_IT
+<P><STRONG><a name="[116]"></a>Task3_Handler</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, task.o(i.Task3_Handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = Task3_Handler &rArr; UART1_Send_Struct &rArr; UART1_Send_IT &rArr; Uart1TxQueueAdd
 </UL>
-<BR>[Calls]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_Struct
+<BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_Struct
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ef]"></a>UART1_Init</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, uart_comm.o(i.UART1_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = UART1_Init &rArr; MX_USART1_UART_Init &rArr; LL_USART_Init &rArr; LL_RCC_GetUSARTClockFreq
+<P><STRONG><a name="[ef]"></a>UART1_Init</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, uart_comm.o(i.UART1_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = UART1_Init &rArr; MX_USART1_UART_Init &rArr; LL_USART_Init &rArr; LL_RCC_GetUSARTClockFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EncodePriority
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Hardware
 </UL>
 
-<P><STRONG><a name="[111]"></a>UART1_Parse_Data</STRONG> (Thumb, 166 bytes, Stack size 12 bytes, uart_comm.o(i.UART1_Parse_Data))
+<P><STRONG><a name="[114]"></a>UART1_Parse_Data</STRONG> (Thumb, 166 bytes, Stack size 12 bytes, uart_comm.o(i.UART1_Parse_Data))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = UART1_Parse_Data
 </UL>
-<BR>[Called By]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task1_Handler
+<BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task1_Handler
 </UL>
 
-<P><STRONG><a name="[116]"></a>UART1_Send_IT</STRONG> (Thumb, 136 bytes, Stack size 24 bytes, uart_comm.o(i.UART1_Send_IT))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = UART1_Send_IT
+<P><STRONG><a name="[119]"></a>UART1_Send_IT</STRONG> (Thumb, 76 bytes, Stack size 16 bytes, uart_comm.o(i.UART1_Send_IT))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = UART1_Send_IT &rArr; Uart1TxQueueAdd
 </UL>
-<BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart1TxQueueIsFull
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart1TxQueueAdd
+<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart1StartNextTransmission
 </UL>
-<BR>[Called By]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_Struct
-</UL>
-
-<P><STRONG><a name="[114]"></a>UART1_Send_Struct</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, uart_comm.o(i.UART1_Send_Struct))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = UART1_Send_Struct &rArr; UART1_Send_IT
-</UL>
-<BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
-</UL>
-<BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task3_Handler
+<BR>[Called By]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_Struct
 </UL>
 
-<P><STRONG><a name="[e9]"></a>UART_Init</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, uart_debug.o(i.UART_Init))
+<P><STRONG><a name="[117]"></a>UART1_Send_Struct</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, uart_comm.o(i.UART1_Send_Struct))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = UART1_Send_Struct &rArr; UART1_Send_IT &rArr; Uart1TxQueueAdd
+</UL>
+<BR>[Calls]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
+</UL>
+<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task3_Handler
+</UL>
+
+<P><STRONG><a name="[e9]"></a>UART_Init</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, uart_debug.o(i.UART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = UART_Init &rArr; MX_USART3_UART_Init &rArr; LL_USART_Init &rArr; LL_RCC_GetUSARTClockFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+<BR>[Calls]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
-<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitHardUart
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitHardUart
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Hardware
 </UL>
 
-<P><STRONG><a name="[db]"></a>UART_Send_IT</STRONG> (Thumb, 128 bytes, Stack size 24 bytes, uart_debug.o(i.UART_Send_IT))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = UART_Send_IT
+<P><STRONG><a name="[db]"></a>UART_Send_IT</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, uart_debug.o(i.UART_Send_IT))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = UART_Send_IT &rArr; UartTxQueueAdd
 </UL>
-<BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<BR>[Calls]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UartTxQueueIsFull
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UartTxQueueAdd
+<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UartStartNextTransmission
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_printf
 </UL>
 
-<P><STRONG><a name="[32]"></a>USART1_IRQHandler</STRONG> (Thumb, 120 bytes, Stack size 8 bytes, uart_comm.o(i.USART1_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USART1_IRQHandler
+<P><STRONG><a name="[32]"></a>USART1_IRQHandler</STRONG> (Thumb, 160 bytes, Stack size 8 bytes, uart_comm.o(i.USART1_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = USART1_IRQHandler &rArr; Uart1StartNextTransmission
+</UL>
+<BR>[Calls]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart1StartNextTransmission
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g473xx.o(RESET)
 </UL>
-<P><STRONG><a name="[34]"></a>USART3_IRQHandler</STRONG> (Thumb, 126 bytes, Stack size 8 bytes, uart_debug.o(i.USART3_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USART3_IRQHandler
+<P><STRONG><a name="[34]"></a>USART3_IRQHandler</STRONG> (Thumb, 166 bytes, Stack size 8 bytes, uart_debug.o(i.USART3_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = USART3_IRQHandler &rArr; UartStartNextTransmission
+</UL>
+<BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UartStartNextTransmission
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g473xx.o(RESET)
 </UL>
@@ -1674,17 +1698,18 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__printf
 </UL>
 
-<P><STRONG><a name="[a2]"></a>main</STRONG> (Thumb, 58 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 744 + Unknown Stack Size
-<LI>Call Chain = main &rArr; Task1_Handler &rArr; SGM58031_ReadChannel &rArr; I2C_Read16 &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[a2]"></a>main</STRONG> (Thumb, 66 bytes, Stack size 0 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1224 + Unknown Stack Size
+<LI>Call Chain = main &rArr; Task1_Handler &rArr; SGM58031_ReadVoltage &rArr; Debug_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task3_Handler
-<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task2_Handler
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task1_Handler
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
-<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Sys
+<BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task3_Handler
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task2_Handler
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task1_Handler
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Sys
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Hardware
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_App
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IWDG_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
@@ -1692,7 +1717,7 @@ Global Symbols
 <P><STRONG><a name="[9c]"></a>_get_lc_numeric</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, lc_numeric_c.o(locale$$code))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _get_lc_numeric
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_lc_numeric_2
 </UL>
@@ -1700,19 +1725,39 @@ Global Symbols
 <P><STRONG><a name="[6e]"></a>_get_lc_ctype</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, lc_ctype_c.o(locale$$code))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _get_lc_ctype
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_lc_ctype_2
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> rt_ctype_table.o(.text)
 </UL>
+<P><STRONG><a name="[127]"></a>__fpl_dretinf</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dretinf.o(x$fpl$dretinf), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
+</UL>
+
+<P><STRONG><a name="[10e]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2d
+</UL>
+<BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task1_Handler
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGM58031_ReadVoltage
+</UL>
+
+<P><STRONG><a name="[125]"></a>_f2d</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
+</UL>
+
+<P><STRONG><a name="[126]"></a>__fpl_fnaninf</STRONG> (Thumb, 140 bytes, Stack size 8 bytes, fnaninf.o(x$fpl$fnaninf), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
+</UL>
+
 <P><STRONG><a name="[97]"></a>_fp_init</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, fpinit.o(x$fpl$fpinit))
 <BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_fp_1
 </UL>
 
-<P><STRONG><a name="[150]"></a>__fplib_config_fpu_vfp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
+<P><STRONG><a name="[15d]"></a>__fplib_config_fpu_vfp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
 
-<P><STRONG><a name="[151]"></a>__fplib_config_pureend_doubles</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
+<P><STRONG><a name="[15e]"></a>__fplib_config_pureend_doubles</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fpinit.o(x$fpl$fpinit), UNUSED)
 
 <P><STRONG><a name="[79]"></a>_printf_fp_dec</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, printf1.o(x$fpl$printf1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 324<LI>Call Chain = _printf_fp_dec &rArr; _printf_fp_dec_real &rArr; _fp_digits &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
@@ -1836,8 +1881,8 @@ Local Symbols
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_RCC_GetUARTClockFreq
 </UL>
 
-<P><STRONG><a name="[10d]"></a>LL_RCC_SetAHBPrescaler</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, init.o(i.LL_RCC_SetAHBPrescaler))
-<BR><BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<P><STRONG><a name="[110]"></a>LL_RCC_SetAHBPrescaler</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, init.o(i.LL_RCC_SetAHBPrescaler))
+<BR><BR>[Called By]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[105]"></a>MX_USART1_UART_Init</STRONG> (Thumb, 298 bytes, Stack size 88 bytes, uart_comm.o(i.MX_USART1_UART_Init))
@@ -1860,6 +1905,29 @@ Local Symbols
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Init
 </UL>
 
+<P><STRONG><a name="[11c]"></a>Uart1StartNextTransmission</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, uart_comm.o(i.Uart1StartNextTransmission))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Uart1StartNextTransmission
+</UL>
+<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+</UL>
+<BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
+<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
+</UL>
+
+<P><STRONG><a name="[11b]"></a>Uart1TxQueueAdd</STRONG> (Thumb, 84 bytes, Stack size 24 bytes, uart_comm.o(i.Uart1TxQueueAdd))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Uart1TxQueueAdd
+</UL>
+<BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart1TxQueueIsFull
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+</UL>
+<BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
+</UL>
+
+<P><STRONG><a name="[11a]"></a>Uart1TxQueueIsFull</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, uart_comm.o(i.Uart1TxQueueIsFull))
+<BR><BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart1TxQueueAdd
+<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
+</UL>
+
 <P><STRONG><a name="[108]"></a>__NVIC_EnableIRQ</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, uart_comm.o(i.__NVIC_EnableIRQ))
 <BR><BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Init
@@ -1870,11 +1938,11 @@ Local Symbols
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Init
 </UL>
 
-<P><STRONG><a name="[118]"></a>InitHardUart</STRONG> (Thumb, 94 bytes, Stack size 0 bytes, uart_debug.o(i.InitHardUart))
+<P><STRONG><a name="[11d]"></a>InitHardUart</STRONG> (Thumb, 82 bytes, Stack size 0 bytes, uart_debug.o(i.InitHardUart))
 <BR><BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
 </UL>
 
-<P><STRONG><a name="[109]"></a>MX_USART3_UART_Init</STRONG> (Thumb, 266 bytes, Stack size 88 bytes, uart_debug.o(i.MX_USART3_UART_Init))
+<P><STRONG><a name="[109]"></a>MX_USART3_UART_Init</STRONG> (Thumb, 216 bytes, Stack size 88 bytes, uart_debug.o(i.MX_USART3_UART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = MX_USART3_UART_Init &rArr; LL_USART_Init &rArr; LL_RCC_GetUSARTClockFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_GPIO_Init
@@ -1882,6 +1950,29 @@ Local Symbols
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
+</UL>
+
+<P><STRONG><a name="[120]"></a>UartStartNextTransmission</STRONG> (Thumb, 110 bytes, Stack size 24 bytes, uart_debug.o(i.UartStartNextTransmission))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = UartStartNextTransmission
+</UL>
+<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+</UL>
+<BR>[Called By]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_IRQHandler
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_IT
+</UL>
+
+<P><STRONG><a name="[11f]"></a>UartTxQueueAdd</STRONG> (Thumb, 88 bytes, Stack size 24 bytes, uart_debug.o(i.UartTxQueueAdd))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = UartTxQueueAdd
+</UL>
+<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UartTxQueueIsFull
+</UL>
+<BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_IT
+</UL>
+
+<P><STRONG><a name="[11e]"></a>UartTxQueueIsFull</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, uart_debug.o(i.UartTxQueueIsFull))
+<BR><BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_IT
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UartTxQueueAdd
 </UL>
 
 <P><STRONG><a name="[de]"></a>LL_AHB2_GRP1_EnableClock</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, sgm58031.o(i.LL_AHB2_GRP1_EnableClock))

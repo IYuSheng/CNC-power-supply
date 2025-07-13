@@ -9,6 +9,7 @@
 #include "semphr.h"
 #include "stm32g4xx_ll_usart.h"
 #include "usart.h"
+#include "CommandHandlers.h"
 
 extern uint8_t S_F;	//定义操作系统是否启动
 

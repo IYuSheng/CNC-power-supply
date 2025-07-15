@@ -68,7 +68,8 @@ M24C64_Status_t M24C64_PageWrite(uint16_t addr, const uint8_t *data, uint16_t le
   for (uint16_t i = 0; i < len; i++)
     {
       buffer[2 + i] = data[i];
-    }// I2C发送（带自动结束位）
+    }
+  // I2C发送（带自动结束位）
   uint32_t timeout = M24C64_TIMEOUT;
   while (!LL_I2C_IsActiveFlag_TXE(I2C1) && timeout-- > 0);
   if (timeout == 0) return M24C64_ERROR_TIMEOUT;
@@ -98,6 +99,7 @@ M24C64_Status_t M24C64_PageWrite(uint16_t addr, const uint8_t *data, uint16_t le
 
   return M24C64_OK;
 }
+
 /**
  * @brief  连续读取（可跨页）
  * @param  addr: 存储地址（0~8191）
@@ -199,10 +201,30 @@ M24C64_Status_t M24C64_CheckReady(void)
 
 void vStorageTask(void *pvParameters)
 {
-  M24C64_Init();
-  for (;;)
+    M24C64_Init();
+    
+    uint8_t test_array[4] = {1, 2, 3, 4};
+    uint8_t read_array[4] = {0};
+    
+    for (;;)
     {
+        // 方法1：使用单字节写入（简单但较慢）
+        for (int i = 0; i < 4; i++)
+        {
+            M24C64_WriteByte(i, test_array[i]);
+            vTaskDelay(pdMS_TO_TICKS(10)); // 写入间隔
+        }
+        
+        // 读取验证
+        M24C64_Read(0, read_array, 4);
 
-      vTaskDelay(pdMS_TO_TICKS(10));  // 10ms延时
+        fr_printf("Read Data: %d %d %d %d", read_array[0], read_array[1], read_array[2], read_array[3]);
+        
+        // 方法2：使用页对齐地址写入（推荐）
+        // 使用地址0（页对齐）
+        // M24C64_PageWrite(0, test_array, 4);
+        // M24C64_Read(0, read_array, 4);
+        
+        vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }

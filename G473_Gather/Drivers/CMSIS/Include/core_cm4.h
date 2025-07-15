@@ -32,6 +32,7 @@
 #define __CORE_CM4_H_GENERIC
 
 #include <stdint.h>
+#include "stm32g473xx.h"
 
 #ifdef __cplusplus
  extern "C" {
@@ -73,6 +74,7 @@
 /** __FPU_USED indicates whether an FPU is used or not.
     For this, __FPU_PRESENT has to be checked prior to making use of FPU specific registers and functions.
 */
+
 #if defined ( __CC_ARM )
   #if defined __TARGET_FPU_VFP
     #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)

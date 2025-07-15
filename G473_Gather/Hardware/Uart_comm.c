@@ -243,7 +243,7 @@ void UART1_Send_Struct(UART_TxStruct *tx_struct)
 {
   if (tx_struct == NULL) return;
 
-  // 计算帧总大小（帧头1字节 + 结构体6字节 + 帧尾1字节）
+  // 计算帧总大小（帧头1字节 + 结构体 + 帧尾1字节）
   const uint8_t header_size = 1;
   const uint8_t footer_size = 1;
   const uint8_t struct_size = sizeof(UART_TxStruct);

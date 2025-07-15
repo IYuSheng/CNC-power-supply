@@ -51,6 +51,7 @@ extern "C" {
 #include "DAC8562.h"
 #include "SGM58031.h"
 #include "DWT_Delay.h"
+#include "Common_ADC.h"
 
 extern volatile bool task1_flag;
 extern volatile bool task2_flag;

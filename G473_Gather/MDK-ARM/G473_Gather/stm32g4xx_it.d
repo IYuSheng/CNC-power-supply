@@ -5,6 +5,7 @@ g473_gather\stm32g4xx_it.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4
 g473_gather\stm32g4xx_it.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h
 g473_gather\stm32g4xx_it.o: ../Drivers/CMSIS/Include/core_cm4.h
 g473_gather\stm32g4xx_it.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdint.h
+g473_gather\stm32g4xx_it.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h
 g473_gather\stm32g4xx_it.o: ../Drivers/CMSIS/Include/cmsis_version.h
 g473_gather\stm32g4xx_it.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 g473_gather\stm32g4xx_it.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -41,4 +42,6 @@ g473_gather\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_spi
 g473_gather\stm32g4xx_it.o: ..\Hardware\SGM58031.h
 g473_gather\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_i2c.h
 g473_gather\stm32g4xx_it.o: ..\BSP\DWT_Delay.h
+g473_gather\stm32g4xx_it.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\math.h
+g473_gather\stm32g4xx_it.o: ..\Hardware\Common_ADC.h
 g473_gather\stm32g4xx_it.o: ../Core/Inc/stm32g4xx_it.h

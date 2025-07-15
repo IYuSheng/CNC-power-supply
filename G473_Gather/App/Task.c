@@ -15,13 +15,13 @@ void Task1_Handler(void)
   float voltages[4];
 
   SGM58031_ReadVoltage(I2C1, 0, &voltages[0]);
-  Debug_printf("Channel %d: %.4f V", 0, voltages[0]);
+  //Debug_printf("Channel %d: %.4f V", 0, voltages[0]);
   SGM58031_ReadVoltage(I2C1, 1, &voltages[1]);
-  Debug_printf("Channel %d: %.4f V", 1, voltages[1]);
+  //Debug_printf("Channel %d: %.4f V", 1, voltages[1]);
   SGM58031_ReadVoltage(I2C1, 2, &voltages[2]);
-  Debug_printf("Channel %d: %.4f V", 2, voltages[2]);
+  //Debug_printf("Channel %d: %.4f V", 2, voltages[2]);
   SGM58031_ReadVoltage(I2C1, 3, &voltages[3]);
-  Debug_printf("Channel %d: %.4f V", 3, voltages[3]);
+  //Debug_printf("Channel %d: %.4f V", 3, voltages[3]);
 
   // 读取所有通道电压
 //  for(uint8_t ch = 0; ch < 4; ch++)
@@ -71,9 +71,26 @@ void Task2_Handler(void)
   */
 void Task3_Handler(void)
 {
+	/* -------------------------读取任务--------------------------- */
+	
+	/* 读取CommonADC任务 */
+  Common_ADC_ManualSample();  // 触发ADC采样
 
-  /* 发送任务 */
-
+  // 更新传感器数据（转换为mV便于传输）
+  sensor_data.adc1 = (uint16_t)(Common_ADC_GetVoltage(ADC_CH_PB12) * 1000);
+  sensor_data.adc2 = (uint16_t)(Common_ADC_GetVoltage(ADC_CH_PB15) * 1000);
+  sensor_data.adc3 = (uint16_t)(Common_ADC_GetVoltage(ADC_CH_PB13) * 1000);
+  sensor_data.adc4 = (uint16_t)(Common_ADC_GetVoltage(ADC_CH_PB14) * 1000);
+	
+	/* 调试输出 */
+  Debug_printf("ADC Values: %d,%d,%d,%d mV\r\n", 
+               sensor_data.adc1, 
+               sensor_data.adc2,
+               sensor_data.adc3,
+               sensor_data.adc4);
+	
+  /* -------------------------发送任务--------------------------- */
+	
   /* 发送传感器数据到上位机） */
   UART1_Send_Struct(&sensor_data);
 

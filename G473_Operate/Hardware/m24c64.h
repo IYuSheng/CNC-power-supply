@@ -21,6 +21,7 @@ typedef enum
   M24C64_ERROR_TIMEOUT, // 超时
   M24C64_ERROR_PARAM    // 参数错误
 } M24C64_Status_t;// 初始化M24C64（检查连接）
+
 M24C64_Status_t M24C64_Init(void);
 
 // 读取单个字节

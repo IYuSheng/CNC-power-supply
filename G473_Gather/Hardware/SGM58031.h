@@ -7,6 +7,7 @@
 #include "stm32g4xx_ll_system.h"
 #include "Uart_Debug.h"
 #include "DWT_Delay.h"
+#include <math.h>
 
 // ≥¨ ±…Ë÷√
 #define I2C_TIMEOUT 100000

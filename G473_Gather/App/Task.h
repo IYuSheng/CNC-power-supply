@@ -8,6 +8,7 @@
 #include "Uart_comm.h"
 #include "DAC8562.h"
 #include "SGM58031.h"
+#include "Common_ADC.h"
 
 void Task1_Handler(void);
 void Task2_Handler(void);

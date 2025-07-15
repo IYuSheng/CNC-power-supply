@@ -28,6 +28,10 @@ typedef struct
   uint16_t voltage;    // 电压（mV）
   uint16_t current;    // 电流（mA）
   uint16_t temperature; // 温度（℃）
+	uint16_t adc1;
+	uint16_t adc2;
+	uint16_t adc3;
+	uint16_t adc4;
 } UART_TxStruct;
 
 // 定义接收相关结构体（与发送端匹配）

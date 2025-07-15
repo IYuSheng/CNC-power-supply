@@ -12,6 +12,7 @@ void Init_Hardware(void)
 	MX_TIM2_Init();
 	UART1_Init();
 	I2C1_Init();
+	Common_ADC_Init();
 	Debug_printf("Hardware Init Success");
 }
 
@@ -46,14 +47,13 @@ void SystemClock_Config(void)
   {
   }
   LL_PWR_EnableRange1BoostMode();
-  LL_RCC_HSI_Enable();
-   /* Wait till HSI is ready */
-  while(LL_RCC_HSI_IsReady() != 1)
+  LL_RCC_HSE_Enable();
+   /* Wait till HSE is ready */
+  while(LL_RCC_HSE_IsReady() != 1)
   {
   }
 
-  LL_RCC_HSI_SetCalibTrimming(64);
-  LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSI, LL_RCC_PLLM_DIV_4, 85, LL_RCC_PLLR_DIV_2);
+  LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSE, LL_RCC_PLLM_DIV_2, 85, LL_RCC_PLLR_DIV_2);
   LL_RCC_PLL_EnableDomain_SYS();
   LL_RCC_PLL_Enable();
    /* Wait till PLL is ready */
@@ -80,6 +80,47 @@ void SystemClock_Config(void)
 
   LL_SetSystemCoreClock(170000000);
 }
+//void SystemClock_Config(void)
+//{
+//  LL_FLASH_SetLatency(LL_FLASH_LATENCY_4);
+//  while(LL_FLASH_GetLatency() != LL_FLASH_LATENCY_4)
+//  {
+//  }
+//  LL_PWR_EnableRange1BoostMode();
+//  LL_RCC_HSI_Enable();
+//   /* Wait till HSI is ready */
+//  while(LL_RCC_HSI_IsReady() != 1)
+//  {
+//  }
+
+//  LL_RCC_HSI_SetCalibTrimming(64);
+//  LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSI, LL_RCC_PLLM_DIV_4, 85, LL_RCC_PLLR_DIV_2);
+//  LL_RCC_PLL_EnableDomain_SYS();
+//  LL_RCC_PLL_Enable();
+//   /* Wait till PLL is ready */
+//  while(LL_RCC_PLL_IsReady() != 1)
+//  {
+//  }
+
+//  LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
+//  LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_2);
+//   /* Wait till System clock is ready */
+//  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL)
+//  {
+//  }
+
+//  /* Insure 1us transition state at intermediate medium speed clock*/
+//  for (__IO uint32_t i = (170 >> 1); i !=0; i--);
+
+//  /* Set AHB prescaler*/
+//  LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
+//  LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_1);
+//  LL_RCC_SetAPB2Prescaler(LL_RCC_APB2_DIV_1);
+
+//  LL_Init1msTick(170000000);
+
+//  LL_SetSystemCoreClock(170000000);
+//}
 
 /**
  * @brief 初始化独立看门狗（IWDG）

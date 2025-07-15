@@ -144,8 +144,8 @@ ADC_StatusTypeDef I2C_Write16(I2C_TypeDef *I2Cx, uint8_t slave_addr, uint8_t reg
 // 增强型I2C读函数（支持16位数据）
 ADC_StatusTypeDef I2C_Read16(I2C_TypeDef *I2Cx, uint8_t slave_addr, uint8_t reg_addr, uint16_t *data)
 {
-
   uint32_t timeout = I2C_TIMEOUT;
+  *data = 0;
   while(LL_I2C_IsActiveFlag_BUSY(I2Cx))
 
     {
@@ -274,53 +274,42 @@ void SGM58031_Init(I2C_TypeDef *I2Cx)
 
 ADC_StatusTypeDef SGM58031_ReadChannel(I2C_TypeDef *I2Cx, uint8_t channel, int16_t *result)
 {
-  if(channel > 3) return ADC_ERROR;
+  if(channel > 4)
+    {
+      *result = 0x8000; // 无效通道标记
+      return ADC_ERROR;
+    }
 
-    // 配置为单端模式，明确设置PGA为±4.096V
-    uint16_t channel_config = SGM58031_CONFIG_OS_SINGLE |      // 启动单次转换
-                             SGM58031_CONFIG_MODE_SINGLE |     // 单次模式
-                             SGM58031_CONFIG_PGA_4096 |        // ±4.096V量程
-                             SGM58031_CONFIG_DR_800 |          // 采样率
-                             ((channel + 4) << 12);            // 设置通道（单端）
+  // 配置为单端模式，明确设置PGA为±4.096V
+  uint16_t channel_config = SGM58031_CONFIG_OS_SINGLE |      // 启动单次转换
+                            SGM58031_CONFIG_MODE_SINGLE |     // 单次模式
+                            SGM58031_CONFIG_PGA_4096 |        // ±4.096V量程
+                            SGM58031_CONFIG_DR_800 |          // 采样率
+                            ((channel + 4) << 12);            // 设置通道（单端）
 
   // 写入配置寄存器
   ADC_StatusTypeDef status = I2C_Write16(I2Cx, SGM58031_I2C_ADDR,
                                          SGM58031_REG_CONFIG, channel_config);
   if(status != ADC_OK)
     {
+      *result = 0x8000; // 写失败：标记无效
       return status;
     }
 
   // 增加通道切换延时
-  //DWT_Delayms(10);  // 等待10ms确保通道切换完成
-		
-		 // 非阻塞轮询：等待转换完成（OS位清零）
-    uint32_t timeout = 5000;  // 超时计数（约5ms，远大于1.25ms转换时间）
-    uint16_t config_status;
-    do {
-        // 读取配置寄存器，检查OS位状态
-        status = I2C_Read16(I2Cx, SGM58031_I2C_ADDR, SGM58031_REG_CONFIG, &config_status);
-        if(status != ADC_OK) return status;  // I2C读取失败
-
-        // 若OS位为0，说明转换完成
-        if((config_status & SGM58031_CONFIG_OS_MASK) == 0) {
-            break;
-        }
-    } while(timeout-- > 0);  // 超时退出
-
-    if(timeout == 0) return ADC_TIMEOUT;  // 转换超时
+  DWT_Delayms(10);  // 等待10ms确保通道切换完成
 
   // 读取转换结果
   uint16_t raw_data;
   status = I2C_Read16(I2Cx, SGM58031_I2C_ADDR, SGM58031_REG_CONV, &raw_data);
-		
+
   if(status != ADC_OK)
     {
       return status;
     }
-		
+
   *result = (int16_t)raw_data;
-		
+
   return ADC_OK;
 }
 
@@ -346,6 +335,12 @@ ADC_StatusTypeDef SGM58031_ReadConfig(I2C_TypeDef *I2Cx, uint16_t *config)
 // 根据PGA设置转换ADC值为电压
 float SGM58031_ConvertToVoltage(int16_t adc_raw, uint16_t pga_config)
 {
+  // 校验数据有效性（无效数据返回NaN，便于上层识别）
+  if(adc_raw < -32768 || adc_raw > 32767)
+    {
+      return NAN; // 非数字，表示无效值
+    }
+
   float fsr; // Full Scale Range
 
   switch(pga_config)
@@ -387,20 +382,26 @@ float SGM58031_ConvertToVoltage_4096V(int16_t adc_raw)
 ADC_StatusTypeDef SGM58031_ReadVoltage(I2C_TypeDef *I2Cx, uint8_t channel, float *voltage)
 {
   int16_t adc_raw;
-  ADC_StatusTypeDef status;
+  ADC_StatusTypeDef status = SGM58031_ReadChannel(I2Cx, channel, &adc_raw);
 
-  // 读取原始ADC值
-  status = SGM58031_ReadChannel(I2Cx, channel, &adc_raw);
   if(status != ADC_OK)
     {
+      *voltage = NAN;
+			Debug_printf("Channel %d: ADC通信失败（无设备响应）", channel);
       return status;
     }
 
   // 转换为电压值（使用4.096V满量程）
   *voltage = SGM58031_ConvertToVoltage_4096V(adc_raw);
 
-  Debug_printf("Channel %d: Raw=0x%04X (%d), Voltage=%.4fV",
-               channel, (uint16_t)adc_raw, adc_raw, *voltage);
+  if(isnan(*voltage))
+    {
+       Debug_printf("Channel %d: ADC数据无效（原始值超出范围）", channel);
+    }
+  else
+    {
+      Debug_printf("Channel %d: Raw=0x%04X, Voltage=%.4fV", channel, adc_raw, *voltage);
+    }
 
   return ADC_OK;
 }

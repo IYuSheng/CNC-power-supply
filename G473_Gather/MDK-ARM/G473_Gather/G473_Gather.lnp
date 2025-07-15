@@ -23,6 +23,7 @@
 "g473_gather\uart_debug.o"
 "g473_gather\sgm58031.o"
 "g473_gather\dac8562.o"
+"g473_gather\common_adc.o"
 "g473_gather\task.o"
 "g473_gather\calculate.o"
 --strict --scatter "G473_Gather\G473_Gather.sct"

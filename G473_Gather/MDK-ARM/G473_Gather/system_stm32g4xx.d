@@ -3,6 +3,7 @@ g473_gather\system_stm32g4xx.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm
 g473_gather\system_stm32g4xx.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h
 g473_gather\system_stm32g4xx.o: ../Drivers/CMSIS/Include/core_cm4.h
 g473_gather\system_stm32g4xx.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdint.h
+g473_gather\system_stm32g4xx.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h
 g473_gather\system_stm32g4xx.o: ../Drivers/CMSIS/Include/cmsis_version.h
 g473_gather\system_stm32g4xx.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 g473_gather\system_stm32g4xx.o: ../Drivers/CMSIS/Include/cmsis_armcc.h

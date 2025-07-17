@@ -56,6 +56,7 @@ extern "C" {
 extern volatile bool task1_flag;
 extern volatile bool task2_flag;
 extern volatile bool task3_flag;
+extern volatile bool task4_flag;
 
 #if defined(USE_FULL_ASSERT)
 #include "stm32_assert.h"

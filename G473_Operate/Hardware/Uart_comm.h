@@ -19,7 +19,8 @@ typedef struct
 {
   uint8_t start_flag;  // 启动标志：0=停止，1=启动
   uint8_t mode;        // 模式选择：0=默认，1=节能，2=高速
-  uint8_t reserved[2]; // 预留字节（用于对齐或扩展）
+  float dac_a;
+	float dac_b;
 } UART_TxStruct;
 
 /* 接收结构体：包含电压、电流、温度信息 */

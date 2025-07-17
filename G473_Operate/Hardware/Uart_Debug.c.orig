@@ -1,8 +1,14 @@
 #include "Uart_Debug.h"
 
+static volatile uint8_t uart_tx_lock = 0;
 UART_DEV uart3_dev = {0};
 extern UART_TxStruct ua;
 static SemaphoreHandle_t uart_tx_mutex = NULL;
+
+static inline uint8_t in_interrupt(void)
+{
+  return (SCB->ICSR & SCB_ICSR_VECTACTIVE_Msk) != 0;
+}
 
 static void InitHardUart(void)
 {
@@ -29,34 +35,48 @@ void UART_Send_IT(USART_TypeDef *USARTx, uint8_t *pData, uint16_t Size)
 {
   if(S_F == 1)	// 系统启动后
     {
-      if (xSemaphoreTake(uart_tx_mutex, pdMS_TO_TICKS(10)) != pdTRUE)
+      // 中断中禁止调用（检测上下文）
+      if (in_interrupt())
         {
+          // 记录错误，中断中不允许发送
+          return;
+        }
+      if (xSemaphoreTake(uart_tx_mutex, pdMS_TO_TICKS(100)) != pdTRUE)
+        {
+          fr_printf("UART_Send_IT: 获取锁失败，放弃发送");
           return; // 获取锁失败，放弃发送
         }
 
       // 等待上次发送完成
-      uint32_t timeout = 10; // 100ms超时
+      uint32_t timeout = 100; // 100ms超时
       while (uart3_dev.tx_busy && timeout-- > 0)
         {
           vTaskDelay(pdMS_TO_TICKS(1));
         }
-
+      // 超时处理（释放锁）
+      if (uart3_dev.tx_busy)
+        {
+          xSemaphoreGive(uart_tx_mutex);
+          fr_printf("UART_Send_IT: 前次发送超时");
+          return;
+        }
     }
-  else	//系统启动前
+  else  // 系统启动前：用简单标志保护（单任务环境）
     {
-      // 等待上次发送完成
-      uint32_t timeout = 10000;
+      // 等待前一次发送完成（无锁，假设单任务）
+      uint32_t timeout = 100000;
       while (uart3_dev.tx_busy && timeout-- > 0)
         {
           __NOP();
         }
-    }
-
-  if (uart3_dev.tx_busy)
-    {
-      // 强制终止前一次发送
-      LL_USART_DisableIT_TC(USART3);
-      uart3_dev.tx_busy = 0;
+      if (uart3_dev.tx_busy)
+        {
+          // 启动前发送失败，不处理（避免死锁）
+          return;
+        }
+      // 简单锁标志（防止同任务重入）
+      if (uart_tx_lock) return;
+      uart_tx_lock = 1;
     }
 
   // 复制数据到发送缓冲区（限制最大长度）
@@ -70,15 +90,18 @@ void UART_Send_IT(USART_TypeDef *USARTx, uint8_t *pData, uint16_t Size)
 
   LL_USART_TransmitData8(USART3, uart3_dev.tx_buf[uart3_dev.tx_index++]);
   LL_USART_EnableIT_TC(USART3);
-  if(S_F == 1)
-    {
-      // 释放互斥锁
-      xSemaphoreGive(uart_tx_mutex);
-    }
+//  if(S_F == 1)
+//    {
+//      // 释放互斥锁
+//      xSemaphoreGive(uart_tx_mutex);
+//    }
 }
 
 void fr_printf(const char *format, ...)
 {
+	    if (in_interrupt()) {
+        return;
+    }
   char buffer[UART3_TX_BUF_SIZE];
   va_list args;
   va_start(args, format);
@@ -109,55 +132,40 @@ void vUartProcessTask(void *pvParameters)
 {
   (void)pvParameters;
   uint8_t data;
-
   static uint8_t cmdIndex = 0;              /* 命令缓冲区索引 */
-  static char cmdBuffer[64] = {0};          /* 命令缓冲区（Rule 8.12：静态存储期） */
+  static char cmdBuffer[64] = {0};          /* 命令缓冲区 */
 
   for(;;)
     {
-      if (uart3_dev.rx_buf.head != uart3_dev.rx_buf.tail) /* 检测接收缓冲数据 */
+      if (uart3_dev.rx_buf.head != uart3_dev.rx_buf.tail)
         {
-          taskENTER_CRITICAL();                 /* 进入临界区（Rule 20.7：保护共享资源） */
+          /* 1. 读取接收数据 */
+          taskENTER_CRITICAL();
           data = uart3_dev.rx_buf.buffer[uart3_dev.rx_buf.tail];
-          uart3_dev.rx_buf.tail = (uart3_dev.rx_buf.tail + 1) % UART3_TX_BUF_SIZE;
+          uart3_dev.rx_buf.tail = (uart3_dev.rx_buf.tail + 1) % UART3_RX_BUF_SIZE;
           taskEXIT_CRITICAL();
 
-          UART_Send_IT(USART1, &data, 1);       /* 回显接收数据 */
-					              /* 使用命令处理器处理命令 */
-              ProcessCommand(cmdBuffer);
-#if Monitor_Flag
-          /* 命令解析逻辑 */
+          /* 2. 数据回显 暂不需要，调试用 */
+          //UART_Send_IT(USART1, &data, 1);
+
+          /* 3. 命令缓冲区管理与处理（基本命令） */
           if ((data == '\r') || (data == '\n'))  /* 检测行结束符 */
             {
               cmdBuffer[cmdIndex] = '\0';  // 确保字符串以null结尾
 
-              /* 使用命令处理器处理命令 */
-              ProcessCommand(cmdBuffer);
+              /* 处理基本命令 */
+              TriggerCommandProcessing(cmdBuffer);
 
-              cmdIndex = 0;  // 重置缓冲区索引
+              cmdIndex = 0;  // 重置缓冲区
+              memset(cmdBuffer, 0, sizeof(cmdBuffer));
             }
-          else if (cmdIndex < (sizeof(cmdBuffer)-1U)) /* 防止缓冲区溢出 */
+          else if (cmdIndex < (sizeof(cmdBuffer) - 1U))  /* 防止缓冲区溢出 */
             {
-              cmdBuffer[cmdIndex++] = data;       /* 存储有效字符 */
+              cmdBuffer[cmdIndex++] = data;
             }
-						
-          /* 命令解析逻辑 */
-          if ((data == '\r') || (data == '\n'))  /* 检测行结束符 */
-            {
-              cmdBuffer[cmdIndex] = '\0';
-              if (strcmp(cmdBuffer, "status") == 0)
-                {
-                  vSystemMonitorTask(NULL);         /* 触发系统状态查询 */
-                }
-              cmdIndex = 0;                       /* 重置缓冲区索引 */
-            }
-          else if (cmdIndex < (sizeof(cmdBuffer)-1U)) /* 防止缓冲区溢出（Rule 18.1） */
-            {
-              cmdBuffer[cmdIndex++] = data;       /* 存储有效字符 */
-            }
-#endif
         }
-      vTaskDelay(pdMS_TO_TICKS(1));    /* 100Hz检测频率 */
+
+      vTaskDelay(pdMS_TO_TICKS(1));
     }
 }
 
@@ -190,6 +198,16 @@ void USART3_IRQHandler(void)
           // 所有数据发送完成
           LL_USART_DisableIT_TC(USART3); // 关闭TC中断
           uart3_dev.tx_busy = 0;        // 标记发送完成
+          // 释放系统启动后的互斥锁
+          if(S_F == 1)
+            {
+              xSemaphoreGive(uart_tx_mutex);
+            }
+          // 释放系统启动前的简单锁标志
+          else
+            {
+              uart_tx_lock = 0;
+            }
         }
     }
 }

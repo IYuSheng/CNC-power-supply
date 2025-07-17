@@ -13,5 +13,6 @@
 void Task1_Handler(void);
 void Task2_Handler(void);
 void Task3_Handler(void);
+void Task4_Handler(void);
 
 #endif /* __TASK_H */

@@ -204,7 +204,7 @@ void vStorageTask(void *pvParameters)
     M24C64_Init();
     
     uint8_t test_array[4] = {1, 2, 3, 4};
-    uint8_t read_array[4] = {0};
+    //uint8_t read_array[4] = {0};
     
     for (;;)
     {
@@ -216,9 +216,9 @@ void vStorageTask(void *pvParameters)
         }
         
         // 读取验证
-        M24C64_Read(0, read_array, 4);
+        //M24C64_Read(0, read_array, 4);
 
-        fr_printf("Read Data: %d %d %d %d", read_array[0], read_array[1], read_array[2], read_array[3]);
+        //fr_printf("Read Data: %d %d %d %d", read_array[0], read_array[1], read_array[2], read_array[3]);
         
         // 方法2：使用页对齐地址写入（推荐）
         // 使用地址0（页对齐）

@@ -2,52 +2,52 @@
 
 int main(void)
 {
-  //系统初始化
-  Init_Sys();
-  //系统看门狗初始化
-  IWDG_Init(2000);
-  //系统时钟初始化
+	//系统初始化
+	Init_Sys();
+	//系统看门狗初始化
+	IWDG_Init(1000);
+	//系统时钟初始化
   SystemClock_Config();
-  //硬件初始化
-  Init_Hardware();
-  //App接口函数初始化
-  Init_App();
-
+	//硬件初始化
+	Init_Hardware();
+	//App接口函数初始化
+	Init_App();
+	
   while (1)
+  {
+	/* --------------------前台任务-------------------- */
+		/* 指令接收及发送数据任务 */
+    if (task1_flag)
     {
-      /* --------------------前台任务-------------------- */
-      /* 指令接收及发送数据任务 */
-      if (task1_flag)
-        {
-          task1_flag = false;
-          Task1_Handler();
-        }
-
-      /* 检查并处理任务2 */
-      if (task2_flag)
-        {
-          task2_flag = false;
-          Task2_Handler();
-        }
-
-      /* 检查并处理任务3 */
-      if (task3_flag)
-        {
-          task3_flag = false;
-          Task3_Handler();
-        }
-
-      /* 检查并处理任务4 */
-      if (task4_flag)
-        {
-          task4_flag = false;
-          Task4_Handler();
-        }
-
-      /* --------------------后台任务-------------------- */
-
-
+      task1_flag = false;
+      Task1_Handler();
     }
+    
+    /* 检查并处理任务2 */
+    if (task2_flag)
+    {
+      task2_flag = false;
+      Task2_Handler();
+    }
+    
+    /* 检查并处理任务3 */
+    if (task3_flag)
+    {
+      task3_flag = false;
+      Task3_Handler();
+    }
+		
+		/* 检查并处理任务4 */
+		    if (task4_flag)
+    {
+      task4_flag = false;
+      Task4_Handler();
+    }
+    
+    /* --------------------后台任务-------------------- */
+
+		
+  }
 }
 
 
@@ -61,8 +61,8 @@ void Error_Handler(void)
   /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
   while (1)
-    {
-    }
+  {
+  }
   /* USER CODE END Error_Handler_Debug */
 }
 

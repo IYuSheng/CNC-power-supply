@@ -35,7 +35,7 @@ void UART_Send_IT(USART_TypeDef *USARTx, uint8_t *pData, uint16_t Size)
         }
 
       // 等待上次发送完成
-      uint32_t timeout = 10; // 100ms超时
+      uint32_t timeout = 100; // 100ms超时
       while (uart3_dev.tx_busy && timeout-- > 0)
         {
           vTaskDelay(pdMS_TO_TICKS(1));
@@ -45,7 +45,7 @@ void UART_Send_IT(USART_TypeDef *USARTx, uint8_t *pData, uint16_t Size)
   else	//系统启动前
     {
       // 等待上次发送完成
-      uint32_t timeout = 10000;
+      uint32_t timeout = 100000;
       while (uart3_dev.tx_busy && timeout-- > 0)
         {
           __NOP();
@@ -142,7 +142,7 @@ void vUartProcessTask(void *pvParameters)
             }
         }
 
-        vTaskDelay(pdMS_TO_TICKS(1));
+        vTaskDelay(pdMS_TO_TICKS(10));
     }
 }
 

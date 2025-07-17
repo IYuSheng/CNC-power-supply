@@ -7,16 +7,19 @@ static volatile uint32_t system_tick = 0;
 static volatile uint32_t task1_counter = 0;
 static volatile uint32_t task2_counter = 0;
 static volatile uint32_t task3_counter = 0;
+static volatile uint32_t task4_counter = 0;
 
 // 任务标志
 volatile bool task1_flag = false;
 volatile bool task2_flag = false;
 volatile bool task3_flag = false;
+volatile bool task4_flag = false;
 
 // 任务执行周期(以系统滴答为单位)
 static const uint32_t task1_period = SYSTICK_FREQUENCY_HZ / TASK_1_FREQUENCY_HZ;
 static const uint32_t task2_period = SYSTICK_FREQUENCY_HZ / TASK_2_FREQUENCY_HZ;
 static const uint32_t task3_period = SYSTICK_FREQUENCY_HZ / TASK_3_FREQUENCY_HZ;
+static const uint32_t task4_period = SYSTICK_FREQUENCY_HZ / TASK_4_FREQUENCY_HZ;
 
 /**
   * @brief  定时器2初始化函数
@@ -24,7 +27,7 @@ static const uint32_t task3_period = SYSTICK_FREQUENCY_HZ / TASK_3_FREQUENCY_HZ;
   * @retval None
   */
 void MX_TIM2_Init(void)
-{	
+{
   /* 使能定时器2时钟 */
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM2);
 
@@ -78,6 +81,11 @@ void TIM2_IRQHandler(void)
         {
           task3_counter = 0;
           task3_flag = true;
+        }
+				if (++task4_counter >= task4_period)
+        {
+          task4_counter = 0;
+          task4_flag = true;
         }
     }
 }

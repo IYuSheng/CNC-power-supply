@@ -39,7 +39,8 @@ typedef struct
 {
   uint8_t start_flag;  // 启动标志：0=停止，1=启动
   uint8_t mode;        // 模式选择：0=默认，1=节能，2=高速
-  uint8_t reserved[2]; // 预留字节（用于对齐或扩展）
+  float adc_a;
+	float adc_b;
 } UART_RxStruct;  // 发送和接收使用相同结构体（根据实际需求调整）
 
 // 接收缓冲区结构体（环形缓冲区）

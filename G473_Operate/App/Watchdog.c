@@ -53,9 +53,9 @@ void vWatchdogTask(void *pvParameters)
       // 2. 所有任务正常，喂狗
       LL_IWDG_ReloadCounter(IWDG);
 
-      //fr_printf("Watchdog\r\n");
+      //fr_printf("Watchdog");
 
       // 3. 1s执行一次（喂狗周期必须小于IWDG超时时间，如IWDG超时1秒，则喂狗周期<1秒）
-      vTaskDelay(pdMS_TO_TICKS(100));
+      vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }

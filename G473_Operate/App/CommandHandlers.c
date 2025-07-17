@@ -12,12 +12,12 @@ static void HandleSetA(const char* param)
     }
 
   char* endPtr;
-  long value = strtol(param, &endPtr, 10);
+  float value = strtof(param, &endPtr);
 
   if (endPtr != param && *endPtr == '\0')
     {
-      ua.reserved[0] = (uint8_t)value;
-      fr_printf("SetDAC_A updated to: %d", ua.reserved[0]);
+      ua.dac_a = value;
+      fr_printf("SetDAC_A updated to: %.4f", ua.dac_a);
     }
   else
     {
@@ -35,12 +35,12 @@ static void HandleSetB(const char* param)
     }
 
   char* endPtr;
-  long value = strtol(param, &endPtr, 10);
+  float value = strtof(param, &endPtr);
 
   if (endPtr != param && *endPtr == '\0')
     {
-      ua.reserved[1] = (uint8_t)value;
-      fr_printf("SetDAC_B updated to: %d", ua.reserved[1]);
+      ua.dac_b = value;
+      fr_printf("SetDAC_B updated to: %.4f", ua.dac_b);
     }
   else
     {

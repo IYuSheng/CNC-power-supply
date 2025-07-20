@@ -2,7 +2,10 @@
 #ifndef __M24C64_H
 #define __M24C64_H
 
-#include "main.h"
+#include "stm32g4xx_ll_i2c.h"
+#include "freertos.h"
+#include "task.h"
+#include "Uart_Debug.h"
 #include <stdint.h>
 
 // M24C64参数定义
@@ -11,7 +14,7 @@
 #define M24C64_PAGES          (M24C64_SIZE / M24C64_PAGE_SIZE)  // 总页数
 
 // I2C地址（根据A0/A1/A2引脚连接调整，默认全接地为0xA0）
-#define M24C64_DEVICE_ADDR    0xA0    // 7位地址（不含R/W位）
+#define M24C64_DEVICE_ADDR    0x50    // 7位地址（不含R/W位）
 
 // 错误码
 typedef enum

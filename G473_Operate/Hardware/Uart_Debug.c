@@ -1,7 +1,7 @@
 #include "Uart_Debug.h"
 
 UART_DEV uart3_dev = {0};
-extern UART_TxStruct ua;
+extern UART_TxStruct send_gather;
 static SemaphoreHandle_t uart_tx_mutex = NULL;
 
 static void InitHardUart(void)

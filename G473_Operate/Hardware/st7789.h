@@ -2,9 +2,11 @@
 #ifndef __ST7789_H
 #define __ST7789_H
 
-#include "main.h"
 #include <stdint.h>
 #include "stm32g4xx_ll_spi.h"
+#include "stm32g4xx_ll_gpio.h"
+#include "freertos.h"
+#include "task.h"
 
 // 屏幕分辨率定义
 #define ST7789_WIDTH  320

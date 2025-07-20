@@ -26,7 +26,10 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "stm32g4xx_ll_i2c.h"
+#include "stm32g4xx_ll_bus.h"
+#include "stm32g4xx_ll_gpio.h"
+#include "stm32g4xx_ll_rcc.h"
 
 /* USER CODE BEGIN Includes */
 

@@ -59,7 +59,7 @@ void MX_GPIO_Init(void)
   LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOB);
 
   /**/
-  LL_GPIO_ResetOutputPin(GPIOA, LL_GPIO_PIN_0);
+  LL_GPIO_SetOutputPin(GPIOA, LL_GPIO_PIN_0);
 
   /**/
   LL_GPIO_ResetOutputPin(GPIOA, LL_GPIO_PIN_3);

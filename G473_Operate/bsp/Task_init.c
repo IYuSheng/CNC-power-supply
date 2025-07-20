@@ -126,7 +126,7 @@ void TFT_task_create(void)
   */
 void Storage_task_create(void)
 {
-  xReturn = xTaskCreate(vStorageTask, "Storage", 128,
+  xReturn = xTaskCreate(vStorageTask, "Storage", 512,
                         NULL, TASK_PRIO_STORAGE, NULL);
   if (xReturn != pdPASS)
     {
@@ -136,5 +136,23 @@ void Storage_task_create(void)
   else
     {
       fr_printf("Storage task create Success");
+    }
+}
+
+/**
+  * @brief  初始化编码器任务
+  */
+void Encoder_task_create(void)
+{
+  xReturn = xTaskCreate(vEncoderTask, "Encoder", 256,
+                        NULL, TASK_PRIO_ENCODER, NULL);
+  if (xReturn != pdPASS)
+    {
+      fr_printf("Encoder task create Failed");
+      Error_Handler();
+    }
+  else
+    {
+      fr_printf("Encoder task create Success");
     }
 }

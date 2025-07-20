@@ -1,0 +1,17 @@
+/* CommandHandlers.h нд╪Ч */
+#ifndef __COMMANDHANDLERS_H
+#define __COMMANDHANDLERS_H
+
+#include "Debug.h"
+#include "Uart_Debug.h"
+#include "Monitor.h"
+#include "Control.h"
+
+typedef struct {
+  const char* command;
+  void (*handler)(const char*);
+} CommandMapping;
+
+void RegisterAllCommands(void);
+
+#endif /* __COMMANDHANDLERS_H */

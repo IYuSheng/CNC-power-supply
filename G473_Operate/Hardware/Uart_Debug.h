@@ -13,8 +13,8 @@
 
 extern uint8_t S_F;	//定义操作系统是否启动
 
-#define UART3_TX_BUF_SIZE	512
-#define UART3_RX_BUF_SIZE	1024
+#define UART3_TX_BUF_SIZE	256
+#define UART3_RX_BUF_SIZE	512
 
 /* 串口环形缓冲区结构体 */
 typedef struct

@@ -57,6 +57,7 @@
 "g473_operate\m24c64.o"
 "g473_operate\key.o"
 "g473_operate\uart_comm.o"
+"g473_operate\encoder.o"
 "g473_operate\init.o"
 "g473_operate\task_init.o"
 "g473_operate\debug.o"

@@ -2,7 +2,6 @@
 #ifndef __DEBUG_H
 #define __DEBUG_H
 
-#include "main.h"
 #include <stdint.h>
 #include <stdbool.h>
 

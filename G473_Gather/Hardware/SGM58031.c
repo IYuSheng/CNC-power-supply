@@ -398,10 +398,10 @@ ADC_StatusTypeDef SGM58031_ReadVoltage(I2C_TypeDef *I2Cx, uint8_t channel, float
     {
       Debug_printf("Channel %d: ADC数据无效（原始值超出范围）", channel);
     }
-  else
-    {
-      Debug_printf("Channel %d: Raw=0x%04X, Voltage=%.4fV", channel, adc_raw, *voltage);
-    }
+//  else
+//    {
+//      Debug_printf("Channel %d: Raw=0x%04X, Voltage=%.4fV", channel, adc_raw, *voltage);
+//    }
 
   return ADC_OK;
 }

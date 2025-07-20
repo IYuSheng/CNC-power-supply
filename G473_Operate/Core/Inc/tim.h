@@ -27,6 +27,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "stm32g4xx_ll_tim.h"
 
 /* USER CODE BEGIN Includes */
 

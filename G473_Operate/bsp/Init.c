@@ -17,7 +17,6 @@ void Init_Hardware(void)
   /* 2. 初始化所有外设（GPIO、UART、SPI等） */
   UART_Init();
   UART1_Init();
-  
   MX_GPIO_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
@@ -38,6 +37,7 @@ void Init_App(void)
   CommandProcessorInit();
 	/* 初始化命令指令 */
   RegisterAllCommands();
+  Encoder_Init();
 	fr_printf("App Init Success");
 }
 

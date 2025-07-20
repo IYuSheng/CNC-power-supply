@@ -1,53 +1,140 @@
 #include "CommandHandlers.h"
 
-extern UART_TxStruct ua;
+extern UART_TxStruct send_gather;
 
 /* 处理SetA命令 */
-static void HandleSetA(const char* param) {
-    if (param == NULL) {
-        fr_printf("SetA: missing parameter");
-        return;
+static void HandleSetA(const char* param)
+{
+  if (param == NULL)
+    {
+      fr_printf("SetDAC_A: missing parameter");
+      return;
     }
-    
-    char* endPtr;
-    long value = strtol(param, &endPtr, 10);
-    
-    if (endPtr != param && *endPtr == '\0') {
-        ua.reserved[0] = (uint8_t)value;
-        fr_printf("SetA updated to: %d", ua.reserved[0]);
-    } else {
-        fr_printf("SetA: invalid parameter");
+
+  char* endPtr;
+  float value = strtof(param, &endPtr);
+
+  if (endPtr != param && *endPtr == '\0')
+    {
+      send_gather.dac_a = value;
+      fr_printf("SetDAC_A updated to: %.4f", send_gather.dac_a);
+    }
+  else
+    {
+      fr_printf("SetDAC_A: invalid parameter");
     }
 }
 
 /* 处理SetB命令 */
-static void HandleSetB(const char* param) {
-    if (param == NULL) {
-        fr_printf("SetB: missing parameter");
+static void HandleSetB(const char* param)
+{
+  if (param == NULL)
+    {
+      fr_printf("SetDAC_B: missing parameter");
+      return;
+    }
+
+  char* endPtr;
+  float value = strtof(param, &endPtr);
+
+  if (endPtr != param && *endPtr == '\0')
+    {
+      send_gather.dac_b = value;
+      fr_printf("SetDAC_B updated to: %.4f", send_gather.dac_b);
+    }
+  else
+    {
+      fr_printf("SetDAC_B: invalid parameter");
+    }
+}
+
+/* 处理设置输出电压命令 */
+static void HandleSetVoltage(const char* param)
+{
+  if (param == NULL)
+    {
+      fr_printf("U_Set: missing parameter");
+      return;
+    }
+
+  char* endPtr;
+  float value = strtof(param, &endPtr);
+
+  if (endPtr != param && *endPtr == '\0')
+    {
+      send_gather.dac_b = TransformVoltage(value);  //将电压转换为DAC输出电压值
+
+      fr_printf("U_Set updated to: %.4f", send_gather.dac_b);
+    }
+  else
+    {
+      fr_printf("U_Set: invalid parameter");
+    }
+}
+
+static void HandleSetCurrent(const char* param)
+{
+  if (param == NULL)
+    {
+      fr_printf("SetDAC_A: missing parameter");
+      return;
+    }
+
+  char* endPtr;
+  float value = strtof(param, &endPtr);
+
+  if (endPtr != param && *endPtr == '\0')
+    {
+      send_gather.dac_a = TransformCurrent(value);
+      fr_printf("SetDAC_A updated to: %.4f", send_gather.dac_a);
+    }
+  else
+    {
+      fr_printf("SetDAC_A: invalid parameter");
+    }
+}
+
+/* 处理操作采集端命令 */
+static void HandleSetGather(const char* param)
+{
+    if (param == NULL)
+    {
+        fr_printf("SetGather: missing parameter");
         return;
     }
-    
-    char* endPtr;
-    long value = strtol(param, &endPtr, 10);
-    
-    if (endPtr != param && *endPtr == '\0') {
-        ua.reserved[1] = (uint8_t)value;
-        fr_printf("SetB updated to: %d", ua.reserved[1]);
-    } else {
-        fr_printf("SetB: invalid parameter");
+
+    /* 处理ShutDown命令 */
+    if (strcmp(param, "ShutDown") == 0)
+    {
+        // 执行采集端关闭逻辑
+        fr_printf("SetGather: Device Shut Down");
+    }
+    /* 处理Open命令 */
+    else if (strcmp(param, "Open") == 0)
+    {
+        // 执行采集端开启逻辑
+        fr_printf("SetGather: Device Open");
+    }
+    /* 未知参数 */
+    else
+    {
+        fr_printf("SetGather: invalid parameter");
     }
 }
 
-/* 处理status命令 */
-static void HandleStatus(const char* param) {
-    (void)param; /* 未使用参数 */
-    vSystemMonitorTask(NULL);
-}
+CommandMapping commandMappings[] = {
+  {"SetDAC_A", HandleSetA},
+  {"SetDAC_B", HandleSetB},
+  {"SetGather", HandleSetGather},
+  {"V_Set", HandleSetVoltage},
+  {"A_Set", HandleSetCurrent},
+};
 
 /* 注册所有命令处理函数 */
-void RegisterAllCommands(void) {
-    RegisterCommand("SetA", HandleSetA);
-    RegisterCommand("SetB", HandleSetB);
-    RegisterCommand("status", HandleStatus);
-    /* 这里可以添加更多命令... */
+void RegisterAllCommands(void)
+{
+  for (size_t i = 0; i < sizeof(commandMappings) / sizeof(commandMappings[0]); ++i)
+  {
+    RegisterCommand(commandMappings[i].command, commandMappings[i].handler);
+  }
 }

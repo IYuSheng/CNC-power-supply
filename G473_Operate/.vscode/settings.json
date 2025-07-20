@@ -1,3 +1,12 @@
 {
-    "Codegeex.RepoIndex": true
+    "Codegeex.RepoIndex": true,
+    "files.associations": {
+        "commandhandlers.h": "c",
+        "m24c64.h": "c",
+        "task_init.h": "c",
+        "uart_comm.h": "c",
+        "main.h": "c",
+        "init.h": "c",
+        "encoder.h": "c"
+    }
 }

@@ -1,8 +1,7 @@
 #include "st7789.h"
 
-
 /**
- * @brief  初始化ST7789屏幕（整合正确初始化序列）
+ * @brief  初始化ST7789屏幕
  * @param  无
  * @retval 无
  */
@@ -21,11 +20,11 @@ void ST7789_Init(void)
 
   // 退出睡眠模式
   ST7789_WriteCmd(0x11);
-  vTaskDelay(pdMS_TO_TICKS(120));
+  vTaskDelay(pdMS_TO_TICKS(200));
 
   // 4. 显示方向设置（使用0x70适配240×320竖屏）
   ST7789_WriteCmd(0x36);
-  ST7789_WriteDataByte(0x70);  // 适配240×320竖屏
+  ST7789_WriteDataByte(0xA0);  // 适配240×320竖屏
 
   // 5. 像素格式设置（保持16位RGB565）
   ST7789_WriteCmd(0x3A);
@@ -269,20 +268,24 @@ void ST7789_Clear(uint16_t color)
   ST7789_Fill(0, 0, ST7789_WIDTH - 1, ST7789_HEIGHT - 1, color, 2);
 }
 
-
-
+/**
+ * @brief  屏幕显示线程
+ * @param  无
+ * @retval 无
+ */
 void vTFTTask(void *pvParameters)
 {
   ST7789_Init();
-  ST7789_Clear(RED);
+  // 简单测试：画三色条
+  ST7789_Fill(0, 0, 319, 79, RED,2);     // 上1/3红色
+  ST7789_Fill(0, 80, 319, 159, GREEN,2); // 中1/3绿色
+  ST7789_Fill(0, 160, 319, 239, BLUE,2); // 下1/3蓝色
 
   for (;;)
     {
-      ST7789_Clear(GREEN);
-
-      ST7789_Clear(BLUE);
-
-      ST7789_Clear(YELLOW);
-      vTaskDelay(pdMS_TO_TICKS(100));
+//      ST7789_Clear(GREEN);
+//      ST7789_Clear(BLUE);
+//      ST7789_Clear(YELLOW);
+      vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }

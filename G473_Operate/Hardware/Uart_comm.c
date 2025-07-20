@@ -3,7 +3,7 @@
 Uart_dev uart1_dev = {0};
 UART_RxStruct uart_rx_data = {0}; // 全局接收数据，供外部访问
 
-UART_TxStruct ua = {0};
+UART_TxStruct send_gather = {0};
 
 static SemaphoreHandle_t uart_mutex = NULL;
 
@@ -207,11 +207,11 @@ void USART1_IRQHandler(void)
 
 void vUart1ProcessTask(void *pvParameters)
 {
-  ua.start_flag = 1;
-  ua.mode = 2;
+  send_gather.start_flag = 1;
+  send_gather.mode = 2;
   for (;;)
     {
-      UART1_Send_Struct(&ua);
+      UART1_Send_Struct(&send_gather);
       UART1_Parse_Data(); // 解析接收数据
       // 访问解析后的结果
 //      fr_printf("Voltage: %dmV, Current: %dmA, Temp: %d℃\r\n",

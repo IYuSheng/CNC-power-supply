@@ -386,10 +386,10 @@ void Common_ADC_ManualSample(void)
   g_adc_raw[ADC_CH_PB13] = ADC_ReadSingle(ADC3);
   g_adc_raw[ADC_CH_PB14] = ADC_ReadSingle(ADC4);
 
-  // 转换为电压值（3.3V参考电压，12位ADC）
+  // 转换为电压值（2.5V参考电压，12位ADC）
   for (uint8_t i = 0; i < 4; i++)
     {
-      g_adc_voltage[i] = (float)g_adc_raw[i] * 3.3f / 4095.0f;
+      g_adc_voltage[i] = (float)g_adc_raw[i] * 2.5f / 4095.0f;
     }
 }
 

@@ -102,7 +102,7 @@ void vSystemMonitorTask(void *pvParameters)
       prevTotalRuntime = currentTotalRuntime;
       prevNumTasks = numTasks;
 
-      vTaskDelay(pdMS_TO_TICKS(500)); /* 5秒更新一次 */
+      vTaskDelay(pdMS_TO_TICKS(2000)); /* 5秒更新一次 */
     }
 }
 #endif

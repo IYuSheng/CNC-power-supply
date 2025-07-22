@@ -90,7 +90,7 @@ void Watchdog_task_create(void)
   */
 void Key_task_create(void)
 {
-  xReturn = xTaskCreate(vKeyScanTask, "Key", 128,
+  xReturn = xTaskCreate(vKeyScanTask, "Key", 256,
                         NULL, TASK_PRIO_KEY, NULL);
   if (xReturn != pdPASS)
     {
@@ -156,3 +156,37 @@ void Encoder_task_create(void)
       fr_printf("Encoder task create Success");
     }
 }
+
+// 新增打印任务（专门处理打印，避免阻塞扫描）
+void vPrintTask(void *pvParameters)
+{
+  char msg[64];
+  for (;;)
+    {
+      // 等待队列消息（阻塞，直到有消息）
+      if (xQueueReceive(key_msg_queue, msg, portMAX_DELAY) == pdPASS)
+        {
+          fr_printf("%s", msg);  // 在这里执行打印
+        }
+    }
+}
+
+/**
+  * @brief  初始化测试任务
+  */
+void Test_task_create(void)
+{
+  xReturn = xTaskCreate(vPrintTask, "Print", 256,
+                        NULL, 3, NULL);
+  if (xReturn != pdPASS)
+    {
+      fr_printf("Test task create Failed");
+      Error_Handler();
+    }
+  else
+    {
+      fr_printf("Test task create Success");
+    }
+}
+
+

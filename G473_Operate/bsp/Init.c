@@ -15,9 +15,9 @@ void Init_Hardware(void)
   HAL_Init();
 
   /* 2. 初始化所有外设（GPIO、UART、SPI等） */
+	MX_GPIO_Init();
   UART_Init();
   UART1_Init();
-  MX_GPIO_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
   MX_USB_Device_Init();

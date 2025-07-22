@@ -7,13 +7,14 @@
 #include "semphr.h"
 #include "stm32g4xx_ll_tim.h"
 #include "stm32g4xx_ll_gpio.h"
+#include "Uart_Debug.h"
 
 // 编码器数据结构体
 typedef struct
 {
     int32_t total_count;       // 总计数
     int16_t step;              // 单次步长（+1/-1）
-    uint8_t dir;               // 方向：0-静止，1-顺时针，2-逆时针
+    int32_t dir;               // 方向
     uint32_t last_cnt;         // 上一次定时器计数
     uint8_t is_overflow;       // 溢出标志
 } Encoder_HandleTypeDef;

@@ -13,7 +13,7 @@ void ST7789_Init(void)
   ST7789_RST_LOW();
   vTaskDelay(pdMS_TO_TICKS(10));
   ST7789_RST_HIGH();
-  vTaskDelay(pdMS_TO_TICKS(120));
+  vTaskDelay(pdMS_TO_TICKS(200));
 
   // 3. 初始化序列
   ST7789_CS_LOW();
@@ -24,7 +24,7 @@ void ST7789_Init(void)
 
   // 4. 显示方向设置（使用0x70适配240×320竖屏）
   ST7789_WriteCmd(0x36);
-  ST7789_WriteDataByte(0xA0);  // 适配240×320竖屏
+  ST7789_WriteDataByte(0x70);  // 适配240×320竖屏
 
   // 5. 像素格式设置（保持16位RGB565）
   ST7789_WriteCmd(0x3A);
@@ -75,7 +75,7 @@ void ST7789_Init(void)
   ST7789_WriteData(gamma_neg, 14);
 
   ST7789_WriteCmd(0xE4);
-  ST7789_WriteDataByte(0x25);
+  ST7789_WriteDataByte(0x27);
   ST7789_WriteDataByte(0x00);
   ST7789_WriteDataByte(0x00);
 
@@ -283,9 +283,9 @@ void vTFTTask(void *pvParameters)
 
   for (;;)
     {
-//      ST7789_Clear(GREEN);
-//      ST7789_Clear(BLUE);
-//      ST7789_Clear(YELLOW);
+      ST7789_Clear(GREEN);
+      ST7789_Clear(BLUE);
+      ST7789_Clear(YELLOW);
       vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }

@@ -26,6 +26,7 @@ int main(void)
 	Storage_task_create();//EEPROM初始化
 	Key_task_create();//按键任务初始化
 	Encoder_task_create();//编码器任务初始化
+	Test_task_create();
 	
 	S_F = 1;	//启动操作系统标志
   /* ------------------------------ 启动调度器 ---------------------------------- */

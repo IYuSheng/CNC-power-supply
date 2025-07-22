@@ -1,35 +1,33 @@
-/* Key.h 文件 */
 #ifndef __KEY_H
 #define __KEY_H
 
+#include "stm32g4xx_ll_gpio.h"
+#include "Uart_Debug.h"
 #include <stdint.h>
 #include "freertos.h"
 #include "task.h"
+#include "queue.h"
 
-// 按键枚举（所有GPIO引脚统一编号）
-typedef enum
-{
-  KEY_ENC_1 = 0,    // 旋转编码器1（PC13）
-  KEY_ENC_2 = 1,    // 旋转编码器2（PC14）
-  KEY_ENC_3 = 2,   // 旋转编码器3（PC15）
-  KEY_FUNC1 = 3,    // 功能按键1（PA6）
-  KEY_FUNC2 = 4,    // 功能按键2（PA8）
-  KEY_FUNC3 = 5,    // 功能按键3（PB1）
-  KEY_MAX           // 按键总数
+// 消息队列句柄（全局可见）
+extern QueueHandle_t key_msg_queue;
+
+// 按键枚举（与key_pin_map严格对应）
+typedef enum {
+    KEY_ENC_1 = 0,    // PC13
+    KEY_ENC_2 = 1,    // PC14
+    KEY_ENC_3 = 2,    // PC15
+    KEY_FUNC1 = 3,    // PA6
+    KEY_FUNC2 = 4,    // PA8
+    KEY_FUNC3 = 5,    // PB1
+    KEY_MAX           // 总数量
 } Key_TypeDef;
 
-// 初始化所有按键（假设引脚已在main.c中初始化）
+
+// 函数声明
 void Key_Init(void);
-
-// 读取按键电平（1=按下，0=释放，内部已消抖）
 uint8_t Key_Read(Key_TypeDef key);
-
-// 获取按键当前状态变化（上升沿/下降沿）
 uint8_t Key_GetStateChange(Key_TypeDef key);
-
-// 重置按键状态变化标志
 void Key_ResetStateChange(Key_TypeDef key);
-
 void vKeyScanTask(void *pvParameters);
 
 #endif /* __KEY_H */

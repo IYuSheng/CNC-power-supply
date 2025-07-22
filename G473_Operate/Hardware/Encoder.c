@@ -29,54 +29,29 @@ void Encoder_Init(void)
   encoders[ENCODER_TIM2].last_cnt = LL_TIM_GetCounter(TIM2);
   encoders[ENCODER_TIM3].last_cnt = LL_TIM_GetCounter(TIM3);
 
-  // TIM15初始化：配置为输入捕获模式（用于读取相位）
+  // TIM15初始化：配置为输入模式（软件读取）
   LL_TIM_EnableCounter(TIM15);
   // 读取初始相位状态
-  uint8_t ch1 = (LL_TIM_IC_GetCaptureCH1(TIM15) > 0) ? 1 : 0;
-  uint8_t ch2 = (LL_TIM_IC_GetCaptureCH2(TIM15) > 0) ? 1 : 0;
+  uint8_t ch1 = (LL_GPIO_ReadInputPort(GPIOB) & LL_GPIO_PIN_14) ? 1 : 0;
+  uint8_t ch2 = (LL_GPIO_ReadInputPort(GPIOB) & LL_GPIO_PIN_15) ? 1 : 0;
   tim15_last_state = (ch1 << 1) | ch2;
 }
 
 /**
- * @brief 处理TIM2编码器
+ * @brief 处理TIM2编码器（修复反向旋转不递减问题）
  */
 static void Encoder_ProcessTIM2(void)
 {
   uint32_t current_cnt = LL_TIM_GetCounter(TIM2);
-  int32_t diff = current_cnt - encoders[ENCODER_TIM2].last_cnt;
+  int16_t diff = current_cnt - encoders[ENCODER_TIM2].last_cnt;
 
-  // 处理32位计数器溢出
-  if (diff < -2147483648)    // 溢出（当前 < 上次，且差值过大）
-    {
-      diff += 4294967296;    // 2^32
-      encoders[ENCODER_TIM2].is_overflow = 1;
-    }
-  else if (diff > 2147483647)      // 下溢
-    {
-      diff -= 4294967296;
-      encoders[ENCODER_TIM2].is_overflow = 1;
-    }
-  else
-    {
-      encoders[ENCODER_TIM2].is_overflow = 0;
-    }
-
-  // 更新计数和方向
-  encoders[ENCODER_TIM2].step = (int16_t)(diff / 2);  // X2模式分频
-  if (encoders[ENCODER_TIM2].step > 0)
-    {
-      encoders[ENCODER_TIM2].dir = 1;  // 顺时针
-    }
-  else if (encoders[ENCODER_TIM2].step < 0)
-    {
-      encoders[ENCODER_TIM2].dir = 2;  // 逆时针
-    }
-  else
-    {
-      encoders[ENCODER_TIM2].dir = 0;  // 静止
-    }
-  encoders[ENCODER_TIM2].total_count += encoders[ENCODER_TIM2].step;
+  // 更新总计数
+  encoders[ENCODER_TIM2].total_count += diff;
   encoders[ENCODER_TIM2].last_cnt = current_cnt;
+
+  // 调试信息：帮助确认变化情况
+  fr_printf("TIM2: diff=%d, total=%ld\n",
+            diff, encoders[ENCODER_TIM2].total_count);
 }
 
 /**
@@ -86,39 +61,12 @@ static void Encoder_ProcessTIM3(void)
 {
   uint32_t current_cnt = LL_TIM_GetCounter(TIM3);
   int16_t diff = current_cnt - encoders[ENCODER_TIM3].last_cnt;
-
-  // 处理16位计数器溢出（65535 -> 0 或 0->65535）
-  if (diff > 32767)    // 下溢
-    {
-      diff -= 65536;
-      encoders[ENCODER_TIM3].is_overflow = 1;
-    }
-  else if (diff < -32768)      // 溢出
-    {
-      diff += 65536;
-      encoders[ENCODER_TIM3].is_overflow = 1;
-    }
-  else
-    {
-      encoders[ENCODER_TIM3].is_overflow = 0;
-    }
-
-  // 更新计数和方向（X2模式）
-  encoders[ENCODER_TIM3].step = diff / 2;
-  if (encoders[ENCODER_TIM3].step > 0)
-    {
-      encoders[ENCODER_TIM3].dir = 1;
-    }
-  else if (encoders[ENCODER_TIM3].step < 0)
-    {
-      encoders[ENCODER_TIM3].dir = 2;
-    }
-  else
-    {
-      encoders[ENCODER_TIM3].dir = 0;
-    }
-  encoders[ENCODER_TIM3].total_count += encoders[ENCODER_TIM3].step;
-  encoders[ENCODER_TIM3].last_cnt = current_cnt;
+	
+		encoders[ENCODER_TIM3].total_count += diff;
+		encoders[ENCODER_TIM3].last_cnt = current_cnt;
+	
+	fr_printf("TIM3: diff=%d, total=%ld\n",
+            diff, encoders[ENCODER_TIM3].total_count);
 }
 
 /**
@@ -126,18 +74,18 @@ static void Encoder_ProcessTIM3(void)
  */
 static void Encoder_ProcessTIM15(void)
 {
-  // 读取当前相位（CH1=PB14, CH2=PB15）
   uint8_t ch1 = (LL_GPIO_ReadInputPort(GPIOB) & LL_GPIO_PIN_14) ? 1 : 0;
   uint8_t ch2 = (LL_GPIO_ReadInputPort(GPIOB) & LL_GPIO_PIN_15) ? 1 : 0;
   uint8_t current_state = (ch1 << 1) | ch2;
 
-  // 计算状态变化（使用编码器状态表）
+  // 如需修复TIM15反向问题，可反转delta：int8_t delta = -encoder_table[...]
   int8_t delta = encoder_table[(tim15_last_state << 2) | current_state];
   if (delta != 0)
     {
       encoders[ENCODER_TIM15].step = delta;
       encoders[ENCODER_TIM15].total_count += delta;
       encoders[ENCODER_TIM15].dir = (delta > 0) ? 1 : 2;
+      tim15_last_state = current_state;
     }
   else
     {
@@ -145,48 +93,81 @@ static void Encoder_ProcessTIM15(void)
       encoders[ENCODER_TIM15].dir = 0;
     }
 
-  // 更新上次状态（防抖：连续2次相同状态才确认）
   static uint8_t debounce_cnt = 0;
-  if (current_state == tim15_last_state)
-    {
-      debounce_cnt = 0;
-    }
-  else
+  if (current_state != tim15_last_state)
     {
       debounce_cnt++;
-      if (debounce_cnt >= 2)    // 连续2次不同才更新（防抖）
+      if (debounce_cnt >= 1)
         {
           tim15_last_state = current_state;
           debounce_cnt = 0;
         }
     }
+  else
+    {
+      debounce_cnt = 0;
+    }
+}
+
+/**
+ * @brief 直接获取指定编码器的原始计数值（线程安全）
+ * @param id 编码器ID（如ENCODER_TIM2）
+ * @return 定时器原始计数值（uint32_t）
+ */
+uint32_t Encoder_GetRawCount(Encoder_ID id)
+{
+  configASSERT(id < ENCODER_MAX);
+  uint32_t raw_cnt = 0;
+
+  if (xSemaphoreTake(enc_mutex, portMAX_DELAY) == pdTRUE)
+    {
+      switch(id)
+        {
+        case ENCODER_TIM2:
+          raw_cnt = LL_TIM_GetCounter(TIM2);  // 直接返回TIM2的原始计数
+          break;
+        case ENCODER_TIM3:
+          raw_cnt = LL_TIM_GetCounter(TIM3);  // 直接返回TIM3的原始计数
+          break;
+        case ENCODER_TIM15:
+          raw_cnt = tim15_last_state;
+          break;
+        default:
+          raw_cnt = 0;
+          break;
+        }
+      xSemaphoreGive(enc_mutex);
+    }
+  return raw_cnt;
 }
 
 /**
  * @brief 编码器处理任务
- * @param argument 未使用
  */
 void vEncoderTask(void *argument)
 {
   for (;;)
     {
-      // 上锁保护数据更新
       if (xSemaphoreTake(enc_mutex, portMAX_DELAY) == pdTRUE)
         {
-          // 周期性处理3个编码器（10ms周期，兼顾响应速度和防抖）
           Encoder_ProcessTIM2();
           Encoder_ProcessTIM3();
           Encoder_ProcessTIM15();
           xSemaphoreGive(enc_mutex);
         }
-      vTaskDelay(pdMS_TO_TICKS(10));  // 10ms采样一次
+
+      // 同时打印原始计数和处理后的总计数，方便对比
+      //Encoder_HandleTypeDef data;
+      //Encoder_GetData(ENCODER_TIM2, &data);
+//      fr_printf("TIM2原始计数: %lu, 处理后计数: %ld, 方向: %d\n",
+//               Encoder_GetRawCount(ENCODER_TIM2), data.total_count, data.dir);
+
+      vTaskDelay(pdMS_TO_TICKS(10));  // 5ms采样周期
     }
 }
 
 /**
  * @brief 线程安全地获取编码器数据
- * @param id 编码器ID
- * @param data 用于存储数据的指针
  */
 void Encoder_GetData(Encoder_ID id, Encoder_HandleTypeDef *data)
 {

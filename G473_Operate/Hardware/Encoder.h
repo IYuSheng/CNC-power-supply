@@ -3,38 +3,35 @@
 
 #include "FreeRTOS.h"
 #include "task.h"
-#include "queue.h"
 #include "semphr.h"
-#include "stm32g4xx_ll_tim.h"
 #include "stm32g4xx_ll_gpio.h"
+#include "stm32g4xx_ll_exti.h"
+#include "stm32g4xx_ll_cortex.h"
+#include "stm32g4xx_ll_tim.h"
 #include "Uart_Debug.h"
 
-// 编码器数据结构体
+// 编码器数据结构体（保持不变）
 typedef struct
 {
-    int32_t total_count;       // 总计数
-    int16_t step;              // 单次步长（+1/-1）
-    int32_t dir;               // 方向
-    uint32_t last_cnt;         // 上一次定时器计数
-    uint8_t is_overflow;       // 溢出标志
+  int32_t total_count;       // 总计数
+  uint8_t last_s3_level;     // PB14当前电平
+  uint8_t last_s4_level;     // PB15当前电平
+  uint32_t last_cnt;         // 定时器上次计数
 } Encoder_HandleTypeDef;
 
-// 编码器ID
+// 编码器ID（调整为TIM2对应S1+S2的编码器模式）
 typedef enum
 {
-    ENCODER_TIM2,
-    ENCODER_TIM3,
-    ENCODER_TIM15,
-    ENCODER_MAX
+  ENCODER_TIM2,  // TIM2编码器（S1=PA0+S2=PA1）
+  ENCODER_TIM3,  // TIM3编码器
+  ENCODER_SS2,   // S3=PB14+S4=PB15（外部中断）
+  ENCODER_MAX
 } Encoder_ID;
 
-// 初始化编码器
+// 函数声明（保持不变）
 void Encoder_Init(void);
-
-// 获取编码器数据（线程安全）
 void Encoder_GetData(Encoder_ID id, Encoder_HandleTypeDef *data);
-
-// 编码器处理任务
 void vEncoderTask(void *pvParameters);
+uint32_t Encoder_GetRawCount(Encoder_ID id);
 
 #endif

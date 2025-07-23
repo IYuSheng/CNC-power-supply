@@ -1,6 +1,7 @@
 #include "Task_init.h"
 
 BaseType_t xReturn;  /* 保存xTaskCreate返回值 */
+QueueHandle_t encoder_msg_queue;
 
 extern void Error_Handler(void);
 
@@ -144,7 +145,7 @@ void Storage_task_create(void)
   */
 void Encoder_task_create(void)
 {
-  xReturn = xTaskCreate(vEncoderTask, "Encoder", 256,
+  xReturn = xTaskCreate(vEncoderTask, "Encoder", 512,
                         NULL, TASK_PRIO_ENCODER, NULL);
   if (xReturn != pdPASS)
     {
@@ -157,13 +158,34 @@ void Encoder_task_create(void)
     }
 }
 
+/**
+  * @brief  初始化控制任务
+  */
+void Control_task_create(void)
+{
+  xReturn = xTaskCreate(vControlTask, "Control", 256,
+                        NULL, 3, NULL);
+  if (xReturn != pdPASS)
+    {
+      fr_printf("Control task create Failed");
+      Error_Handler();
+    }
+  else
+    {
+      fr_printf("Control task create Success");
+    }
+}
+
 // 新增打印任务（专门处理打印，避免阻塞扫描）
-void vPrintTask(void *pvParameters) {
-    char msg[64];
-    for (;;) {
-        // 等待队列消息（阻塞，直到有消息）
-        if (xQueueReceive(key_msg_queue, msg, portMAX_DELAY) == pdPASS) {
-            fr_printf("%s", msg);  // 在这里执行打印
+void vPrintTask(void *pvParameters)
+{
+  char msg[64];
+  for (;;)
+    {
+      // 等待队列消息（阻塞，直到有消息）
+      if (xQueueReceive(key_msg_queue, msg, portMAX_DELAY) == pdPASS)
+        {
+          fr_printf("%s", msg);  // 在这里执行打印
         }
     }
 }
@@ -173,16 +195,21 @@ void vPrintTask(void *pvParameters) {
   */
 void Test_task_create(void)
 {
+	encoder_msg_queue = xQueueCreate(10, sizeof(UART_TxStruct));
+    if (encoder_msg_queue == NULL) {
+        fr_printf("encoder_msg_queue create failed!\n");
+        Error_Handler();
+    }
   xReturn = xTaskCreate(vPrintTask, "Print", 256,
-                        NULL, TASK_PRIO_ENCODER, NULL);
+                        NULL, 3, NULL);
   if (xReturn != pdPASS)
     {
-      fr_printf("Encoder task create Failed");
+      fr_printf("Test task create Failed");
       Error_Handler();
     }
   else
     {
-      fr_printf("Encoder task create Success");
+      fr_printf("Test task create Success");
     }
 }
 

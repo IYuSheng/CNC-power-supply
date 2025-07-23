@@ -3,15 +3,87 @@
 static Encoder_HandleTypeDef encoders[ENCODER_MAX] = {0};
 static SemaphoreHandle_t enc_mutex;
 
-// TIM15模拟编码器：相位状态
-static uint8_t tim15_last_state = 0;
-static const int8_t encoder_table[16] =
+// 引脚定义
+#define S3_PIN     	 LL_GPIO_PIN_14
+#define S4_PIN       LL_GPIO_PIN_15
+#define PB_PORT      GPIOB
+
+/**
+ * @brief 初始化所有外部中断引脚
+ */
+static void Encoder_Exti_Init(void)
 {
-  0,  -1,  1,   0,
-  1,   0,  0,  -1,
-  -1,  0,  0,   1,
-  0,   1, -1,   0
-};
+  LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
+  LL_EXTI_InitTypeDef EXTI_InitStruct = {0};
+
+  // 1. 使能时钟
+  LL_AHB2_GRP1_EnableClock(LL_AHB2_GRP1_PERIPH_GPIOB);  // PB14/PB15
+  LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG); // SYSCFG
+
+  GPIO_InitStruct.Mode = LL_GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = LL_GPIO_PULL_UP;
+  GPIO_InitStruct.Pin = S3_PIN | S4_PIN;
+  LL_GPIO_Init(PB_PORT, &GPIO_InitStruct);
+
+  // 4. 配置EXTI映射
+  // PB14 -> EXTI14
+  SYSCFG->EXTICR[3] &= ~SYSCFG_EXTICR4_EXTI14_Msk;  // EXTI14位于第4个EXTICR寄存器
+  SYSCFG->EXTICR[3] |= SYSCFG_EXTICR4_EXTI14_PB;     // 映射到GPIOB
+  // PB15 -> EXTI15
+  SYSCFG->EXTICR[3] &= ~SYSCFG_EXTICR4_EXTI15_Msk;
+  SYSCFG->EXTICR[3] |= SYSCFG_EXTICR4_EXTI15_PB;
+
+  // 5. 配置EXTI中断
+  EXTI_InitStruct.Line_0_31 = LL_EXTI_LINE_14 | LL_EXTI_LINE_15;
+  EXTI_InitStruct.Mode = LL_EXTI_MODE_IT;                // 中断模式
+  EXTI_InitStruct.Trigger = LL_EXTI_TRIGGER_FALLING;     // 下降沿触发
+  EXTI_InitStruct.LineCommand = ENABLE;
+  LL_EXTI_Init(&EXTI_InitStruct);
+
+  // 6. 配置中断优先级
+  NVIC_SetPriority(EXTI15_10_IRQn, configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY + 1);  // PB14/15共用此中断线
+
+  // 7. 使能中断
+  NVIC_EnableIRQ(EXTI15_10_IRQn);  // 使能EXTI10-15中断
+}
+
+/**
+ * @brief PB14/PB15中断回调（EXTI10-15共用）
+ */
+void EXTI15_10_IRQHandler(void)
+{
+  BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+
+  // 处理PB14(EXTI14)中断
+  if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_14))
+    {
+      LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_14);
+      xSemaphoreTakeFromISR(enc_mutex, &xHigherPriorityTaskWoken);
+      encoders[ENCODER_SS2].last_s3_level = LL_GPIO_IsInputPinSet(PB_PORT, S3_PIN);
+
+      uint8_t s4_level = LL_GPIO_IsInputPinSet(PB_PORT, S4_PIN);
+      if (s4_level)
+        {
+          encoders[ENCODER_SS2].total_count++;
+        }
+      xSemaphoreGiveFromISR(enc_mutex, &xHigherPriorityTaskWoken);
+    }
+
+  // 处理PB15(EXTI15)中断
+  if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_15))
+    {
+      LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_15);
+      xSemaphoreTakeFromISR(enc_mutex, &xHigherPriorityTaskWoken);
+      encoders[ENCODER_SS2].last_s4_level = LL_GPIO_IsInputPinSet(PB_PORT, S4_PIN);
+      uint8_t s3_level = LL_GPIO_IsInputPinSet(PB_PORT, S3_PIN);
+      if (s3_level)
+        {
+          encoders[ENCODER_SS2].total_count--;
+        }
+      xSemaphoreGiveFromISR(enc_mutex, &xHigherPriorityTaskWoken);
+    }
+  portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+}
 
 /**
  * @brief 初始化编码器
@@ -22,36 +94,31 @@ void Encoder_Init(void)
   enc_mutex = xSemaphoreCreateMutex();
   configASSERT(enc_mutex != NULL);
 
-  // 启动TIM2/TIM3编码器模式计数器
+  // 初始化TIM3
   LL_TIM_EnableCounter(TIM2);
-  LL_TIM_EnableCounter(TIM3);
-  // 初始化TIM2/TIM3的上次计数
   encoders[ENCODER_TIM2].last_cnt = LL_TIM_GetCounter(TIM2);
-  encoders[ENCODER_TIM3].last_cnt = LL_TIM_GetCounter(TIM3);
+	
+	LL_TIM_EnableCounter(TIM3);
+	encoders[ENCODER_TIM3].last_cnt = LL_TIM_GetCounter(TIM3);
+	
+  // 初始化外部中断
+  Encoder_Exti_Init();
 
-  // TIM15初始化：配置为输入模式（软件读取）
-  LL_TIM_EnableCounter(TIM15);
-  // 读取初始相位状态
-  uint8_t ch1 = (LL_GPIO_ReadInputPort(GPIOB) & LL_GPIO_PIN_14) ? 1 : 0;
-  uint8_t ch2 = (LL_GPIO_ReadInputPort(GPIOB) & LL_GPIO_PIN_15) ? 1 : 0;
-  tim15_last_state = (ch1 << 1) | ch2;
+  // 初始化引脚电平
+  encoders[ENCODER_SS2].last_s3_level = LL_GPIO_IsInputPinSet(PB_PORT, S3_PIN);
+  encoders[ENCODER_SS2].last_s4_level = LL_GPIO_IsInputPinSet(PB_PORT, S4_PIN);
 }
 
 /**
- * @brief 处理TIM2编码器（修复反向旋转不递减问题）
+ * @brief 处理TIM2编码器
  */
 static void Encoder_ProcessTIM2(void)
 {
   uint32_t current_cnt = LL_TIM_GetCounter(TIM2);
   int16_t diff = current_cnt - encoders[ENCODER_TIM2].last_cnt;
 
-  // 更新总计数
   encoders[ENCODER_TIM2].total_count += diff;
   encoders[ENCODER_TIM2].last_cnt = current_cnt;
-
-  // 调试信息：帮助确认变化情况
-  fr_printf("TIM2: diff=%d, total=%ld\n",
-            diff, encoders[ENCODER_TIM2].total_count);
 }
 
 /**
@@ -61,58 +128,13 @@ static void Encoder_ProcessTIM3(void)
 {
   uint32_t current_cnt = LL_TIM_GetCounter(TIM3);
   int16_t diff = current_cnt - encoders[ENCODER_TIM3].last_cnt;
-	
-		encoders[ENCODER_TIM3].total_count += diff;
-		encoders[ENCODER_TIM3].last_cnt = current_cnt;
-	
-	fr_printf("TIM3: diff=%d, total=%ld\n",
-            diff, encoders[ENCODER_TIM3].total_count);
+
+  encoders[ENCODER_TIM3].total_count += diff;
+  encoders[ENCODER_TIM3].last_cnt = current_cnt;
 }
 
 /**
- * @brief 处理TIM15（软件模拟编码器模式）
- */
-static void Encoder_ProcessTIM15(void)
-{
-  uint8_t ch1 = (LL_GPIO_ReadInputPort(GPIOB) & LL_GPIO_PIN_14) ? 1 : 0;
-  uint8_t ch2 = (LL_GPIO_ReadInputPort(GPIOB) & LL_GPIO_PIN_15) ? 1 : 0;
-  uint8_t current_state = (ch1 << 1) | ch2;
-
-  // 如需修复TIM15反向问题，可反转delta：int8_t delta = -encoder_table[...]
-  int8_t delta = encoder_table[(tim15_last_state << 2) | current_state];
-  if (delta != 0)
-    {
-      encoders[ENCODER_TIM15].step = delta;
-      encoders[ENCODER_TIM15].total_count += delta;
-      encoders[ENCODER_TIM15].dir = (delta > 0) ? 1 : 2;
-      tim15_last_state = current_state;
-    }
-  else
-    {
-      encoders[ENCODER_TIM15].step = 0;
-      encoders[ENCODER_TIM15].dir = 0;
-    }
-
-  static uint8_t debounce_cnt = 0;
-  if (current_state != tim15_last_state)
-    {
-      debounce_cnt++;
-      if (debounce_cnt >= 1)
-        {
-          tim15_last_state = current_state;
-          debounce_cnt = 0;
-        }
-    }
-  else
-    {
-      debounce_cnt = 0;
-    }
-}
-
-/**
- * @brief 直接获取指定编码器的原始计数值（线程安全）
- * @param id 编码器ID（如ENCODER_TIM2）
- * @return 定时器原始计数值（uint32_t）
+ * @brief 获取原始计数值
  */
 uint32_t Encoder_GetRawCount(Encoder_ID id)
 {
@@ -121,17 +143,17 @@ uint32_t Encoder_GetRawCount(Encoder_ID id)
 
   if (xSemaphoreTake(enc_mutex, portMAX_DELAY) == pdTRUE)
     {
-      switch(id)
+      switch (id)
         {
         case ENCODER_TIM2:
-          raw_cnt = LL_TIM_GetCounter(TIM2);  // 直接返回TIM2的原始计数
+          raw_cnt = LL_TIM_GetCounter(TIM2);
           break;
         case ENCODER_TIM3:
-          raw_cnt = LL_TIM_GetCounter(TIM3);  // 直接返回TIM3的原始计数
+          raw_cnt = LL_TIM_GetCounter(TIM3);
           break;
-        case ENCODER_TIM15:
-          raw_cnt = tim15_last_state;
-          break;
+				case ENCODER_SS2:
+          raw_cnt = encoders[ENCODER_SS2].total_count;
+					break;
         default:
           raw_cnt = 0;
           break;
@@ -150,24 +172,17 @@ void vEncoderTask(void *argument)
     {
       if (xSemaphoreTake(enc_mutex, portMAX_DELAY) == pdTRUE)
         {
-          Encoder_ProcessTIM2();
+					Encoder_ProcessTIM2();
           Encoder_ProcessTIM3();
-          Encoder_ProcessTIM15();
           xSemaphoreGive(enc_mutex);
         }
-
-      // 同时打印原始计数和处理后的总计数，方便对比
-      //Encoder_HandleTypeDef data;
-      //Encoder_GetData(ENCODER_TIM2, &data);
-//      fr_printf("TIM2原始计数: %lu, 处理后计数: %ld, 方向: %d\n",
-//               Encoder_GetRawCount(ENCODER_TIM2), data.total_count, data.dir);
-
-      vTaskDelay(pdMS_TO_TICKS(10));  // 5ms采样周期
+		
+      vTaskDelay(pdMS_TO_TICKS(10));
     }
 }
 
 /**
- * @brief 线程安全地获取编码器数据
+ * @brief 获取编码器数据
  */
 void Encoder_GetData(Encoder_ID id, Encoder_HandleTypeDef *data)
 {

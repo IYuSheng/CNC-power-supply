@@ -144,7 +144,7 @@ void Storage_task_create(void)
   */
 void Encoder_task_create(void)
 {
-  xReturn = xTaskCreate(vEncoderTask, "Encoder", 256,
+  xReturn = xTaskCreate(vEncoderTask, "Encoder", 512,
                         NULL, TASK_PRIO_ENCODER, NULL);
   if (xReturn != pdPASS)
     {
@@ -154,6 +154,24 @@ void Encoder_task_create(void)
   else
     {
       fr_printf("Encoder task create Success");
+    }
+}
+
+/**
+  * @brief  初始化控制任务
+  */
+void Control_task_create(void)
+{
+  xReturn = xTaskCreate(vControlTask, "Control", 256,
+                        NULL, 3, NULL);
+  if (xReturn != pdPASS)
+    {
+      fr_printf("Control task create Failed");
+      Error_Handler();
+    }
+  else
+    {
+      fr_printf("Control task create Success");
     }
 }
 

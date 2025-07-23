@@ -25,6 +25,7 @@
 #include "Uart_Debug.h"
 #include "CommandHandlers.h"
 #include "Encoder.h"
+#include "Comm.h"
 
 /* 系统监控相关定义 */
 #if Monitor_Flag

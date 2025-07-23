@@ -31,17 +31,17 @@ void vControlTask(void *argument)
     }
 
   Encoder_HandleTypeDef tim2_data, tim3_data;
-  char msg[64];
-  float last_dac_a = 0.0f, last_dac_b = 0.0f;
-  float tp1, tp2;
+    char msg[64];
+    float last_dac_a = 0.0f, last_dac_b = 0.0f;
+    float tp1, tp2;
 
-  // 初始化：复用循环中的逻辑
-  Encoder_GetData(ENCODER_TIM2, &tim2_data);
-  Encoder_GetData(ENCODER_TIM3, &tim3_data);
-  tp1 = LimitValue(tim3_data.total_count * Default_Precision, 0.0f, Limit_Current);
-  tp2 = LimitValue(tim2_data.total_count * Default_Precision, 0.0f, Limit_Voltage);
-  last_dac_a = LimitValue(TransformCurrent(tp1), 0.0f, Limit_DACA);
-  last_dac_b = LimitValue(TransformVoltage(tp2), 0.0f, Limit_DACB);
+    // 初始化：复用循环中的逻辑
+    Encoder_GetData(ENCODER_TIM2, &tim2_data);
+    Encoder_GetData(ENCODER_TIM3, &tim3_data);
+    tp1 = LimitValue(tim3_data.total_count * Default_Precision, 0.0f, Limit_Current);
+    tp2 = LimitValue(tim2_data.total_count * Default_Precision, 0.0f, Limit_Voltage);
+    last_dac_a = LimitValue(TransformCurrent(tp1), 0.0f, Limit_DACA);
+    last_dac_b = LimitValue(TransformVoltage(tp2), 0.0f, Limit_DACB);
 
   for (;;)
     {
@@ -49,19 +49,22 @@ void vControlTask(void *argument)
       Encoder_GetData(ENCODER_TIM2, &tim2_data);
       Encoder_GetData(ENCODER_TIM3, &tim3_data);
 
+      // 临时变量存储转换后的值（未限幅）
+      float temp_a, temp_b, tp1, tp2;
+
       tp1 = LimitValue(tim3_data.total_count * Default_Precision, 0.0f, Limit_Current);
       tp2 = LimitValue(tim2_data.total_count * Default_Precision, 0.0f, Limit_Voltage);
 
-      // 计算转换后的值
-      float temp_a = LimitValue(TransformCurrent(tp1), 0.0f, Limit_DACA);
-      float temp_b = LimitValue(TransformVoltage(tp2), 0.0f, Limit_DACB);
+      // 计算转换后的值（先不赋值，便于限幅处理）
+      temp_a = LimitValue(TransformCurrent(tp1), 0.0f, Limit_DACA);
+			temp_b = LimitValue(TransformVoltage(tp2), 0.0f, Limit_DACB);
 
       // 更新send_gather
       if (xSemaphoreTake(send_mutex, portMAX_DELAY) == pdPASS)
         {
           send_gather.dac_a = temp_a;
           send_gather.dac_b = temp_b;
-
+					
           xSemaphoreGive(send_mutex);
         }
 
@@ -69,7 +72,7 @@ void vControlTask(void *argument)
       if (fabs(send_gather.dac_a - last_dac_a) > 1e-6f ||
           fabs(send_gather.dac_b - last_dac_b) > 1e-6f)
         {
-          // 格式化消息
+          // 格式化消息（保留2位小数）
           snprintf(msg, sizeof(msg), "Current=%.2fA, Voltage=%.2fV\n",
                    tp1, tp2);
 
@@ -88,13 +91,13 @@ void vControlTask(void *argument)
 // 将设置电压值转换为DAC数字值
 inline float TransformVoltage(float voltage)
 {
-  return voltage * VOLTAGE_CONVERT_COEF;
+    return voltage * VOLTAGE_CONVERT_COEF;
 }
 
 // 将设置电流值转换为DAC数字值
 inline float TransformCurrent(float current)
 {
-  return (current * CURRENT_CONVERT_COEF) + CURRENT_OFFSET;
+    return (current * CURRENT_CONVERT_COEF) + CURRENT_OFFSET;
 }
 
 // 函数：处理设置DAC的值

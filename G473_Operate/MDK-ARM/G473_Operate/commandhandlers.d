@@ -58,5 +58,9 @@ g473_operate\commandhandlers.o: ..\App\CommandHandlers.h
 g473_operate\commandhandlers.o: ..\bsp\Monitor.h
 g473_operate\commandhandlers.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h
 g473_operate\commandhandlers.o: ..\App\Control.h
+g473_operate\commandhandlers.o: ..\Hardware\Encoder.h
+g473_operate\commandhandlers.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h
+g473_operate\commandhandlers.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_cortex.h
+g473_operate\commandhandlers.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\math.h
 g473_operate\commandhandlers.o: ..\Hardware\Uart_comm.h
 g473_operate\commandhandlers.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdlib.h

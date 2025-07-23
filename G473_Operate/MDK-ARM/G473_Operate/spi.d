@@ -76,6 +76,10 @@ g473_operate\spi.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
 g473_operate\spi.o: ..\Hardware\Uart_Debug.h
 g473_operate\spi.o: ..\bsp\Monitor.h
 g473_operate\spi.o: ..\App\Control.h
+g473_operate\spi.o: ..\Hardware\Encoder.h
+g473_operate\spi.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h
+g473_operate\spi.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_cortex.h
+g473_operate\spi.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\math.h
 g473_operate\spi.o: ..\Hardware\Uart_comm.h
 g473_operate\spi.o: ..\App\Watchdog.h
 g473_operate\spi.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h
@@ -83,4 +87,4 @@ g473_operate\spi.o: ..\Hardware\st7789.h
 g473_operate\spi.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_spi.h
 g473_operate\spi.o: ..\Hardware\Key.h
 g473_operate\spi.o: ..\Hardware\m24c64.h
-g473_operate\spi.o: ..\Hardware\Encoder.h
+g473_operate\spi.o: ..\App\Comm.h

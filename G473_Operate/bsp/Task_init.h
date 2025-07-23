@@ -23,6 +23,7 @@ void TFT_task_create(void);
 void Storage_task_create(void);
 void Key_task_create(void);
 void Encoder_task_create(void);
+void Control_task_create(void);
 void Test_task_create(void);
 
 #endif /* __TASK_INIT_H */

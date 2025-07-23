@@ -1,0 +1,36 @@
+#include "Comm.h"
+
+extern UART_TxStruct send_gather;
+
+/**
+ * @brief 控制任务
+ */
+void vControlTask(void *argument)
+{
+  SemaphoreHandle_t send_mutex = xSemaphoreCreateMutex();
+    if (send_mutex == NULL) {
+        // 处理创建失败（如打印错误、进入安全模式）
+        fr_printf("send_mutex create failed!\n");
+        vTaskDelete(NULL);  // 创建失败，删除任务
+        return;
+    }
+	Encoder_HandleTypeDef tim2_data, tim3_data;
+		
+  for (;;)
+    {
+      
+
+      // 线程安全地获取 TIM2 和 TIM3 的数据
+      Encoder_GetData(ENCODER_TIM2, &tim2_data);
+      Encoder_GetData(ENCODER_TIM3, &tim3_data);
+
+      if (xSemaphoreTake(send_mutex, portMAX_DELAY) == pdPASS)
+        {
+          send_gather.dac_b = tim2_data.total_count;
+          send_gather.dac_a = tim3_data.total_count;
+          xSemaphoreGive(send_mutex);
+
+          vTaskDelay(pdMS_TO_TICKS(5));
+        }
+    }
+}

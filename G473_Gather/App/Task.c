@@ -44,10 +44,10 @@ void Task2_Handler(void)
   /* 数据处理 */
 
   /* 临时测试 */
-//  float SetA = uart_rx_data.adc_a;
+  float SetA = uart_rx_data.dac_a;
   float SetB = uart_rx_data.dac_b;
 
-	float SetA = 2.5f;
+//	float SetA = 2.5f;
 //  float SetB = 0.7f;
 
   /* 设置通道A输出2.5V，通道B输出1.25V */
@@ -95,7 +95,7 @@ void Task4_Handler(void)
 	/* 报文打印 */
 	
 	//打印输出模式以及dac输出电压
-//	Debug_printf("start_flag=%d, mode=%d, adc_a = %.2f, adc_b = %.2f",
+//	Debug_printf("start_flag=%d, mode=%d, dac_a = %.2f, dac_b = %.2f",
 //               uart_rx_data.start_flag,
 //               uart_rx_data.mode,
 //               uart_rx_data.dac_a,

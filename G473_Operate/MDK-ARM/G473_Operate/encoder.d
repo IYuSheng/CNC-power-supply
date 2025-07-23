@@ -11,9 +11,9 @@ g473_operate\encoder.o: ..\FreeRTOS\port\portmacro.h
 g473_operate\encoder.o: ..\FreeRTOS\inc\mpu_wrappers.h
 g473_operate\encoder.o: ..\FreeRTOS\inc\task.h
 g473_operate\encoder.o: ..\FreeRTOS\inc\list.h
-g473_operate\encoder.o: ..\FreeRTOS\inc\queue.h
 g473_operate\encoder.o: ..\FreeRTOS\inc\semphr.h
-g473_operate\encoder.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h
+g473_operate\encoder.o: ..\FreeRTOS\inc\queue.h
+g473_operate\encoder.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h
 g473_operate\encoder.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h
 g473_operate\encoder.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h
 g473_operate\encoder.o: ../Drivers/CMSIS/Include/core_cm4.h
@@ -43,7 +43,9 @@ g473_operate\encoder.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usb.h
 g473_operate\encoder.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pcd_ex.h
 g473_operate\encoder.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h
 g473_operate\encoder.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h
-g473_operate\encoder.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h
+g473_operate\encoder.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h
+g473_operate\encoder.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_cortex.h
+g473_operate\encoder.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h
 g473_operate\encoder.o: ..\Hardware\Uart_Debug.h
 g473_operate\encoder.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
 g473_operate\encoder.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
@@ -59,5 +61,7 @@ g473_operate\encoder.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
 g473_operate\encoder.o: ..\Hardware\Uart_Debug.h
 g473_operate\encoder.o: ..\bsp\Monitor.h
 g473_operate\encoder.o: ..\App\Control.h
+g473_operate\encoder.o: ..\Hardware\Encoder.h
+g473_operate\encoder.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\math.h
 g473_operate\encoder.o: ..\Hardware\Uart_comm.h
 g473_operate\encoder.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdlib.h

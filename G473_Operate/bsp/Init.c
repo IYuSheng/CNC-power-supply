@@ -22,9 +22,8 @@ void Init_Hardware(void)
   MX_USART1_UART_Init();
   MX_USB_Device_Init();
   MX_I2C1_Init();
-  MX_TIM2_Init();
+	MX_TIM2_Init();
   MX_TIM3_Init();
-  MX_TIM15_Init();
 	fr_printf("\r\n[version]HR CNC POWER SUPPLY V1.0");//  µ±Ç°°æ±¾ºÅ
 	fr_printf("Hardware Init Success");
 }

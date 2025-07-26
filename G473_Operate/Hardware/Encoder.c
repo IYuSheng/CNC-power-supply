@@ -193,3 +193,41 @@ void Encoder_GetData(Encoder_ID id, Encoder_HandleTypeDef *data)
       xSemaphoreGive(enc_mutex);
     }
 }
+
+void Encoder_SetData(Encoder_ID id, const Encoder_HandleTypeDef *data)
+{
+  configASSERT(id < ENCODER_MAX && data != NULL);  // 参数校验
+
+  // 加锁保证线程安全（与读取/处理函数互斥）
+  if (xSemaphoreTake(enc_mutex, portMAX_DELAY) == pdTRUE)
+  {
+    switch (id)
+    {
+      case ENCODER_TIM2:
+        // 1. 设置定时器当前计数（硬件计数器）
+        LL_TIM_SetCounter(TIM2, data->last_cnt);  // 同步硬件计数
+        // 2. 更新累计计数和历史值
+        encoders[id].total_count = data->total_count;
+        encoders[id].last_cnt = data->last_cnt;  // 同步历史计数
+        break;
+
+      case ENCODER_TIM3:
+        // 与TIM2处理逻辑一致
+        LL_TIM_SetCounter(TIM3, data->last_cnt);
+        encoders[id].total_count = data->total_count;
+        encoders[id].last_cnt = data->last_cnt;
+        break;
+
+      case ENCODER_SS2:  // 外部中断型编码器（SS2）
+        // 无硬件定时器，直接更新累计计数和引脚电平历史
+        encoders[id].total_count = data->total_count;
+        encoders[id].last_s3_level = data->last_s3_level;  // 保留引脚电平状态
+        encoders[id].last_s4_level = data->last_s4_level;
+        break;
+
+      default:
+        break;
+    }
+    xSemaphoreGive(enc_mutex);  // 释放锁
+  }
+}

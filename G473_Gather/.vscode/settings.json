@@ -2,6 +2,15 @@
     "Codegeex.RepoIndex": true,
     "files.associations": {
         "stm32g4xx_ll_i2c.h": "c",
-        "task.h": "c"
+        "task.h": "c",
+        "stm32g4xx_ll_tim.h": "c",
+        "init.h": "c",
+        "stm32g4xx_ll_iwdg.h": "c",
+        "stm32g4xx_ll_gpio.h": "c",
+        "calculate.h": "c",
+        "stm32g4xx_ll_bus.h": "c",
+        "sys_timer.h": "c",
+        "dac8562.h": "c",
+        "uart_comm.h": "c"
     }
 }

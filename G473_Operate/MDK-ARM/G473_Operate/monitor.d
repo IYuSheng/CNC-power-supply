@@ -62,6 +62,7 @@ g473_operate\monitor.o: ..\App\Control.h
 g473_operate\monitor.o: ..\Hardware\Encoder.h
 g473_operate\monitor.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h
 g473_operate\monitor.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_cortex.h
+g473_operate\monitor.o: ..\Hardware\Key.h
 g473_operate\monitor.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\math.h
 g473_operate\monitor.o: ..\Hardware\Uart_comm.h
 g473_operate\monitor.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdlib.h

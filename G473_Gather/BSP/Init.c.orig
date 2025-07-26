@@ -1,0 +1,118 @@
+/* Init.c 文件 */
+#include "Init.h"
+
+PI_HandleTypeDef voltage_pi = {0}; //电压PI控制器
+
+void Init_Hardware(void)
+{
+  MX_GPIO_Init();
+  UART_Init();
+  MX_ADC3_Init();
+  MX_ADC1_Init();
+  MX_ADC2_Init();
+  MX_ADC4_Init();
+  MX_TIM2_Init();
+  UART1_Init();
+  I2C1_Init();
+  Common_ADC_Init();
+  Debug_printf("Hardware Init Success");
+}
+
+void Init_App(void)
+{
+  DWT_Init();
+  DAC8562_Init();
+  SGM58031_Init(I2C1);
+	// 初始化PI控制器
+    PI_Init(&voltage_pi, 
+        0.5f, 1.5f,        // Kp=0.5, Ki=1.5（当前调参值）
+        0.0f, 5.0f,        // 绝对输出限幅：0~5V（DAC物理范围）
+        -0.02f, 0.02f);    // 增量限幅：每次变化不超过±0.02V（避免突变）
+  Debug_printf("App Init Success");
+}
+
+void Init_Sys(void)
+{
+  LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
+  LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
+
+  NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
+
+  NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),15, 0));
+
+  LL_PWR_DisableUCPDDeadBattery();
+}
+
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
+  LL_FLASH_SetLatency(LL_FLASH_LATENCY_4);
+  while(LL_FLASH_GetLatency() != LL_FLASH_LATENCY_4)
+    {
+    }
+  LL_PWR_EnableRange1BoostMode();
+  LL_RCC_HSE_Enable();
+  /* Wait till HSE is ready */
+  while(LL_RCC_HSE_IsReady() != 1)
+    {
+    }
+
+  LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSE, LL_RCC_PLLM_DIV_2, 85, LL_RCC_PLLR_DIV_2);
+  LL_RCC_PLL_EnableDomain_SYS();
+  LL_RCC_PLL_Enable();
+  /* Wait till PLL is ready */
+  while(LL_RCC_PLL_IsReady() != 1)
+    {
+    }
+
+  LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
+  LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_2);
+  /* Wait till System clock is ready */
+  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL)
+    {
+    }
+
+  /* Insure 1us transition state at intermediate medium speed clock*/
+  for (__IO uint32_t i = (170 >> 1); i !=0; i--);
+
+  /* Set AHB prescaler*/
+  LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
+  LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_1);
+  LL_RCC_SetAPB2Prescaler(LL_RCC_APB2_DIV_1);
+
+  LL_Init1msTick(170000000);
+
+  LL_SetSystemCoreClock(170000000);
+}
+
+/**
+ * @brief 初始化独立看门狗（IWDG）
+ * @param timeout_ms：超时时间（ms），范围：128ms~32768ms（基于LSI=32kHz）
+ */
+void IWDG_Init(uint32_t timeout_ms)
+{
+  // 使能IWDG（一旦使能，只能通过复位关闭）
+  LL_IWDG_Enable(IWDG);
+
+  // 解锁IWDG寄存器（默认锁定，需解锁才能配置）
+  LL_IWDG_EnableWriteAccess(IWDG);
+
+  // 配置预分频器（LSI=32kHz，分频后时钟=32kHz / 预分频值）
+  // 预分频选项：LL_IWDG_PRESCALER_4/8/16/32/64/128/256
+  LL_IWDG_SetPrescaler(IWDG, LL_IWDG_PRESCALER_32); // 32kHz/32=1kHz（1ms计数1次）
+
+  // 计算重装载值（超时时间 = 重装载值 * 1ms）
+  uint32_t reload = timeout_ms;
+  // 重装载值最大为0x0FFF（4095），超时时间最大为4095ms（约4秒）
+  if (reload > 0x0FFF) reload = 0x0FFF;
+  LL_IWDG_SetReloadCounter(IWDG, reload);
+
+  // 等待寄存器更新完成
+  while (LL_IWDG_IsReady(IWDG) == 0);
+
+  // 初始喂狗（重置计数器）
+  LL_IWDG_ReloadCounter(IWDG);
+}

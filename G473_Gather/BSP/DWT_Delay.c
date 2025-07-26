@@ -6,14 +6,14 @@
   */
 void DWT_Init(void)
 {
-    // 启用DWT跟踪
-    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
-    
-    // 重置周期计数器
-    DWT->CYCCNT = 0;
-    
-    // 启用周期计数器
-    DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+  // 启用DWT跟踪
+  CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+
+  // 重置周期计数器
+  DWT->CYCCNT = 0;
+
+  // 启用周期计数器
+  DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 }
 
 /**
@@ -22,7 +22,7 @@ void DWT_Init(void)
   */
 uint32_t DWT_GetTick(void)
 {
-    return DWT->CYCCNT;
+  return DWT->CYCCNT;
 }
 
 /**
@@ -31,12 +31,12 @@ uint32_t DWT_GetTick(void)
   */
 void DWT_Delayus(uint32_t us)
 {
-    uint32_t start = DWT->CYCCNT;
-    // 计算需要等待的时钟周期数
-    uint32_t cycles = us * (SystemCoreClock / 1000000);
-    
-    // 等待直到经过足够的时钟周期
-    while((DWT->CYCCNT - start) < cycles);
+  uint32_t start = DWT->CYCCNT;
+  // 计算需要等待的时钟周期数
+  uint32_t cycles = us * (SystemCoreClock / 1000000);
+
+  // 等待直到经过足够的时钟周期
+  while((DWT->CYCCNT - start) < cycles);
 }
 
 /**
@@ -45,10 +45,10 @@ void DWT_Delayus(uint32_t us)
   */
 void DWT_Delayms(uint32_t ms)
 {
-    uint32_t start = DWT->CYCCNT;
-    // 计算需要等待的时钟周期数
-    uint32_t cycles = ms * (SystemCoreClock / 1000);
-    
-    // 等待直到经过足够的时钟周期
-    while((DWT->CYCCNT - start) < cycles);
+  uint32_t start = DWT->CYCCNT;
+  // 计算需要等待的时钟周期数
+  uint32_t cycles = ms * (SystemCoreClock / 1000);
+
+  // 等待直到经过足够的时钟周期
+  while((DWT->CYCCNT - start) < cycles);
 }

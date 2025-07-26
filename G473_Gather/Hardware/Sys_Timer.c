@@ -4,22 +4,18 @@
 static volatile uint32_t system_tick = 0;
 
 // 任务计数器
-static volatile uint32_t task1_counter = 0;
-static volatile uint32_t task2_counter = 0;
-static volatile uint32_t task3_counter = 0;
-static volatile uint32_t task4_counter = 0;
-
-// 任务标志
-volatile bool task1_flag = false;
-volatile bool task2_flag = false;
-volatile bool task3_flag = false;
-volatile bool task4_flag = false;
+static volatile uint32_t task_RADC_counter = 0;
+static volatile uint32_t task_RCommon_ADC_counter = 0;
+static volatile uint32_t task_State_counter = 0;
+static volatile uint32_t task_Comm_counter = 0;
+static volatile uint32_t task_Debug_counter = 0;
 
 // 任务执行周期(以系统滴答为单位)
-static const uint32_t task1_period = SYSTICK_FREQUENCY_HZ / TASK_1_FREQUENCY_HZ;
-static const uint32_t task2_period = SYSTICK_FREQUENCY_HZ / TASK_2_FREQUENCY_HZ;
-static const uint32_t task3_period = SYSTICK_FREQUENCY_HZ / TASK_3_FREQUENCY_HZ;
-static const uint32_t task4_period = SYSTICK_FREQUENCY_HZ / TASK_4_FREQUENCY_HZ;
+static const uint32_t task_RADC_period = SYSTICK_FREQUENCY_HZ / TASK_RADC_FREQUENCY_HZ;
+static const uint32_t task_RCommon_ADC_period = SYSTICK_FREQUENCY_HZ / TASK_RCommon_ADC_FREQUENCY_HZ;
+static const uint32_t task_State_period = SYSTICK_FREQUENCY_HZ / TASK_State_FREQUENCY_HZ;
+static const uint32_t task_Comm_period = SYSTICK_FREQUENCY_HZ / TASK_Comm_Recv_FREQUENCY_HZ;
+static const uint32_t task_Debug_period = SYSTICK_FREQUENCY_HZ / TASK_Debug_FREQUENCY_HZ;
 
 /**
   * @brief  定时器2初始化函数
@@ -65,27 +61,31 @@ void TIM2_IRQHandler(void)
       system_tick++;
 
       /* 更新任务计数器并设置任务标志 */
-      if (++task1_counter >= task1_period)
+      if (++task_RADC_counter >= task_RADC_period)
         {
-          task1_counter = 0;
-          task1_flag = true;
+          task_RADC_counter = 0;
+          task_RADC_flag = true;
         }
 
-      if (++task2_counter >= task2_period)
+      if (++task_RCommon_ADC_counter >= task_RCommon_ADC_period)
         {
-          task2_counter = 0;
-          task2_flag = true;
+          task_RCommon_ADC_counter = 0;
+          task_RCommonADC_flag = true;
         }
-
-      if (++task3_counter >= task3_period)
+      if (++task_State_counter >= task_State_period)
         {
-          task3_counter = 0;
-          task3_flag = true;
+          task_State_counter = 0;
+          task_Stop_flag = true;
         }
-      if (++task4_counter >= task4_period)
+      if (++task_Comm_counter >= task_Comm_period)
         {
-          task4_counter = 0;
-          task4_flag = true;
+          task_Comm_counter = 0;
+          task_Comm_Recv_flag = true;
+        }
+			if (++task_Debug_counter >= task_Debug_period)
+        {
+          task_Debug_counter = 0;
+          task_Debug_flag = true;
         }
     }
 }

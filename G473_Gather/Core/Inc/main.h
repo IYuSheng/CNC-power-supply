@@ -52,11 +52,14 @@ extern "C" {
 #include "SGM58031.h"
 #include "DWT_Delay.h"
 #include "Common_ADC.h"
+#include "Calculate.h"
 
-extern volatile bool task1_flag;
-extern volatile bool task2_flag;
-extern volatile bool task3_flag;
-extern volatile bool task4_flag;
+extern volatile bool task_RADC_flag;
+extern volatile bool task_SDAC_flag;
+extern volatile bool task_Comm_Recv_flag;
+extern volatile bool task_Debug_flag;
+extern volatile bool task_Stop_flag;
+extern volatile bool pid_flag;
 
 #if defined(USE_FULL_ASSERT)
 #include "stm32_assert.h"

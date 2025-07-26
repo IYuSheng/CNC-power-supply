@@ -30,12 +30,12 @@ g473_gather\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwd
 g473_gather\stm32g4xx_it.o: ..\App\Task.h
 g473_gather\stm32g4xx_it.o: ..\Hardware\Sys_Timer.h
 g473_gather\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h
+g473_gather\stm32g4xx_it.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
 g473_gather\stm32g4xx_it.o: ..\Hardware\Uart_Debug.h
 g473_gather\stm32g4xx_it.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
 g473_gather\stm32g4xx_it.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 g473_gather\stm32g4xx_it.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 g473_gather\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h
-g473_gather\stm32g4xx_it.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
 g473_gather\stm32g4xx_it.o: ..\Hardware\Uart_comm.h
 g473_gather\stm32g4xx_it.o: ..\Hardware\DAC8562.h
 g473_gather\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_spi.h
@@ -44,4 +44,8 @@ g473_gather\stm32g4xx_it.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_i2c
 g473_gather\stm32g4xx_it.o: ..\BSP\DWT_Delay.h
 g473_gather\stm32g4xx_it.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\math.h
 g473_gather\stm32g4xx_it.o: ..\Hardware\Common_ADC.h
+g473_gather\stm32g4xx_it.o: ..\BSP\Key_Stop.h
+g473_gather\stm32g4xx_it.o: ..\App\Task.h
+g473_gather\stm32g4xx_it.o: ..\App\Calculate.h
+g473_gather\stm32g4xx_it.o: ..\App\LED.h
 g473_gather\stm32g4xx_it.o: ../Core/Inc/stm32g4xx_it.h

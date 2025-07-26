@@ -1,0 +1,85 @@
+#include "Calculate.h"
+
+/**
+ * @brief  内联函数：限制值在指定范围内
+ * @param  value: 要限制的值
+ * @param  min: 最小值
+ * @param  max: 最大值
+ * @retval 限制后的值
+ */
+static inline float min_max(float value, float min, float max)
+{
+    if (value > max)
+        return max;
+    else if (value < min)
+        return min;
+    else
+        return value;
+}
+
+/**
+ * @brief  初始化PI控制器参数
+ * @param  pi: PI控制器结构体指针
+ * @param  Kp: 比例系数
+ * @param  Ki: 积分系数
+ * @param  output_min: 输出最小值限制
+ * @param  output_max: 输出最大值限制
+ * @param  integral_min: 积分最小值限制
+ * @param  integral_max: 积分最大值限制
+ * @retval None
+ */
+void PI_Init(PI_HandleTypeDef *pi, float Kp, float Ki,
+             float output_min, float output_max,
+             float integral_min, float integral_max)
+{
+    pi->Kp = Kp;
+    pi->Ki = Ki;
+
+    pi->output_min = output_min;
+    pi->output_max = output_max;
+    pi->integral_min = integral_min;
+    pi->integral_max = integral_max;
+
+    // 初始化内部变量
+    pi->last_error = 0.0f;
+    pi->integral = 0.0f;
+}
+
+/**
+ * @brief  执行PI计算，使process_value接近target_value
+ * @param  pi: PI控制器结构体指针
+ * @param  process_value: 过程值（当前值）
+ * @param  target_value: 目标值（希望达到的值）
+ * @retval 控制输出值
+ */
+float PI_Calculate(PI_HandleTypeDef *pi, float process_value, float target_value)
+{
+    // 计算当前误差（目标值 - 当前值）
+    float error = target_value - process_value;
+
+    // 计算积分项（累加误差）并进行积分限幅
+    pi->integral = min_max(pi->integral + error * pi->Ki * 0.001f, 
+                          pi->integral_min, 
+                          pi->integral_max);
+
+    // 计算PI输出（仅比例项和积分项）并进行输出限幅
+    float output = min_max((pi->Kp * error) + pi->integral,
+                          pi->output_min,
+                          pi->output_max);
+
+    // 保存当前误差用于后续参考
+    pi->last_error = error;
+
+    return output;
+}
+
+/**
+ * @brief  重置PI控制器内部状态
+ * @param  pi: PI控制器结构体指针
+ * @retval None
+ */
+void PI_Reset(PI_HandleTypeDef *pi)
+{
+    pi->last_error = 0.0f;
+    pi->integral = 0.0f;
+}

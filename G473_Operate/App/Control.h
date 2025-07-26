@@ -7,6 +7,7 @@
 #include "task.h"
 #include "semphr.h"
 #include "Encoder.h"
+#include "Key.h"
 #include "math.h"
 
 #define Limit_Voltage	50.0f
@@ -16,7 +17,6 @@
 #define VOLTAGE_CONVERT_COEF 0.047619f  // 电压转换系数
 #define CURRENT_CONVERT_COEF 0.0375f    // 电流转换系数
 #define CURRENT_OFFSET      1.65f       // 电流偏移量
-
 #define	Default_Precision	0.1f
 
 void vControlTask(void *argument);

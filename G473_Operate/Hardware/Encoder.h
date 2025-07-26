@@ -33,5 +33,6 @@ void Encoder_Init(void);
 void Encoder_GetData(Encoder_ID id, Encoder_HandleTypeDef *data);
 void vEncoderTask(void *pvParameters);
 uint32_t Encoder_GetRawCount(Encoder_ID id);
+void Encoder_SetData(Encoder_ID id, const Encoder_HandleTypeDef *data);
 
 #endif

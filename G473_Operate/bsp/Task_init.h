@@ -14,6 +14,7 @@
 #define TASK_PRIO_MONITOR     2    // 系统监控：重要但非实时，可稍后执行
 #define TASK_PRIO_STORAGE     2    // 存储操作：I/O密集型，允许适当延迟
 #define TASK_PRIO_TFT         1    // 屏幕显示：视觉更新可接受一定延迟
+#define TASK_PRIO_Print       1    // 调试接口打印：允许适当延迟 
 
 void Debug_uart_task_create(void);
 void Monitor_task_create(void);

@@ -63,6 +63,7 @@ g473_operate\m24c64.o: ..\App\Control.h
 g473_operate\m24c64.o: ..\Hardware\Encoder.h
 g473_operate\m24c64.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h
 g473_operate\m24c64.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_cortex.h
+g473_operate\m24c64.o: ..\Hardware\Key.h
 g473_operate\m24c64.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\math.h
 g473_operate\m24c64.o: ..\Hardware\Uart_comm.h
 g473_operate\m24c64.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdlib.h

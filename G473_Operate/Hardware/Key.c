@@ -11,7 +11,7 @@ static const char* key_names[KEY_MAX] =
   "KEY_FUNC3 (PB1)"
 };
 
-QueueHandle_t key_msg_queue;  // 消息队列句柄
+QueueHandle_t control_msg_queue;  // 消息队列句柄
 
 // 按键状态结构体
 typedef struct
@@ -48,8 +48,8 @@ void Key_Init(void)
     }
 
   // 创建消息队列
-  key_msg_queue = xQueueCreate(10, 64);
-  configASSERT(key_msg_queue != NULL);
+  control_msg_queue = xQueueCreate(10, 64);
+  configASSERT(control_msg_queue != NULL);
 }
 
 // 读取消抖后的按键电平
@@ -100,7 +100,7 @@ static void Key_ProcessOne(Key_TypeDef key, uint8_t current)
                 {
                   snprintf(msg, sizeof(msg), "[KEY] %s 释放\n", key_names[key]);
                 }
-              xQueueSend(key_msg_queue, msg, 0);  // 发送到队列
+              xQueueSend(control_msg_queue, msg, 0);  // 发送到队列
             }
         }
     }

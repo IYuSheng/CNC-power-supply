@@ -2,51 +2,54 @@
 
 int main(void)
 {
-  //系统初始化
+  // 系统初始化（保持原逻辑）
   Init_Sys();
-  //系统看门狗初始化
   IWDG_Init(2000);
-  //系统时钟初始化
   SystemClock_Config();
-  //硬件初始化
   Init_Hardware();
-  //App接口函数初始化
   Init_App();
 
   while (1)
     {
-      /* --------------------前台任务-------------------- */
-      /* 指令接收及发送数据任务 */
-      if (task1_flag)
+      // 按优先级遍历任务：先处理最高优先级的就绪任务
+      for (uint8_t i = 0; i < TASK_NUM; i++)
         {
-          task1_flag = false;
-          Task1_Handler();
+          Task_t *task = &tasks[i];
+          if (*(task->flag))    // 任务就绪
+            {
+              *(task->flag) = false;  // 清除标志位
+							
+              switch (task->id)
+                {
+                case TASK_ID_ReadADC:
+                  Task_ReadADC_Handler();
+									break;
+								case TASK_ID_Read_Common_ADC:
+									Task_Read_Common_ADC_Handler();
+                  break;
+                case TASK_ID_SetDAC:
+                  Task_SetDAC_Handler();
+                  break;
+                case TASK_ID_Comm_Recv:
+                  Task_Comm_Recv_Handler();
+                  break;
+								case TASK_ID_Comm_Send:
+                  Task_Comm_Send_Handler();
+                  break;
+                case TASK_ID_Debug:
+                  Task_Debug_Handler();
+                  break;
+                case TASK_ID_Stop:
+                  Task_Stop_Handler();
+                  break;
+                case TASK_ID_PID:
+                  Task_PID_Handler();
+                  break;
+                default:
+                  break;
+                }
+            }
         }
-
-      /* 检查并处理任务2 */
-      if (task2_flag)
-        {
-          task2_flag = false;
-          Task2_Handler();
-        }
-
-      /* 检查并处理任务3 */
-      if (task3_flag)
-        {
-          task3_flag = false;
-          Task3_Handler();
-        }
-
-      /* 检查并处理任务4 */
-      if (task4_flag)
-        {
-          task4_flag = false;
-          Task4_Handler();
-        }
-
-      /* --------------------后台任务-------------------- */
-
-
     }
 }
 

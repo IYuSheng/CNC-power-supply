@@ -1,84 +1,147 @@
 #include "Task.h"
 
-// 全局变量：存储传感器数据（供发送使用）
-static UART_TxStruct sensor_data = {0};
-// 创建数组存储四个通道的ADC结果
-float voltages[4];
+// 任务标志位
+volatile bool task_RADC_flag = false;
+volatile bool task_RCommonADC_flag = false;
+volatile bool task_SDAC_flag = false;
+volatile bool task_Comm_Recv_flag = false;
+volatile bool task_Comm_Send_flag = false;
+volatile bool task_Debug_flag = false;
+volatile bool task_Stop_flag = false;
+volatile bool pid_flag = false;
+
+// 任务列表：定义（仅此处定义，按优先级排序）
+Task_t tasks[TASK_NUM] =
+{
+  // 最高优先级：紧急停止及接收处理任务（独立，随时打断其他任务）
+  {TASK_ID_Stop, &task_Stop_flag, Task_Stop_Handler, PRIO_HIGHEST},
+	{TASK_ID_Comm_Recv, &task_Comm_Recv_flag, Task_Comm_Recv_Handler, PRIO_HIGHEST},	// 通信接收
+	
+  // 高优先级核心控制链（按执行顺序排序）
+  {TASK_ID_ReadADC, &task_RADC_flag, Task_ReadADC_Handler, PRIO_HIGH},  // 1. 先读ADC
+  {TASK_ID_PID, &pid_flag, Task_PID_Handler, PRIO_HIGH},                // 2. 再算PID（依赖ADC结果）
+  {TASK_ID_SetDAC, &task_SDAC_flag, Task_SetDAC_Handler, PRIO_HIGH},    // 3. 最后设DAC（依赖PID结果）
+  {TASK_ID_Read_Common_ADC, &task_RCommonADC_flag, Task_Read_Common_ADC_Handler, PRIO_MEDIUM},	// 4. 读取CommonADC
+	
+  // 低优先级：独立任务（不影响核心控制）
+  {TASK_ID_Comm_Send, &task_Comm_Send_flag, Task_Comm_Send_Handler, PRIO_LOW},	// 5. 通信发送
+  {TASK_ID_Debug, &task_Debug_flag, Task_Debug_Handler, PRIO_LOW},      // 调试打印
+};
+
+UART_TxStruct sensor_data = {0};
+volatile uint8_t system_stop_flag = Run;  // 系统运行状态：Stop-停止，Run-运行
+float voltages[4] = {0};
+float V_SetDAC_PID = 0.0f;
+extern PI_HandleTypeDef voltage_pi; // 初始化PI结构体
+volatile uint8_t mode = Voltage_LOOP;
 
 /**
-  * @brief  任务1处理函数 - 10ms周期
+  * @brief  读取ADC任务 - 10ms周期
   * @param  None
   * @retval None
   */
-void Task1_Handler(void)
+void Task_ReadADC_Handler(void)
 {
-  UART1_Parse_Data();
+  /* -------------------------读取ADC任务--------------------------- */
 
-  SGM58031_ReadVoltage(I2C1, 0, &voltages[0]);
-  SGM58031_ReadVoltage(I2C1, 1, &voltages[1]);
-  SGM58031_ReadVoltage(I2C1, 2, &voltages[2]);
-  SGM58031_ReadVoltage(I2C1, 3, &voltages[3]);
+  /* 读取输入输出ADC任务 */
+  if(mode)	//电流环
+    {
+      SGM58031_ReadVoltage_Coiled(CURRENT_OUT, &voltages[CURRENT_OUT]);
+    }
+  else	//电压环
+    {
+      SGM58031_ReadVoltage_Coiled(VOLTAGE_OUT, &voltages[VOLTAGE_OUT]);
+    }
 
-  // 读取所有通道电压
-//  for(uint8_t ch = 0; ch < 4; ch++)
-//    {
-//      if(SGM58031_ReadVoltage(I2C1, ch, &voltages[ch]) == ADC_OK)
-//        {
-//          Debug_printf("Channel %d: %.4f V", ch, voltages[ch]);
-//        }
-//      else
-//        {
-//          Debug_printf("Channel %d: Read Error", ch);
-//        }
-//    }
-
+  // 触发PID计算
+  pid_flag = true;
 }
 
 /**
-  * @brief  任务2处理函数 - 20ms周期
+  * @brief  读取CommonADC任务 - 200ms周期
   * @param  None
   * @retval None
   */
-void Task2_Handler(void)
+void Task_Read_Common_ADC_Handler(void)
 {
-  /* 数据处理 */
-
-  /* 临时测试 */
-  float SetA = uart_rx_data.dac_a;
-  float SetB = uart_rx_data.dac_b;
-
-//	float SetA = 2.5f;
-//  float SetB = 0.7f;
-
-  /* 设置通道A输出2.5V，通道B输出1.25V */
-  DAC8562_SetVoltage(ADDR_CHANNEL_A, SetA);
-  DAC8562_SetVoltage(ADDR_CHANNEL_B, SetB);
-	
-	// 喂狗
-  LL_IWDG_ReloadCounter(IWDG);
-}
-
-/**
-  * @brief  任务3处理函数 - 100ms周期
-  * @param  None
-  * @retval None
-  */
-void Task3_Handler(void)
-{
-	/* -------------------------读取任务--------------------------- */
-	
-	/* 读取CommonADC任务 */
+  /* -------------------------读取CommonADC任务--------------------------- */
+  /* 读取CommonADC任务 */
   Common_ADC_ManualSample();  // 触发ADC采样
 
-  // 更新传感器数据（转换为mV便于传输）
-  sensor_data.adc1 = (uint16_t)(Common_ADC_GetVoltage(ADC_CH_PB12) * 1000);
-	sensor_data.adc2 = (uint16_t)(Common_ADC_GetVoltage(ADC_CH_PB13) * 1000);
-	sensor_data.adc3 = (uint16_t)(Common_ADC_GetVoltage(ADC_CH_PB14) * 1000);
-  sensor_data.adc4 = (uint16_t)(Common_ADC_GetVoltage(ADC_CH_PB15) * 1000);
-	
-  /* -------------------------发送任务--------------------------- */
-	
-  /* 发送传感器数据到上位机） */
+  /* 读取输入输出ADC任务 */
+  if(mode == Current_LOOP)	//电流环
+    {
+      SGM58031_ReadVoltage(CURRENT_IN, &voltages[CURRENT_IN]);
+      SGM58031_ReadVoltage(VOLTAGE_OUT, &voltages[VOLTAGE_OUT]);
+      SGM58031_ReadVoltage(VOLTAGE_IN, &voltages[VOLTAGE_IN]);
+      SGM58031_ReadVoltage(CURRENT_OUT, &voltages[CURRENT_OUT]);
+    }
+  else	//电压环
+    {
+      SGM58031_ReadVoltage(CURRENT_IN, &voltages[CURRENT_IN]);
+      SGM58031_ReadVoltage(VOLTAGE_IN, &voltages[VOLTAGE_IN]);
+      SGM58031_ReadVoltage(CURRENT_OUT, &voltages[CURRENT_OUT]);
+      SGM58031_ReadVoltage(VOLTAGE_OUT, &voltages[VOLTAGE_OUT]);
+    }
+
+  // 更新传感器数据
+  sensor_data.current_in = (uint16_t)(voltages[CURRENT_IN] * 21000.0f);
+  sensor_data.current_out = (uint16_t)(voltages[CURRENT_OUT] * 21000.0f);
+  sensor_data.voltage_out = (uint16_t)(voltages[VOLTAGE_OUT] * 21000.0f);
+  sensor_data.voltage_in = (uint16_t)(voltages[VOLTAGE_IN] * 21000.0f);
+		
+  sensor_data.adc_tmp1 = (uint16_t)(Common_ADC_GetVoltage(ADC_tmp1) * 1000);
+  sensor_data.adc_tmp2 = (uint16_t)(Common_ADC_GetVoltage(ADC_tmp2) * 1000);
+  sensor_data.voltage_12V_in = (uint16_t)(Common_ADC_GetVoltage(ADC_12V_IN) * 1000);
+  sensor_data.voltage_5V_in = (uint16_t)(Common_ADC_GetVoltage(ADC_5V_IN) * 1000);
+	//更新状态
+	sensor_data.mode_stop = system_stop_flag;
+	sensor_data.mode_flag = mode;
+}
+
+/**
+  * @brief  设置DAC任务
+  * @param  None
+  * @retval None
+  */
+void Task_SetDAC_Handler(void)
+{
+  /* -------------------------设置输出DAC任务--------------------------- */
+
+  if(system_stop_flag == Run)
+    {
+      /* 数据处理 */
+      DAC8562_SetVoltage(ADDR_CHANNEL_A, uart_rx_data.dac_a);
+      DAC8562_SetVoltage(ADDR_CHANNEL_B, V_SetDAC_PID * 1.00087f);
+    }
+  else if(system_stop_flag == Stop)
+    {
+      DAC8562_SetVoltage(ADDR_CHANNEL_A, 0.0f);
+      DAC8562_SetVoltage(ADDR_CHANNEL_B, 0.0f);
+    }
+		
+	//设置发送命令
+	task_Comm_Send_flag = true;
+}
+
+/**
+  * @brief  通信接收任务处理函数 - 10ms周期
+  * @param  None
+  * @retval None
+  */
+void Task_Comm_Recv_Handler(void)
+{
+  UART1_Parse_Data();
+}
+
+/**
+  * @brief  通信发送任务处理函数 - 等待设置DAC后执行
+  * @param  None
+  * @retval None
+  */
+void Task_Comm_Send_Handler(void)
+{
   UART1_Send_Struct(&sensor_data);
 	
 	// 喂狗
@@ -90,29 +153,161 @@ void Task3_Handler(void)
   * @param  None
   * @retval None
   */
-void Task4_Handler(void)
+void Task_Debug_Handler(void)
 {
-	/* 报文打印 */
-	
-	//打印输出模式以及dac输出电压
-//	Debug_printf("start_flag=%d, mode=%d, dac_a = %.2f, dac_b = %.2f",
+  /* 报文打印 */
+
+  //打印输出模式以及dac输出电压
+//  Debug_printf("start_flag=%d, mode=%d, dac_a = %.4f, dac_b = %.4f",
 //               uart_rx_data.start_flag,
 //               uart_rx_data.mode,
 //               uart_rx_data.dac_a,
 //               uart_rx_data.dac_b);
+
+  Debug_printf("tmp1=%dmv, tmp2=%dmv, 12V_In = %dmv, 5V_In = %dmv",
+               sensor_data.adc_tmp1,
+               sensor_data.adc_tmp2,
+               sensor_data.voltage_12V_in,
+               sensor_data.voltage_5V_in);
+
+  Debug_printf("adc_current_in= %.4f, adc_current_out= %.4f, adc_voltage_out = %.4f, adc_voltage_in = %.4f",
+               voltages[CURRENT_IN],
+               voltages[CURRENT_OUT],
+               voltages[VOLTAGE_OUT],
+               voltages[VOLTAGE_IN]);
 	
-	Debug_printf("tmp1=%dmv, tmp2=%dmv, 12V_In = %dmv, 5V_In = %dmv",
-               sensor_data.adc1,
-               sensor_data.adc2,
-               sensor_data.adc3,
-               sensor_data.adc4);
-	
-	Debug_printf("adc1= %.2f, adc2= %.2f, adc3 = %.2f, adc4 = %.2f",
-               voltages[0],
-               voltages[1],
-               voltages[2],
-               voltages[3]);
-	
-	// 喂狗
-  LL_IWDG_ReloadCounter(IWDG);
+  if(system_stop_flag == Stop)  // 停止状态
+    {
+      Debug_printf("System Stop");
+    }
+  else if(system_stop_flag == Run)  // 运行状态
+    {
+      if(mode == Current_LOOP)  // 电流环
+        {
+          Debug_printf("Current_LOOP");
+        }
+      else if(mode == Voltage_LOOP)  // 电压环
+        {
+          Debug_printf("Voltage_LOOP");
+        }
+      Debug_printf("实际电压=%.6fV, 目标=%.6fV, PID输出=%.6fV",
+                   (voltages[2]  ), (uart_rx_data.dac_b  ), (V_SetDAC_PID ));
+    }
+
+}
+
+/**
+  * @brief  紧急任务
+  * @param  None
+  * @retval None
+  */
+void Task_Stop_Handler(void)
+{
+  static uint8_t key_prev_state = KEY_STOP_RELEASED;      // 上一次按键状态
+  static uint8_t key_current_state = KEY_STOP_RELEASED;   // 当前按键状态
+  static uint32_t debounce_timer = 0;                     // 消抖定时器
+  static uint8_t key_press_triggered = 0;                 // 按键按下触发标志
+
+  // 读取当前硬件状态
+  uint8_t hardware_state = Key_Stop_GetState();
+
+  // 检测到状态变化，启动消抖计时
+  if (hardware_state != key_current_state)
+    {
+      debounce_timer = DWT_GetTick();  // 获取当前系统时间戳
+      key_current_state = hardware_state;
+    }
+
+  // 消抖时间达到(10ms)，确认状态稳定
+  if (DWT_GetTick() - debounce_timer >= 10)
+    {
+      // 检测到按键从释放到按下的有效变化
+      if (key_current_state == KEY_STOP_PRESSED &&
+          key_prev_state == KEY_STOP_RELEASED &&
+          !key_press_triggered)
+        {
+          // 切换系统状态标志位
+          if (system_stop_flag == Run) system_stop_flag = Stop;
+          else system_stop_flag = Run;
+
+          if (system_stop_flag == Stop)
+            {
+              // 停止输出
+              DAC8562_SetVoltage(ADDR_CHANNEL_A, 0.0f);
+              DAC8562_SetVoltage(ADDR_CHANNEL_B, 0.0f);
+              // 强制清除核心任务标志，防止残留执行
+              pid_flag = false;
+              task_SDAC_flag = false;
+              task_RADC_flag = false;
+            }
+          else
+            {
+              PI_Reset(&voltage_pi);  // 重置积分项，避免历史累积导致输出跳变
+              Debug_printf("系统已恢复输出");
+            }
+
+          key_press_triggered = 1;  // 标记已触发
+        }
+      // 按键释放时重置触发标志
+      else if (key_current_state == KEY_STOP_RELEASED &&
+               key_prev_state == KEY_STOP_PRESSED)
+        {
+          key_press_triggered = 0;
+        }
+
+      // 更新上一次确认的状态
+      key_prev_state = key_current_state;
+    }
+  // 更新运行模式状态
+  mode = Get_Mode();
+  // 更新LED状态
+  LED_State();
+}
+
+void Task_PID_Handler(void)
+{
+  /* 闭环PID计算 */
+  if (system_stop_flag == Run)
+    {
+      float current_target = uart_rx_data.dac_b;
+      float current_voltage = voltages[VOLTAGE_OUT];
+      float error = fabs(current_voltage - current_target);
+      static float last_target_voltage = 0.0f;
+      static float last_valid_output = 0.0f;  // 记录最后一次有效输出
+
+      // 设定值变化时重置PI（避免历史积分干扰）
+      if (last_target_voltage != current_target)
+        {
+          PI_Reset(&voltage_pi);
+          last_target_voltage = current_target;
+          last_valid_output = current_target;  // 初始输出设为目标值
+        }
+
+      // 分区间控制
+      if (error > PID_BIG_ERROR_THRESHOLD)  // 大误差
+        {
+          Debug_printf("big error");
+          V_SetDAC_PID = current_target;
+          voltage_pi.last_output = current_target;
+          last_valid_output = current_target;  // 更新有效输出
+        }
+      else if (error > PID_SMALL_ERROR_THRESHOLD)  // 小误差：PI调节消除静差
+        {
+          V_SetDAC_PID = PI_Calculate(&voltage_pi, current_voltage, current_target);
+          //Debug_printf("%.6f	%.6f",current_voltage - current_target,V_SetDAC_PID);
+          last_valid_output = V_SetDAC_PID;  // 更新有效输出
+        }
+      else  // 极小误差：保持输出不变
+        {
+          //Debug_printf("1");
+          V_SetDAC_PID = last_valid_output;  // 维持最后一次有效输出
+        }
+    }
+  else
+    {
+      V_SetDAC_PID = 0.0f;
+    }
+
+  // PID计算完成，触发SetDAC任务
+  task_SDAC_flag = true;
 }

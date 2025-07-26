@@ -1,7 +1,7 @@
 #include "Control.h"
 
 extern UART_TxStruct send_gather;
-extern QueueHandle_t key_msg_queue;  // 复用已有的消息队列
+extern QueueHandle_t control_msg_queue;  // 复用已有的消息队列
 
 /**
  * @brief 通用限幅函数（将值限制在[min, max]范围内）
@@ -34,6 +34,7 @@ void vControlTask(void *argument)
   char msg[64];
   float last_dac_a = 0.0f, last_dac_b = 0.0f;
   float tp1, tp2;
+	const int32_t zero_count = 0;
 
   // 初始化：复用循环中的逻辑
   Encoder_GetData(ENCODER_TIM2, &tim2_data);
@@ -48,10 +49,27 @@ void vControlTask(void *argument)
       // 获取当前编码器数据
       Encoder_GetData(ENCODER_TIM2, &tim2_data);
       Encoder_GetData(ENCODER_TIM3, &tim3_data);
+			
+			// 计算原始值
+      float raw_tp1 = tim3_data.total_count * Default_Precision;
+      float raw_tp2 = tim2_data.total_count * Default_Precision;
+			
+      tp1 = LimitValue(raw_tp1, 0.0f, Limit_Current);
+      tp2 = LimitValue(raw_tp2, 0.0f, Limit_Voltage);
 
-      tp1 = LimitValue(tim3_data.total_count * Default_Precision, 0.0f, Limit_Current);
-      tp2 = LimitValue(tim2_data.total_count * Default_Precision, 0.0f, Limit_Voltage);
-
+			if (raw_tp1 < 0.0f)
+      {
+				fr_printf("T3 Under0");
+        tim3_data.total_count = zero_count;
+        Encoder_SetData(ENCODER_TIM3, &tim3_data);
+      }
+			if (raw_tp2 < 0.0f)
+      {
+				fr_printf("T2 Under0");
+        tim2_data.total_count = zero_count;
+        Encoder_SetData(ENCODER_TIM2, &tim2_data);
+      }
+			
       // 计算转换后的值
       float temp_a = LimitValue(TransformCurrent(tp1), 0.0f, Limit_DACA);
       float temp_b = LimitValue(TransformVoltage(tp2), 0.0f, Limit_DACB);
@@ -74,7 +92,7 @@ void vControlTask(void *argument)
                    tp1, tp2);
 
           // 发送到消息队列
-          xQueueSend(key_msg_queue, msg, pdMS_TO_TICKS(1));
+          xQueueSend(control_msg_queue, msg, pdMS_TO_TICKS(1));
 
           // 更新历史值
           last_dac_a = send_gather.dac_a;

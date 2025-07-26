@@ -9,7 +9,7 @@
 #include "queue.h"
 
 // 消息队列句柄（全局可见）
-extern QueueHandle_t key_msg_queue;
+extern QueueHandle_t control_msg_queue;
 
 // 按键枚举（与key_pin_map严格对应）
 typedef enum {

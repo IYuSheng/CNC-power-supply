@@ -254,7 +254,7 @@ void UART1_Send_Struct(UART_TxStruct *tx_struct)
 
   // 构建帧
   tx_buf[0] = 0xAA; // 帧头
-  memcpy(&tx_buf[1], tx_struct, struct_size); // 结构体数据（电压、电流、温度）
+  memcpy(&tx_buf[1], tx_struct, struct_size); // 结构体数据
   tx_buf[header_size + struct_size] = 0x55; // 帧尾
 
   // 发送帧数据

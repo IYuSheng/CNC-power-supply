@@ -1,32 +1,39 @@
 /* Init.c 文件 */
 #include "Init.h"
 
+PI_HandleTypeDef voltage_pi = {0}; //电压PI控制器
+
 void Init_Hardware(void)
 {
-	MX_GPIO_Init();
-	UART_Init();
+  MX_GPIO_Init();
+  UART_Init();
   MX_ADC3_Init();
   MX_ADC1_Init();
   MX_ADC2_Init();
   MX_ADC4_Init();
-	MX_TIM2_Init();
-	UART1_Init();
-	I2C1_Init();
-	Common_ADC_Init();
-	Debug_printf("Hardware Init Success");
+  MX_TIM2_Init();
+  UART1_Init();
+  I2C1_Init();
+  Common_ADC_Init();
+  Debug_printf("Hardware Init Success");
 }
 
 void Init_App(void)
 {
-	DWT_Init();
-	DAC8562_Init();
-	SGM58031_Init(I2C1);
-	Debug_printf("App Init Success");
+  DWT_Init();
+  DAC8562_Init();
+  SGM58031_Init(I2C1);
+  // 初始化PI控制器
+  PI_Init(&voltage_pi,
+          0.4f, 1.3f,        // Kp=0.4, Ki=1.3（当前调参值）
+          0.0f, 2.5f,        // 绝对输出限幅：0~2.5V（DAC物理范围）
+          -0.000001f, 0.000001f);    // 增量限幅
+  Debug_printf("App Init Success");
 }
 
 void Init_Sys(void)
 {
-	LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
+  LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
 
   NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
@@ -44,29 +51,29 @@ void SystemClock_Config(void)
 {
   LL_FLASH_SetLatency(LL_FLASH_LATENCY_4);
   while(LL_FLASH_GetLatency() != LL_FLASH_LATENCY_4)
-  {
-  }
+    {
+    }
   LL_PWR_EnableRange1BoostMode();
   LL_RCC_HSE_Enable();
-   /* Wait till HSE is ready */
+  /* Wait till HSE is ready */
   while(LL_RCC_HSE_IsReady() != 1)
-  {
-  }
+    {
+    }
 
   LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSE, LL_RCC_PLLM_DIV_2, 85, LL_RCC_PLLR_DIV_2);
   LL_RCC_PLL_EnableDomain_SYS();
   LL_RCC_PLL_Enable();
-   /* Wait till PLL is ready */
+  /* Wait till PLL is ready */
   while(LL_RCC_PLL_IsReady() != 1)
-  {
-  }
+    {
+    }
 
   LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
   LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_2);
-   /* Wait till System clock is ready */
+  /* Wait till System clock is ready */
   while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL)
-  {
-  }
+    {
+    }
 
   /* Insure 1us transition state at intermediate medium speed clock*/
   for (__IO uint32_t i = (170 >> 1); i !=0; i--);

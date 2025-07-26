@@ -381,10 +381,10 @@ static uint16_t ADC_ReadSingle(ADC_TypeDef *adc)
 void Common_ADC_ManualSample(void)
 {
   // 依次读取4个通道
-  g_adc_raw[ADC_CH_PB12] = ADC_ReadSingle(ADC1);
-  g_adc_raw[ADC_CH_PB15] = ADC_ReadSingle(ADC2);
-  g_adc_raw[ADC_CH_PB13] = ADC_ReadSingle(ADC3);
-  g_adc_raw[ADC_CH_PB14] = ADC_ReadSingle(ADC4);
+  g_adc_raw[ADC_tmp1] = ADC_ReadSingle(ADC1);
+  g_adc_raw[ADC_5V_IN] = ADC_ReadSingle(ADC2);
+  g_adc_raw[ADC_tmp2] = ADC_ReadSingle(ADC3);
+  g_adc_raw[ADC_12V_IN] = ADC_ReadSingle(ADC4);
 
   // 转换为电压值（2.5V参考电压，12位ADC）
   for (uint8_t i = 0; i < 4; i++)
@@ -403,4 +403,11 @@ uint16_t Common_ADC_GetRawValue(ADC_Channel_t ch)
 float Common_ADC_GetVoltage(ADC_Channel_t ch)
 {
   return g_adc_voltage[ch];
+}
+
+float Common_ADC_Tran(ADC_Channel_t ch)
+{
+	Common_ADC_ManualSample();
+	
+	return 0;
 }

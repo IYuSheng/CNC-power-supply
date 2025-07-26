@@ -62,6 +62,7 @@ g473_operate\encoder.o: ..\Hardware\Uart_Debug.h
 g473_operate\encoder.o: ..\bsp\Monitor.h
 g473_operate\encoder.o: ..\App\Control.h
 g473_operate\encoder.o: ..\Hardware\Encoder.h
+g473_operate\encoder.o: ..\Hardware\Key.h
 g473_operate\encoder.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\math.h
 g473_operate\encoder.o: ..\Hardware\Uart_comm.h
 g473_operate\encoder.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdlib.h

@@ -12,7 +12,7 @@
 #include "Uart_Debug.h"
 
 #define UART1_TX_BUF_SIZE	256
-#define UART1_RX_BUF_SIZE	1024
+#define UART1_RX_BUF_SIZE	512
 
 /* 发送结构体：包含启停指令及附加参数（均为uint8_t） */
 typedef struct
@@ -24,12 +24,21 @@ typedef struct
 } UART_TxStruct;
 
 /* 接收结构体：包含电压、电流、温度信息 */
+#pragma pack(1) // 强制1字节对齐，确保结构体大小在两端一致
 typedef struct
 {
-  uint16_t voltage;    // 电压（mV）
-  uint16_t current;    // 电流（mA）
-  uint16_t temperature; // 温度（℃）
+  uint16_t voltage_out;    // 对应发送端的voltage_out
+  uint16_t current_out;    // 对应发送端的current_out
+  uint16_t voltage_in;     // 对应发送端的voltage_in
+  uint16_t current_in;     // 对应发送端的current_in
+  uint16_t adc_tmp1;       // 对应发送端的adc_tmp1
+  uint16_t adc_tmp2;       // 对应发送端的adc_tmp2
+  uint16_t voltage_12V_in; // 对应发送端的voltage_12V_in
+  uint16_t voltage_5V_in;  // 对应发送端的voltage_5V_in
+  uint8_t mode_stop;       // 对应发送端的mode_stop
+  uint8_t mode_flag;       // 对应发送端的mode_flag
 } UART_RxStruct;
+#pragma pack() // 恢复默认对齐
 
 /* 串口环形缓冲区结构体 */
 typedef struct
@@ -48,7 +57,7 @@ typedef struct
   volatile uint16_t tx_index;   // 当前发送位置
   volatile uint16_t tx_size;    // 本次需发送的总字节数
 
-  uint8_t rx_parse_buf[64]; // 解析缓冲区
+  uint8_t rx_parse_buf[UART1_RX_BUF_SIZE]; // 解析缓冲区
   uint8_t rx_parse_len;     // 已接收解析字节数
   UART_RxStruct rx_data;    // 解析后的接收数据
 } Uart_dev;

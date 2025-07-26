@@ -89,10 +89,9 @@ void I2C1_Init(void);
 void SGM58031_Init(I2C_TypeDef *I2Cx);
 ADC_StatusTypeDef I2C_Write16(I2C_TypeDef *I2Cx, uint8_t slave_addr, uint8_t reg_addr, uint16_t reg_data);
 ADC_StatusTypeDef I2C_Read16(I2C_TypeDef *I2Cx, uint8_t slave_addr, uint8_t reg_addr, uint16_t *data);
-ADC_StatusTypeDef SGM58031_ReadAllChannels(I2C_TypeDef *I2Cx, int16_t results[4]);
-ADC_StatusTypeDef SGM58031_ReadChannel(I2C_TypeDef *I2Cx, uint8_t channel, int16_t *result);
+ADC_StatusTypeDef SGM58031_ReadChannel(uint8_t channel, int16_t *result);
 ADC_StatusTypeDef SGM58031_ReadConfig(I2C_TypeDef *I2Cx, uint16_t *config);
-float SGM58031_ConvertToVoltage(int16_t adc_raw, uint16_t pga_config);
-ADC_StatusTypeDef SGM58031_ReadVoltage(I2C_TypeDef *I2Cx, uint8_t channel, float *voltage);
+ADC_StatusTypeDef SGM58031_ReadVoltage(uint8_t channel, float *voltage);
 
+ADC_StatusTypeDef SGM58031_ReadVoltage_Coiled(uint8_t channel, float *voltage);
 #endif /* __SGM58031_H */

@@ -27,7 +27,7 @@ int main(void)
 	Key_task_create();//按键任务初始化
 	Encoder_task_create();//编码器任务初始化
 	Control_task_create();//操作控制任务初始化
-	Test_task_create();
+	Test_task_create();//测试接口任务初始化
 	
 	S_F = 1;	//启动操作系统标志
   /* ------------------------------ 启动调度器 ---------------------------------- */

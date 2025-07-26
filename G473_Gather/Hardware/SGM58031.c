@@ -272,7 +272,13 @@ void SGM58031_Init(I2C_TypeDef *I2Cx)
 
 }
 
-ADC_StatusTypeDef SGM58031_ReadChannel(I2C_TypeDef *I2Cx, uint8_t channel, int16_t *result)
+// 简化版本（针对您当前的4.096V设置）
+float SGM58031_ConvertToVoltage_4096V(int16_t adc_raw)
+{
+  return (float)adc_raw * 4.096f / 32768.0f * 0.9995f;
+}
+
+ADC_StatusTypeDef SGM58031_ReadChannel(uint8_t channel, int16_t *result)
 {
   if(channel > 4)
     {
@@ -288,7 +294,7 @@ ADC_StatusTypeDef SGM58031_ReadChannel(I2C_TypeDef *I2Cx, uint8_t channel, int16
                             ((channel + 4) << 12);            // 设置通道（单端）
 
   // 写入配置寄存器
-  ADC_StatusTypeDef status = I2C_Write16(I2Cx, SGM58031_I2C_ADDR,
+  ADC_StatusTypeDef status = I2C_Write16(I2C1, SGM58031_I2C_ADDR,
                                          SGM58031_REG_CONFIG, channel_config);
   if(status != ADC_OK)
     {
@@ -301,7 +307,7 @@ ADC_StatusTypeDef SGM58031_ReadChannel(I2C_TypeDef *I2Cx, uint8_t channel, int16
 
   // 读取转换结果
   uint16_t raw_data;
-  status = I2C_Read16(I2Cx, SGM58031_I2C_ADDR, SGM58031_REG_CONV, &raw_data);
+  status = I2C_Read16(I2C1, SGM58031_I2C_ADDR, SGM58031_REG_CONV, &raw_data);
 
   if(status != ADC_OK)
     {
@@ -313,17 +319,58 @@ ADC_StatusTypeDef SGM58031_ReadChannel(I2C_TypeDef *I2Cx, uint8_t channel, int16
   return ADC_OK;
 }
 
-// 优化读取所有通道的函数，使用单通道读取
-ADC_StatusTypeDef SGM58031_ReadAllChannels(I2C_TypeDef *I2Cx, int16_t results[4])
+ADC_StatusTypeDef SGM58031_ReadChannel_Coiled(uint8_t channel, int16_t *result)
 {
-  for(uint8_t ch = 0; ch < 4; ch++)
+  if(channel > 4)
     {
-      ADC_StatusTypeDef status = SGM58031_ReadChannel(I2Cx, ch, &results[ch]);
-      if(status != ADC_OK)
-        {
-          return status;
-        }
+      *result = 0x8000; // 无效通道标记
+      return ADC_ERROR;
     }
+
+  // 配置为单端模式，明确设置PGA为±4.096V
+  uint16_t channel_config = SGM58031_CONFIG_OS_SINGLE |      // 启动单次转换
+                            SGM58031_CONFIG_MODE_SINGLE |     // 单次模式
+                            SGM58031_CONFIG_PGA_4096 |        // ±4.096V量程
+                            SGM58031_CONFIG_DR_800 |          // 采样率
+                            ((channel + 4) << 12);            // 设置通道（单端）
+
+  // 写入配置寄存器
+  ADC_StatusTypeDef status = I2C_Write16(I2C1, SGM58031_I2C_ADDR,
+                                         SGM58031_REG_CONFIG, channel_config);
+  if(status != ADC_OK)
+    {
+      *result = 0x8000; // 写失败：标记无效
+      return status;
+    }
+
+  // 读取转换结果
+  uint16_t raw_data;
+  status = I2C_Read16(I2C1, SGM58031_I2C_ADDR, SGM58031_REG_CONV, &raw_data);
+
+  if(status != ADC_OK)
+    {
+      return status;
+    }
+
+  *result = (int16_t)raw_data;
+
+  return ADC_OK;
+}
+
+ADC_StatusTypeDef SGM58031_ReadVoltage_Coiled(uint8_t channel, float *voltage)
+{
+  int16_t adc_raw;
+  ADC_StatusTypeDef status = SGM58031_ReadChannel_Coiled(channel, &adc_raw);
+
+  if(status != ADC_OK)
+    {
+      *voltage = NAN;
+      return status;
+    }
+
+  // 转换为电压值（使用4.096V满量程）
+  *voltage = SGM58031_ConvertToVoltage_4096V(adc_raw);
+
   return ADC_OK;
 }
 
@@ -332,76 +379,20 @@ ADC_StatusTypeDef SGM58031_ReadConfig(I2C_TypeDef *I2Cx, uint16_t *config)
   return I2C_Read16(I2Cx, SGM58031_I2C_ADDR<<1, SGM58031_REG_CONFIG, config);
 }
 
-// 根据PGA设置转换ADC值为电压
-float SGM58031_ConvertToVoltage(int16_t adc_raw, uint16_t pga_config)
-{
-  // 校验数据有效性（无效数据返回NaN，便于上层识别）
-  if(adc_raw < -32768 || adc_raw > 32767)
-    {
-      return NAN; // 非数字，表示无效值
-    }
-
-  float fsr; // Full Scale Range
-
-  switch(pga_config)
-    {
-    case SGM58031_CONFIG_PGA_6144:
-      fsr = 6.144f;
-      break;
-    case SGM58031_CONFIG_PGA_4096:
-      fsr = 4.096f;
-      break;
-    case SGM58031_CONFIG_PGA_2048:
-      fsr = 2.048f;
-      break;
-
-    case SGM58031_CONFIG_PGA_1024:
-      fsr = 1.024f;
-      break;
-    case SGM58031_CONFIG_PGA_0512:
-      fsr = 0.512f;
-      break;
-    case SGM58031_CONFIG_PGA_0256:
-      fsr = 0.256f;
-      break;
-    default:
-      fsr = 4.096f;
-      break;
-    }
-
-  return (float)adc_raw * fsr / 32768.0f;
-}
-
-// 简化版本（针对您当前的4.096V设置）
-float SGM58031_ConvertToVoltage_4096V(int16_t adc_raw)
-{
-  return (float)adc_raw * 4.096f / 32768.0f;
-}
-
 // 读取ADC值并转换为电压
-ADC_StatusTypeDef SGM58031_ReadVoltage(I2C_TypeDef *I2Cx, uint8_t channel, float *voltage)
+ADC_StatusTypeDef SGM58031_ReadVoltage(uint8_t channel, float *voltage)
 {
   int16_t adc_raw;
-  ADC_StatusTypeDef status = SGM58031_ReadChannel(I2Cx, channel, &adc_raw);
+  ADC_StatusTypeDef status = SGM58031_ReadChannel(channel, &adc_raw);
 
   if(status != ADC_OK)
     {
       *voltage = NAN;
-      //Debug_printf("Channel %d: ADC通信失败（无设备响应）", channel);
       return status;
     }
 
   // 转换为电压值（使用4.096V满量程）
   *voltage = SGM58031_ConvertToVoltage_4096V(adc_raw);
-
-  if(isnan(*voltage))
-    {
-      Debug_printf("Channel %d: ADC数据无效（原始值超出范围）", channel);
-    }
-//  else
-//    {
-//      Debug_printf("Channel %d: Raw=0x%04X, Voltage=%.4fV", channel, adc_raw, *voltage);
-//    }
 
   return ADC_OK;
 }

@@ -98,6 +98,8 @@ void UART1_Parse_Data(void)
 {
   static uint8_t parse_state = 0; // 0: 等待帧头, 1: 接收数据, 2: 等待帧尾
 
+	const uint16_t struct_size = sizeof(UART_RxStruct);
+	
   while (uart1_dev.rx_buf.head != uart1_dev.rx_buf.tail)
     {
       taskENTER_CRITICAL();
@@ -116,12 +118,12 @@ void UART1_Parse_Data(void)
           break;
 
         case 1: // 接收数据
-          if (uart1_dev.rx_parse_len < sizeof(uart1_dev.rx_parse_buf))
+          if (uart1_dev.rx_parse_len < struct_size)
             {
               uart1_dev.rx_parse_buf[uart1_dev.rx_parse_len++] = data;
 
               // 检查是否接收完整结构体
-              if (uart1_dev.rx_parse_len == sizeof(UART_RxStruct))
+              if (uart1_dev.rx_parse_len == struct_size)
                 {
                   parse_state = 2;
                 }
@@ -137,7 +139,7 @@ void UART1_Parse_Data(void)
           if (data == 0x55)
             {
               // 解析结构体数据
-              memcpy(&uart1_dev.rx_data, uart1_dev.rx_parse_buf, sizeof(UART_RxStruct));
+              memcpy(&uart1_dev.rx_data, uart1_dev.rx_parse_buf, struct_size);
 
               // 复制到全局变量
               taskENTER_CRITICAL();
@@ -215,9 +217,9 @@ void vUart1ProcessTask(void *pvParameters)
       UART1_Parse_Data(); // 解析接收数据
       // 访问解析后的结果
 //      fr_printf("Voltage: %dmV, Current: %dmA, Temp: %d℃\r\n",
-//                uart_rx_data.voltage,
-//                uart_rx_data.current,
-//                uart_rx_data.temperature);
+//                uart_rx_data.voltage_out/21,
+//                uart_rx_data.current_out/21,
+//                uart_rx_data.adc_tmp1);
       vTaskDelay(pdMS_TO_TICKS(100));
     }
 }

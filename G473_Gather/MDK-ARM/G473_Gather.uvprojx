@@ -509,6 +509,16 @@
               <FileType>5</FileType>
               <FilePath>..\BSP\DWT_Delay.h</FilePath>
             </File>
+            <File>
+              <FileName>Key_Stop.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\Key_Stop.c</FilePath>
+            </File>
+            <File>
+              <FileName>Key_Stop.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\BSP\Key_Stop.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -598,6 +608,16 @@
               <FileName>Calculate.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\App\Calculate.h</FilePath>
+            </File>
+            <File>
+              <FileName>LED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\App\LED.c</FilePath>
+            </File>
+            <File>
+              <FileName>LED.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\App\LED.h</FilePath>
             </File>
           </Files>
         </Group>

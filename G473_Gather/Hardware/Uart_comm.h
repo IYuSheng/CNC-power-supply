@@ -11,8 +11,8 @@
 #include "stm32g4xx_ll_rcc.h"
 #include "Uart_Debug.h"
 
-#define UART1_TX_BUF_SIZE	1024
-#define UART1_RX_BUF_SIZE	512
+#define UART1_TX_BUF_SIZE	512
+#define UART1_RX_BUF_SIZE	128
 #define UART1_TX_QUEUE_SIZE 10  // 队列容量
 
 typedef struct
@@ -23,16 +23,21 @@ typedef struct
 } UART1_TX_MESSAGE;
 
 /* 发送结构体：包含电压、电流、温度信息 */
+#pragma pack(1) // 强制1字节对齐，确保结构体大小在两端一致
 typedef struct
 {
-  uint16_t voltage;    // 电压（mV）
-  uint16_t current;    // 电流（mA）
-  uint16_t temperature; // 温度（℃）
-	uint16_t adc1;
-	uint16_t adc2;
-	uint16_t adc3;
-	uint16_t adc4;
+  uint16_t voltage_out;    // 电压（mV）
+  uint16_t current_out;    // 电流（mA）
+	uint16_t voltage_in;    // 电压（mV）
+  uint16_t current_in;    // 电流（mA）
+	uint16_t adc_tmp1;
+	uint16_t adc_tmp2;
+	uint16_t voltage_12V_in;
+	uint16_t voltage_5V_in;
+	uint8_t mode_stop;
+	uint8_t mode_flag;
 } UART_TxStruct;
+#pragma pack() // 恢复默认对齐
 
 // 定义接收相关结构体（与发送端匹配）
 typedef struct

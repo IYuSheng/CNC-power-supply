@@ -1,53 +1,46 @@
 #include "main.h"
 
-int main(void)
-{
-	//系统初始化
-	Init_Sys();
-	//系统看门狗初始化
-	IWDG_Init(1000);
-	//系统时钟初始化
-  SystemClock_Config();
-	//硬件初始化
-	Init_Hardware();
-	//App接口函数初始化
-	Init_App();
-	
-  while (1)
-  {
-	/* --------------------前台任务-------------------- */
-		/* 指令接收及发送数据任务 */
-    if (task1_flag)
-    {
-      task1_flag = false;
-      Task1_Handler();
-    }
-    
-    /* 检查并处理任务2 */
-    if (task2_flag)
-    {
-      task2_flag = false;
-      Task2_Handler();
-    }
-    
-    /* 检查并处理任务3 */
-    if (task3_flag)
-    {
-      task3_flag = false;
-      Task3_Handler();
-    }
-		
-		/* 检查并处理任务4 */
-		    if (task4_flag)
-    {
-      task4_flag = false;
-      Task4_Handler();
-    }
-    
-    /* --------------------后台任务-------------------- */
+int main(void) {
+    // 系统初始化（保持原逻辑）
+    Init_Sys();
+    IWDG_Init(2000);
+    SystemClock_Config();
+    Init_Hardware();
+    Init_App();
 
-		
-  }
+    while (1) {
+        // 按优先级遍历任务：先处理最高优先级的就绪任务
+        for (uint8_t i = 0; i < TASK_NUM; i++) {
+            Task_t *task = &tasks[i];
+            if (*(task->flag)) {  // 任务就绪
+                *(task->flag) = false;  // 清除标志位（避免重复执行）
+                
+                // 通过switch-case分发任务（替代原有的多个if）
+                switch (task->id) {
+                    case TASK_ID_1:
+                        Task1_Handler();
+                        break;
+                    case TASK_ID_2:
+                        Task2_Handler();
+                        break;
+                    case TASK_ID_3:
+                        Task3_Handler();
+                        break;
+                    case TASK_ID_4:
+                        Task4_Handler();
+                        break;
+                    case TASK_ID_5:
+                        Task5_Handler();
+                        break;
+                    case TASK_ID_PID:
+                        Task_PID_Handler();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    }
 }
 
 
@@ -61,8 +54,8 @@ void Error_Handler(void)
   /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
   while (1)
-  {
-  }
+    {
+    }
   /* USER CODE END Error_Handler_Debug */
 }
 

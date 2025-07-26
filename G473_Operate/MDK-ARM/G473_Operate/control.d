@@ -64,4 +64,5 @@ g473_operate\control.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdlib.h
 g473_operate\control.o: ..\Hardware\Encoder.h
 g473_operate\control.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h
 g473_operate\control.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_cortex.h
+g473_operate\control.o: ..\Hardware\Key.h
 g473_operate\control.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\math.h

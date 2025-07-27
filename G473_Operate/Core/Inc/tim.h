@@ -27,7 +27,6 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "stm32g4xx_ll_tim.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -39,7 +38,7 @@ extern "C" {
 
 void MX_TIM2_Init(void);
 void MX_TIM3_Init(void);
-//void MX_TIM15_Init(void);
+void MX_TIM15_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 

@@ -31,10 +31,10 @@ void Init_Hardware(void)
 void Init_App(void)
 {
   /* ------------------------------ 应用初始化 ------------------------------------------- */
-  Key_Init(); //  按键初始化
-  /* 初始化命令处理器 */
+	DWT_Init();
+	Gui_Init();
+  Key_Init();
   CommandProcessorInit();
-	/* 初始化命令指令 */
   RegisterAllCommands();
   Encoder_Init();
 	fr_printf("App Init Success");
@@ -91,6 +91,12 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+//  LL_CRS_SetSyncDivider(LL_CRS_SYNC_DIV_1);
+//  LL_CRS_SetSyncPolarity(LL_CRS_SYNC_POLARITY_RISING);
+//  LL_CRS_SetSyncSignalSource(LL_CRS_SYNC_SOURCE_USB);
+//  LL_CRS_SetReloadCounter(__LL_CRS_CALC_CALCULATE_RELOADVALUE(48000000,1000));
+//  LL_CRS_SetFreqErrorLimit(34);
+//  LL_CRS_SetHSI48SmoothTrimming(32);
 }
 
 void Error_Handler(void)

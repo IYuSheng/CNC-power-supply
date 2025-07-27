@@ -1,0 +1,13 @@
+{
+    "folders": [
+        {
+            "path": ".."
+        }
+    ],
+    "settings": {
+        "files.associations": {
+            "task_init.h": "c"
+        }
+    },
+    "extensions": {}
+}

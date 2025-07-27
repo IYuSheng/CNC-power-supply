@@ -3,7 +3,7 @@
 <title>Static Call Graph - [G473_Operate\G473_Operate.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image G473_Operate\G473_Operate.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Jul 26 20:58:14 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Jul 27 22:26:18 2025
 <BR><P>
 <H3>Maximum Stack Usage =        648 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -186,8 +186,8 @@ Function Pointers
 Global Symbols
 </H3>
 <P><STRONG><a name="[99]"></a>__main</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, __main.o(!!!main))
-<BR><BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
+<BR><BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
 <P><STRONG><a name="[9a]"></a>__scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter))
@@ -440,8 +440,8 @@ Global Symbols
 <P><STRONG><a name="[24b]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
 
 <P><STRONG><a name="[9b]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
-<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
 </UL>
 
 <P><STRONG><a name="[24c]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
@@ -842,9 +842,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1b6]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_IT
-<LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
+<BR><BR>[Called By]<UL><LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
 <LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataFromQueue
+<LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_IT
 <LI><a href="#[1b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
 <LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Parse_Data
 </UL>
@@ -899,10 +899,10 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[164]"></a>strcmp</STRONG> (Thumb, 128 bytes, Stack size 0 bytes, strcmpv7m.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_ctype
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_numeric
-<LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HandleSetGather
+<BR><BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HandleSetGather
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RegisterCommand
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_ctype
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_numeric
 </UL>
 
 <P><STRONG><a name="[253]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
@@ -914,23 +914,23 @@ Global Symbols
 <P><STRONG><a name="[d7]"></a>_printf_pre_padding</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, _printf_pad.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _printf_pre_padding
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_wctomb
+<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_wctomb
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_str
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
 </UL>
 
 <P><STRONG><a name="[d8]"></a>_printf_post_padding</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, _printf_pad.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _printf_post_padding
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_wctomb
+<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_wctomb
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_str
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
 </UL>
 
 <P><STRONG><a name="[e2]"></a>_printf_truncate_signed</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, _printf_truncate.o(.text))
@@ -938,17 +938,17 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[e3]"></a>_printf_truncate_unsigned</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, _printf_truncate.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_hex
+<BR><BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_dec
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_hex
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_oct
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_dec
 </UL>
 
 <P><STRONG><a name="[a8]"></a>_printf_int_dec</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, _printf_dec.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = _printf_int_dec &rArr; _printf_int_common &rArr; _printf_post_padding
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_truncate_unsigned
+<BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_truncate_unsigned
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_truncate_signed
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
 </UL>
 <BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_u
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_d
@@ -964,12 +964,12 @@ Global Symbols
 <P><STRONG><a name="[eb]"></a>_printf_fp_dec_real</STRONG> (Thumb, 620 bytes, Stack size 104 bytes, _printf_fp_dec.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 324<LI>Call Chain = _printf_fp_dec_real &rArr; _fp_digits &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_locale
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_locale
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec
 </UL>
@@ -1021,9 +1021,9 @@ Global Symbols
 <P><STRONG><a name="[ef]"></a>_printf_wctomb</STRONG> (Thumb, 182 bytes, Stack size 56 bytes, _printf_wctomb.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = _printf_wctomb &rArr; _wcrtomb &rArr; __rt_ctype_table
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_wcrtomb
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_wcrtomb
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_lcs_common
 </UL>
@@ -1051,8 +1051,8 @@ Global Symbols
 <P><STRONG><a name="[ac]"></a>_printf_int_oct</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, _printf_oct_int_ll.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = _printf_int_oct &rArr; _printf_longlong_oct &rArr; _printf_int_common &rArr; _printf_post_padding
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_longlong_oct
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_truncate_unsigned
+<BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_truncate_unsigned
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_longlong_oct
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_o
 </UL>
@@ -1078,8 +1078,8 @@ Global Symbols
 <P><STRONG><a name="[ae]"></a>_printf_int_hex</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, _printf_hex_int_ll_ptr.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = _printf_int_hex &rArr; _printf_longlong_hex &rArr; _printf_int_common &rArr; _printf_post_padding
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_longlong_hex
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_truncate_unsigned
+<BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_truncate_unsigned
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_longlong_hex
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_x
 </UL>
@@ -1120,17 +1120,17 @@ Global Symbols
 <P><STRONG><a name="[259]"></a>_memcpy_lastbytes_aligned</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_w.o(.text), UNUSED)
 
 <P><STRONG><a name="[c2]"></a>__rt_locale</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_locale_intlibspace.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_really_real
+<BR><BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_really_real
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_lc_common
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_ctype_table
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
 </UL>
 
 <P><STRONG><a name="[ea]"></a>_ll_udiv10</STRONG> (Thumb, 138 bytes, Stack size 12 bytes, lludiv10.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = _ll_udiv10
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_longlong_dec
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_longlong_dec
 </UL>
 
 <P><STRONG><a name="[e4]"></a>_printf_int_common</STRONG> (Thumb, 178 bytes, Stack size 32 bytes, _printf_intcommon.o(.text))
@@ -1139,19 +1139,19 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_longlong_hex
+<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_dec
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_longlong_hex
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_longlong_oct
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_longlong_dec
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_dec
 </UL>
 
 <P><STRONG><a name="[f6]"></a>_printf_fp_hex_real</STRONG> (Thumb, 756 bytes, Stack size 72 bytes, _printf_fp_hex.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = _printf_fp_hex_real &rArr; _printf_fp_infnan &rArr; _printf_post_padding
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_infnan
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex
 </UL>
@@ -1162,8 +1162,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
 </UL>
 
 <P><STRONG><a name="[f7]"></a>_printf_lcs_common</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, _printf_wchar.o(.text))
@@ -1205,8 +1205,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_emul
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_ediv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_value
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_value
 </UL>
 
 <P><STRONG><a name="[f0]"></a>_wcrtomb</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, _wcrtomb.o(.text))
@@ -1292,12 +1292,12 @@ Global Symbols
 <P><STRONG><a name="[104]"></a>_scanf_really_real</STRONG> (Thumb, 684 bytes, Stack size 120 bytes, scanf_fp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 340<LI>Call Chain = _scanf_really_real &rArr; _fp_value &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
 </UL>
-<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_infnan
+<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_is_digit
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_infnan
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_hex_real
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_value
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_narrow
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_locale
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_is_digit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_real
 </UL>
@@ -1385,8 +1385,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_e2e
 <LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__btod_div_common
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
 </UL>
 
 <P><STRONG><a name="[103]"></a>_btod_edivd</STRONG> (Thumb, 42 bytes, Stack size 28 bytes, btod.o(CL$$btod_edivd))
@@ -1404,8 +1404,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__btod_mult_common
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_e2e
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_btod_etento
 </UL>
 
 <P><STRONG><a name="[102]"></a>_btod_emuld</STRONG> (Thumb, 42 bytes, Stack size 28 bytes, btod.o(CL$$btod_emuld))
@@ -1436,8 +1436,8 @@ Global Symbols
 <LI>Call Chain = Comm_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1455,8 +1455,8 @@ Global Symbols
 <LI>Call Chain = Control_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1469,8 +1469,8 @@ Global Symbols
 <LI>Call Chain = Debug_uart_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1527,8 +1527,8 @@ Global Symbols
 <LI>Call Chain = Encoder_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1847,9 +1847,9 @@ Global Symbols
 <LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C1_Init
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
-<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USB_Device_Init
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
+<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
 <LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1859,8 +1859,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 472 + Unknown Stack Size
 <LI>Call Chain = Key_Init &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_GPIO_IsInputPinSet
-<LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
+<BR>[Calls]<UL><LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
+<LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_GPIO_IsInputPinSet
 </UL>
 <BR>[Called By]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_App
 </UL>
@@ -1880,8 +1880,8 @@ Global Symbols
 <LI>Call Chain = Key_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -2208,8 +2208,8 @@ Global Symbols
 <LI>Call Chain = Storage_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -2243,8 +2243,8 @@ Global Symbols
 <LI>Call Chain = TFT_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -2254,8 +2254,8 @@ Global Symbols
 <LI>Call Chain = Test_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -2305,9 +2305,9 @@ Global Symbols
 <LI>Call Chain = UART1_Send_IT &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
-<LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+<LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_Struct
@@ -2327,8 +2327,8 @@ Global Symbols
 <LI>Call Chain = UART_Init &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
-<LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitHardUart
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueCreateMutex
+<LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitHardUart
 <LI><a href="#[1b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Hardware
@@ -2337,9 +2337,9 @@ Global Symbols
 <P><STRONG><a name="[1ba]"></a>UART_Send_IT</STRONG> (Thumb, 206 bytes, Stack size 32 bytes, uart_debug.o(i.UART_Send_IT))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
+<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+<LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -2839,8 +2839,8 @@ Global Symbols
 <LI>Call Chain = Watchdog_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[1de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IWDG_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -2849,8 +2849,8 @@ Global Symbols
 <P><STRONG><a name="[ec]"></a>__ARM_fpclassify</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, fpclassify.o(i.__ARM_fpclassify))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __ARM_fpclassify
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_hex_real
 </UL>
 
 <P><STRONG><a name="[1df]"></a>__hardfp___mathlib_tofloat</STRONG> (Thumb, 232 bytes, Stack size 32 bytes, narrow.o(i.__hardfp___mathlib_tofloat))
@@ -2922,8 +2922,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[da]"></a>_is_digit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, __printf_wp.o(i._is_digit))
-<BR><BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_really_real
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__printf
+<BR><BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__printf
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_really_real
 </UL>
 
 <P><STRONG><a name="[116]"></a>fr_printf</STRONG> (Thumb, 70 bytes, Stack size 280 bytes, uart_debug.o(i.fr_printf))
@@ -2947,8 +2947,8 @@ Global Symbols
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Comm_task_create
 <LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationStackOverflowHook
 <LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationMallocFailedHook
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vStorageTask
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vStorageTask
 <LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HandleSetVoltage
 <LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HandleSetGather
 <LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HandleSetCurrent
@@ -3000,8 +3000,8 @@ Global Symbols
 <LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
 <LI><a href="#[200]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvHeapInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
-<LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
+<BR>[Called By]<UL><LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 
 <P><STRONG><a name="[216]"></a>pvTaskIncrementMutexHeldCount</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, tasks.o(i.pvTaskIncrementMutexHeldCount))
@@ -3015,12 +3015,12 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1ed]"></a>uxListRemove</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, list.o(i.uxListRemove))
-<BR><BR>[Called By]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIdleTask
-<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
-<LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityInherit
+<BR><BR>[Called By]<UL><LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityInherit
 <LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
 <LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPriorityDisinheritAfterTimeout
+<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIdleTask
+<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
 
 <P><STRONG><a name="[215]"></a>uxTaskGetNumberOfTasks</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, tasks.o(i.uxTaskGetNumberOfTasks))
@@ -3059,11 +3059,11 @@ Global Symbols
 <LI>Call Chain = vControlTask &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
-<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
-<LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueCreateMutex
+<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
+<LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2snprintf
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TransformCurrent
@@ -3076,9 +3076,9 @@ Global Symbols
 <P><STRONG><a name="[91]"></a>vEncoderTask</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, encoder.o(i.vEncoderTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = vEncoderTask &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
+<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
+<LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> task_init.o(i.Encoder_task_create)
 </UL>
@@ -3087,17 +3087,17 @@ Global Symbols
  + In Cycle
 <LI>Call Chain = vKeyScanTask &rArr;  vKeyScanTask (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyScanTask
+<BR>[Calls]<UL><LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyScanTask
 <LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Scan
-<LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyScanTask
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> task_init.o(i.Key_task_create)
 </UL>
 <P><STRONG><a name="[1f0]"></a>vListInitialise</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, list.o(i.vListInitialise))
-<BR><BR>[Called By]<UL><LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
-<LI><a href="#[212]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<BR><BR>[Called By]<UL><LI><a href="#[212]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
 
 <P><STRONG><a name="[1f8]"></a>vListInitialiseItem</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, list.o(i.vListInitialiseItem))
@@ -3107,8 +3107,8 @@ Global Symbols
 <P><STRONG><a name="[1ee]"></a>vListInsert</STRONG> (Thumb, 48 bytes, Stack size 12 bytes, list.o(i.vListInsert))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = vListInsert
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
-<LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<BR>[Called By]<UL><LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
 
 <P><STRONG><a name="[20a]"></a>vListInsertEnd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, list.o(i.vListInsertEnd))
@@ -3116,11 +3116,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1b4]"></a>vPortEnterCritical</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, port.o(i.vPortEnterCritical))
-<BR><BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vUartProcessTask
-<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIdleTask
-<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
-<LI><a href="#[214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
+<BR><BR>[Called By]<UL><LI><a href="#[214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
 <LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
@@ -3128,15 +3124,15 @@ Global Symbols
 <LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 <LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
 <LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vUartProcessTask
+<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIdleTask
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 <LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Parse_Data
 </UL>
 
 <P><STRONG><a name="[1b5]"></a>vPortExitCritical</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, port.o(i.vPortExitCritical))
-<BR><BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vUartProcessTask
-<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIdleTask
-<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
-<LI><a href="#[214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
+<BR><BR>[Called By]<UL><LI><a href="#[214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
 <LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
@@ -3144,6 +3140,10 @@ Global Symbols
 <LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 <LI><a href="#[1fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
 <LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vUartProcessTask
+<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIdleTask
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 <LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Parse_Data
 </UL>
 
@@ -3206,12 +3206,11 @@ Global Symbols
 <P><STRONG><a name="[1a5]"></a>vTaskDelay</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, tasks.o(i.vTaskDelay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
-<LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<BR>[Calls]<UL><LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 <LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyScanTask
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vStorageTask
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vStorageTask
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTFTTask
 <LI><a href="#[1a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7789_Init
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vUartProcessTask
@@ -3221,17 +3220,18 @@ Global Symbols
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vEncoderTask
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vUart1ProcessTask
 <LI><a href="#[1b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyScanTask
 </UL>
 
 <P><STRONG><a name="[206]"></a>vTaskDelete</STRONG> (Thumb, 164 bytes, Stack size 16 bytes, tasks.o(i.vTaskDelete))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = vTaskDelete &rArr; prvDeleteTCB &rArr; vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
-<LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
-<LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<BR>[Calls]<UL><LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
 <LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 <LI><a href="#[1b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
+<LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vStorageTask
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControlTask
@@ -3251,8 +3251,8 @@ Global Symbols
 <P><STRONG><a name="[20c]"></a>vTaskPlaceOnEventList</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, tasks.o(i.vTaskPlaceOnEventList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
-<LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
+<BR>[Calls]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
+<LI><a href="#[1ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
 <BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
 <LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
@@ -3271,19 +3271,19 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 512 + Unknown Stack Size
 <LI>Call Chain = vTaskStartScheduler &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
-<LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<BR>[Calls]<UL><LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[1ff]"></a>vTaskSuspendAll</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, tasks.o(i.vTaskSuspendAll))
-<BR><BR>[Called By]<UL><LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
+<BR><BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
 <LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 <LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 
 <P><STRONG><a name="[d1]"></a>vTaskSwitchContext</STRONG> (Thumb, 126 bytes, Stack size 8 bytes, tasks.o(i.vTaskSwitchContext))
@@ -3308,10 +3308,10 @@ Global Symbols
 <P><STRONG><a name="[90]"></a>vUartProcessTask</STRONG> (Thumb, 100 bytes, Stack size 0 bytes, uart_debug.o(i.vUartProcessTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vUartProcessTask &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TriggerCommandProcessing
-<LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[1b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<BR>[Calls]<UL><LI><a href="#[1b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TriggerCommandProcessing
+<LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[1b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> task_init.o(i.Debug_uart_task_create)
@@ -3353,8 +3353,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[212]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
 <LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Init
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueCreateMutex
+<BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueCreateMutex
+<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Init
 </UL>
 
 <P><STRONG><a name="[212]"></a>xQueueGenericReset</STRONG> (Thumb, 172 bytes, Stack size 24 bytes, queue.o(i.xQueueGenericReset))
@@ -3382,9 +3382,9 @@ Global Symbols
 <LI><a href="#[1b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 </UL>
-<BR>[Called By]<UL><LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_ProcessOne
+<BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueCreateMutex
+<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_ProcessOne
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_IT
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueCreateMutex
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControlTask
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vEncoderTask
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_SetData
@@ -3472,10 +3472,10 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 488 + Unknown Stack Size
 <LI>Call Chain = xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
-<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
-<LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<BR>[Calls]<UL><LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
@@ -3531,17 +3531,17 @@ Global Symbols
 <P><STRONG><a name="[201]"></a>xTaskResumeAll</STRONG> (Thumb, 286 bytes, Stack size 24 bytes, tasks.o(i.xTaskResumeAll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
-<LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<BR>[Calls]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 <LI><a href="#[1b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
 <LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 <LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[1fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 
 <P><STRONG><a name="[c5]"></a>_get_lc_numeric</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, lc_numeric_c.o(locale$$code))
@@ -3627,8 +3627,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[222]"></a>__fpl_dretinf</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dretinf.o(x$fpl$dretinf), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[221]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
-<LI><a href="#[225]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
+<BR><BR>[Called By]<UL><LI><a href="#[225]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
+<LI><a href="#[221]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
 </UL>
 
 <P><STRONG><a name="[1e3]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, drleqf.o(x$fpl$drleqf))
@@ -3680,9 +3680,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_g
+<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_f
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_g
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_e
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_f
 </UL>
 
 <P><STRONG><a name="[a6]"></a>_printf_fp_hex</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, printf2.o(x$fpl$printf2))
@@ -4059,8 +4059,8 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
 <LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<BR>[Called By]<UL><LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 
 <P><STRONG><a name="[1ef]"></a>prvAddNewTaskToReadyList</STRONG> (Thumb, 228 bytes, Stack size 24 bytes, tasks.o(i.prvAddNewTaskToReadyList))
@@ -4086,10 +4086,10 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = prvIdleTask &rArr; prvDeleteTCB &rArr; vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationIdleHook
-<LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
 <LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 <LI><a href="#[1b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> tasks.o(i.vTaskStartScheduler)
 </UL>
@@ -4105,9 +4105,9 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[20b]"></a>prvResetNextTaskUnblockTime</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, tasks.o(i.prvResetNextTaskUnblockTime))
-<BR><BR>[Called By]<UL><LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
-<LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<BR><BR>[Called By]<UL><LI><a href="#[1ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 <LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelete
 </UL>
 
 <P><STRONG><a name="[1b9]"></a>InitHardUart</STRONG> (Thumb, 94 bytes, Stack size 0 bytes, uart_debug.o(i.InitHardUart))
@@ -4165,8 +4165,8 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[173]"></a>LL_GPIO_IsInputPinSet</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, key.o(i.LL_GPIO_IsInputPinSet))
-<BR><BR>[Called By]<UL><LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Scan
-<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Init
+<BR><BR>[Called By]<UL><LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Init
+<LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Scan
 </UL>
 
 <P><STRONG><a name="[1b1]"></a>InitHardUart1</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, uart_comm.o(i.InitHardUart1))

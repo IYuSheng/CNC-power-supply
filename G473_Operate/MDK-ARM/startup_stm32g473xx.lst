@@ -773,11 +773,10 @@ ARM Macro Assembler    Page 12
               00000200 
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
-interwork --depend=g473_operate\startup_stm32g473xx.d -og473_operate\startup_st
-m32g473xx.o -I.\RTE\_G473_Operate -ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Co
-re\Include --predefine="__UVISION_VERSION SETA 540" --predefine="STM32G473xx SE
-TA 1" --predefine="_RTE_ SETA 1" --list=startup_stm32g473xx.lst startup_stm32g4
-73xx.s
+interwork --depend=123\startup_stm32g473xx.d -o123\startup_stm32g473xx.o -I.\RT
+E\_123 -ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include --predefine="__U
+VISION_VERSION SETA 540" --predefine="STM32G473xx SETA 1" --predefine="_RTE_ SE
+TA 1" --list=startup_stm32g473xx.lst startup_stm32g473xx.s
 
 
 

@@ -152,25 +152,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>31</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134250270</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>../Core/Src/main.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\G473_Operate\../Core/Src/main.c\31</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
           <LineNumber>89</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134233304</Address>
+          <Address>134233756</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -182,11 +166,11 @@
           <Expression>\\G473_Operate\../Core/Src/stm32g4xx_it.c\89</Expression>
         </Bp>
         <Bp>
-          <Number>2</Number>
+          <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>36</LineNumber>
+          <LineNumber>32</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134250278</Address>
+          <Address>134250834</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -195,12 +179,28 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>../Core/Src/main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\G473_Operate\../Core/Src/main.c\36</Expression>
+          <Expression>\\G473_Operate\../Core/Src/main.c\32</Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>37</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134250842</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>../Core/Src/main.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\G473_Operate\../Core/Src/main.c\37</Expression>
         </Bp>
         <Bp>
           <Number>3</Number>
           <Type>0</Type>
-          <LineNumber>32</LineNumber>
+          <LineNumber>30</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -216,7 +216,7 @@
         <Bp>
           <Number>4</Number>
           <Type>0</Type>
-          <LineNumber>37</LineNumber>
+          <LineNumber>36</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -298,7 +298,7 @@
 
   <Group>
     <GroupName>Application/MDK-ARM</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -614,7 +614,7 @@
       <GroupNumber>5</GroupNumber>
       <FileNumber>24</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c</PathWithFileName>

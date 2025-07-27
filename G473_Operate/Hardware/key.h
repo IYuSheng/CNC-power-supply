@@ -11,7 +11,7 @@
 // 消息队列句柄（全局可见）
 extern QueueHandle_t control_msg_queue;
 
-// 按键枚举（与key_pin_map严格对应）
+// 按键枚举
 typedef enum {
     KEY_ENC_1 = 0,    // PC13
     KEY_ENC_2 = 1,    // PC14

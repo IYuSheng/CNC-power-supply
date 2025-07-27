@@ -5,8 +5,11 @@
 #include <stdint.h>
 #include "stm32g4xx_ll_spi.h"
 #include "stm32g4xx_ll_gpio.h"
+#include "LVGL_Init.h"
+#include "Gui_Change.h"
 #include "freertos.h"
 #include "task.h"
+#include "DWT.h"
 
 // 屏幕分辨率定义
 #define ST7789_WIDTH  320
@@ -42,7 +45,8 @@ void ST7789_Init(void);
 void ST7789_WriteCmd(uint8_t cmd);                                               // 写命令
 void ST7789_WriteData(uint8_t *data, uint32_t len);                        // 写多字节数据
 void ST7789_WriteDataByte(uint8_t data);                                   // 写单字节数据
-
+void ST7789_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint8_t dir_mode);
+void ST7789_Fill(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color, uint8_t dir_mode);
 void ST7789_DMA_Init(void);
 void ST7789_WriteDataDMA(uint16_t *data, uint32_t len);
 

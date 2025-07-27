@@ -16,10 +16,6 @@ void Debug_uart_task_create(void)
       fr_printf("Debug task create Failed");
       Error_Handler();
     }
-  else
-    {
-      fr_printf("Debug task create Success");
-    }
 }
 
 /**
@@ -39,10 +35,6 @@ void Monitor_task_create(void)
       fr_printf("Monitor task create Failed");
       Error_Handler();
     }
-  else
-    {
-      fr_printf("Monitor task create Success");
-    }
 
 #endif
 }
@@ -58,10 +50,6 @@ void Comm_task_create(void)
     {
       fr_printf("Comm task create Failed");
       Error_Handler();
-    }
-  else
-    {
-      fr_printf("Comm task create Success");
     }
 }
 
@@ -79,10 +67,6 @@ void Watchdog_task_create(void)
       fr_printf("Watchdog task create Failed");
       Error_Handler();
     }
-  else
-    {
-      fr_printf("Watchdog task create Success");
-    }
 }
 
 /**
@@ -96,10 +80,6 @@ void Key_task_create(void)
     {
       fr_printf("Key task create Failed");
       Error_Handler();
-    }
-  else
-    {
-      fr_printf("Key task create Success");
     }
 }
 
@@ -115,10 +95,6 @@ void TFT_task_create(void)
       fr_printf("TFT task create Failed");
       Error_Handler();
     }
-  else
-    {
-      fr_printf("TFT task create Success");
-    }
 }
 
 /**
@@ -132,10 +108,6 @@ void Storage_task_create(void)
     {
       fr_printf("Storage task create Failed");
       Error_Handler();
-    }
-  else
-    {
-      fr_printf("Storage task create Success");
     }
 }
 
@@ -151,10 +123,6 @@ void Encoder_task_create(void)
       fr_printf("Encoder task create Failed");
       Error_Handler();
     }
-  else
-    {
-      fr_printf("Encoder task create Success");
-    }
 }
 
 /**
@@ -163,15 +131,11 @@ void Encoder_task_create(void)
 void Control_task_create(void)
 {
   xReturn = xTaskCreate(vControlTask, "Control", 256,
-                        NULL, 3, NULL);
+                        NULL, TASK_PRIO_CONTROL, NULL);
   if (xReturn != pdPASS)
     {
       fr_printf("Control task create Failed");
       Error_Handler();
-    }
-  else
-    {
-      fr_printf("Control task create Success");
     }
 }
 
@@ -200,10 +164,6 @@ void Test_task_create(void)
     {
       fr_printf("Test task create Failed");
       Error_Handler();
-    }
-  else
-    {
-      fr_printf("Test task create Success");
     }
 }
 

@@ -193,7 +193,7 @@ all interrupt callbacks are set to the corresponding weak functions:
 /** @addtogroup STM32G4xx_HAL_Driver
   * @{
   */
-#define HAL_TIM_MODULE_ENABLED
+
 /** @defgroup TIM TIM
   * @brief TIM HAL module driver
   * @{

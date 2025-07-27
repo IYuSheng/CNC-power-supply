@@ -9,18 +9,18 @@ void ST7789_Init(void)
 {
   // 2. 硬件复位（按正确时序调整延时）
   ST7789_RST_HIGH();
-  vTaskDelay(pdMS_TO_TICKS(1));
+  DWT_Delayms(1);
   ST7789_RST_LOW();
-  vTaskDelay(pdMS_TO_TICKS(10));
+  DWT_Delayms(10);
   ST7789_RST_HIGH();
-  vTaskDelay(pdMS_TO_TICKS(200));
+  DWT_Delayms(200);
 
   // 3. 初始化序列
   ST7789_CS_LOW();
 
   // 退出睡眠模式
   ST7789_WriteCmd(0x11);
-  vTaskDelay(pdMS_TO_TICKS(200));
+  DWT_Delayms(200);
 
   // 4. 显示方向设置（使用0x70适配240×320竖屏）
   ST7789_WriteCmd(0x36);
@@ -29,7 +29,7 @@ void ST7789_Init(void)
   // 5. 像素格式设置（保持16位RGB565）
   ST7789_WriteCmd(0x3A);
   ST7789_WriteDataByte(0x55);  // 16位RGB565
-  vTaskDelay(pdMS_TO_TICKS(10));
+  DWT_Delayms(10);
 
   // 6. 帧率设置（添加对方的参数）
   ST7789_WriteCmd(0xB2);  // Porch Setting
@@ -82,10 +82,10 @@ void ST7789_Init(void)
   // 9. 开启显示
   ST7789_WriteCmd(0x29);
   ST7789_WriteCmd(0x2C);
-  vTaskDelay(pdMS_TO_TICKS(10));
+  DWT_Delayms(10);
 
   // 10. 开启背光
-  ST7789_BLK_LOW();  // 根据硬件确认是否需要HIGH
+  ST7789_BLK_LOW();
 
   ST7789_CS_HIGH();
 }
@@ -118,17 +118,6 @@ void ST7789_WriteDataByte(uint8_t data)
   ST7789_SPI_WriteByte(data);
   ST7789_CS_HIGH();   // 片选禁用
 }
-
-//void ST7789_WriteData(uint8_t *data, uint32_t len)
-//{
-//  ST7789_CS_LOW();    // 片选使能
-//  ST7789_DC_HIGH();   // 数据模式
-//  for (uint32_t i = 0; i < len; i++)
-//    {
-//      ST7789_SPI_WriteByte(data[i]);
-//    }
-//  ST7789_CS_HIGH();   // 片选禁用
-//}
 
 // 优化版本（批量发送）
 void ST7789_WriteData(uint8_t *data, uint32_t len)
@@ -269,23 +258,19 @@ void ST7789_Clear(uint16_t color)
 }
 
 /**
- * @brief  屏幕显示线程
+ * @brief  屏幕刷新线程
  * @param  无
  * @retval 无
  */
 void vTFTTask(void *pvParameters)
 {
-  ST7789_Init();
-  // 简单测试：画三色条
-  ST7789_Fill(0, 0, 319, 79, RED,2);     // 上1/3红色
-  ST7789_Fill(0, 80, 319, 159, GREEN,2); // 中1/3绿色
-  ST7789_Fill(0, 160, 319, 239, BLUE,2); // 下1/3蓝色
 
   for (;;)
     {
-      ST7789_Clear(GREEN);
-      ST7789_Clear(BLUE);
-      ST7789_Clear(YELLOW);
-      vTaskDelay(pdMS_TO_TICKS(1000));
+			Gui_Event_Data();
+			
+			lv_task_handler();
+			lv_timer_handler();
+      vTaskDelay(pdMS_TO_TICKS(10));
     }
 }

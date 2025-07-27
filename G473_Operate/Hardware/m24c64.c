@@ -280,55 +280,55 @@ M24C64_Status_t M24C64_WriteByPage(uint16_t addr, const uint8_t *data, uint16_t 
  */
 void vStorageTask(void *pvParameters)
 {
-  M24C64_Status_t ret;
+//  M24C64_Status_t ret;
 
-  // 初始化
-  ret = M24C64_Init();
-  if (ret != M24C64_OK)
-    {
-      fr_printf("M24C64初始化失败！状态码：%d\n", ret);
-      vTaskDelete(NULL);
-    }
+//  // 初始化
+//  ret = M24C64_Init();
+//  if (ret != M24C64_OK)
+//    {
+//      fr_printf("M24C64初始化失败！状态码：%d\n", ret);
+//      vTaskDelete(NULL);
+//    }
 
-  // 测试数据（跨页写入）
-  uint8_t test_data[64];
-  uint8_t read_data[64];
+//  // 测试数据（跨页写入）
+//  uint8_t test_data[64];
+//  uint8_t read_data[64];
 
-  // 填充测试数据
-  for (uint16_t i = 0; i < 64; i++)
-    test_data[i] = i + 1;
+//  // 填充测试数据
+//  for (uint16_t i = 0; i < 64; i++)
+//    test_data[i] = i + 1;
 
-  // 写入测试（跨2页）
-  ret = M24C64_WriteByPage(0, test_data, 64);
-  if (ret != M24C64_OK)
-    {
-      fr_printf("页写入失败！状态码：%d\n", ret);
-      vTaskDelete(NULL);
-    }
+//  // 写入测试（跨2页）
+//  ret = M24C64_WriteByPage(0, test_data, 64);
+//  if (ret != M24C64_OK)
+//    {
+//      fr_printf("页写入失败！状态码：%d\n", ret);
+//      vTaskDelete(NULL);
+//    }
 
 
-  // 读取测试
-  ret = M24C64_Read(0, read_data, 64);
-  if (ret != M24C64_OK)
-    {
-      fr_printf("读取失败！状态码：%d\n", ret);
-      vTaskDelete(NULL);
-    }
+//  // 读取测试
+//  ret = M24C64_Read(0, read_data, 64);
+//  if (ret != M24C64_OK)
+//    {
+//      fr_printf("读取失败！状态码：%d\n", ret);
+//      vTaskDelete(NULL);
+//    }
 
-  // 验证数据
-  uint8_t verify_ok = 1;
-  for (uint16_t i = 0; i < 64; i++)
-    {
-      if (read_data[i] != test_data[i])
-        {
-          fr_printf("数据不匹配！地址0x%04X：写入0x%02X，读出0x%02X\n", i, test_data[i], read_data[i]);
-          verify_ok = 0;
-          break;
-        }
-    }
+//  // 验证数据
+//  uint8_t verify_ok = 1;
+//  for (uint16_t i = 0; i < 64; i++)
+//    {
+//      if (read_data[i] != test_data[i])
+//        {
+//          fr_printf("数据不匹配！地址0x%04X：写入0x%02X，读出0x%02X\n", i, test_data[i], read_data[i]);
+//          verify_ok = 0;
+//          break;
+//        }
+//    }
 
-  if (verify_ok)
-    fr_printf("所有数据验证通过！\n");
+//  if (verify_ok)
+//    fr_printf("所有数据验证通过！\n");
 
   // 循环待命
   for (;;)

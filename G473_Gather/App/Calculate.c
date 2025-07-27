@@ -43,11 +43,11 @@ void PI_Init(PI_HandleTypeDef *pi, float Kp, float Ki,
   // 初始化历史数据
   pi->last_error = 0.0f;
   pi->last_last_error = 0.0f;
-  pi->last_output = 0.0f;  // 初始输出（可根据实际场景设置，如目标值）
+  pi->last_output = 0.0f;  // 初始输出
 }
 
 /**
- * @brief  执行增量式PI计算（核心修改）
+ * @brief  执行增量式PI计算
  * @param  pi: PI控制器结构体指针
  * @param  process_value: 过程值（当前值）
  * @param  target_value: 目标值（希望达到的值）
@@ -60,8 +60,8 @@ float PI_Calculate(PI_HandleTypeDef *pi, float process_value, float target_value
 
   // 2. 计算增量式PI的输出变化量Δu
   // 公式：Δu = Kp*(e - e_prev) + Ki*e （简化版，忽略微分项）
-  float delta_u = pi->Kp * (error - pi->last_error) + pi->Ki * error * 0.01f;
-  // （注：0.01f是采样周期，需与Task1的10ms周期一致）
+  float delta_u = pi->Kp * (error - pi->last_error) + pi->Ki * error * 0.005f;
+  // （注：0.01f是采样周期，需与Task1的5ms周期一致）
 
   // 3. 限制增量Δu的范围（可选，避免单次变化过大）
   delta_u = min_max(delta_u, pi->integral_min, pi->integral_max);

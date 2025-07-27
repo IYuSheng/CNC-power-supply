@@ -1,0 +1,16 @@
+123\lv_font.o: ..\lvgl\src\font\lv_font.c
+123\lv_font.o: ..\lvgl\src\font\lv_font.h
+123\lv_font.o: ..\lvgl\src\font\../lv_conf_internal.h
+123\lv_font.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdint.h
+123\lv_font.o: ..\lvgl\src\font\../lv_conf_kconfig.h
+123\lv_font.o: ..\lvgl\examples\porting\../../lv_conf.h
+123\lv_font.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
+123\lv_font.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
+123\lv_font.o: ..\lvgl\src\font\lv_symbol_def.h
+123\lv_font.o: ..\lvgl\src\font\../misc/lv_area.h
+123\lv_font.o: ..\lvgl\src\font\../misc/lv_utils.h
+123\lv_font.o: ..\lvgl\src\font\../misc/lv_log.h
+123\lv_font.o: ..\lvgl\src\font\../misc/lv_types.h
+123\lv_font.o: ..\lvgl\src\font\../misc/lv_assert.h
+123\lv_font.o: ..\lvgl\src\font\../misc/lv_mem.h
+123\lv_font.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h

@@ -12,7 +12,6 @@ g473_operate\stm32g4xx_hal_dma_ex.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 g473_operate\stm32g4xx_hal_dma_ex.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 g473_operate\stm32g4xx_hal_dma_ex.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 g473_operate\stm32g4xx_hal_dma_ex.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h
-g473_operate\stm32g4xx_hal_dma_ex.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h
 g473_operate\stm32g4xx_hal_dma_ex.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
 g473_operate\stm32g4xx_hal_dma_ex.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
 g473_operate\stm32g4xx_hal_dma_ex.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc_ex.h

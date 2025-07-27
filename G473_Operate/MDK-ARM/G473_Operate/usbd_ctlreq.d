@@ -18,7 +18,6 @@ g473_operate\usbd_ctlreq.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h
 g473_operate\usbd_ctlreq.o: ../Core/Inc/stm32g4xx_hal_conf.h
 g473_operate\usbd_ctlreq.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h
 g473_operate\usbd_ctlreq.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h
-g473_operate\usbd_ctlreq.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h
 g473_operate\usbd_ctlreq.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
 g473_operate\usbd_ctlreq.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
 g473_operate\usbd_ctlreq.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc_ex.h

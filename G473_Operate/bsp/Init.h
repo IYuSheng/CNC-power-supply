@@ -8,6 +8,7 @@
 #include "stm32g4xx_ll_pwr.h"
 #include "stm32g4xx_ll_rcc.h"
 #include "stm32g4xx_ll_gpio.h"
+#include "usb_device.h"
 #include "i2c.h"
 #include "spi.h"
 #include "tim.h"
@@ -26,6 +27,9 @@
 #include "CommandHandlers.h"
 #include "Encoder.h"
 #include "Comm.h"
+#include "lvgl.h"
+#include "lv_port_disp.h"
+#include "LVGL_Init.h"
 
 /* 系统监控相关定义 */
 #if Monitor_Flag

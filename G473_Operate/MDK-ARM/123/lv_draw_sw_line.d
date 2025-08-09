@@ -17,6 +17,7 @@
 123\lv_draw_sw_line.o: ..\lvgl\src\draw\sw\../../misc/lv_area.h
 123\lv_draw_sw_line.o: ..\lvgl\src\draw\sw\../../misc/lv_style.h
 123\lv_draw_sw_line.o: ..\lvgl\src\draw\sw\../../misc/../font/lv_font.h
+123\lv_draw_sw_line.o: ..\lvgl\lv_conf.h
 123\lv_draw_sw_line.o: ..\lvgl\src\draw\sw\../../misc/../font/lv_symbol_def.h
 123\lv_draw_sw_line.o: ..\lvgl\src\draw\sw\../../misc/lv_anim.h
 123\lv_draw_sw_line.o: ..\lvgl\src\draw\sw\../../misc/lv_txt.h

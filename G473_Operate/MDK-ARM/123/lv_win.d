@@ -26,6 +26,7 @@
 123\lv_win.o: ..\lvgl\src\extra\widgets\win\../../../../src/hal/../draw/lv_draw.h
 123\lv_win.o: ..\lvgl\src\extra\widgets\win\../../../../src/hal/../draw/../misc/lv_style.h
 123\lv_win.o: ..\lvgl\src\extra\widgets\win\../../../../src/hal/../draw/../misc/../font/lv_font.h
+123\lv_win.o: ..\lvgl\lv_conf.h
 123\lv_win.o: ..\lvgl\src\extra\widgets\win\../../../../src/hal/../draw/../misc/../font/lv_symbol_def.h
 123\lv_win.o: ..\lvgl\src\extra\widgets\win\../../../../src/hal/../draw/../misc/../font/../misc/lv_area.h
 123\lv_win.o: ..\lvgl\src\extra\widgets\win\../../../../src/hal/../draw/../misc/lv_color.h

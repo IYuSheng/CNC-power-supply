@@ -1,0 +1,18 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "files.associations": {
+            "gui_change.h": "c",
+            "lvgl_init.h": "c",
+            "stm32g4xx_ll_dma.h": "c",
+            "stm32g4xx_ll_gpio.h": "c",
+            "st7789.h": "c",
+            "lv_port_disp.h": "c"
+        }
+    },
+    "extensions": {}
+}

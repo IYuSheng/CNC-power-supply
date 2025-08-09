@@ -92,9 +92,9 @@ void lv_port_disp_init(void)
 
     /* Example for 2) */
     static lv_disp_draw_buf_t draw_buf_dsc_2;
-    static lv_color_t buf_2_1[MY_DISP_HOR_RES * 10];                        /*A buffer for 10 rows*/
-    static lv_color_t buf_2_2[MY_DISP_HOR_RES * 10];                        /*An other buffer for 10 rows*/
-    lv_disp_draw_buf_init(&draw_buf_dsc_2, buf_2_1, buf_2_2, MY_DISP_HOR_RES * 10);   /*Initialize the display buffer*/
+    static lv_color_t buf_2_1[MY_DISP_HOR_RES * 20];                        /*A buffer for 10 rows*/
+    static lv_color_t buf_2_2[MY_DISP_HOR_RES * 20];                        /*An other buffer for 10 rows*/
+    lv_disp_draw_buf_init(&draw_buf_dsc_2, buf_2_1, buf_2_2, MY_DISP_HOR_RES * 20);   /*Initialize the display buffer*/
 
 //    /* Example for 3) also set disp_drv.full_refresh = 1 below*/
 //    static lv_disp_draw_buf_t draw_buf_dsc_3;
@@ -164,42 +164,86 @@ void disp_disable_update(void)
  *You can use DMA or any hardware acceleration to do this operation in the background but
  *'lv_disp_flush_ready()' has to be called when finished.*/
 static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_color_t * color_p)
-{
-  if(disp_flush_enabled)
-  {
-    // 正确提取LVGL的区域坐标（左、上、右、下）
-    uint16_t screen_left = area->x1;
-    uint16_t screen_top = area->y1;
-    uint16_t screen_right = area->x2;
-    uint16_t screen_bottom = area->y2;
-
-    // 设置显示窗口（使用正确的方向，与ST7789_Init一致）
-    ST7789_SetWindow(screen_left, screen_top, screen_right, screen_bottom, 2);
-
-    // 计算像素数（每个像素2字节RGB565）
-    uint32_t pixel_num = (screen_right - screen_left + 1) * (screen_bottom - screen_top + 1);
-    uint8_t *color_buf = (uint8_t *)color_p;  // LVGL的颜色数据直接映射
-
-    // 发送数据到屏幕（保持SPI逻辑不变）
+{   
+    if(!disp_flush_enabled)
+    {
+        lv_disp_flush_ready(disp_drv);
+        return;
+    }
+    
+    /* 保存当前驱动和区域信息，用于中断处理 */
+    current_drv = disp_drv;
+    current_area = area;
+    
+    /* 设置显示窗口 */
+    ST7789_SetWindow(area->x1, area->y1, area->x2, area->y2);
+    
+    /* 计算需要传输的像素数量和字节数 */
+    uint32_t width = area->x2 - area->x1 + 1;
+    uint32_t height = area->y2 - area->y1 + 1;
+    uint32_t pixel_count = width * height;
+    uint32_t byte_count = pixel_count * 2; // 每个像素2字节
+    
+    /* 确保DMA通道未启用 */
+    LL_DMA_DisableChannel(ST7789_DMA, ST7789_DMA_CHANNEL);
+    while(LL_DMA_IsEnabledChannel(ST7789_DMA, ST7789_DMA_CHANNEL));
+    
+    /* 配置DMA传输 */
+    LL_DMA_SetMemoryAddress(ST7789_DMA, ST7789_DMA_CHANNEL, (uint32_t)color_p);
+    LL_DMA_SetDataLength(ST7789_DMA, ST7789_DMA_CHANNEL, byte_count);
+    
+    /* 拉低CS使能LCD，拉高D/C表示发送数据 */
     ST7789_CS_LOW();
     ST7789_DC_HIGH();
-    while (!LL_SPI_IsActiveFlag_TXE(SPI1));
+    
+    /* 清除DMA传输完成标志 */
+    LL_DMA_ClearFlag_TC3(ST7789_DMA);
+    
+    /* 启用SPI的DMA请求 */
+    LL_SPI_EnableDMAReq_TX(ST7789_SPI);
 
-    for (uint32_t i = 0; i < pixel_num * 2; i++)
-    {
-      LL_SPI_TransmitData8(SPI1, color_buf[i]);
-      if(i < (pixel_num * 2 - 1) && !LL_SPI_IsActiveFlag_TXE(SPI1))
-      {
-        while (!LL_SPI_IsActiveFlag_TXE(SPI1));
-      }
-    }
+    /* 启用DMA通道开始传输 */
+    LL_DMA_EnableChannel(ST7789_DMA, ST7789_DMA_CHANNEL);
 
-    while (LL_SPI_IsActiveFlag_BSY(SPI1));
-    ST7789_CS_HIGH();
-  }
-  lv_disp_flush_ready(disp_drv);  // 通知LVGL刷新完成
+    /* 注意：lv_disp_flush_ready()将在DMA中断处理函数中调用 */
 }
 
+// static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_color_t * color_p)
+// {
+//   if(disp_flush_enabled)
+//   {
+//     // 正确提取LVGL的区域坐标（左、上、右、下）
+//     uint16_t screen_left = area->x1;
+//     uint16_t screen_top = area->y1;
+//     uint16_t screen_right = area->x2;
+//     uint16_t screen_bottom = area->y2;
+
+//     // 设置显示窗口（使用正确的方向，与ST7789_Init一致）
+//     ST7789_SetWindow(screen_left, screen_top, screen_right, screen_bottom, ST7789_DIR_PORTRAIT_FLIP);
+
+//     // 计算像素数（每个像素2字节RGB565）
+//     uint32_t pixel_num = (screen_right - screen_left + 1) * (screen_bottom - screen_top + 1);
+//     uint8_t *color_buf = (uint8_t *)color_p;  // LVGL的颜色数据直接映射
+
+//     // 发送数据到屏幕（保持SPI逻辑不变）
+//     ST7789_CS_LOW();
+//     ST7789_DC_HIGH();
+//     while (!LL_SPI_IsActiveFlag_TXE(SPI1));
+
+//     for (uint32_t i = 0; i < pixel_num * 2; i++)
+//     {
+//       LL_SPI_TransmitData8(SPI1, color_buf[i]);
+//       if(i < (pixel_num * 2 - 1) && !LL_SPI_IsActiveFlag_TXE(SPI1))
+//       {
+//         while (!LL_SPI_IsActiveFlag_TXE(SPI1));
+//       }
+//     }
+
+//     while (LL_SPI_IsActiveFlag_BSY(SPI1));
+//     ST7789_CS_HIGH();
+//   }
+//   lv_disp_flush_ready(disp_drv);  // 通知LVGL刷新完成
+// }
 
 /*OPTIONAL: GPU INTERFACE*/
 

@@ -26,6 +26,7 @@
 123\lv_led.o: ..\lvgl\src\extra\widgets\led\../../../../src/hal/../draw/lv_draw.h
 123\lv_led.o: ..\lvgl\src\extra\widgets\led\../../../../src/hal/../draw/../misc/lv_style.h
 123\lv_led.o: ..\lvgl\src\extra\widgets\led\../../../../src/hal/../draw/../misc/../font/lv_font.h
+123\lv_led.o: ..\lvgl\lv_conf.h
 123\lv_led.o: ..\lvgl\src\extra\widgets\led\../../../../src/hal/../draw/../misc/../font/lv_symbol_def.h
 123\lv_led.o: ..\lvgl\src\extra\widgets\led\../../../../src/hal/../draw/../misc/../font/../misc/lv_area.h
 123\lv_led.o: ..\lvgl\src\extra\widgets\led\../../../../src/hal/../draw/../misc/lv_color.h

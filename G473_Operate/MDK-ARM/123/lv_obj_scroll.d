@@ -12,6 +12,7 @@
 123\lv_obj_scroll.o: ..\lvgl\src\core\lv_obj.h
 123\lv_obj_scroll.o: ..\lvgl\src\core\../misc/lv_style.h
 123\lv_obj_scroll.o: ..\lvgl\src\core\../misc/../font/lv_font.h
+123\lv_obj_scroll.o: ..\lvgl\lv_conf.h
 123\lv_obj_scroll.o: ..\lvgl\src\core\../misc/../font/lv_symbol_def.h
 123\lv_obj_scroll.o: ..\lvgl\src\core\../misc/lv_color.h
 123\lv_obj_scroll.o: ..\lvgl\src\core\../misc/lv_assert.h

@@ -65,7 +65,7 @@ void vApplicationMallocFailedHook(void)
 /* FreeRTOSø’œ–»ŒŒÒ */
 void vApplicationIdleHook(void)
 {
-
+  
 }
 
 void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName)

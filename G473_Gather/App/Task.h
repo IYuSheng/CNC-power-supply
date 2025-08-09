@@ -11,6 +11,7 @@
 #include "Key_Stop.h"
 #include "Calculate.h"
 #include "LED.h"
+#include "math.h"
 
 #define CURRENT_IN  0  	// 输入电压
 #define CURRENT_OUT 1  	// 输出电流
@@ -19,6 +20,8 @@
 
 #define PID_BIG_ERROR_THRESHOLD  0.002f   // 大误差阈值
 #define PID_SMALL_ERROR_THRESHOLD 0.0001f  // 小误差阈值
+
+#define ADC_Calibration 1.00087f  // ADC设置校准
 
 // 任务ID枚举
 typedef enum
@@ -66,8 +69,9 @@ extern Task_t tasks[TASK_NUM];
 
 // 控制模式枚举（电压环/电流环）
 typedef enum {
-  Voltage_LOOP = 0,  // 电压环模式（默认值0）
-  Current_LOOP = 1   // 电流环模式
+  Disable_LOOP = 0,
+  Voltage_LOOP = 1,  // 电压环模式
+  Current_LOOP = 2   // 电流环模式
 } ControlMode;
 
 // 系统状态枚举（运行/停止）

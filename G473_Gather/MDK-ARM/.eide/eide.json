@@ -324,7 +324,7 @@
       "uploader": "OpenOCD",
       "uploadConfig": {
         "bin": "",
-        "target": "stm32f1x",
+        "target": "stm32g4x",
         "interface": "stlink",
         "baseAddr": "0x08000000"
       },
@@ -344,6 +344,7 @@
       "custom_dep": {
         "name": "default",
         "incList": [
+          ".",
           "../Core/Inc",
           "../Drivers/STM32G4xx_HAL_Driver/Inc",
           "../Drivers/CMSIS/Device/ST/STM32G4xx/Include",

@@ -3956,6 +3956,21 @@
               <FileType>1</FileType>
               <FilePath>..\lvgl\src\draw\swm341_dma2d\lv_gpu_swm341_dma2d.c</FilePath>
             </File>
+            <File>
+              <FileName>My_GUI_Chinese.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\src\font\My_GUI_Chinese.c</FilePath>
+            </File>
+            <File>
+              <FileName>My_GUI_73.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\src\font\My_GUI_73.c</FilePath>
+            </File>
+            <File>
+              <FileName>My_GUI_12.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\src\font\My_GUI_12.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

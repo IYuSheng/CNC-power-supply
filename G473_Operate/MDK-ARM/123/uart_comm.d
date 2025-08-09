@@ -86,6 +86,8 @@
 123\uart_comm.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h
 123\uart_comm.o: ..\Hardware\st7789.h
 123\uart_comm.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_spi.h
+123\uart_comm.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h
+123\uart_comm.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h
 123\uart_comm.o: ..\App\LVGL_Init.h
 123\uart_comm.o: ..\lvgl\lvgl.h
 123\uart_comm.o: ..\lvgl\src/misc/lv_log.h
@@ -107,6 +109,7 @@
 123\uart_comm.o: ..\lvgl\src/hal/../draw/lv_draw.h
 123\uart_comm.o: ..\lvgl\src/hal/../draw/../misc/lv_style.h
 123\uart_comm.o: ..\lvgl\src/hal/../draw/../misc/../font/lv_font.h
+123\uart_comm.o: ..\lvgl\lv_conf.h
 123\uart_comm.o: ..\lvgl\src/hal/../draw/../misc/../font/lv_symbol_def.h
 123\uart_comm.o: ..\lvgl\src/hal/../draw/../misc/../font/../misc/lv_area.h
 123\uart_comm.o: ..\lvgl\src/hal/../draw/../misc/lv_color.h
@@ -213,6 +216,7 @@
 123\uart_comm.o: ..\lvgl\src/extra/widgets/imgbtn/lv_imgbtn.h
 123\uart_comm.o: ..\lvgl\src/extra/widgets/span/lv_span.h
 123\uart_comm.o: ..\lvgl\examples\porting\lv_port_disp.h
+123\uart_comm.o: ..\Hardware\st7789.h
 123\uart_comm.o: ..\App\Gui_Change.h
 123\uart_comm.o: ..\lvgl\examples\porting\lv_port_disp.h
 123\uart_comm.o: ..\Hardware\DWT.h

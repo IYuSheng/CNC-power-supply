@@ -16,6 +16,7 @@ void Init_Hardware(void)
 
   /* 2. 初始化所有外设（GPIO、UART、SPI等） */
 	MX_GPIO_Init();
+  DMA_Init();
   UART_Init();
   UART1_Init();
   MX_SPI1_Init();

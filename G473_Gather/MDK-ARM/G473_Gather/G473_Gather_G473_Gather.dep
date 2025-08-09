@@ -28,8 +28,8 @@ I (../Core/Inc/adc.h)(0x68346801)
 I (../Core/Inc/gpio.h)(0x68346800)
 I (..\BSP\Init.h)(0x68711320)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
-I (..\App\Task.h)(0x6884C686)
-I (..\Hardware\Sys_Timer.h)(0x68847BF9)
+I (..\App\Task.h)(0x688795CE)
+I (..\Hardware\Sys_Timer.h)(0x6887A2DD)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (D:\Keilv5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
 I (..\Hardware\Uart_Debug.h)(0x68846558)
@@ -75,8 +75,8 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (../Core/Inc/adc.h)(0x68346801)
 I (..\BSP\Init.h)(0x68711320)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
-I (..\App\Task.h)(0x6884C686)
-I (..\Hardware\Sys_Timer.h)(0x68847BF9)
+I (..\App\Task.h)(0x688795CE)
+I (..\Hardware\Sys_Timer.h)(0x6887A2DD)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (D:\Keilv5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
 I (..\Hardware\Uart_Debug.h)(0x68846558)
@@ -122,8 +122,8 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (../Core/Inc/gpio.h)(0x68346800)
 I (..\BSP\Init.h)(0x68711320)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
-I (..\App\Task.h)(0x6884C686)
-I (..\Hardware\Sys_Timer.h)(0x68847BF9)
+I (..\App\Task.h)(0x688795CE)
+I (..\Hardware\Sys_Timer.h)(0x6887A2DD)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (D:\Keilv5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
 I (..\Hardware\Uart_Debug.h)(0x68846558)
@@ -169,8 +169,8 @@ I (../Core/Inc/adc.h)(0x68346801)
 I (../Core/Inc/gpio.h)(0x68346800)
 I (..\BSP\Init.h)(0x68711320)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
-I (..\App\Task.h)(0x6884C686)
-I (..\Hardware\Sys_Timer.h)(0x68847BF9)
+I (..\App\Task.h)(0x688795CE)
+I (..\Hardware\Sys_Timer.h)(0x6887A2DD)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (D:\Keilv5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
 I (..\Hardware\Uart_Debug.h)(0x68846558)
@@ -361,9 +361,9 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h)(0x683467F8)
 I (../Core/Inc/adc.h)(0x68346801)
 I (../Core/Inc/gpio.h)(0x68346800)
-I (..\App\Task.h)(0x6884C686)
+I (..\App\Task.h)(0x688795CE)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
-I (..\Hardware\Sys_Timer.h)(0x68847BF9)
+I (..\Hardware\Sys_Timer.h)(0x6887A2DD)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (D:\Keilv5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
 I (..\Hardware\Uart_Debug.h)(0x68846558)
@@ -408,9 +408,9 @@ I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x683467E5)
 I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x683467E5)
 I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x683467E5)
 I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h)(0x683467F8)
-I (..\App\Task.h)(0x6884C686)
+I (..\App\Task.h)(0x688795CE)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
-I (..\Hardware\Sys_Timer.h)(0x68847BF9)
+I (..\Hardware\Sys_Timer.h)(0x6887A2DD)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h)(0x683467F8)
@@ -434,7 +434,7 @@ I (..\App\Calculate.h)(0x68824DB4)
 I (..\App\LED.h)(0x6883C051)
 F (..\BSP\Key_Stop.h)(0x6883BB05)()
 F (..\Hardware\Sys_Timer.c)(0x68847BFF)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\App -I ..\BSP -I ..\Hardware-I.\RTE\_G473_Gather-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32G473xx -DHSE_VALUE="8000000" -DHSE_STARTUP_TIMEOUT="1000" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="0" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -D__TARGET_FPU_VFP-o g473_gather\sys_timer.o --omf_browse g473_gather\sys_timer.crf --depend g473_gather\sys_timer.d)
-I (..\Hardware\Sys_Timer.h)(0x68847BF9)
+I (..\Hardware\Sys_Timer.h)(0x6887A2DD)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h)(0x683467F8)
 I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h)(0x683467F8)
@@ -448,7 +448,7 @@ I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h)(0x683467F8)
 I (D:\Keilv5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
-F (..\Hardware\Sys_Timer.h)(0x68847BF9)()
+F (..\Hardware\Sys_Timer.h)(0x6887A2DD)()
 F (..\Hardware\Uart_comm.c)(0x68847870)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\App -I ..\BSP -I ..\Hardware-I.\RTE\_G473_Gather-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32G473xx -DHSE_VALUE="8000000" -DHSE_STARTUP_TIMEOUT="1000" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="0" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -D__TARGET_FPU_VFP-o g473_gather\uart_comm.o --omf_browse g473_gather\uart_comm.crf --depend g473_gather\uart_comm.d)
 I (..\Hardware\Uart_comm.h)(0x6884819A)
 I (D:\Keilv5\ARM\ARMCC\include\string.h)(0x599ECD2C)
@@ -546,8 +546,8 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h)(0x683467F8)
 F (..\Hardware\Common_ADC.h)(0x68846D87)()
-F (..\App\Task.c)(0x6884CBEC)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\App -I ..\BSP -I ..\Hardware-I.\RTE\_G473_Gather-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32G473xx -DHSE_VALUE="8000000" -DHSE_STARTUP_TIMEOUT="1000" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="0" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -D__TARGET_FPU_VFP-o g473_gather\task.o --omf_browse g473_gather\task.crf --depend g473_gather\task.d)
-I (..\App\Task.h)(0x6884C686)
+F (..\App\Task.c)(0x6887A2C7)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\App -I ..\BSP -I ..\Hardware-I.\RTE\_G473_Gather-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32G473xx -DHSE_VALUE="8000000" -DHSE_STARTUP_TIMEOUT="1000" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="0" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -D__TARGET_FPU_VFP-o g473_gather\task.o --omf_browse g473_gather\task.crf --depend g473_gather\task.d)
+I (..\App\Task.h)(0x688795CE)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
 I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h)(0x683467F8)
 I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g473xx.h)(0x683467F8)
@@ -558,7 +558,7 @@ I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x683467E5)
 I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x683467E5)
 I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x683467E5)
 I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h)(0x683467F8)
-I (..\Hardware\Sys_Timer.h)(0x68847BF9)
+I (..\Hardware\Sys_Timer.h)(0x6887A2DD)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h)(0x683467F8)
@@ -582,8 +582,8 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h)(0x683467F8)
 I (..\BSP\Key_Stop.h)(0x6883BB05)
 I (..\App\Calculate.h)(0x68824DB4)
 I (..\App\LED.h)(0x6883C051)
-F (..\App\Task.h)(0x6884C686)()
-F (..\App\Calculate.c)(0x688260F5)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\App -I ..\BSP -I ..\Hardware-I.\RTE\_G473_Gather-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32G473xx -DHSE_VALUE="8000000" -DHSE_STARTUP_TIMEOUT="1000" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="0" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -D__TARGET_FPU_VFP-o g473_gather\calculate.o --omf_browse g473_gather\calculate.crf --depend g473_gather\calculate.d)
+F (..\App\Task.h)(0x688795CE)()
+F (..\App\Calculate.c)(0x68860A8C)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\App -I ..\BSP -I ..\Hardware-I.\RTE\_G473_Gather-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32G473xx -DHSE_VALUE="8000000" -DHSE_STARTUP_TIMEOUT="1000" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="0" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -D__TARGET_FPU_VFP-o g473_gather\calculate.o --omf_browse g473_gather\calculate.crf --depend g473_gather\calculate.d)
 I (..\App\Calculate.h)(0x68824DB4)
 F (..\App\Calculate.h)(0x68824DB4)()
 F (..\App\LED.c)(0x6883C02C)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ..\App -I ..\BSP -I ..\Hardware-I.\RTE\_G473_Gather-ID:\Keilv5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-D__UVISION_VERSION="540" -DSTM32G473xx -D_RTE_ -DUSE_FULL_LL_DRIVER -DSTM32G473xx -DHSE_VALUE="8000000" -DHSE_STARTUP_TIMEOUT="1000" -DLSE_STARTUP_TIMEOUT="5000" -DLSE_VALUE="32768" -DEXTERNAL_CLOCK_VALUE="12288000" -DHSI_VALUE="16000000" -DLSI_VALUE="32000" -DVDD_VALUE="3300" -DPREFETCH_ENABLE="0" -DINSTRUCTION_CACHE_ENABLE="1" -DDATA_CACHE_ENABLE="1" -D__TARGET_FPU_VFP-o g473_gather\led.o --omf_browse g473_gather\led.crf --depend g473_gather\led.d)
@@ -598,9 +598,9 @@ I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x683467E5)
 I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x683467E5)
 I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x683467E5)
 I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h)(0x683467F8)
-I (..\App\Task.h)(0x6884C686)
+I (..\App\Task.h)(0x688795CE)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_iwdg.h)(0x683467F8)
-I (..\Hardware\Sys_Timer.h)(0x68847BF9)
+I (..\Hardware\Sys_Timer.h)(0x6887A2DD)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_tim.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h)(0x683467F8)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h)(0x683467F8)

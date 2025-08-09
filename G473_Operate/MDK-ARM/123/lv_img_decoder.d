@@ -19,6 +19,7 @@
 123\lv_img_decoder.o: ..\lvgl\src\draw\../draw/lv_draw_img.h
 123\lv_img_decoder.o: ..\lvgl\src\draw\../draw/../misc/lv_style.h
 123\lv_img_decoder.o: ..\lvgl\src\draw\../draw/../misc/../font/lv_font.h
+123\lv_img_decoder.o: ..\lvgl\lv_conf.h
 123\lv_img_decoder.o: ..\lvgl\src\draw\../draw/../misc/../font/lv_symbol_def.h
 123\lv_img_decoder.o: ..\lvgl\src\draw\../draw/../misc/lv_anim.h
 123\lv_img_decoder.o: ..\lvgl\src\draw\../draw/../misc/lv_txt.h

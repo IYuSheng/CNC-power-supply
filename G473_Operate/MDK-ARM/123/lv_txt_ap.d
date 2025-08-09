@@ -10,6 +10,7 @@
 123\lv_txt_ap.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 123\lv_txt_ap.o: ..\lvgl\src\misc\lv_area.h
 123\lv_txt_ap.o: ..\lvgl\src\misc\../font/lv_font.h
+123\lv_txt_ap.o: ..\lvgl\lv_conf.h
 123\lv_txt_ap.o: ..\lvgl\src\misc\../font/lv_symbol_def.h
 123\lv_txt_ap.o: ..\lvgl\src\misc\lv_printf.h
 123\lv_txt_ap.o: ..\lvgl\src\misc\lv_types.h

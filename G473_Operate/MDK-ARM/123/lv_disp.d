@@ -12,6 +12,7 @@
 123\lv_disp.o: ..\lvgl\src\core\../hal/../draw/../misc/lv_style.h
 123\lv_disp.o: ..\lvgl\src\core\../hal/../draw/../misc/../font/lv_font.h
 123\lv_disp.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
+123\lv_disp.o: ..\lvgl\lv_conf.h
 123\lv_disp.o: ..\lvgl\src\core\../hal/../draw/../misc/../font/lv_symbol_def.h
 123\lv_disp.o: ..\lvgl\src\core\../hal/../draw/../misc/../font/../misc/lv_area.h
 123\lv_disp.o: ..\lvgl\src\core\../hal/../draw/../misc/lv_color.h

@@ -7,6 +7,7 @@
 123\lv_style.o: ..\lvgl\src\misc\../font/../lv_conf_kconfig.h
 123\lv_style.o: ..\lvgl\examples\porting\../../lv_conf.h
 123\lv_style.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
+123\lv_style.o: ..\lvgl\lv_conf.h
 123\lv_style.o: ..\lvgl\src\misc\../font/lv_symbol_def.h
 123\lv_style.o: ..\lvgl\src\misc\../font/../misc/lv_area.h
 123\lv_style.o: ..\lvgl\src\misc\lv_color.h

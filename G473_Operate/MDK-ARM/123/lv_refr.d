@@ -9,6 +9,7 @@
 123\lv_refr.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
 123\lv_refr.o: ..\lvgl\src\core\../misc/lv_style.h
 123\lv_refr.o: ..\lvgl\src\core\../misc/../font/lv_font.h
+123\lv_refr.o: ..\lvgl\lv_conf.h
 123\lv_refr.o: ..\lvgl\src\core\../misc/../font/lv_symbol_def.h
 123\lv_refr.o: ..\lvgl\src\core\../misc/../font/../misc/lv_area.h
 123\lv_refr.o: ..\lvgl\src\core\../misc/lv_color.h
@@ -61,3 +62,4 @@
 123\lv_refr.o: ..\lvgl\src\core\../misc/lv_gc.h
 123\lv_refr.o: ..\lvgl\src\core\../font/lv_font_fmt_txt.h
 123\lv_refr.o: ..\lvgl\src\core\../extra/others/snapshot/lv_snapshot.h
+123\lv_refr.o: ..\lvgl\src\core\../widgets/lv_label.h

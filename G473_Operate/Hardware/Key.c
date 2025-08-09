@@ -150,6 +150,6 @@ void vKeyScanTask(void *pvParameters)
   for (;;)
     {
       Key_Scan();
-      vTaskDelay(pdMS_TO_TICKS(20));  // 20ms扫描一次
+      vTaskDelay(pdMS_TO_TICKS(30));  // 20ms扫描一次
     }
 }

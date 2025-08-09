@@ -4,7 +4,7 @@ int main(void)
 {
   // 系统初始化（保持原逻辑）
   Init_Sys();
-  IWDG_Init(2000);
+  IWDG_Init(1000);
   SystemClock_Config();
   Init_Hardware();
   Init_App();

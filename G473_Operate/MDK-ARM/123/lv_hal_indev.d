@@ -18,6 +18,7 @@
 123\lv_hal_indev.o: ..\lvgl\src\hal\../core/lv_obj.h
 123\lv_hal_indev.o: ..\lvgl\src\hal\../core/../misc/lv_style.h
 123\lv_hal_indev.o: ..\lvgl\src\hal\../core/../misc/../font/lv_font.h
+123\lv_hal_indev.o: ..\lvgl\lv_conf.h
 123\lv_hal_indev.o: ..\lvgl\src\hal\../core/../misc/../font/lv_symbol_def.h
 123\lv_hal_indev.o: ..\lvgl\src\hal\../core/../misc/lv_color.h
 123\lv_hal_indev.o: ..\lvgl\src\hal\../core/../misc/lv_math.h

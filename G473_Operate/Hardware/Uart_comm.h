@@ -19,6 +19,7 @@ typedef struct
 {
   uint8_t start_flag;  // 启动标志：0=停止，1=启动
   uint8_t mode;        // 模式选择：0=默认，1=节能，2=高速
+  //后续可想办法在此添加两个uint8_t确保对齐
   float dac_a;
 	float dac_b;
 } UART_TxStruct;
@@ -64,11 +65,18 @@ typedef struct
 
 extern Uart_dev uart1_dev;//外部声明串口设备结构体句柄
 extern UART_RxStruct uart_rx_data; // 供外部访问的接收数据
+extern UART_TxStruct send_gather;
+
+extern SemaphoreHandle_t uart_data_mutex;
+extern SemaphoreHandle_t uart_send_mutex;
 
 void UART1_Init(void);
 void UART1_Send_IT(USART_TypeDef *USARTx, uint8_t *pData, uint16_t Size);
 void UART1_Send_Struct(UART_TxStruct *tx_struct); // 发送结构体
 void UART1_Parse_Data(void); // 解析接收数据
+UART_RxStruct get_uart_rx_data(void);
+UART_TxStruct get_uart_tx_data(void);
+void set_uart_tx_data(UART_TxStruct *data);
 
 void vUart1ProcessTask(void *pvParameters);
 

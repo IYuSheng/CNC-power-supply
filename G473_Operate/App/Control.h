@@ -10,6 +10,8 @@
 #include "Key.h"
 #include "math.h"
 
+extern float tp1, tp2;
+
 #define Limit_Voltage	50.0f
 #define Limit_Current	22.0f
 #define Limit_DACA	2.5f
@@ -22,6 +24,7 @@
 void vControlTask(void *argument);
 extern inline float TransformVoltage(float voltage);
 extern inline float TransformCurrent(float current);
+float ConvertNTCTemperature(uint16_t adc_voltage_mv);
 void HandleSetDAC(const char* param, float* dacValue, const char* dacName);
 
 #endif /* __Control_H */

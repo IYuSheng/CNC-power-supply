@@ -27,6 +27,7 @@
 123\lv_group.o: ..\lvgl\src\core\../core/lv_obj.h
 123\lv_group.o: ..\lvgl\src\core\../core/../misc/lv_style.h
 123\lv_group.o: ..\lvgl\src\core\../core/../misc/../font/lv_font.h
+123\lv_group.o: ..\lvgl\lv_conf.h
 123\lv_group.o: ..\lvgl\src\core\../core/../misc/../font/lv_symbol_def.h
 123\lv_group.o: ..\lvgl\src\core\../core/../misc/lv_anim.h
 123\lv_group.o: ..\lvgl\src\core\../core/../misc/lv_txt.h

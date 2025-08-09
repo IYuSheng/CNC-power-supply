@@ -9,6 +9,7 @@
 123\lv_draw_line.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
 123\lv_draw_line.o: ..\lvgl\src\draw\../core/../misc/lv_style.h
 123\lv_draw_line.o: ..\lvgl\src\draw\../core/../misc/../font/lv_font.h
+123\lv_draw_line.o: ..\lvgl\lv_conf.h
 123\lv_draw_line.o: ..\lvgl\src\draw\../core/../misc/../font/lv_symbol_def.h
 123\lv_draw_line.o: ..\lvgl\src\draw\../core/../misc/../font/../misc/lv_area.h
 123\lv_draw_line.o: ..\lvgl\src\draw\../core/../misc/lv_color.h

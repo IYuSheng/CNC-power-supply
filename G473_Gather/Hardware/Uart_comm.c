@@ -263,7 +263,7 @@ void UART1_Send_Struct(UART_TxStruct *tx_struct)
 
 /**
   * @brief  UART1接收数据解析（解析控制指令）
-  * @note   帧格式：0xAA（帧头） + UART_RxStruct（4字节） + 0x55（帧尾）
+  * @note   帧格式：0xAA（帧头） + UART_RxStruct + 0x55（帧尾）
   */
 void UART1_Parse_Data(void)
 {

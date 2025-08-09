@@ -17,6 +17,7 @@
 123\lv_gpu_d2_ra6m3.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
 123\lv_gpu_d2_ra6m3.o: ..\lvgl\src\draw\renesas\../../core/../misc/lv_style.h
 123\lv_gpu_d2_ra6m3.o: ..\lvgl\src\draw\renesas\../../core/../misc/../font/lv_font.h
+123\lv_gpu_d2_ra6m3.o: ..\lvgl\lv_conf.h
 123\lv_gpu_d2_ra6m3.o: ..\lvgl\src\draw\renesas\../../core/../misc/../font/lv_symbol_def.h
 123\lv_gpu_d2_ra6m3.o: ..\lvgl\src\draw\renesas\../../core/../misc/../font/../misc/lv_area.h
 123\lv_gpu_d2_ra6m3.o: ..\lvgl\src\draw\renesas\../../core/../misc/lv_anim.h

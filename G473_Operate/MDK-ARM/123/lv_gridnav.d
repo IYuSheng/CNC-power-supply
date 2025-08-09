@@ -9,6 +9,7 @@
 123\lv_gridnav.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
 123\lv_gridnav.o: ..\lvgl\src\extra\others\gridnav\../../../core/../misc/lv_style.h
 123\lv_gridnav.o: ..\lvgl\src\extra\others\gridnav\../../../core/../misc/../font/lv_font.h
+123\lv_gridnav.o: ..\lvgl\lv_conf.h
 123\lv_gridnav.o: ..\lvgl\src\extra\others\gridnav\../../../core/../misc/../font/lv_symbol_def.h
 123\lv_gridnav.o: ..\lvgl\src\extra\others\gridnav\../../../core/../misc/../font/../misc/lv_area.h
 123\lv_gridnav.o: ..\lvgl\src\extra\others\gridnav\../../../core/../misc/lv_color.h

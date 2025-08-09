@@ -23,6 +23,7 @@
 123\lv_gpu_arm2d.o: ..\lvgl\src\draw\arm2d\../../hal/../draw/lv_draw.h
 123\lv_gpu_arm2d.o: ..\lvgl\src\draw\arm2d\../../hal/../draw/../misc/lv_style.h
 123\lv_gpu_arm2d.o: ..\lvgl\src\draw\arm2d\../../hal/../draw/../misc/../font/lv_font.h
+123\lv_gpu_arm2d.o: ..\lvgl\lv_conf.h
 123\lv_gpu_arm2d.o: ..\lvgl\src\draw\arm2d\../../hal/../draw/../misc/../font/lv_symbol_def.h
 123\lv_gpu_arm2d.o: ..\lvgl\src\draw\arm2d\../../hal/../draw/../misc/lv_anim.h
 123\lv_gpu_arm2d.o: ..\lvgl\src\draw\arm2d\../../hal/../draw/../misc/lv_txt.h

@@ -1,12 +1,22 @@
 {
     "folders": [
         {
-            "path": ".."
+            "path": "."
         }
     ],
     "settings": {
         "files.associations": {
-            "task_init.h": "c"
+            "task_init.h": "c",
+            "init.h": "c",
+            "lvgl_init.h": "c",
+            "st7789.h": "c",
+            "gui_change.h": "c",
+            "uart_debug.h": "c",
+            "control.h": "c",
+            "debug.h": "c",
+            "task.h": "c",
+            "freertos.h": "c",
+            "uart_comm.h": "c"
         }
     },
     "extensions": {}

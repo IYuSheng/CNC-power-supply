@@ -6,6 +6,7 @@
 123\lv_font_fmt_txt.o: ..\lvgl\examples\porting\../../lv_conf.h
 123\lv_font_fmt_txt.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
 123\lv_font_fmt_txt.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
+123\lv_font_fmt_txt.o: ..\lvgl\lv_conf.h
 123\lv_font_fmt_txt.o: ..\lvgl\src\font\lv_symbol_def.h
 123\lv_font_fmt_txt.o: ..\lvgl\src\font\../misc/lv_area.h
 123\lv_font_fmt_txt.o: ..\lvgl\src\font\lv_font_fmt_txt.h

@@ -25,6 +25,7 @@
 123\lv_theme_default.o: ..\lvgl\src\extra\themes\default\../../../../src/hal/../draw/lv_draw.h
 123\lv_theme_default.o: ..\lvgl\src\extra\themes\default\../../../../src/hal/../draw/../misc/lv_style.h
 123\lv_theme_default.o: ..\lvgl\src\extra\themes\default\../../../../src/hal/../draw/../misc/../font/lv_font.h
+123\lv_theme_default.o: ..\lvgl\lv_conf.h
 123\lv_theme_default.o: ..\lvgl\src\extra\themes\default\../../../../src/hal/../draw/../misc/../font/lv_symbol_def.h
 123\lv_theme_default.o: ..\lvgl\src\extra\themes\default\../../../../src/hal/../draw/../misc/../font/../misc/lv_area.h
 123\lv_theme_default.o: ..\lvgl\src\extra\themes\default\../../../../src/hal/../draw/../misc/lv_color.h

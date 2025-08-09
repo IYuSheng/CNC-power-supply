@@ -19,6 +19,7 @@
 123\lv_img_buf.o: ..\lvgl\src\draw\../misc/lv_fs.h
 123\lv_img_buf.o: ..\lvgl\src\draw\../misc/lv_style.h
 123\lv_img_buf.o: ..\lvgl\src\draw\../misc/../font/lv_font.h
+123\lv_img_buf.o: ..\lvgl\lv_conf.h
 123\lv_img_buf.o: ..\lvgl\src\draw\../misc/../font/lv_symbol_def.h
 123\lv_img_buf.o: ..\lvgl\src\draw\../misc/lv_anim.h
 123\lv_img_buf.o: ..\lvgl\src\draw\../misc/lv_txt.h

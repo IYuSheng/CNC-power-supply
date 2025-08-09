@@ -11,6 +11,7 @@
 123\lv_gpu_d2_draw_label.o: ..\lvgl\src\draw\renesas\../../draw/../misc/lv_area.h
 123\lv_gpu_d2_draw_label.o: ..\lvgl\src\draw\renesas\../../draw/../misc/../font/lv_font.h
 123\lv_gpu_d2_draw_label.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
+123\lv_gpu_d2_draw_label.o: ..\lvgl\lv_conf.h
 123\lv_gpu_d2_draw_label.o: ..\lvgl\src\draw\renesas\../../draw/../misc/../font/lv_symbol_def.h
 123\lv_gpu_d2_draw_label.o: ..\lvgl\src\draw\renesas\../../draw/../misc/lv_printf.h
 123\lv_gpu_d2_draw_label.o: ..\lvgl\src\draw\renesas\../../draw/../misc/lv_types.h

@@ -5,8 +5,9 @@ UART_RxStruct uart_rx_data = {0}; // 全局接收数据，供外部访问
 
 UART_TxStruct send_gather = {0};
 
-static SemaphoreHandle_t uart_mutex = NULL;
-
+static SemaphoreHandle_t uart_mutex = NULL; //  串口发送互斥锁
+SemaphoreHandle_t uart_data_mutex = NULL; // 串口访问接收数据互斥锁
+SemaphoreHandle_t uart_send_mutex = NULL; // 串口发送数据互斥锁
 static void InitHardUart1(void)
 {
   // 启用接收中断
@@ -27,8 +28,21 @@ static void Uart1VarInit(void)
   uart_mutex = xSemaphoreCreateMutex();
   if (uart_mutex == NULL)
     {
-      // 互斥锁创建失败
       fr_printf("Mutex create failed");
+    }
+  
+  // 创建数据访问互斥锁
+  uart_data_mutex = xSemaphoreCreateMutex();
+  if (uart_data_mutex == NULL)
+    {
+      fr_printf("Data mutex create failed");
+    }
+  
+  // 创建发送数据互斥锁
+  uart_send_mutex = xSemaphoreCreateMutex();
+  if (uart_send_mutex == NULL)
+    {
+      fr_printf("Send data mutex create failed");
     }
 }
 
@@ -204,6 +218,55 @@ void USART1_IRQHandler(void)
           LL_USART_DisableIT_TC(USART1); // 关闭TC中断
           uart1_dev.tx_busy = 0;        // 标记发送完成
         }
+    }
+}
+
+// 获取最新的UART接收数据（线程安全）
+UART_RxStruct get_uart_rx_data(void)
+{
+    UART_RxStruct data = {0};
+    
+    // 获取互斥锁
+    if (xSemaphoreTake(uart_data_mutex, pdMS_TO_TICKS(5)) == pdTRUE)
+    {
+        // 复制数据
+        memcpy(&data, &uart_rx_data, sizeof(UART_RxStruct));
+        // 释放互斥锁
+        xSemaphoreGive(uart_data_mutex);
+    }
+    
+    return data;
+}
+
+// 获取发送数据的副本（线程安全）
+UART_TxStruct get_uart_tx_data(void)
+{
+    UART_TxStruct data = {0};
+    
+    // 获取互斥锁
+    if (uart_send_mutex != NULL && xSemaphoreTake(uart_send_mutex, pdMS_TO_TICKS(5)) == pdTRUE)
+    {
+        // 复制数据
+        memcpy(&data, &send_gather, sizeof(UART_TxStruct));
+        // 释放互斥锁
+        xSemaphoreGive(uart_send_mutex);
+    }
+    
+    return data;
+}
+
+// 设置发送数据（线程安全）
+void set_uart_tx_data(UART_TxStruct *data)
+{
+    if (data == NULL) return;
+    
+    // 获取互斥锁
+    if (uart_send_mutex != NULL && xSemaphoreTake(uart_send_mutex, pdMS_TO_TICKS(5)) == pdTRUE)
+    {
+        // 复制数据
+        memcpy(&send_gather, data, sizeof(UART_TxStruct));
+        // 释放互斥锁
+        xSemaphoreGive(uart_send_mutex);
     }
 }
 

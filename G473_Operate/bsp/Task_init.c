@@ -88,7 +88,7 @@ void Key_task_create(void)
   */
 void TFT_task_create(void)
 {
-  xReturn = xTaskCreate(vTFTTask, "TFT", 1024 * 2,
+  xReturn = xTaskCreate(vTFTTask, "TFT", 1024 * 4,
                         NULL,TASK_PRIO_TFT, NULL);
   if (xReturn != pdPASS)
     {

@@ -141,6 +141,36 @@ inline float TransformCurrent(float current)
   return (current * CURRENT_CONVERT_COEF) + CURRENT_OFFSET;
 }
 
+/**
+ * @brief 将秒数转换为时、分、秒
+ * @param total_seconds 总秒数（输入）
+ * @param hours 小时（输出）
+ * @param minutes 分钟（输出）
+ * @param seconds 秒（输出）
+ * @note 函数会处理负数情况，将其转换为0
+ */
+void ConvertSecondsToHMS(int32_t total_seconds, uint8_t *hours, uint8_t *minutes, uint8_t *seconds)
+{
+    // 检查输出指针有效性
+    if (hours == NULL || minutes == NULL || seconds == NULL) {
+        return;
+    }
+    
+    // 处理负数情况
+    if (total_seconds < 0) {
+        *hours = 0;
+        *minutes = 0;
+        *seconds = 0;
+        return;
+    }
+    
+    // 计算时、分、秒
+    *hours = (uint8_t)(total_seconds / 3600);
+    int32_t remaining_seconds = total_seconds % 3600;
+    *minutes = (uint8_t)(remaining_seconds / 60);
+    *seconds = (uint8_t)(remaining_seconds % 60);
+}
+
 // 函数：处理设置DAC的值
 // 参数：param：参数；dacValue：所赋值DAC；dacName：命令参数
 void HandleSetDAC(const char* param, float* dacValue, const char* dacName)
@@ -162,3 +192,4 @@ void HandleSetDAC(const char* param, float* dacValue, const char* dacName)
       fr_printf("%s: invalid parameter", dacName);
     }
 }
+

@@ -222,4 +222,5 @@
 123\lvgl_init.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\math.h
 123\lvgl_init.o: ..\App\Comm.h
 123\lvgl_init.o: ..\lvgl\examples\porting\lv_port_disp.h
+123\lvgl_init.o: ..\FreeRTOS\inc\timers.h
 123\lvgl_init.o: ..\Hardware\DWT.h

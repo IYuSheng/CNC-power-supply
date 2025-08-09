@@ -3967,9 +3967,19 @@
               <FilePath>..\lvgl\src\font\My_GUI_73.c</FilePath>
             </File>
             <File>
-              <FileName>My_GUI_12.c</FileName>
+              <FileName>start_haibara.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\lvgl\src\font\My_GUI_12.c</FilePath>
+              <FilePath>..\lvgl\src\font\start_haibara.c</FilePath>
+            </File>
+            <File>
+              <FileName>Start_30.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\src\font\Start_30.c</FilePath>
+            </File>
+            <File>
+              <FileName>My_GUI_13.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\src\font\My_GUI_13.c</FilePath>
             </File>
           </Files>
         </Group>

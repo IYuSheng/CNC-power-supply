@@ -309,11 +309,16 @@ void ST7789_Fill(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t co
  */
 void vTFTTask(void *pvParameters)
 {
-  ST7789_BLK_LOW(); // 打开背光
-
+  
+  Timer_Init(); // 初始化定时器
+  
   for (;;)
   {
-    Gui_Event_Data();
+    // 如果当前屏幕已加载，处理屏幕事件数据
+    if(main_screen_loaded)
+    {
+      Gui_Event_Data();
+    }
 
     lv_timer_handler();
     lv_tick_inc(LVGL_TICK_PERIOD_MS); 

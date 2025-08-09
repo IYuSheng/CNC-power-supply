@@ -217,6 +217,7 @@
 123\stm32g4xx_hal_msp.o: ..\Hardware\st7789.h
 123\stm32g4xx_hal_msp.o: ..\App\Gui_Change.h
 123\stm32g4xx_hal_msp.o: ..\lvgl\examples\porting\lv_port_disp.h
+123\stm32g4xx_hal_msp.o: ..\FreeRTOS\inc\timers.h
 123\stm32g4xx_hal_msp.o: ..\Hardware\DWT.h
 123\stm32g4xx_hal_msp.o: ..\Hardware\m24c64.h
 123\stm32g4xx_hal_msp.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_i2c.h

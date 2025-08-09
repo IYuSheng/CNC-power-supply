@@ -216,6 +216,7 @@
 123\uart_debug.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_cortex.h
 123\uart_debug.o: ..\Hardware\Key.h
 123\uart_debug.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\math.h
+123\uart_debug.o: ..\FreeRTOS\inc\timers.h
 123\uart_debug.o: ..\Hardware\DWT.h
 123\uart_debug.o: ..\Hardware\m24c64.h
 123\uart_debug.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_i2c.h

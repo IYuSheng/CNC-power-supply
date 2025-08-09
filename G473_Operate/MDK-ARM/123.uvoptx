@@ -3970,8 +3970,32 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\lvgl\src\font\My_GUI_12.c</PathWithFileName>
-      <FilenameWithoutPath>My_GUI_12.c</FilenameWithoutPath>
+      <PathWithFileName>..\lvgl\src\font\start_haibara.c</PathWithFileName>
+      <FilenameWithoutPath>start_haibara.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>16</GroupNumber>
+      <FileNumber>305</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\lvgl\src\font\Start_30.c</PathWithFileName>
+      <FilenameWithoutPath>Start_30.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>16</GroupNumber>
+      <FileNumber>306</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\lvgl\src\font\My_GUI_13.c</PathWithFileName>
+      <FilenameWithoutPath>My_GUI_13.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

@@ -8,6 +8,9 @@
 #include "Uart_Debug.h"
 #include "Uart_comm.h"
 #include "Control.h"
+#include "FreeRTOS.h"
+#include "timers.h"
+#include <string.h>
 
 // 控制模式枚举（电压环/电流环）
 typedef enum {
@@ -23,5 +26,6 @@ typedef enum {
 } SystemState;
 
 void Gui_Event_Data(void);
+void Timer_Init(void);
 
 #endif /* __GUI_CHANGE_H */

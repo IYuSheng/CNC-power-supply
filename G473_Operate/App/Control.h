@@ -25,6 +25,7 @@ void vControlTask(void *argument);
 extern inline float TransformVoltage(float voltage);
 extern inline float TransformCurrent(float current);
 float ConvertNTCTemperature(uint16_t adc_voltage_mv);
+void ConvertSecondsToHMS(int32_t total_seconds, uint8_t *hours, uint8_t *minutes, uint8_t *seconds);
 void HandleSetDAC(const char* param, float* dacValue, const char* dacName);
 
 #endif /* __Control_H */

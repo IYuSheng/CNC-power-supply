@@ -218,6 +218,7 @@
 123\task_init.o: ..\Hardware\st7789.h
 123\task_init.o: ..\App\Gui_Change.h
 123\task_init.o: ..\lvgl\examples\porting\lv_port_disp.h
+123\task_init.o: ..\FreeRTOS\inc\timers.h
 123\task_init.o: ..\Hardware\DWT.h
 123\task_init.o: ..\Hardware\m24c64.h
 123\task_init.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_i2c.h

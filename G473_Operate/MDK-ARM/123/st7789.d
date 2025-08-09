@@ -221,4 +221,5 @@
 123\st7789.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\math.h
 123\st7789.o: ..\App\Comm.h
 123\st7789.o: ..\lvgl\examples\porting\lv_port_disp.h
+123\st7789.o: ..\FreeRTOS\inc\timers.h
 123\st7789.o: ..\Hardware\DWT.h

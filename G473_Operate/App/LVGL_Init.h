@@ -61,7 +61,9 @@ typedef struct {
 
 // 全局UI结构体实例声明
 extern lv_ui_t g_ui;
+extern bool main_screen_loaded;
 
 void Gui_Init(void);
+void create_splash_screen(void);
 
 #endif /* __LVGL_INIT_H */

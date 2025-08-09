@@ -219,6 +219,7 @@
 123\uart_comm.o: ..\Hardware\st7789.h
 123\uart_comm.o: ..\App\Gui_Change.h
 123\uart_comm.o: ..\lvgl\examples\porting\lv_port_disp.h
+123\uart_comm.o: ..\FreeRTOS\inc\timers.h
 123\uart_comm.o: ..\Hardware\DWT.h
 123\uart_comm.o: ..\Hardware\m24c64.h
 123\uart_comm.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_i2c.h

@@ -15,7 +15,7 @@
 #define configTICK_RATE_HZ				( ( TickType_t ) 1000 )
 #define configMAX_PRIORITIES			( 5 )	//定义系统支持的任务优先级数量。
 #define configMINIMAL_STACK_SIZE		( ( unsigned short ) 128 )	//空闲任务的最小堆栈大小
-#define configTOTAL_HEAP_SIZE			( ( size_t ) ( 30 * 1024 ) )	//FreeRTOS 动态内存池的总大小
+#define configTOTAL_HEAP_SIZE			( ( size_t ) ( 36 * 1024 ) )	//FreeRTOS 动态内存池的总大小
 #define configMAX_TASK_NAME_LEN			( 16 )
 #define configUSE_TRACE_FACILITY		1
 #define configUSE_16_BIT_TICKS			0
@@ -39,7 +39,7 @@ extern uint32_t getRuntimeCounterValue(void);
 
 
 /* Software timer definitions. */
-#define configUSE_TIMERS				0		//启用软件定时器功能
+#define configUSE_TIMERS				1		//启用软件定时器功能
 #define configTIMER_TASK_PRIORITY		( 2 )		//定时器服务任务的优先级
 #define configTIMER_QUEUE_LENGTH		10		//定时器命令队列长度
 #define configTIMER_TASK_STACK_DEPTH	( configMINIMAL_STACK_SIZE * 2 )	//定时器任务的堆栈大小

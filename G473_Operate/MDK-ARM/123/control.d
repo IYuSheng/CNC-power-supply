@@ -212,6 +212,7 @@
 123\control.o: ..\lvgl\examples\porting\lv_port_disp.h
 123\control.o: ..\Hardware\Uart_comm.h
 123\control.o: ..\App\Control.h
+123\control.o: ..\FreeRTOS\inc\timers.h
 123\control.o: ..\Hardware\DWT.h
 123\control.o: ..\Hardware\Key.h
 123\control.o: ..\Hardware\m24c64.h

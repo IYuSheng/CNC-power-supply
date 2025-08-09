@@ -1047,6 +1047,18 @@
           },
           {
             "path": "../lvgl/src/font/My_GUI_13.c"
+          },
+          {
+            "path": "../lvgl/src/font/background.c"
+          },
+          {
+            "path": "../lvgl/src/font/My_start_30.c"
+          },
+          {
+            "path": "../lvgl/src/font/start_haibara.c"
+          },
+          {
+            "path": "../lvgl/src/font/My_start_22.c"
           }
         ],
         "folders": []

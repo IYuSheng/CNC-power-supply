@@ -264,8 +264,9 @@
 "123\my_gui_chinese.o"
 "123\my_gui_73.o"
 "123\start_haibara.o"
-"123\start_30.o"
 "123\my_gui_13.o"
+"123\my_start_30.o"
+"123\my_start_26.o"
 --strict --scatter "123\123.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

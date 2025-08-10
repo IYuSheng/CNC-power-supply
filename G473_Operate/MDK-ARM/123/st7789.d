@@ -52,7 +52,7 @@
 123\st7789.o: ..\lvgl\src/misc/lv_anim_timeline.h
 123\st7789.o: ..\lvgl\src/misc/lv_anim.h
 123\st7789.o: ..\lvgl\src/misc/lv_printf.h
-123\st7789.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
+123\st7789.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 123\st7789.o: ..\lvgl\src/hal/lv_hal.h
 123\st7789.o: ..\lvgl\src/hal/lv_hal_disp.h
 123\st7789.o: ..\lvgl\src/hal/lv_hal.h
@@ -65,6 +65,7 @@
 123\st7789.o: ..\lvgl\src/hal/../draw/../misc/lv_color.h
 123\st7789.o: ..\lvgl\src/hal/../draw/../misc/lv_assert.h
 123\st7789.o: ..\lvgl\src/hal/../draw/../misc/lv_txt.h
+123\st7789.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 123\st7789.o: ..\lvgl\src/hal/../draw/../misc/lv_bidi.h
 123\st7789.o: ..\lvgl\src/hal/../draw/../misc/lv_style_gen.h
 123\st7789.o: ..\lvgl\src/hal/../draw/lv_img_decoder.h
@@ -170,7 +171,6 @@
 123\st7789.o: ..\App\Gui_Change.h
 123\st7789.o: ..\lvgl\examples\porting\lv_port_disp.h
 123\st7789.o: ..\Hardware\Uart_Debug.h
-123\st7789.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 123\st7789.o: ..\FreeRTOS\inc\FreeRTOS.h
 123\st7789.o: ..\FreeRTOS\FreeRTOSConfig.h
 123\st7789.o: ..\FreeRTOS\inc\projdefs.h

@@ -25,6 +25,22 @@ uint32_t DWT_GetTick(void)
   return DWT->CYCCNT;
 }
 
+// 获取系统运行时间（毫秒）
+uint32_t DWT_GetTimeline_ms(void)
+{
+    // 系统核心时钟频率（根据实际情况调整）
+    // 假设为170MHz
+    return DWT->CYCCNT / 170000;  // 170000 = 170MHz / 1000
+}
+
+// 获取系统运行时间（微秒）
+uint32_t DWT_GetTimeline_us(void)
+{
+    // 系统核心时钟频率（根据实际情况调整）
+    // 假设为170MHz
+    return DWT->CYCCNT / 170;  // 170 = 170MHz / 1000000
+}
+
 /**
   * @brief 微秒级延迟
   * @param us 要延迟的微秒数

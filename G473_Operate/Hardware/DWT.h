@@ -6,6 +6,8 @@
 
 void DWT_Init(void);
 uint32_t DWT_GetTick(void);
+uint32_t DWT_GetTimeline_ms(void);
+uint32_t DWT_GetTimeline_us(void);
 void DWT_Delayus(uint32_t us);
 void DWT_Delayms(uint32_t ms);
 

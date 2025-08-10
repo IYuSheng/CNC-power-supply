@@ -1,0 +1,11 @@
+.\build\G473_Operate\.obj\__\FreeRTOS\src\stream_buffer.o: .\..\FreeRTOS\src\stream_buffer.c
+.\build\G473_Operate\.obj\__\FreeRTOS\src\stream_buffer.o: ../FreeRTOS/inc/FreeRTOS.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\stream_buffer.o: ../FreeRTOS/FreeRTOSConfig.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\stream_buffer.o: ../FreeRTOS/inc/projdefs.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\stream_buffer.o: ../FreeRTOS/inc/portable.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\stream_buffer.o: ../FreeRTOS/inc/deprecated_definitions.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\stream_buffer.o: ../FreeRTOS/port/portmacro.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\stream_buffer.o: ../FreeRTOS/inc/mpu_wrappers.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\stream_buffer.o: ../FreeRTOS/inc/task.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\stream_buffer.o: ../FreeRTOS/inc/list.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\stream_buffer.o: ../FreeRTOS/inc/stream_buffer.h

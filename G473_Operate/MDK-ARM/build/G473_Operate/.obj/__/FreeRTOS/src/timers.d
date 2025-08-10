@@ -1,0 +1,12 @@
+.\build\G473_Operate\.obj\__\FreeRTOS\src\timers.o: .\..\FreeRTOS\src\timers.c
+.\build\G473_Operate\.obj\__\FreeRTOS\src\timers.o: ../FreeRTOS/inc/FreeRTOS.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\timers.o: ../FreeRTOS/FreeRTOSConfig.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\timers.o: ../FreeRTOS/inc/projdefs.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\timers.o: ../FreeRTOS/inc/portable.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\timers.o: ../FreeRTOS/inc/deprecated_definitions.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\timers.o: ../FreeRTOS/port/portmacro.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\timers.o: ../FreeRTOS/inc/mpu_wrappers.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\timers.o: ../FreeRTOS/inc/task.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\timers.o: ../FreeRTOS/inc/list.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\timers.o: ../FreeRTOS/inc/queue.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\timers.o: ../FreeRTOS/inc/timers.h

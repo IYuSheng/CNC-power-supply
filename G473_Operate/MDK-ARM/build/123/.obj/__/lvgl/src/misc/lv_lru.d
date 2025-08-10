@@ -1,0 +1,10 @@
+.\build\123\.obj\__\lvgl\src\misc\lv_lru.o: .\..\lvgl\src\misc\lv_lru.c
+.\build\123\.obj\__\lvgl\src\misc\lv_lru.o: .\..\lvgl\src\misc\lv_lru.h
+.\build\123\.obj\__\lvgl\src\misc\lv_lru.o: .\..\lvgl\src\misc\../lv_conf_internal.h
+.\build\123\.obj\__\lvgl\src\misc\lv_lru.o: .\..\lvgl\src\misc\../lv_conf_kconfig.h
+.\build\123\.obj\__\lvgl\src\misc\lv_lru.o: ../lvgl/examples/porting/../../lv_conf.h
+.\build\123\.obj\__\lvgl\src\misc\lv_lru.o: .\..\lvgl\src\misc\lv_types.h
+.\build\123\.obj\__\lvgl\src\misc\lv_lru.o: .\..\lvgl\src\misc\lv_math.h
+.\build\123\.obj\__\lvgl\src\misc\lv_lru.o: .\..\lvgl\src\misc\lv_mem.h
+.\build\123\.obj\__\lvgl\src\misc\lv_lru.o: .\..\lvgl\src\misc\lv_assert.h
+.\build\123\.obj\__\lvgl\src\misc\lv_lru.o: .\..\lvgl\src\misc\lv_log.h

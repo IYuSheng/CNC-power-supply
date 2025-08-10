@@ -18,7 +18,7 @@
 123\gui_change.o: ..\lvgl\src/misc/lv_anim_timeline.h
 123\gui_change.o: ..\lvgl\src/misc/lv_anim.h
 123\gui_change.o: ..\lvgl\src/misc/lv_printf.h
-123\gui_change.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
+123\gui_change.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 123\gui_change.o: ..\lvgl\src/hal/lv_hal.h
 123\gui_change.o: ..\lvgl\src/hal/lv_hal_disp.h
 123\gui_change.o: ..\lvgl\src/hal/lv_hal.h
@@ -31,6 +31,7 @@
 123\gui_change.o: ..\lvgl\src/hal/../draw/../misc/lv_color.h
 123\gui_change.o: ..\lvgl\src/hal/../draw/../misc/lv_assert.h
 123\gui_change.o: ..\lvgl\src/hal/../draw/../misc/lv_txt.h
+123\gui_change.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 123\gui_change.o: ..\lvgl\src/hal/../draw/../misc/lv_bidi.h
 123\gui_change.o: ..\lvgl\src/hal/../draw/../misc/lv_style_gen.h
 123\gui_change.o: ..\lvgl\src/hal/../draw/lv_img_decoder.h
@@ -182,7 +183,6 @@
 123\gui_change.o: ..\Hardware\DWT.h
 123\gui_change.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_system.h
 123\gui_change.o: ..\Hardware\Uart_Debug.h
-123\gui_change.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 123\gui_change.o: ..\FreeRTOS\inc\semphr.h
 123\gui_change.o: ..\FreeRTOS\inc\queue.h
 123\gui_change.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_usart.h

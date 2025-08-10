@@ -14,3 +14,4 @@
 123\tasks.o: ..\FreeRTOS\inc\list.h
 123\tasks.o: ..\FreeRTOS\inc\timers.h
 123\tasks.o: ..\FreeRTOS\inc\stack_macros.h
+123\tasks.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h

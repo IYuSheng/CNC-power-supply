@@ -62,12 +62,6 @@ void vApplicationMallocFailedHook(void)
   for(;;) { /* 内存分配失败时系统挂起 */ }
 }
 
-/* FreeRTOS空闲任务 */
-void vApplicationIdleHook(void)
-{
-  
-}
-
 void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName)
 {
   /* 堆栈溢出处理 */
@@ -75,10 +69,4 @@ void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName)
   (void)pcTaskName;
   fr_printf("\r\n!!! Stack Overflow in %s !!!\r\n", pcTaskName);
   while (1);
-}
-
-void vApplicationTickHook(void)
-{
-  /* 时钟节拍处理 ,可放置lvgl的时钟刷新*/
-
 }

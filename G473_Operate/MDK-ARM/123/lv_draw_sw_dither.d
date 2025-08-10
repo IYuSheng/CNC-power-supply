@@ -24,5 +24,6 @@
 123\lv_draw_sw_dither.o: ..\lvgl\src\draw\sw\../../misc/lv_txt.h
 123\lv_draw_sw_dither.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 123\lv_draw_sw_dither.o: ..\lvgl\src\draw\sw\../../misc/lv_printf.h
+123\lv_draw_sw_dither.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 123\lv_draw_sw_dither.o: ..\lvgl\src\draw\sw\../../misc/lv_bidi.h
 123\lv_draw_sw_dither.o: ..\lvgl\src\draw\sw\../../misc/lv_style_gen.h

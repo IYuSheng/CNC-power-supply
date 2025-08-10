@@ -29,6 +29,7 @@
 123\lv_gpu_arm2d.o: ..\lvgl\src\draw\arm2d\../../hal/../draw/../misc/lv_txt.h
 123\lv_gpu_arm2d.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 123\lv_gpu_arm2d.o: ..\lvgl\src\draw\arm2d\../../hal/../draw/../misc/lv_printf.h
+123\lv_gpu_arm2d.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 123\lv_gpu_arm2d.o: ..\lvgl\src\draw\arm2d\../../hal/../draw/../misc/lv_bidi.h
 123\lv_gpu_arm2d.o: ..\lvgl\src\draw\arm2d\../../hal/../draw/../misc/lv_style_gen.h
 123\lv_gpu_arm2d.o: ..\lvgl\src\draw\arm2d\../../hal/../draw/lv_img_decoder.h

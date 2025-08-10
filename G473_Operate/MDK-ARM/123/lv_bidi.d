@@ -13,6 +13,7 @@
 123\lv_bidi.o: ..\lvgl\lv_conf.h
 123\lv_bidi.o: ..\lvgl\src\misc\../font/lv_symbol_def.h
 123\lv_bidi.o: ..\lvgl\src\misc\lv_printf.h
+123\lv_bidi.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 123\lv_bidi.o: ..\lvgl\src\misc\lv_types.h
 123\lv_bidi.o: ..\lvgl\src\misc\../misc/lv_mem.h
 123\lv_bidi.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h

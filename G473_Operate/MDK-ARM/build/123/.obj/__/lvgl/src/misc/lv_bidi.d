@@ -1,0 +1,13 @@
+.\build\123\.obj\__\lvgl\src\misc\lv_bidi.o: .\..\lvgl\src\misc\lv_bidi.c
+.\build\123\.obj\__\lvgl\src\misc\lv_bidi.o: .\..\lvgl\src\misc\lv_bidi.h
+.\build\123\.obj\__\lvgl\src\misc\lv_bidi.o: .\..\lvgl\src\misc\../lv_conf_internal.h
+.\build\123\.obj\__\lvgl\src\misc\lv_bidi.o: .\..\lvgl\src\misc\../lv_conf_kconfig.h
+.\build\123\.obj\__\lvgl\src\misc\lv_bidi.o: ../lvgl/examples/porting/../../lv_conf.h
+.\build\123\.obj\__\lvgl\src\misc\lv_bidi.o: .\..\lvgl\src\misc\lv_txt.h
+.\build\123\.obj\__\lvgl\src\misc\lv_bidi.o: .\..\lvgl\src\misc\lv_area.h
+.\build\123\.obj\__\lvgl\src\misc\lv_bidi.o: .\..\lvgl\src\misc\../font/lv_font.h
+.\build\123\.obj\__\lvgl\src\misc\lv_bidi.o: ../lvgl/lv_conf.h
+.\build\123\.obj\__\lvgl\src\misc\lv_bidi.o: .\..\lvgl\src\misc\../font/lv_symbol_def.h
+.\build\123\.obj\__\lvgl\src\misc\lv_bidi.o: .\..\lvgl\src\misc\lv_printf.h
+.\build\123\.obj\__\lvgl\src\misc\lv_bidi.o: .\..\lvgl\src\misc\lv_types.h
+.\build\123\.obj\__\lvgl\src\misc\lv_bidi.o: .\..\lvgl\src\misc\../misc/lv_mem.h

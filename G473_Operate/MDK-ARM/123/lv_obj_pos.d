@@ -22,6 +22,7 @@
 123\lv_obj_pos.o: ..\lvgl\src\core\../misc/lv_txt.h
 123\lv_obj_pos.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 123\lv_obj_pos.o: ..\lvgl\src\core\../misc/lv_printf.h
+123\lv_obj_pos.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 123\lv_obj_pos.o: ..\lvgl\src\core\../misc/lv_bidi.h
 123\lv_obj_pos.o: ..\lvgl\src\core\../misc/lv_style_gen.h
 123\lv_obj_pos.o: ..\lvgl\src\core\../hal/lv_hal.h

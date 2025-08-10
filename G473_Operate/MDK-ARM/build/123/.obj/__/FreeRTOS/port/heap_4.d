@@ -1,0 +1,10 @@
+.\build\123\.obj\__\FreeRTOS\port\heap_4.o: .\..\FreeRTOS\port\heap_4.c
+.\build\123\.obj\__\FreeRTOS\port\heap_4.o: ../FreeRTOS/inc/FreeRTOS.h
+.\build\123\.obj\__\FreeRTOS\port\heap_4.o: ../FreeRTOS/FreeRTOSConfig.h
+.\build\123\.obj\__\FreeRTOS\port\heap_4.o: ../FreeRTOS/inc/projdefs.h
+.\build\123\.obj\__\FreeRTOS\port\heap_4.o: ../FreeRTOS/inc/portable.h
+.\build\123\.obj\__\FreeRTOS\port\heap_4.o: ../FreeRTOS/inc/deprecated_definitions.h
+.\build\123\.obj\__\FreeRTOS\port\heap_4.o: ../FreeRTOS/port/portmacro.h
+.\build\123\.obj\__\FreeRTOS\port\heap_4.o: ../FreeRTOS/inc/mpu_wrappers.h
+.\build\123\.obj\__\FreeRTOS\port\heap_4.o: ../FreeRTOS/inc/task.h
+.\build\123\.obj\__\FreeRTOS\port\heap_4.o: ../FreeRTOS/inc/list.h

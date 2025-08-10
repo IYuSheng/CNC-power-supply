@@ -13,6 +13,7 @@
 123\lv_txt_ap.o: ..\lvgl\lv_conf.h
 123\lv_txt_ap.o: ..\lvgl\src\misc\../font/lv_symbol_def.h
 123\lv_txt_ap.o: ..\lvgl\src\misc\lv_printf.h
+123\lv_txt_ap.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 123\lv_txt_ap.o: ..\lvgl\src\misc\lv_types.h
 123\lv_txt_ap.o: ..\lvgl\src\misc\lv_txt_ap.h
 123\lv_txt_ap.o: ..\lvgl\src\misc\../draw/lv_draw.h

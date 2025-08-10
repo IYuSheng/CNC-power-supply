@@ -1,0 +1,74 @@
+[2025-07-27 19:06:58]	[info] incremental build: 67 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Comm.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\system_stm32g4xx.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_cortex.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_dma_ex.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_exti.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ex.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_flash_ramfunc.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_gpio.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pcd.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pcd_ex.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_pwr_ex.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_hal_rcc_ex.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_dma.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_exti.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_gpio.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_i2c.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_pwr.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_rcc.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_spi.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_tim.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_usart.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_usb.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Drivers\STM32G4xx_HAL_Driver\Src\stm32g4xx_ll_utils.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\port\heap_4.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\port\port.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\croutine.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\event_groups.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\list.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\queue.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\stream_buffer.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\tasks.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\timers.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src\usbd_cdc.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_core.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ctlreq.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_ioreq.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\USB_Device\App\usb_device.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\USB_Device\App\usbd_cdc_if.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\USB_Device\App\usbd_desc.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\USB_Device\Target\usbd_conf.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': object (.o) file not exist
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\startup_stm32g473xx.s': object (.o) file not exist
+
+[2025-07-27 19:07:01]	[done]
+	build successfully !
+

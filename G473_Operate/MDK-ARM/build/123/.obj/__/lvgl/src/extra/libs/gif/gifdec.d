@@ -1,0 +1,12 @@
+.\build\123\.obj\__\lvgl\src\extra\libs\gif\gifdec.o: .\..\lvgl\src\extra\libs\gif\gifdec.c
+.\build\123\.obj\__\lvgl\src\extra\libs\gif\gifdec.o: .\..\lvgl\src\extra\libs\gif\gifdec.h
+.\build\123\.obj\__\lvgl\src\extra\libs\gif\gifdec.o: .\..\lvgl\src\extra\libs\gif\../../../misc/lv_fs.h
+.\build\123\.obj\__\lvgl\src\extra\libs\gif\gifdec.o: .\..\lvgl\src\extra\libs\gif\../../../misc/../lv_conf_internal.h
+.\build\123\.obj\__\lvgl\src\extra\libs\gif\gifdec.o: .\..\lvgl\src\extra\libs\gif\../../../misc/../lv_conf_kconfig.h
+.\build\123\.obj\__\lvgl\src\extra\libs\gif\gifdec.o: ../lvgl/examples/porting/../../lv_conf.h
+.\build\123\.obj\__\lvgl\src\extra\libs\gif\gifdec.o: .\..\lvgl\src\extra\libs\gif\../../../misc/lv_log.h
+.\build\123\.obj\__\lvgl\src\extra\libs\gif\gifdec.o: .\..\lvgl\src\extra\libs\gif\../../../misc/lv_types.h
+.\build\123\.obj\__\lvgl\src\extra\libs\gif\gifdec.o: .\..\lvgl\src\extra\libs\gif\../../../misc/lv_mem.h
+.\build\123\.obj\__\lvgl\src\extra\libs\gif\gifdec.o: .\..\lvgl\src\extra\libs\gif\../../../misc/lv_color.h
+.\build\123\.obj\__\lvgl\src\extra\libs\gif\gifdec.o: .\..\lvgl\src\extra\libs\gif\../../../misc/lv_assert.h
+.\build\123\.obj\__\lvgl\src\extra\libs\gif\gifdec.o: .\..\lvgl\src\extra\libs\gif\../../../misc/lv_math.h

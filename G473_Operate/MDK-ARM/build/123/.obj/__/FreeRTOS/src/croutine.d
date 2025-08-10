@@ -1,0 +1,11 @@
+.\build\123\.obj\__\FreeRTOS\src\croutine.o: .\..\FreeRTOS\src\croutine.c
+.\build\123\.obj\__\FreeRTOS\src\croutine.o: ../FreeRTOS/inc/FreeRTOS.h
+.\build\123\.obj\__\FreeRTOS\src\croutine.o: ../FreeRTOS/FreeRTOSConfig.h
+.\build\123\.obj\__\FreeRTOS\src\croutine.o: ../FreeRTOS/inc/projdefs.h
+.\build\123\.obj\__\FreeRTOS\src\croutine.o: ../FreeRTOS/inc/portable.h
+.\build\123\.obj\__\FreeRTOS\src\croutine.o: ../FreeRTOS/inc/deprecated_definitions.h
+.\build\123\.obj\__\FreeRTOS\src\croutine.o: ../FreeRTOS/port/portmacro.h
+.\build\123\.obj\__\FreeRTOS\src\croutine.o: ../FreeRTOS/inc/mpu_wrappers.h
+.\build\123\.obj\__\FreeRTOS\src\croutine.o: ../FreeRTOS/inc/task.h
+.\build\123\.obj\__\FreeRTOS\src\croutine.o: ../FreeRTOS/inc/list.h
+.\build\123\.obj\__\FreeRTOS\src\croutine.o: ../FreeRTOS/inc/croutine.h

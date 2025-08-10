@@ -1,43 +1,56 @@
 #include "Gui_Change.h"
 
-// ÔËĞĞÊ±¼ä¼ÆÊı£¨Ãë£©
-static uint32_t run_seconds = 0;
-// FreeRTOSÈí¼ş¶¨Ê±Æ÷¾ä±ú
+// è¿è¡Œæ—¶é•¿è®¡æ•°ï¼ˆç§’ï¼‰
+static volatile uint32_t run_seconds = 0;
+// FreeRTOSè¿è¡Œæ—¶è®¡æ—¶å™¨å¥æŸ„
 static TimerHandle_t xRunTimeTimer = NULL;
-// ±ê¼ÇÊÇ·ñÕıÔÚÔËĞĞ£¨±ÜÃâÖØ¸´Æô¶¯¶¨Ê±Æ÷£©
+// æ ‡è®°è®¡æ—¶å™¨æ˜¯å¦æ­£åœ¨è¿è¡Œï¼Œé˜²æ­¢é‡å¤åˆ›å»ºè®¡æ—¶å™¨
 static bool is_timer_running = false;
 
 char time_str[16];
 
 /**
- * @brief ÔËĞĞÊ±¼ä¶¨Ê±Æ÷»Øµ÷º¯Êı
- * @note Ã¿1Ãë´¥·¢Ò»´Î£¬ÀÛ¼ÓÔËĞĞÃëÊı²¢¸üĞÂUIÏÔÊ¾
+ * @brief è¿è¡Œæ—¶è®¡æ—¶å™¨å›è°ƒå‡½æ•°
+ * @note æ¯1ç§’è§¦å‘ä¸€æ¬¡ï¼Œç´¯è®¡è¿è¡Œæ—¶é—´å¹¶æ›´æ–°UIæ˜¾ç¤º
  */
 void vRunTimeTimerCallback(TimerHandle_t xRunTimeTimer)
 {
-    // ÀÛ¼ÓÃëÊı
+    // ç´¯è®¡ç§’æ•°
     run_seconds++;
     
-    // ×ª»»ÎªÊ±·ÖÃë¸ñÊ½
+    // è½¬æ¢ä¸ºæ—¶åˆ†ç§’æ ¼å¼
     uint8_t hours, minutes, seconds;
     ConvertSecondsToHMS(run_seconds, &hours, &minutes, &seconds);
-    // ¸ñÊ½»¯Ê±¼ä×Ö·û´®²¢¸üĞÂLVGL±êÇ©
-    sprintf(time_str, "%02d:%02d:%02d", hours, minutes, seconds);
+    // æ ¼å¼åŒ–æ—¶é—´å­—ç¬¦ä¸²ç”¨äºLVGLæ ‡ç­¾
+    lv_snprintf(time_str, sizeof(time_str), "%02d:%02d:%02d", hours, minutes, seconds);
 }
 
-static float voltage_in = 0.0f;
-static float current_in = 0.0f;
-static float voltage_out = 0.0f;
-static float current_out = 0.0f;
-static float power_out = 0.0f;
-static float energy_out = 0.0f;
-static float voltage_set = 0.0f;
-static float current_set = 0.0f;
-static float temperature = 0.0f;
+static volatile float voltage_in = 0.0f;
+static volatile float current_in = 0.0f;
+static volatile float voltage_out = 0.0f;
+static volatile float current_out = 0.0f;
+static volatile float power_out = 0.0f;
+static volatile float energy_out = 0.0f;
+static volatile float voltage_set = 0.0f;
+static volatile float current_set = 0.0f;
+static volatile float temperature = 0.0f;
+
+// æ·»åŠ é™æ€å˜é‡æ¥å­˜å‚¨ä¸Šä¸€æ¬¡çš„å€¼
+static float last_voltage_in = -1.0f;
+static float last_current_in = -1.0f;
+static float last_voltage_out = -1.0f;
+static float last_current_out = -1.0f;
+static float last_power_out = -1.0f;
+static float last_energy_out = -1.0f;
+static float last_voltage_set = -1.0f;
+static float last_current_set = -1.0f;
+static float last_temperature = -1.0f;
+static uint8_t last_mode_stop = 0xFF;
+static uint8_t last_mode_flag = 0xFF;
 
 void Gui_Event_Data(void)
 {
-    /*----------------------½ÓÊÕÊı¾İÏÔÊ¾---------------------*/
+    /*----------------------æ•°æ®æ›´æ–°æ˜¾ç¤º---------------------*/
     UART_RxStruct current_data = get_uart_rx_data();
     char buffer[20];
     
@@ -48,116 +61,189 @@ void Gui_Event_Data(void)
     temperature = ConvertNTCTemperature(current_data.adc_tmp1);
     power_out = voltage_out * current_out;
 
-    // ¸üĞÂµ±Ç°Êä³öµçÑ¹ÏÔÊ¾
-    sprintf(buffer, "%0.3f", voltage_out);
-    lv_label_set_text(g_ui.screen_label_Voltage_now, buffer);
-        
-    // ¸üĞÂµ±Ç°Êä³öµçÁ÷ÏÔÊ¾
-    sprintf(buffer, "%0.3f", current_out);
-    lv_label_set_text(g_ui.screen_label_Current_now, buffer);
-
-    // ¸üĞÂÊä³ö¹¦ÂÊÏÔÊ¾
-    sprintf(buffer, "\n%0.3f W", power_out);
-    lv_label_set_text(g_ui.screen_label_power, buffer);
-
-    // ¸üĞÂÄÜÁ¿ÏÔÊ¾
-    sprintf(buffer, "\n%0.2f mAh", energy_out);
-    lv_label_set_text(g_ui.screen_label_energy, buffer);
-
-    // ¸üĞÂÊäÈëµçÑ¹ÏÔÊ¾
-    sprintf(buffer, "%0.2fV", voltage_in);
-    lv_label_set_text(g_ui.screen_label_in_v, buffer);
-
-    // ÊäÈëµçÁ÷ÏÔÊ¾
-    sprintf(buffer, "%0.2fA", current_in);
-    lv_label_set_text(g_ui.screen_label_in_a, buffer);
-        
-    // ¸üĞÂÎÂ¶ÈÏÔÊ¾
-    sprintf(buffer, "%0.1f¡ãC", temperature);
-    lv_label_set_text(g_ui.screen_label_Temperature, buffer);
-
-    /*-------------------·¢ËÍÊı¾İÏÔÊ¾------------------*/
-    UART_TxStruct tx_data = get_uart_tx_data();
-
-    //½«Éè¶¨DACÊä³öµçÑ¹×ª»»ÎªÊµ¼ÊÖµ
-    voltage_set = tx_data.dac_b * 21.0f;
-    //½«Éè¶¨DACÊä³öµçÁ÷×ª»»ÎªÊµ¼ÊÖµ
-    current_set = (tx_data.dac_a - 1.65f) * 21.0f;
-
-    // ÏÔÊ¾ÉèÖÃµçÑ¹
-    sprintf(buffer, "%0.3fV", voltage_set);
-    lv_label_set_text(g_ui.screen_label_Voltage_Set, buffer);
-    
-    // ÏÔÊ¾ÉèÖÃµçÁ÷
-    sprintf(buffer, "%0.3fA", current_set);
-    lv_label_set_text(g_ui.screen_label_Current_Set, buffer);
-
-    /*--------------×´Ì¬ÇĞ»»------------*/ 
-    // ¸üĞÂÆô¶¯×´Ì¬ÏÔÊ¾¼°ÔËĞĞÊ±¼ä
-    if (current_data.mode_stop == Stop)
+    // æ›´æ–°å½“å‰è¾“å‡ºç”µå‹æ˜¾ç¤ºï¼ˆä»…åœ¨å˜åŒ–æ—¶ï¼‰
+    if (last_voltage_out != voltage_out)
     {
-        // Í£Ö¹×´Ì¬£ºÖØÖÃÄÜÁ¿£¬Í£Ö¹¶¨Ê±Æ÷
-        energy_out = 0.0f;
-        lv_obj_set_style_bg_opa(g_ui.screen_label_Start, 69, LV_PART_MAIN|LV_STATE_DEFAULT);
-        lv_label_set_text(g_ui.screen_label_Start, "  S");
-        lv_obj_set_style_bg_color(g_ui.screen_label_Start, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-        
-        // ÏÔÊ¾³õÊ¼Ê±¼ä
-        lv_label_set_text(g_ui.screen_label_Timeout, "00:00:00");
-        
-        // Í£Ö¹¶¨Ê±Æ÷£¨Èç¹ûÕıÔÚÔËĞĞ£©
-        if (is_timer_running && xRunTimeTimer != NULL)
+        last_voltage_out = voltage_out;
+        lv_snprintf(buffer, sizeof(buffer), "%.3f", voltage_out);
+        lv_label_set_text(g_ui.screen_label_Voltage_now, buffer);
+
+        if(current_data.mode_flag == Voltage_LOOP || current_data.mode_flag == Disable_LOOP)
         {
-            xTimerStop(xRunTimeTimer, 0);
-            is_timer_running = false;
+            // ä¸»æ•°æ®æ˜¾ç¤ºä¸ºå½“å‰ç”µå‹
+            lv_label_set_text(g_ui.screen_label_main,buffer);
         }
     }
-    else if (current_data.mode_stop == Run)
+        
+    // æ›´æ–°å½“å‰è¾“å‡ºç”µæµæ˜¾ç¤ºï¼ˆä»…åœ¨å˜åŒ–æ—¶ï¼‰
+    if (last_current_out != current_out)
     {
-        // Æô¶¯×´Ì¬£º¼ÆËãÀÛ¼ÆÄÜÁ¿£¬Æô¶¯¶¨Ê±Æ÷
-        energy_out += current_out * Tran_mAh;
-        lv_obj_set_style_bg_opa(g_ui.screen_label_Start, 240, LV_PART_MAIN|LV_STATE_DEFAULT);
-        lv_label_set_text(g_ui.screen_label_Start, "  R");
-        lv_obj_set_style_bg_color(g_ui.screen_label_Start, lv_color_hex(0x1d741f), LV_PART_MAIN|LV_STATE_DEFAULT);
+        last_current_out = current_out;
+        lv_snprintf(buffer, sizeof(buffer), "%.3f", current_out);
+        lv_label_set_text(g_ui.screen_label_Current_now, buffer);
 
-        // Æô¶¯¶¨Ê±Æ÷£¨Èç¹ûÎ´ÔËĞĞ£©
-        if (!is_timer_running && xRunTimeTimer != NULL)
+        if (current_data.mode_flag == Current_LOOP)
         {
-            xTimerStart(xRunTimeTimer, 0);
-            is_timer_running = true;
-            run_seconds = 0; // ÖØÖÃÔËĞĞÊ±¼ä
-            memcpy(time_str, "00:00:00", sizeof(time_str)); // ³õÊ¼»¯Ê±¼ä×Ö·û´®
+            // ä¸»æ•°æ®æ˜¾ç¤ºä¸ºå½“å‰ç”µæµ
+            lv_label_set_text(g_ui.screen_label_main,buffer);
         }
-        // ¸üĞÂÔËĞĞÊ±¼äÏÔÊ¾
+    }
+
+    // åŠŸç‡æ•°æ®æ˜¾ç¤ºï¼ˆä»…åœ¨å˜åŒ–æ—¶ï¼‰
+    if (last_power_out != power_out) {
+        last_power_out = power_out;
+        if(power_out <= 10.0f)
+        {
+            lv_snprintf(buffer, sizeof(buffer), "\n%.3f W", power_out);
+        }
+        else if(power_out <= 100.0f)
+        {
+            lv_snprintf(buffer, sizeof(buffer), "\n%.2f W", power_out);
+        }
+        else if(power_out <= 1000.0f)
+        {
+            lv_snprintf(buffer, sizeof(buffer), "\n%.1f W", power_out);
+        }
+        else
+        {
+            lv_snprintf(buffer, sizeof(buffer), "\n%.0f W", power_out);
+        }
+        lv_label_set_text(g_ui.screen_label_power, buffer);
+    }
+
+    // èƒ½é‡æ•°æ®æ˜¾ç¤ºï¼ˆä»…åœ¨å˜åŒ–æ—¶ï¼‰
+    if (last_energy_out != energy_out) {
+        last_energy_out = energy_out;
+        if(energy_out <= 10.0f)
+        {
+            lv_snprintf(buffer, sizeof(buffer), "\n%.2f mWh", energy_out);
+        }
+        else
+        {
+            lv_snprintf(buffer, sizeof(buffer), "\n%.2f Wh", energy_out / 1000.0f);
+        }
+        lv_label_set_text(g_ui.screen_label_energy, buffer);
+    }
+
+    // è¾“å…¥ç”µå‹æ˜¾ç¤ºï¼ˆä»…åœ¨å˜åŒ–æ—¶ï¼‰
+    if (last_voltage_in != voltage_in) {
+        last_voltage_in = voltage_in;
+        lv_snprintf(buffer, sizeof(buffer), "%.2fV", voltage_in);
+        lv_label_set_text(g_ui.screen_label_in_v, buffer);
+    }
+
+    // è¾“å…¥ç”µæµæ˜¾ç¤ºï¼ˆä»…åœ¨å˜åŒ–æ—¶ï¼‰
+    if (last_current_in != current_in) {
+        last_current_in = current_in;
+        lv_snprintf(buffer, sizeof(buffer), "%.2fA", current_in);
+        lv_label_set_text(g_ui.screen_label_in_a, buffer);
+    }
+        
+    // æ¸©åº¦æ˜¾ç¤ºï¼ˆä»…åœ¨å˜åŒ–æ—¶ï¼‰
+    if (last_temperature != temperature) {
+        last_temperature = temperature;
+        lv_snprintf(buffer, sizeof(buffer), "%.1fÂ°C", temperature);
+        lv_label_set_text(g_ui.screen_label_Temperature, buffer);
+    }
+
+    /*-------------------è®¾ç½®å‚æ•°æ˜¾ç¤º------------------*/
+    UART_TxStruct tx_data = get_uart_tx_data();
+
+    //å°†è®¾å®šDACç”µå‹è½¬æ¢ä¸ºå®é™…å€¼
+    voltage_set = tx_data.dac_b * 21.0f;
+    //å°†è®¾å®šDACç”µæµè½¬æ¢ä¸ºå®é™…å€¼
+    current_set = (tx_data.dac_a - 1.65f) * 21.0f;
+
+    // æ˜¾ç¤ºè®¾å®šç”µå‹ï¼ˆä»…åœ¨å˜åŒ–æ—¶ï¼‰
+    if (last_voltage_set != voltage_set) {
+        last_voltage_set = voltage_set;
+        lv_snprintf(buffer, sizeof(buffer), "%.3fV", voltage_set);
+        lv_label_set_text(g_ui.screen_label_Voltage_Set, buffer);
+    }
+    
+    // æ˜¾ç¤ºè®¾å®šç”µæµï¼ˆä»…åœ¨å˜åŒ–æ—¶ï¼‰
+    if (last_current_set != current_set) {
+        last_current_set = current_set;
+        lv_snprintf(buffer, sizeof(buffer), "%.3fA", current_set);
+        lv_label_set_text(g_ui.screen_label_Current_Set, buffer);
+    }
+
+    /*--------------çŠ¶æ€åˆ‡æ¢------------*/ 
+    // æ ¹æ®è¿è¡ŒçŠ¶æ€æ˜¾ç¤ºåˆ‡æ¢åœæ­¢çŠ¶æ€å’Œè¿è¡Œæ—¶çš„è®¡æ—¶
+    if (current_data.mode_stop != last_mode_stop)
+    {
+        last_mode_stop = current_data.mode_stop;
+        
+        if (current_data.mode_stop == Stop)
+        {
+            // åœæ­¢çŠ¶æ€æ—¶æ¸…ç©ºç´¯è®¡çš„èƒ½é‡å’Œè¿è¡Œæ—¶é—´
+            energy_out = 0.0f;
+            lv_obj_set_style_bg_opa(g_ui.screen_label_Start, 69, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_label_set_text(g_ui.screen_label_Start, "  S");
+            lv_obj_set_style_bg_color(g_ui.screen_label_Start, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+            
+            // æ˜¾ç¤ºåˆå§‹æ—¶é—´
+            lv_label_set_text(g_ui.screen_label_Timeout, "00:00:00");
+            
+            // åœæ­¢è¿è¡Œæ—¶è®¡æ—¶å™¨æ—¶é˜²æ­¢é‡å¤åˆ›å»º
+            if (is_timer_running && xRunTimeTimer != NULL)
+            {
+                xTimerStop(xRunTimeTimer, 0);
+                is_timer_running = false;
+            }
+        }
+        else if (current_data.mode_stop == Run)
+        {
+            // æ›´æ–°è¿è¡ŒçŠ¶æ€æ˜¾ç¤º
+            lv_obj_set_style_bg_opa(g_ui.screen_label_Start, 240, LV_PART_MAIN|LV_STATE_DEFAULT);
+            lv_label_set_text(g_ui.screen_label_Start, "  R");
+            lv_obj_set_style_bg_color(g_ui.screen_label_Start, lv_color_hex(0x1d741f), LV_PART_MAIN|LV_STATE_DEFAULT);
+
+            // å¦‚æœè¿è¡Œæ—¶è®¡æ—¶å™¨æœªåˆ›å»ºåˆ™åˆ›å»º
+            if (!is_timer_running && xRunTimeTimer != NULL)
+            {
+                xTimerStart(xRunTimeTimer, 0);
+                is_timer_running = true;
+                run_seconds = 0; // é‡ç½®è¿è¡Œæ—¶é•¿
+                lv_snprintf(time_str, sizeof(time_str), "00:00:00"); // åˆå§‹åŒ–æ—¶é—´å­—ç¬¦ä¸²
+            }
+        }
+    }
+    
+    // æŒç»­å¤„ç†èƒ½é‡ç´¯ç§¯ï¼ˆä»…åœ¨è¿è¡ŒçŠ¶æ€ä¸‹ï¼‰
+    if (current_data.mode_stop == Run)
+    {
+        // è¿è¡ŒçŠ¶æ€æ—¶ç´¯è®¡çš„èƒ½é‡
+        energy_out += power_out * Tran_mWh;
+        
+        // è¿è¡Œæ—¶æ—¶é—´æ˜¾ç¤º
         lv_label_set_text(g_ui.screen_label_Timeout, time_str);
     }
 
-    // ¸üĞÂ¹¤×÷Ä£Ê½ÏÔÊ¾
-    if(current_data.mode_flag == Voltage_LOOP)         // µçÑ¹»·Ä£Ê½
-    {
-        // ÇĞ»»Ä£Ê½ÏÔÊ¾ÎªµçÑ¹»·
-        lv_label_set_text(g_ui.screen_label_mode, "C C");
-        // ¸üĞÂÖ÷ÏÔÊ¾ÎªÊä³öµçÑ¹
-        sprintf(buffer, "%0.3f", voltage_out);
-        lv_label_set_text(g_ui.screen_label_main,buffer);
-        lv_label_set_text(g_ui.screen_label_select_unit, "V");
-    }
-    else if (current_data.mode_flag == Current_LOOP)   // µçÁ÷»·Ä£Ê½
-    {
-        // ÇĞ»»Ä£Ê½ÏÔÊ¾ÎªµçÁ÷»·
-        lv_label_set_text(g_ui.screen_label_mode, "C V");
-        // ¸üĞÂÖ÷ÏÔÊ¾ÎªÊä³öµçÁ÷
-        sprintf(buffer, "%0.3f", current_out);
-        lv_label_set_text(g_ui.screen_label_main,buffer);
-        lv_label_set_text(g_ui.screen_label_select_unit, "A");
-    }
-    else                                               // Î´Æô¶¯Ä£Ê½
-    {
-        lv_label_set_text(g_ui.screen_label_mode, "CC / CV");
-        // µ±Í£Ö¹Ê±Ä¬ÈÏ¸üĞÂÖ÷ÏÔÊ¾ÎªÊä³öµçÑ¹
-        sprintf(buffer, "%0.3f", voltage_out);
-        lv_label_set_text(g_ui.screen_label_main,buffer);
-        lv_label_set_text(g_ui.screen_label_select_unit, "V");
+    // æ›´æ–°å·¥ä½œæ¨¡å¼æ˜¾ç¤ºï¼ˆä»…åœ¨å˜åŒ–æ—¶ï¼‰
+    if (current_data.mode_flag != last_mode_flag) {
+        last_mode_flag = current_data.mode_flag;
+        
+        if(current_data.mode_flag == Voltage_LOOP)         // ç”µå‹æ¨¡å¼
+        {
+            // åˆ‡æ¢æ¨¡å¼æ˜¾ç¤ºä¸ºæ’å‹
+            lv_label_set_text(g_ui.screen_label_mode, "C C");
+            // ä¸»æ•°æ®æ˜¾ç¤ºä¸ºå½“å‰ç”µå‹
+            lv_label_set_text(g_ui.screen_label_select_unit, "V");
+        }
+        else if (current_data.mode_flag == Current_LOOP)   // ç”µæµæ¨¡å¼
+        {
+            // åˆ‡æ¢æ¨¡å¼æ˜¾ç¤ºä¸ºæ’æµ
+            lv_label_set_text(g_ui.screen_label_mode, "C V");
+            // ä¸»æ•°æ®æ˜¾ç¤ºä¸ºå½“å‰ç”µæµ
+            lv_label_set_text(g_ui.screen_label_select_unit, "A");
+        }
+        else                                               // æœªå®šä¹‰æ¨¡å¼
+        {
+            lv_label_set_text(g_ui.screen_label_mode, "CC / CV");
+            // åœæ­¢æ—¶é»˜è®¤ä¸»æ•°æ®æ˜¾ç¤ºä¸ºå½“å‰ç”µå‹
+            lv_label_set_text(g_ui.screen_label_select_unit, "V");
+        }
     }
 }
 
@@ -165,13 +251,13 @@ void Timer_Init(void)
 {
     if (xRunTimeTimer == NULL)
     {
-        // ´´½¨Èí¼ş¶¨Ê±Æ÷£ºÖÜÆÚ1000ms£¬×Ô¶¯ÖØÔØ
+        // åˆ›å»ºè¿è¡Œæ—¶è®¡æ—¶å™¨ä»»åŠ¡ï¼Œæ¯1000msè‡ªåŠ¨è§¦å‘
         xRunTimeTimer = xTimerCreate(
-            "RunTimeTimer",          // ¶¨Ê±Æ÷Ãû³Æ
-            pdMS_TO_TICKS(1000),     // ÖÜÆÚ1Ãë
-            pdTRUE,                  // ×Ô¶¯ÖØÔØ
-            NULL,                    // ²»´«µİ²ÎÊı
-            vRunTimeTimerCallback    // »Øµ÷º¯Êı
+            "RunTimeTimer",          // è®¡æ—¶å™¨åç§°
+            pdMS_TO_TICKS(1000),     // å‘¨æœŸ1ç§’
+            pdTRUE,                  // è‡ªåŠ¨é‡è½½
+            NULL,                    // ä¸ä½¿ç”¨å‚æ•°
+            vRunTimeTimerCallback    // å›è°ƒå‡½æ•°
         );
     }
 }

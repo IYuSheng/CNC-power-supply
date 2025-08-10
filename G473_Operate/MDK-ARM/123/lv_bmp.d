@@ -18,7 +18,7 @@
 123\lv_bmp.o: ..\lvgl\src\extra\libs\bmp\../../../../src/misc/lv_anim_timeline.h
 123\lv_bmp.o: ..\lvgl\src\extra\libs\bmp\../../../../src/misc/lv_anim.h
 123\lv_bmp.o: ..\lvgl\src\extra\libs\bmp\../../../../src/misc/lv_printf.h
-123\lv_bmp.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
+123\lv_bmp.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 123\lv_bmp.o: ..\lvgl\src\extra\libs\bmp\../../../../src/hal/lv_hal.h
 123\lv_bmp.o: ..\lvgl\src\extra\libs\bmp\../../../../src/hal/lv_hal_disp.h
 123\lv_bmp.o: ..\lvgl\src\extra\libs\bmp\../../../../src/hal/lv_hal.h
@@ -31,6 +31,7 @@
 123\lv_bmp.o: ..\lvgl\src\extra\libs\bmp\../../../../src/hal/../draw/../misc/lv_color.h
 123\lv_bmp.o: ..\lvgl\src\extra\libs\bmp\../../../../src/hal/../draw/../misc/lv_assert.h
 123\lv_bmp.o: ..\lvgl\src\extra\libs\bmp\../../../../src/hal/../draw/../misc/lv_txt.h
+123\lv_bmp.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 123\lv_bmp.o: ..\lvgl\src\extra\libs\bmp\../../../../src/hal/../draw/../misc/lv_bidi.h
 123\lv_bmp.o: ..\lvgl\src\extra\libs\bmp\../../../../src/hal/../draw/../misc/lv_style_gen.h
 123\lv_bmp.o: ..\lvgl\src\extra\libs\bmp\../../../../src/hal/../draw/lv_img_decoder.h

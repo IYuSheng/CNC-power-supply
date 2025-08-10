@@ -1,0 +1,12 @@
+.\build\123\.obj\__\FreeRTOS\src\tasks.o: .\..\FreeRTOS\src\tasks.c
+.\build\123\.obj\__\FreeRTOS\src\tasks.o: ../FreeRTOS/inc/FreeRTOS.h
+.\build\123\.obj\__\FreeRTOS\src\tasks.o: ../FreeRTOS/FreeRTOSConfig.h
+.\build\123\.obj\__\FreeRTOS\src\tasks.o: ../FreeRTOS/inc/projdefs.h
+.\build\123\.obj\__\FreeRTOS\src\tasks.o: ../FreeRTOS/inc/portable.h
+.\build\123\.obj\__\FreeRTOS\src\tasks.o: ../FreeRTOS/inc/deprecated_definitions.h
+.\build\123\.obj\__\FreeRTOS\src\tasks.o: ../FreeRTOS/port/portmacro.h
+.\build\123\.obj\__\FreeRTOS\src\tasks.o: ../FreeRTOS/inc/mpu_wrappers.h
+.\build\123\.obj\__\FreeRTOS\src\tasks.o: ../FreeRTOS/inc/task.h
+.\build\123\.obj\__\FreeRTOS\src\tasks.o: ../FreeRTOS/inc/list.h
+.\build\123\.obj\__\FreeRTOS\src\tasks.o: ../FreeRTOS/inc/timers.h
+.\build\123\.obj\__\FreeRTOS\src\tasks.o: ../FreeRTOS/inc/stack_macros.h

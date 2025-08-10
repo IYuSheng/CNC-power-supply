@@ -137,7 +137,7 @@
             <DriverSelection>4101</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
-          <Flash2>BIN\UL2V8M.DLL</Flash2>
+          <Flash2>BIN\UL2CM3.DLL</Flash2>
           <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
@@ -3972,14 +3972,19 @@
               <FilePath>..\lvgl\src\font\start_haibara.c</FilePath>
             </File>
             <File>
-              <FileName>Start_30.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lvgl\src\font\Start_30.c</FilePath>
-            </File>
-            <File>
               <FileName>My_GUI_13.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\lvgl\src\font\My_GUI_13.c</FilePath>
+            </File>
+            <File>
+              <FileName>My_start_30.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\src\font\My_start_30.c</FilePath>
+            </File>
+            <File>
+              <FileName>My_start_26.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lvgl\src\font\My_start_26.c</FilePath>
             </File>
           </Files>
         </Group>

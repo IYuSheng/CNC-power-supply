@@ -21,6 +21,7 @@
 123\lv_style.o: ..\lvgl\src\misc\lv_txt.h
 123\lv_style.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 123\lv_style.o: ..\lvgl\src\misc\lv_printf.h
+123\lv_style.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 123\lv_style.o: ..\lvgl\src\misc\lv_bidi.h
 123\lv_style.o: ..\lvgl\src\misc\lv_style_gen.h
 123\lv_style.o: ..\lvgl\src\misc\../misc/lv_gc.h

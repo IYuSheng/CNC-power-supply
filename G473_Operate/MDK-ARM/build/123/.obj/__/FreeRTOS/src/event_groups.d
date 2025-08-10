@@ -1,0 +1,12 @@
+.\build\123\.obj\__\FreeRTOS\src\event_groups.o: .\..\FreeRTOS\src\event_groups.c
+.\build\123\.obj\__\FreeRTOS\src\event_groups.o: ../FreeRTOS/inc/FreeRTOS.h
+.\build\123\.obj\__\FreeRTOS\src\event_groups.o: ../FreeRTOS/FreeRTOSConfig.h
+.\build\123\.obj\__\FreeRTOS\src\event_groups.o: ../FreeRTOS/inc/projdefs.h
+.\build\123\.obj\__\FreeRTOS\src\event_groups.o: ../FreeRTOS/inc/portable.h
+.\build\123\.obj\__\FreeRTOS\src\event_groups.o: ../FreeRTOS/inc/deprecated_definitions.h
+.\build\123\.obj\__\FreeRTOS\src\event_groups.o: ../FreeRTOS/port/portmacro.h
+.\build\123\.obj\__\FreeRTOS\src\event_groups.o: ../FreeRTOS/inc/mpu_wrappers.h
+.\build\123\.obj\__\FreeRTOS\src\event_groups.o: ../FreeRTOS/inc/task.h
+.\build\123\.obj\__\FreeRTOS\src\event_groups.o: ../FreeRTOS/inc/list.h
+.\build\123\.obj\__\FreeRTOS\src\event_groups.o: ../FreeRTOS/inc/timers.h
+.\build\123\.obj\__\FreeRTOS\src\event_groups.o: ../FreeRTOS/inc/event_groups.h

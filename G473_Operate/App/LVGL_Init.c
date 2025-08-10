@@ -1,7 +1,7 @@
 #include "LVGL_Init.h"
 
 // 启动画面持续时间（毫秒）
-#define SPLASH_SCREEN_DURATION 3000
+#define SPLASH_SCREEN_DURATION 2500
 
 // 启动画面对象
 static lv_obj_t * splash_screen;
@@ -12,7 +12,6 @@ static lv_obj_t * btn_slider_y;
 static lv_obj_t * btn_slider_x;
 static lv_obj_t * label_symbol;
 static lv_obj_t * img_haibara;
-static lv_obj_t * label_Power;
 
 // 全局UI结构体实例
 lv_ui_t g_ui;
@@ -29,10 +28,14 @@ static void anim_img_completed_cb(lv_anim_t * anim);
 // 延迟删除启动画面的回调函数
 static void delay_delete_splash_screen(lv_timer_t *t)
 {
-    if(splash_screen) {
+    if(splash_screen)
+    {
         lv_obj_del_async(splash_screen);
         splash_screen = NULL; // 清除野指针
     }
+    lv_anim_del_all();
+
+    lv_timer_del(t);
 }
 
 // 启动画面定时器回调函数
@@ -40,30 +43,26 @@ static void splash_timer_cb(lv_timer_t * timer)
 {
     // 1. 提前创建主屏幕（在后台准备，不立即显示）
     setup_scr_screen(&g_ui);
-    if(g_ui.screen == NULL) { // 增加错误检查：确保主屏幕创建成功
+    if(g_ui.screen == NULL)
+    {
         fr_printf("main screen create failed");
         return;
     }
 
     // 2. 停止所有启动画面动画（避免动画干扰）
-    lv_anim_del(btn_slider_y, (lv_anim_exec_xcb_t)lv_obj_set_y);
-    lv_anim_del(btn_slider_x, (lv_anim_exec_xcb_t)lv_obj_set_x);
-    lv_anim_del(label_symbol, (lv_anim_exec_xcb_t)lv_obj_set_y);
-    lv_anim_del(img_haibara, (lv_anim_exec_xcb_t)lv_obj_set_x);
-    lv_anim_del(label_Power, (lv_anim_exec_xcb_t)lv_obj_set_x);
+    lv_anim_del_all();
 
     // 3. 删除定时器（防止重复触发）
     lv_timer_del(splash_timer);
     splash_timer = NULL;
 
     // 4. 切换到主屏幕（使用过渡动画）
-    // lv_scr_load_anim(g_ui.screen, LV_SCR_LOAD_ANIM_OVER_RIGHT, 500, 0, true);
-    
-    lv_scr_load(g_ui.screen);
+    lv_scr_load_anim(g_ui.screen, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, false);
+    // lv_scr_load(g_ui.screen);
     main_screen_loaded = true;
 
     // 5. 延迟删除启动画面（确保主屏幕已渲染完成）
-    lv_timer_create(delay_delete_splash_screen, 100, NULL);
+    lv_timer_create(delay_delete_splash_screen, 300, NULL);
 }
 
 // 创建启动画面
@@ -121,7 +120,7 @@ void create_splash_screen(void)
     label_symbol = lv_label_create(splash_screen);
     lv_label_set_text(label_symbol, "H TOOL");
     lv_label_set_long_mode(label_symbol, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(label_symbol, 54, 193);
+    lv_obj_set_pos(label_symbol, 54, 240);
     lv_obj_set_size(label_symbol, 128, 32);
 
     // 设置标题标签样式
@@ -148,35 +147,13 @@ void create_splash_screen(void)
     lv_img_set_pivot(img_haibara, 50,50);
     lv_img_set_angle(img_haibara, 0);
     lv_obj_set_pos(img_haibara, 120, 34);
-    lv_obj_set_size(img_haibara, 133, 150);
+    lv_obj_set_size(img_haibara, 196, 150);
 
     // 设置图片样式
     lv_obj_set_style_img_recolor_opa(img_haibara, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_img_opa(img_haibara, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(img_haibara, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_clip_corner(img_haibara, true, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    // 创建CNC Power Supply标签
-    label_Power = lv_label_create(splash_screen);
-    lv_label_set_text(label_Power, "CNC Power\nSupply");
-    lv_label_set_long_mode(label_Power, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(label_Power, 218, 138);
-    lv_obj_set_size(label_Power, 144, 68);
-
-    // 设置CNC Power Supply标签样式
-    lv_obj_set_style_border_width(label_Power, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(label_Power, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(label_Power, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    // lv_obj_set_style_text_font(label_Power, &My_start_22, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(label_Power, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_letter_space(label_Power, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_line_space(label_Power, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_align(label_Power, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(label_Power, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_top(label_Power, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_right(label_Power, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_bottom(label_Power, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_left(label_Power, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     // 创建版本标签
     lv_obj_t * label_version = lv_label_create(splash_screen);
@@ -287,17 +264,6 @@ static void anim_img_completed_cb(lv_anim_t * anim)
     lv_anim_set_exec_cb(&anim_img, (lv_anim_exec_xcb_t)lv_obj_set_x);
     lv_anim_set_ready_cb(&anim_img, NULL);
     lv_anim_start(&anim_img);
-
-    // 创建CNC Power Supply跟随图像移动的动画
-    lv_anim_t anim_Power;
-    lv_anim_init(&anim_Power);
-    lv_anim_set_var(&anim_Power, label_Power);
-    lv_anim_set_values(&anim_Power, 218, 188); // 从x=218移动到x=198
-    lv_anim_set_time(&anim_Power, 500);
-    lv_anim_set_path_cb(&anim_Power, lv_anim_path_ease_out);
-    lv_anim_set_exec_cb(&anim_Power, (lv_anim_exec_xcb_t)lv_obj_set_x);
-    lv_anim_set_ready_cb(&anim_Power, NULL);
-    lv_anim_start(&anim_Power);
 }
 
 void Gui_Init(void)
@@ -412,7 +378,7 @@ static void setup_scr_screen(lv_ui_t *ui)
     lv_obj_set_style_border_width(ui->screen_label_Voltage_now, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->screen_label_Voltage_now, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_color(ui->screen_label_Voltage_now, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->screen_label_Voltage_now, &lv_font_montserrat_26, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->screen_label_Voltage_now, &My_start_26, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->screen_label_Voltage_now, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_letter_space(ui->screen_label_Voltage_now, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_line_space(ui->screen_label_Voltage_now, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -511,7 +477,7 @@ static void setup_scr_screen(lv_ui_t *ui)
     lv_obj_set_style_border_width(ui->screen_label_Current_now, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->screen_label_Current_now, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_color(ui->screen_label_Current_now, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->screen_label_Current_now, &lv_font_montserrat_26, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->screen_label_Current_now, &My_start_26, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->screen_label_Current_now, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_letter_space(ui->screen_label_Current_now, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_line_space(ui->screen_label_Current_now, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -604,7 +570,7 @@ static void setup_scr_screen(lv_ui_t *ui)
     // ======================================================================
     // 能量标签对象
     ui->screen_label_energy = lv_label_create(ui->screen);
-    lv_label_set_text(ui->screen_label_energy, "\n 0.00 mAh");
+    lv_label_set_text(ui->screen_label_energy, "\n 0.00 mWh");
     lv_label_set_long_mode(ui->screen_label_energy, LV_LABEL_LONG_WRAP);
     lv_obj_set_pos(ui->screen_label_energy, 215, 186);
     lv_obj_set_size(ui->screen_label_energy, 100, 48);
@@ -661,7 +627,7 @@ static void setup_scr_screen(lv_ui_t *ui)
     ui->screen_label_Timeout = lv_label_create(ui->screen);
     lv_label_set_text(ui->screen_label_Timeout, "00:00:00");
     lv_label_set_long_mode(ui->screen_label_Timeout, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->screen_label_Timeout, 110, 5);
+    lv_obj_set_pos(ui->screen_label_Timeout, 90, 5);
     lv_obj_set_size(ui->screen_label_Timeout, 100, 26);
 
     // 超时时间显示样式
@@ -688,8 +654,8 @@ static void setup_scr_screen(lv_ui_t *ui)
     ui->screen_label_Temperature = lv_label_create(ui->screen);
     lv_label_set_text(ui->screen_label_Temperature, "0.0°C");
     lv_label_set_long_mode(ui->screen_label_Temperature, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->screen_label_Temperature, 215, 5);
-    lv_obj_set_size(ui->screen_label_Temperature, 55, 26);
+    lv_obj_set_pos(ui->screen_label_Temperature, 195, 5);
+    lv_obj_set_size(ui->screen_label_Temperature, 80, 26);
 
     // 温度显示样式
     lv_obj_set_style_border_width(ui->screen_label_Temperature, 2, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -698,7 +664,7 @@ static void setup_scr_screen(lv_ui_t *ui)
     lv_obj_set_style_border_side(ui->screen_label_Temperature, LV_BORDER_SIDE_FULL, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->screen_label_Temperature, 8, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_color(ui->screen_label_Temperature, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->screen_label_Temperature, &lv_font_montserrat_14, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->screen_label_Temperature, &lv_font_montserrat_18, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->screen_label_Temperature, 213, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_letter_space(ui->screen_label_Temperature, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_line_space(ui->screen_label_Temperature, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -715,8 +681,8 @@ static void setup_scr_screen(lv_ui_t *ui)
     ui->screen_label_Start = lv_label_create(ui->screen);
     lv_label_set_text(ui->screen_label_Start, "  R");
     lv_label_set_long_mode(ui->screen_label_Start, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->screen_label_Start, 274, 5);
-    lv_obj_set_size(ui->screen_label_Start, 40, 26);
+    lv_obj_set_pos(ui->screen_label_Start, 279, 5);
+    lv_obj_set_size(ui->screen_label_Start, 35, 26);
 
     // 启动状态显示样式
     lv_obj_set_style_border_width(ui->screen_label_Start, 2, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -739,7 +705,7 @@ static void setup_scr_screen(lv_ui_t *ui)
     lv_label_set_text(ui->screen_label_mode, "CC/CV");
     lv_label_set_long_mode(ui->screen_label_mode, LV_LABEL_LONG_WRAP);
     lv_obj_set_pos(ui->screen_label_mode, 5, 5);
-    lv_obj_set_size(ui->screen_label_mode, 100, 26);
+    lv_obj_set_size(ui->screen_label_mode, 80, 26);
 
     // 工作模式显示样式
     lv_obj_set_style_border_width(ui->screen_label_mode, 2, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -794,7 +760,7 @@ static void setup_scr_screen(lv_ui_t *ui)
     lv_obj_set_style_border_width(ui->screen_label_select_unit, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->screen_label_select_unit, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_color(ui->screen_label_select_unit, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->screen_label_select_unit, &lv_font_montserrat_28, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->screen_label_select_unit, &My_start_26, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->screen_label_select_unit, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_letter_space(ui->screen_label_select_unit, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_line_space(ui->screen_label_select_unit, 0, LV_PART_MAIN|LV_STATE_DEFAULT);

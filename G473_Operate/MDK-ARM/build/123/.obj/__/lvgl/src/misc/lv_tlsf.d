@@ -1,0 +1,9 @@
+.\build\123\.obj\__\lvgl\src\misc\lv_tlsf.o: .\..\lvgl\src\misc\lv_tlsf.c
+.\build\123\.obj\__\lvgl\src\misc\lv_tlsf.o: .\..\lvgl\src\misc\../lv_conf_internal.h
+.\build\123\.obj\__\lvgl\src\misc\lv_tlsf.o: .\..\lvgl\src\misc\../lv_conf_kconfig.h
+.\build\123\.obj\__\lvgl\src\misc\lv_tlsf.o: ../lvgl/examples/porting/../../lv_conf.h
+.\build\123\.obj\__\lvgl\src\misc\lv_tlsf.o: .\..\lvgl\src\misc\lv_tlsf.h
+.\build\123\.obj\__\lvgl\src\misc\lv_tlsf.o: .\..\lvgl\src\misc\lv_mem.h
+.\build\123\.obj\__\lvgl\src\misc\lv_tlsf.o: .\..\lvgl\src\misc\lv_types.h
+.\build\123\.obj\__\lvgl\src\misc\lv_tlsf.o: .\..\lvgl\src\misc\lv_log.h
+.\build\123\.obj\__\lvgl\src\misc\lv_tlsf.o: .\..\lvgl\src\misc\lv_assert.h

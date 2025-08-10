@@ -1,0 +1,9 @@
+.\build\G473_Operate\.obj\__\FreeRTOS\src\list.o: .\..\FreeRTOS\src\list.c
+.\build\G473_Operate\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/inc/FreeRTOS.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/FreeRTOSConfig.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/inc/projdefs.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/inc/portable.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/inc/deprecated_definitions.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/port/portmacro.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/inc/mpu_wrappers.h
+.\build\G473_Operate\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/inc/list.h

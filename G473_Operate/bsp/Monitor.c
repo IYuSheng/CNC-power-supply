@@ -1,17 +1,17 @@
 #include "Monitor.h"
 
 #if Monitor_Flag
-/* ÏµÍ³¼à¿ØÈÎÎñÏà¹Ø±äÁ¿ */
+/* ç³»ç»Ÿç›‘æ§ä»»åŠ¡ç›¸å…³å˜é‡ */
 static TaskStatus_t prevTaskStatusArray[10] = {0};
 static uint32_t prevTotalRuntime = 0;
 static UBaseType_t prevNumTasks = 0;
 
-/* ÏµÍ³¼à¿ØÈÎÎñº¯Êı */
+/* ç³»ç»Ÿç›‘æ§ä»»åŠ¡å‡½æ•° */
 void vSystemMonitorTask(void *pvParameters);
 #endif
 
 /**
-  * @brief  »ñÈ¡TIM4¼ÆÊıÆ÷Öµ£¨ÓÃÓÚFreeRTOSÔËĞĞÊ±¼äÍ³¼Æ£©
+  * @brief  è·å–TIM4è®¡æ•°å™¨å€¼ï¼ˆç”¨äºFreeRTOSè¿è¡Œæ—¶é—´ç»Ÿè®¡ï¼‰
   */
 uint32_t getRuntimeCounterValue(void)
 {
@@ -19,18 +19,17 @@ uint32_t getRuntimeCounterValue(void)
 }
 
 /**
-  * @brief  ÅäÖÃTIM4ÎªFreeRTOSÔËĞĞÊ±¼äÍ³¼ÆÊ±ÖÓ
+  * @brief  é…ç½®TIM4ä¸ºFreeRTOSè¿è¡Œæ—¶é—´ç»Ÿè®¡æ—¶é’Ÿ
   */
 void configureTimerForRuntimeStats(void)
 {
-  // ÆôÓÃTIM4Ê±ÖÓ£¨G473µÄTIM4ÊôÓÚAPB1ÍâÉè£©
+  // å¯ç”¨TIM4æ—¶é’Ÿï¼ˆG473çš„TIM4å±äºAPB1å¤–è®¾ï¼‰
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM4);
 
-  // ÅäÖÃÊ±»ù£¨85MHzÊ±ÖÓ£¬Ô¤·ÖÆµ84£º¼ÆÊıÆµÂÊ1MHz£¬1us¼ÆÊı1´Î£©
   LL_TIM_InitTypeDef TIM_InitStruct = {0};
-  TIM_InitStruct.Prescaler = 84;                  // 85MHz / (84+1) = 1MHz
+  TIM_InitStruct.Prescaler = 169;
   TIM_InitStruct.CounterMode = LL_TIM_COUNTERMODE_UP;
-  TIM_InitStruct.Autoreload = 0xFFFFFFFF;         // ×î´ó¼ÆÊı·¶Î§
+  TIM_InitStruct.Autoreload = 0xFFFFFFFF;         // æœ€å¤§è®¡æ•°èŒƒå›´
   TIM_InitStruct.ClockDivision = LL_TIM_CLOCKDIVISION_DIV1;
 
   LL_TIM_Init(TIM4, &TIM_InitStruct);
@@ -40,7 +39,7 @@ void configureTimerForRuntimeStats(void)
 
 #if Monitor_Flag
 /**
-  * @brief  ÏµÍ³¼à¿ØÈÎÎñ£¨´òÓ¡ÈÎÎñ×´Ì¬¡¢CPUÕ¼ÓÃÂÊ£©
+  * @brief  ç³»ç»Ÿç›‘æ§ä»»åŠ¡ï¼ˆæ‰“å°ä»»åŠ¡çŠ¶æ€ã€CPUå ç”¨ç‡ï¼‰
   */
 void vSystemMonitorTask(void *pvParameters)
 {
@@ -59,14 +58,14 @@ void vSystemMonitorTask(void *pvParameters)
       UBaseType_t numTasks = uxTaskGetSystemState(taskStatusArray, maxTasks, NULL);
       if (numTasks > maxTasks) numTasks = maxTasks;
 
-      // ¼ÆËã×ÜÔËĞĞÊ±¼ä
+      // è®¡ç®—æ€»è¿è¡Œæ—¶é—´
       uint32_t currentTotalRuntime = 0;
       for (UBaseType_t i = 0; i < numTasks; i++)
         {
           currentTotalRuntime += taskStatusArray[i].ulRunTimeCounter;
         }
 
-      /* ×´Ì¬±ä»¯¼ì²âÓë´òÓ¡ */
+      /* çŠ¶æ€å˜åŒ–æ£€æµ‹ä¸æ‰“å° */
       if (prevNumTasks != 0)
         {
           uint32_t deltaTotal = currentTotalRuntime - prevTotalRuntime;
@@ -75,7 +74,7 @@ void vSystemMonitorTask(void *pvParameters)
               char buffer[128];
               UART_Send_IT(USART3, (uint8_t*)"\r\n", 1);
 
-              /* ±éÀúËùÓĞÈÎÎñ¼ÆËãCPUÕ¼ÓÃÂÊ */
+              /* éå†æ‰€æœ‰ä»»åŠ¡è®¡ç®—CPUå ç”¨ç‡ */
               for (UBaseType_t i = 0; i < numTasks; i++)
                 {
                   for (UBaseType_t j = 0; j < prevNumTasks; j++)
@@ -97,12 +96,12 @@ void vSystemMonitorTask(void *pvParameters)
             }
         }
 
-      /* ±£´æµ±Ç°×´Ì¬ÓÃÓÚÏÂ´Î¶Ô±È */
+      /* ä¿å­˜å½“å‰çŠ¶æ€ç”¨äºä¸‹æ¬¡å¯¹æ¯” */
       memcpy(prevTaskStatusArray, taskStatusArray, numTasks * sizeof(TaskStatus_t));
       prevTotalRuntime = currentTotalRuntime;
       prevNumTasks = numTasks;
 
-      vTaskDelay(pdMS_TO_TICKS(2000)); /* 5Ãë¸üĞÂÒ»´Î */
+      vTaskDelay(pdMS_TO_TICKS(2000)); /* 2ç§’æ›´æ–°ä¸€æ¬¡ */
     }
 }
 #endif

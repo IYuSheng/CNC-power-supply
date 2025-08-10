@@ -23,6 +23,7 @@
 123\lv_refr.o: ..\lvgl\src\core\../misc/lv_txt.h
 123\lv_refr.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 123\lv_refr.o: ..\lvgl\src\core\../misc/lv_printf.h
+123\lv_refr.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 123\lv_refr.o: ..\lvgl\src\core\../misc/lv_bidi.h
 123\lv_refr.o: ..\lvgl\src\core\../misc/lv_style_gen.h
 123\lv_refr.o: ..\lvgl\src\core\../hal/lv_hal.h
@@ -62,3 +63,4 @@
 123\lv_refr.o: ..\lvgl\src\core\../misc/lv_gc.h
 123\lv_refr.o: ..\lvgl\src\core\../font/lv_font_fmt_txt.h
 123\lv_refr.o: ..\lvgl\src\core\../extra/others/snapshot/lv_snapshot.h
+123\lv_refr.o: ..\lvgl\src\core\../widgets/lv_label.h

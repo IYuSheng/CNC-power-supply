@@ -1046,19 +1046,16 @@
             "path": "../lvgl/src/font/My_GUI_73.c"
           },
           {
-            "path": "../lvgl/src/font/My_GUI_13.c"
+            "path": "../lvgl/src/font/start_haibara.c"
           },
           {
-            "path": "../lvgl/src/font/background.c"
+            "path": "../lvgl/src/font/My_GUI_13.c"
           },
           {
             "path": "../lvgl/src/font/My_start_30.c"
           },
           {
-            "path": "../lvgl/src/font/start_haibara.c"
-          },
-          {
-            "path": "../lvgl/src/font/My_start_22.c"
+            "path": "../lvgl/src/font/My_start_26.c"
           }
         ],
         "folders": []
@@ -1255,7 +1252,6 @@
           "beforeBuildTasks": [],
           "afterBuildTasks": [],
           "global": {
-            "use-microLIB": false,
             "output-debug-info": "enable"
           },
           "c/cpp-compiler": {
@@ -1271,10 +1267,7 @@
             "$outputTaskExcludes": [
               ".bin"
             ],
-            "output-format": "elf",
-            "xo-base": "",
-            "ro-base": "",
-            "rw-base": ""
+            "output-format": "elf"
           }
         }
       }

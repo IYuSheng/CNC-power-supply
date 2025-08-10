@@ -321,7 +321,6 @@ void vTFTTask(void *pvParameters)
     }
 
     lv_timer_handler();
-    lv_tick_inc(LVGL_TICK_PERIOD_MS); 
     vTaskDelay(pdMS_TO_TICKS(LVGL_TICK_PERIOD_MS));
   }
 }

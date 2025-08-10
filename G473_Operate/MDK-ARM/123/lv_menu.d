@@ -23,6 +23,7 @@
 123\lv_menu.o: ..\lvgl\src\extra\widgets\menu\../../../core/../misc/lv_txt.h
 123\lv_menu.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdarg.h
 123\lv_menu.o: ..\lvgl\src\extra\widgets\menu\../../../core/../misc/lv_printf.h
+123\lv_menu.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdio.h
 123\lv_menu.o: ..\lvgl\src\extra\widgets\menu\../../../core/../misc/lv_bidi.h
 123\lv_menu.o: ..\lvgl\src\extra\widgets\menu\../../../core/../misc/lv_style_gen.h
 123\lv_menu.o: ..\lvgl\src\extra\widgets\menu\../../../core/../hal/lv_hal.h

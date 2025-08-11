@@ -48,6 +48,7 @@ static void splash_timer_cb(lv_timer_t * timer)
         fr_printf("main screen create failed");
         return;
     }
+    
 
     // 2. 停止所有启动画面动画（避免动画干扰）
     lv_anim_del_all();

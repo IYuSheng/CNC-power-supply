@@ -11899,3 +11899,27 @@ These source files will be recompiled
 [2025-08-10 23:43:37]	[done]
 	build successfully !
 
+[2025-08-11 21:13:43]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-11 21:13:47]	[done]
+	build successfully !
+
+[2025-08-11 21:14:00]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-11 21:14:01]	[done]
+	build successfully !
+
+[2025-08-11 21:14:33]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-11 21:14:34]	[done]
+	build successfully !
+

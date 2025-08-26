@@ -25,6 +25,7 @@ void Init_Hardware(void)
   MX_I2C1_Init();
 	MX_TIM2_Init();
   MX_TIM3_Init();
+  DWT_Init();
 	fr_printf("\r\n[version]HR CNC POWER SUPPLY V1.0");//  当前版本号
 	fr_printf("Hardware Init Success");
 }
@@ -32,7 +33,7 @@ void Init_Hardware(void)
 void Init_App(void)
 {
   /* ------------------------------ 应用初始化 ------------------------------------------- */
-	DWT_Init();
+  IWDG_Init(3000); // 3000ms超时看门狗
 	Gui_Init();
   Key_Init();
   CommandProcessorInit();

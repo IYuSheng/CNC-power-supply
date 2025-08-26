@@ -221,7 +221,7 @@ void Encoder_SetData(Encoder_ID id, const Encoder_HandleTypeDef *data)
       case ENCODER_SS2:  // 外部中断型编码器（SS2）
         // 无硬件定时器，直接更新累计计数和引脚电平历史
         encoders[id].total_count = data->total_count;
-        encoders[id].last_s3_level = data->last_s3_level;  // 保留引脚电平状态
+        encoders[id].last_s3_level = data->last_s3_level;
         encoders[id].last_s4_level = data->last_s4_level;
         break;
 

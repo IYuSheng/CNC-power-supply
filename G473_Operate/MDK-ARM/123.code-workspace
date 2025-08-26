@@ -9,7 +9,13 @@
             "m24c64.h": "c",
             "dwt.h": "c",
             "stm32g4xx_ll_system.h": "c",
-            "uart_comm.h": "c"
+            "uart_comm.h": "c",
+            "gui_change.h": "c",
+            "lvgl_init.h": "c",
+            "control.h": "c",
+            "init.h": "c",
+            "commandhandlers.h": "c",
+            "uart_debug.h": "c"
         }
     },
     "extensions": {}

@@ -184,7 +184,7 @@ void Task_Debug_Handler(void)
                sensor_data.voltage_12V_in,
                sensor_data.voltage_5V_in);
 
-  Debug_printf("adc_current_in= %.4f, adc_current_out= %.4f, adc_voltage_out = %.4f, adc_voltage_in = %.4f",
+  Debug_printf("adc_current_in= %.4f A, adc_current_out= %.4f A, adc_voltage_out = %.4f V, adc_voltage_in = %.4f V",
                (voltages[CURRENT_IN] - 1.65f) * 21.0f,
                (voltages[CURRENT_OUT] - 1.65f) * 21.0f,
                voltages[VOLTAGE_OUT] * 21.0f,
@@ -204,8 +204,8 @@ void Task_Debug_Handler(void)
         {
           Debug_printf("Voltage_LOOP");
         }
-      Debug_printf("实际电压=%.6fV, 目标=%.6fV, PID输出=%.6fV",
-                   (voltages[2]  ), (uart_rx_data.dac_b  ), (V_SetDAC_PID ));
+      // Debug_printf("Voltage=%.6fV, Ami=%.6fV, PID_Out=%.6fV",
+      //              (voltages[2]  ), (uart_rx_data.dac_b  ), (V_SetDAC_PID ));
     }
 }
 

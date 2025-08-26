@@ -8,6 +8,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "stm32g4xx_ll_usart.h"
+#include "stm32g4xx_ll_dma.h"
 #include "usart.h"
 #include "Uart_Debug.h"
 

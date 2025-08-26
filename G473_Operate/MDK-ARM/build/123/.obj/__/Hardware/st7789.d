@@ -207,10 +207,10 @@
 .\build\123\.obj\__\Hardware\st7789.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_i2c.h
 .\build\123\.obj\__\Hardware\st7789.o: ../Hardware/Uart_comm.h
 .\build\123\.obj\__\Hardware\st7789.o: ../App/CommandHandlers.h
-.\build\123\.obj\__\Hardware\st7789.o: ../App/Control.h
 .\build\123\.obj\__\Hardware\st7789.o: ../Hardware/Encoder.h
 .\build\123\.obj\__\Hardware\st7789.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h
 .\build\123\.obj\__\Hardware\st7789.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_cortex.h
+.\build\123\.obj\__\Hardware\st7789.o: ../App/Control.h
 .\build\123\.obj\__\Hardware\st7789.o: ../App/Comm.h
 .\build\123\.obj\__\Hardware\st7789.o: ../lvgl/examples/porting/lv_port_disp.h
 .\build\123\.obj\__\Hardware\st7789.o: ../FreeRTOS/inc/timers.h

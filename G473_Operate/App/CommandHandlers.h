@@ -4,6 +4,7 @@
 
 #include "Debug.h"
 #include "Uart_Debug.h"
+#include "Encoder.h"
 #include "Monitor.h"
 #include "Control.h"
 #include "Uart_comm.h"

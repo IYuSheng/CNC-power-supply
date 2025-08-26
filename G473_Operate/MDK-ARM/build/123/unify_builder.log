@@ -11923,3 +11923,613 @@ These source files will be recompiled
 [2025-08-11 21:14:34]	[done]
 	build successfully !
 
+[2025-08-16 00:08:18]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': source file has been changed.
+
+[2025-08-16 00:08:22]	[done]
+	build successfully !
+
+[2025-08-24 22:37:47]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-24 22:37:49]	[done]
+	build successfully !
+
+[2025-08-24 22:39:40]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-24 22:39:41]	[done]
+	build successfully !
+
+[2025-08-24 22:40:37]	[done]
+	build successfully !
+
+[2025-08-26 20:52:49]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-26 20:52:54]	[done]
+	build successfully !
+
+[2025-08-26 20:55:35]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+
+[2025-08-26 20:55:36]	[done]
+	build successfully !
+
+[2025-08-26 20:56:10]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-26 20:56:11]	[done]
+	build successfully !
+
+[2025-08-26 20:56:26]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-26 20:56:27]	[done]
+	build successfully !
+
+[2025-08-26 20:57:25]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+
+[2025-08-26 20:57:26]	[done]
+	build successfully !
+
+[2025-08-26 21:05:59]	[info] incremental build: 24 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+
+[2025-08-26 21:06:01]	[done]
+	build successfully !
+
+[2025-08-26 21:09:49]	[info] incremental build: 24 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+
+[2025-08-26 21:09:51]	[done]
+	build successfully !
+
+[2025-08-26 21:10:30]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+
+[2025-08-26 21:10:31]	[done]
+	build successfully !
+
+[2025-08-26 21:11:34]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': source file has been changed.
+
+[2025-08-26 21:11:35]	[done]
+	build successfully !
+
+[2025-08-26 21:11:55]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+
+[2025-08-26 21:11:56]	[done]
+	build successfully !
+
+[2025-08-26 21:12:22]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': source file has been changed.
+
+[2025-08-26 21:12:23]	[done]
+	build successfully !
+
+[2025-08-26 21:16:05]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-26 21:16:06]	[done]
+	build successfully !
+
+[2025-08-26 21:16:31]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-26 21:16:32]	[done]
+	build successfully !
+
+[2025-08-26 21:17:32]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-26 21:17:34]	[done]
+	build successfully !
+
+[2025-08-26 21:19:46]	[info] incremental build: 24 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Control.h' has been changed.
+
+[2025-08-26 21:19:49]	[done]
+	build successfully !
+
+[2025-08-26 21:25:33]	[info] incremental build: 24 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\CommandHandlers.h' has been changed.
+
+[2025-08-26 21:25:36]	[done]
+	build successfully !
+
+[2025-08-26 21:27:53]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+
+[2025-08-26 21:27:54]	[done]
+	build successfully !
+
+[2025-08-26 21:37:03]	[info] incremental build: 24 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+
+[2025-08-26 21:37:04]	compilation failed at : "c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c", exit code: 1
+command: 
+  "D:\Keilv5\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../USB_Device/App -I../USB_Device/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc -I../FreeRTOS -I../FreeRTOS/inc -I../FreeRTOS/port -I../FreeRTOS/src -I../App -I../bsp -I../Hardware -I../lvgl -I../lvgl/src -I../lvgl/examples/porting -I.cmsis/include -IRTE/_123 -D"USE_FULL_LL_DRIVER" -D"STM32G473xx" -D"USE_HAL_DRIVER" -D"__TARGET_FPU_VFP" --cpu Cortex-M4.fp --li --c99 -O3 --split_sections --diag_suppress=1 --diag_suppress=1295 -g -o .\build\123\.obj\__\Hardware\Uart_comm.o --no_depend_system_headers --depend .\build\123\.obj\__\Hardware\Uart_comm.d .\..\Hardware\Uart_comm.c
+   at unify_builder.Program.compileByMulThread(Int32 thrNum, CmdInfo[] cmds_, List`1 errLogs)
+   at unify_builder.Program.Main(String[] args_)
+---
+".\..\Hardware\Uart_comm.c", line 76: Error:  #165: too few arguments in function call
+    LL_DMA_SetPeriphAddress(DMA1, LL_DMA_CHANNEL_1, LL_USART_DMA_GetRegAddr(USART1));
+                                                                                  ^
+".\..\Hardware\Uart_comm.c", line 14: Warning:  #177-D: variable "dma_last_pos"  was declared but never referenced
+  static uint16_t dma_last_pos = 0;
+                  ^
+.\..\Hardware\Uart_comm.c: 1 warning, 1 error
+
+[2025-08-26 21:39:16]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+
+[2025-08-26 21:39:16]	compilation failed at : "c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c", exit code: 1
+command: 
+  "D:\Keilv5\ARM\ARMCC\bin\armcc.exe" -c --apcs=interwork -I. -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../USB_Device/App -I../USB_Device/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc -I../FreeRTOS -I../FreeRTOS/inc -I../FreeRTOS/port -I../FreeRTOS/src -I../App -I../bsp -I../Hardware -I../lvgl -I../lvgl/src -I../lvgl/examples/porting -I.cmsis/include -IRTE/_123 -D"USE_FULL_LL_DRIVER" -D"STM32G473xx" -D"USE_HAL_DRIVER" -D"__TARGET_FPU_VFP" --cpu Cortex-M4.fp --li --c99 -O3 --split_sections --diag_suppress=1 --diag_suppress=1295 -g -o .\build\123\.obj\__\Hardware\Uart_comm.o --no_depend_system_headers --depend .\build\123\.obj\__\Hardware\Uart_comm.d .\..\Hardware\Uart_comm.c
+   at unify_builder.Program.Main(String[] args_)
+---
+".\..\Hardware\Uart_comm.c", line 76: Error:  #165: too few arguments in function call
+    LL_DMA_SetPeriphAddress(DMA1, LL_DMA_CHANNEL_1, LL_USART_DMA_GetRegAddr(USART1));
+                                                                                  ^
+.\..\Hardware\Uart_comm.c: 0 warnings, 1 error
+
+[2025-08-26 21:42:50]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+
+[2025-08-26 21:42:52]	[done]
+	build successfully !
+
+[2025-08-26 22:00:07]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-26 22:00:09]	[done]
+	build successfully !
+
+[2025-08-26 22:01:12]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-26 22:01:13]	[done]
+	build successfully !
+
+[2025-08-26 22:03:25]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-26 22:03:26]	[done]
+	build successfully !
+
+[2025-08-26 22:09:22]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+
+[2025-08-26 22:09:23]	link failed !, exit code: 1
+   at unify_builder.Program.Main(String[] args_)
+---
+Error: L6200E: Symbol InitUartDma multiply defined (by Uart_comm.o and Uart_Debug.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 1 error messages.
+
+
+[2025-08-26 22:10:44]	[info] incremental build: 24 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\UART_DEBUG.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+
+[2025-08-26 22:10:47]	[done]
+	build successfully !
+
+[2025-08-26 22:11:11]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-26 22:11:12]	[done]
+	build successfully !
+
+[2025-08-26 22:11:36]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-26 22:11:37]	[done]
+	build successfully !
+
+[2025-08-26 22:18:10]	[info] incremental build: 24 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\UART_DEBUG.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_Debug.h' has been changed.
+
+[2025-08-26 22:18:13]	[done]
+	build successfully !
+
+[2025-08-26 22:26:13]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+
+[2025-08-26 22:26:14]	[done]
+	build successfully !
+
+[2025-08-26 22:26:23]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+
+[2025-08-26 22:26:24]	[done]
+	build successfully !
+
+[2025-08-26 22:27:51]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-26 22:27:52]	[done]
+	build successfully !
+
+[2025-08-26 22:29:53]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-26 22:29:54]	[done]
+	build successfully !
+
+[2025-08-26 22:35:12]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+
+[2025-08-26 22:35:13]	[done]
+	build successfully !
+
+[2025-08-26 22:37:23]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+
+[2025-08-26 22:37:24]	[done]
+	build successfully !
+
+[2025-08-26 22:39:01]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-26 22:39:03]	[done]
+	build successfully !
+
+[2025-08-26 22:39:27]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-26 22:39:28]	[done]
+	build successfully !
+
+[2025-08-26 22:40:01]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': source file has been changed.
+
+[2025-08-26 22:40:02]	[done]
+	build successfully !
+
+[2025-08-26 22:42:05]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': source file has been changed.
+
+[2025-08-26 22:42:07]	[done]
+	build successfully !
+
+[2025-08-26 22:42:39]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': source file has been changed.
+
+[2025-08-26 22:42:40]	[done]
+	build successfully !
+
+[2025-08-26 22:43:00]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': source file has been changed.
+
+[2025-08-26 22:43:01]	[done]
+	build successfully !
+
+[2025-08-26 22:43:31]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': source file has been changed.
+
+[2025-08-26 22:43:33]	[done]
+	build successfully !
+
+[2025-08-26 22:46:54]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-26 22:46:56]	[done]
+	build successfully !
+
+[2025-08-26 22:58:43]	[info] incremental build: 24 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Init.h' has been changed.
+
+[2025-08-26 22:58:46]	[done]
+	build successfully !
+
+[2025-08-26 23:09:56]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+
+[2025-08-26 23:09:57]	[done]
+	build successfully !
+
+[2025-08-26 23:12:07]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+
+[2025-08-26 23:12:08]	[done]
+	build successfully !
+

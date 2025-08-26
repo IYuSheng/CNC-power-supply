@@ -8,18 +8,23 @@ UART_TxStruct send_gather = {0};
 static SemaphoreHandle_t uart_mutex = NULL; //  串口发送互斥锁
 SemaphoreHandle_t uart_data_mutex = NULL; // 串口访问接收数据互斥锁
 SemaphoreHandle_t uart_send_mutex = NULL; // 串口发送数据互斥锁
+
+// 添加DMA相关变量
+static uint8_t dma_rx_buffer[UART1_RX_BUF_SIZE]; // DMA接收缓冲区
+static uint16_t dma_last_pos = 0;
+
+void InitUartDma(void);
+
 static void InitHardUart1(void)
 {
-  // 启用接收中断
-  LL_USART_EnableIT_RXNE(USART1);
   LL_USART_EnableIT_TC(USART1);
 
   uint32_t priority_group = NVIC_GetPriorityGrouping(); // 获取系统优先级分组
-  NVIC_SetPriority(USART1_IRQn, NVIC_EncodePriority(priority_group, 2, 0)); // 抢占优先级3，子优先级0
+  NVIC_SetPriority(USART1_IRQn, NVIC_EncodePriority(priority_group, 3, 0)); // 抢占优先级3，子优先级0
   NVIC_EnableIRQ(USART1_IRQn);
 
-  // 启用错误中断
-  LL_USART_EnableIT_ERROR(USART1);
+  // 初始化DMA
+  InitUartDma();
 }
 
 static void Uart1VarInit(void)
@@ -44,6 +49,43 @@ static void Uart1VarInit(void)
     {
       fr_printf("Send data mutex create failed");
     }
+}
+
+// DMA串口接收初始化函数
+void InitUartDma(void)
+{
+  // 使能DMA时钟
+  LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMA1);
+  
+  // 配置DMA通道
+  LL_DMA_SetPeriphRequest(DMA1, LL_DMA_CHANNEL_1, LL_DMAMUX_REQ_USART1_RX);
+  LL_DMA_SetDataTransferDirection(DMA1, LL_DMA_CHANNEL_1, LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
+  LL_DMA_SetChannelPriorityLevel(DMA1, LL_DMA_CHANNEL_1, LL_DMA_PRIORITY_HIGH);
+  LL_DMA_SetMode(DMA1, LL_DMA_CHANNEL_1, LL_DMA_MODE_CIRCULAR);
+  LL_DMA_SetPeriphIncMode(DMA1, LL_DMA_CHANNEL_1, LL_DMA_PERIPH_NOINCREMENT);
+  LL_DMA_SetMemoryIncMode(DMA1, LL_DMA_CHANNEL_1, LL_DMA_MEMORY_INCREMENT);
+  LL_DMA_SetPeriphSize(DMA1, LL_DMA_CHANNEL_1, LL_DMA_PDATAALIGN_BYTE);
+  LL_DMA_SetMemorySize(DMA1, LL_DMA_CHANNEL_1, LL_DMA_MDATAALIGN_BYTE);
+  
+  // 设置外设地址
+  LL_DMA_SetPeriphAddress(DMA1, LL_DMA_CHANNEL_1, LL_USART_DMA_GetRegAddr(USART1, LL_USART_DMA_REG_DATA_RECEIVE));
+  // 设置内存地址
+  LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_1, (uint32_t)dma_rx_buffer);
+  // 设置数据长度
+  LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_1, UART1_RX_BUF_SIZE);
+  
+  // 使能DMA传输完成中断
+  LL_DMA_EnableIT_TC(DMA1, LL_DMA_CHANNEL_1);
+  
+  // 配置DMA中断优先级
+  NVIC_SetPriority(DMA1_Channel1_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 1, 0));
+  NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+  
+  // 使能DMA通道
+  LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_1);
+  
+  // 使能USART的DMA接收
+  LL_USART_EnableDMAReq_RX(USART1);
 }
 
 void UART1_Send_IT(USART_TypeDef *USARTx, uint8_t *pData, uint16_t Size)
@@ -112,58 +154,60 @@ void UART1_Parse_Data(void)
 {
   static uint8_t parse_state = 0; // 0: 等待帧头, 1: 接收数据, 2: 等待帧尾
 
-	const uint16_t struct_size = sizeof(UART_RxStruct);
-	
-  while (uart1_dev.rx_buf.head != uart1_dev.rx_buf.tail)
+  const uint16_t struct_size = sizeof(UART_RxStruct);
+  
+  // 获取当前DMA写入位置
+  uint16_t dma_current_pos = UART1_RX_BUF_SIZE - LL_DMA_GetDataLength(DMA1, LL_DMA_CHANNEL_1);
+  
+  // 处理缓冲区中的数据
+  while (dma_last_pos != dma_current_pos)
+  {
+    uint8_t data = dma_rx_buffer[dma_last_pos];
+    dma_last_pos = (dma_last_pos + 1) % UART1_RX_BUF_SIZE;
+
+    switch (parse_state)
     {
-      taskENTER_CRITICAL();
-      uint8_t data = uart1_dev.rx_buf.buffer[uart1_dev.rx_buf.tail];
-      uart1_dev.rx_buf.tail = (uart1_dev.rx_buf.tail + 1) % UART1_RX_BUF_SIZE;
-      taskEXIT_CRITICAL();
-
-      switch (parse_state)
+      case 0: // 等待帧头
+        if (data == 0xAA)
         {
-        case 0: // 等待帧头
-          if (data == 0xAA)
-            {
-              uart1_dev.rx_parse_len = 0;
-              parse_state = 1;
-            }
-          break;
-
-        case 1: // 接收数据
-          if (uart1_dev.rx_parse_len < struct_size)
-            {
-              uart1_dev.rx_parse_buf[uart1_dev.rx_parse_len++] = data;
-
-              // 检查是否接收完整结构体
-              if (uart1_dev.rx_parse_len == struct_size)
-                {
-                  parse_state = 2;
-                }
-            }
-          else
-            {
-              // 缓冲区溢出，重置状态
-              parse_state = 0;
-            }
-          break;
-
-        case 2: // 等待帧尾
-          if (data == 0x55)
-            {
-              // 解析结构体数据
-              memcpy(&uart1_dev.rx_data, uart1_dev.rx_parse_buf, struct_size);
-
-              // 复制到全局变量
-              taskENTER_CRITICAL();
-              uart_rx_data = uart1_dev.rx_data;
-              taskEXIT_CRITICAL();
-            }
-          parse_state = 0; // 重置状态，无论是否成功
-          break;
+          uart1_dev.rx_parse_len = 0;
+          parse_state = 1;
         }
+        break;
+
+      case 1: // 接收数据
+        if (uart1_dev.rx_parse_len < struct_size)
+        {
+          uart1_dev.rx_parse_buf[uart1_dev.rx_parse_len++] = data;
+
+          // 检查是否接收完整结构体
+          if (uart1_dev.rx_parse_len == struct_size)
+          {
+            parse_state = 2;
+          }
+        }
+        else
+        {
+          // 缓冲区溢出，重置状态
+          parse_state = 0;
+        }
+        break;
+
+      case 2: // 等待帧尾
+        if (data == 0x55)
+        {
+          // 解析结构体数据
+          memcpy(&uart1_dev.rx_data, uart1_dev.rx_parse_buf, struct_size);
+
+          // 复制到全局变量
+          taskENTER_CRITICAL();
+          uart_rx_data = uart1_dev.rx_data;
+          taskEXIT_CRITICAL();
+        }
+        parse_state = 0; // 重置状态，无论是否成功
+        break;
     }
+  }
 }
 
 void UART1_Init(void)
@@ -173,36 +217,9 @@ void UART1_Init(void)
   Uart1VarInit();
 }
 
-// 串口1中断处理函数
+// 串口1中断处理发送函数
 void USART1_IRQHandler(void)
 {
-  // 错误处理（必须放在最前面）
-  if (LL_USART_IsActiveFlag_ORE(USART1) ||
-      LL_USART_IsActiveFlag_FE(USART1) ||
-      LL_USART_IsActiveFlag_NE(USART1))
-    {
-      // 清除错误标志
-      LL_USART_ClearFlag_ORE(USART1);
-      LL_USART_ClearFlag_FE(USART1);
-      LL_USART_ClearFlag_NE(USART1);
-
-      // 读取DR寄存器清除错误
-      (void)LL_USART_ReceiveData8(USART1);
-    }
-
-  // 接收中断
-  if(LL_USART_IsActiveFlag_RXNE(USART1))
-    {
-      uint8_t data = LL_USART_ReceiveData8(USART1);
-      uint16_t next_head = (uart1_dev.rx_buf.head + 1) % UART1_RX_BUF_SIZE;
-
-      if(next_head != uart1_dev.rx_buf.tail)
-        {
-          uart1_dev.rx_buf.buffer[uart1_dev.rx_buf.head] = data;
-          uart1_dev.rx_buf.head = next_head;
-        }
-    }
-
   // 发送中断处理
   if(LL_USART_IsActiveFlag_TC(USART1) && LL_USART_IsEnabledIT_TC(USART1))
     {
@@ -219,6 +236,16 @@ void USART1_IRQHandler(void)
           uart1_dev.tx_busy = 0;        // 标记发送完成
         }
     }
+}
+
+void DMA1_Channel1_IRQHandler(void)
+{
+  // 检查是否传输完成中断
+  if (LL_DMA_IsActiveFlag_TC1(DMA1))
+  {
+    // 清除中断标志
+    LL_DMA_ClearFlag_TC1(DMA1);
+  }
 }
 
 // 获取最新的UART接收数据（线程安全）
@@ -278,11 +305,18 @@ void vUart1ProcessTask(void *pvParameters)
     {
       UART1_Send_Struct(&send_gather);
       UART1_Parse_Data(); // 解析接收数据
-      // 访问解析后的结果
-//      fr_printf("Voltage: %dmV, Current: %dmA, Temp: %d℃\r\n",
-//                uart_rx_data.voltage_out/21,
-//                uart_rx_data.current_out/21,
-//                uart_rx_data.adc_tmp1);
-      vTaskDelay(pdMS_TO_TICKS(100));
+      // 发送给上位机
+      dma_printf("%d,%d,%d,%d,%d,%d,%d,%d,%d,%d",
+                 uart_rx_data.voltage_out,
+                 uart_rx_data.current_out,
+                 uart_rx_data.voltage_in,
+                 uart_rx_data.current_in,
+                 uart_rx_data.adc_tmp1,
+                 uart_rx_data.adc_tmp2,
+                 uart_rx_data.voltage_12V_in,
+                 uart_rx_data.voltage_5V_in,
+                 uart_rx_data.mode_stop,
+                 uart_rx_data.mode_flag);
+      vTaskDelay(pdMS_TO_TICKS(1));
     }
 }

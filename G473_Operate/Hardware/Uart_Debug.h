@@ -13,8 +13,8 @@
 
 extern uint8_t S_F;	//定义操作系统是否启动
 
-#define UART3_TX_BUF_SIZE	256
-#define UART3_RX_BUF_SIZE	512
+#define UART3_TX_BUF_SIZE	512
+#define UART3_RX_BUF_SIZE	256
 
 /* 串口环形缓冲区结构体 */
 typedef struct
@@ -39,6 +39,7 @@ extern UART_DEV uart3_dev;//外部声明串口设备结构体句柄
 void UART_Init(void);
 void UART_Send_IT(USART_TypeDef *USARTx, uint8_t *pData, uint16_t Size);
 void fr_printf(const char *format, ...);
+void dma_printf(const char *format, ...);
 void vUartProcessTask(void *pvParameters);
 
 #endif

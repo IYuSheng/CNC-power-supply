@@ -18,7 +18,7 @@ void DMA_Init(void)
   LL_DMA_SetPeriphAddress(ST7789_DMA, ST7789_DMA_CHANNEL, (uint32_t)&ST7789_SPI->DR);
 
   // …Ë÷√DMA÷–∂œ
-  NVIC_SetPriority(DMA1_Channel3_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 0, 0));
+  NVIC_SetPriority(DMA1_Channel3_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 2, 0));
   NVIC_EnableIRQ(DMA1_Channel3_IRQn);
   LL_DMA_EnableIT_TC(ST7789_DMA, ST7789_DMA_CHANNEL);
 }

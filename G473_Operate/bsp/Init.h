@@ -31,6 +31,7 @@
 #include "lv_port_disp.h"
 #include "LVGL_Init.h"
 
+
 /* 系统监控相关定义 */
 #if Monitor_Flag
 void Init_Monitor(void);

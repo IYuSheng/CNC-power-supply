@@ -58,8 +58,6 @@ void Comm_task_create(void)
   */
 void Watchdog_task_create(void)
 {
-  IWDG_Init(3000); // 3000ms³¬Ê±
-
   xReturn = xTaskCreate(vWatchdogTask, "Watchdog", 64,
                         NULL, TASK_PRIO_WATCHDOG, NULL);
   if (xReturn != pdPASS)
@@ -130,7 +128,7 @@ void Encoder_task_create(void)
   */
 void Control_task_create(void)
 {
-  xReturn = xTaskCreate(vControlTask, "Control", 256,
+  xReturn = xTaskCreate(vControlTask, "Control", 512,
                         NULL, TASK_PRIO_CONTROL, NULL);
   if (xReturn != pdPASS)
     {

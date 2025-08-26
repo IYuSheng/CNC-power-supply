@@ -1,7 +1,7 @@
 #include "LVGL_Init.h"
 
 // 启动画面持续时间（毫秒）
-#define SPLASH_SCREEN_DURATION 2500
+#define SPLASH_SCREEN_DURATION 3000
 
 // 启动画面对象
 static lv_obj_t * splash_screen;
@@ -44,7 +44,7 @@ static void splash_timer_cb(lv_timer_t * timer)
     // 1. 提前创建主屏幕（在后台准备，不立即显示）
     setup_scr_screen(&g_ui);
     if(g_ui.screen == NULL)
-    {
+    { 
         fr_printf("main screen create failed");
         return;
     }
@@ -372,7 +372,7 @@ static void setup_scr_screen(lv_ui_t *ui)
     lv_label_set_text(ui->screen_label_Voltage_now, "0.000");
     lv_label_set_long_mode(ui->screen_label_Voltage_now, LV_LABEL_LONG_WRAP);
     lv_obj_set_pos(ui->screen_label_Voltage_now, 10, 166);
-    lv_obj_set_size(ui->screen_label_Voltage_now, 86, 24);
+    lv_obj_set_size(ui->screen_label_Voltage_now, 90, 24);
 
     // 当前电压值样式
     lv_obj_set_style_border_width(ui->screen_label_Voltage_now, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -471,7 +471,7 @@ static void setup_scr_screen(lv_ui_t *ui)
     lv_label_set_text(ui->screen_label_Current_now, "0.000");
     lv_label_set_long_mode(ui->screen_label_Current_now, LV_LABEL_LONG_WRAP);
     lv_obj_set_pos(ui->screen_label_Current_now, 115, 166);
-    lv_obj_set_size(ui->screen_label_Current_now, 86, 25);
+    lv_obj_set_size(ui->screen_label_Current_now, 90, 25);
 
     // 当前电流值样式
     lv_obj_set_style_border_width(ui->screen_label_Current_now, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -732,7 +732,7 @@ static void setup_scr_screen(lv_ui_t *ui)
     lv_label_set_text(ui->screen_label_main, "0.000");
     lv_label_set_long_mode(ui->screen_label_main, LV_LABEL_LONG_WRAP);
     lv_obj_set_pos(ui->screen_label_main, 10, 52);
-    lv_obj_set_size(ui->screen_label_main, 240, 80);
+    lv_obj_set_size(ui->screen_label_main, 260, 80);
 
     // 主显示值样式
     lv_obj_set_style_border_width(ui->screen_label_main, 0, LV_PART_MAIN|LV_STATE_DEFAULT);

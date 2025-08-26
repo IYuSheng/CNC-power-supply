@@ -4,14 +4,21 @@ UART_DEV uart3_dev = {0};
 extern UART_TxStruct send_gather;
 static SemaphoreHandle_t uart_tx_mutex = NULL;
 
+// 添加DMA相关变量
+static uint8_t dma_tx_buffer[UART3_TX_BUF_SIZE];
+static SemaphoreHandle_t dma_tx_sem = NULL;
+
+void Init_UartDma(void);
+
 static void InitHardUart(void)
 {
   // 启用接收中断
   LL_USART_EnableIT_RXNE(USART3);
 
-  uint32_t priority_group = NVIC_GetPriorityGrouping(); // 获取系统优先级分组
-  NVIC_SetPriority(USART3_IRQn, NVIC_EncodePriority(priority_group, 3, 1)); // 抢占优先级3，子优先级0
+  NVIC_SetPriority(USART3_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 4, 0)); // 抢占优先级4，子优先级0
   NVIC_EnableIRQ(USART3_IRQn);
+
+  Init_UartDma();
 }
 
 static void UartVarInit(void)
@@ -23,6 +30,41 @@ static void UartVarInit(void)
   // 创建互斥锁保护发送资源
   uart_tx_mutex = xSemaphoreCreateMutex();
   configASSERT(uart_tx_mutex != NULL);
+
+  // 创建二值信号量用于DMA传输同步
+  dma_tx_sem = xSemaphoreCreateBinary();
+  configASSERT(dma_tx_sem != NULL);
+  // 初始化时给予一个令牌，表示DMA可用
+  xSemaphoreGive(dma_tx_sem);
+}
+
+void Init_UartDma(void)
+{
+  // 使能DMA时钟
+  LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMA1);
+  
+  // 配置DMA通道
+  LL_DMA_SetPeriphRequest(DMA1, LL_DMA_CHANNEL_2, LL_DMAMUX_REQ_USART3_TX);
+  LL_DMA_SetDataTransferDirection(DMA1, LL_DMA_CHANNEL_2, LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
+  LL_DMA_SetChannelPriorityLevel(DMA1, LL_DMA_CHANNEL_2, LL_DMA_PRIORITY_HIGH);
+  LL_DMA_SetMode(DMA1, LL_DMA_CHANNEL_2, LL_DMA_MODE_NORMAL);
+  LL_DMA_SetPeriphIncMode(DMA1, LL_DMA_CHANNEL_2, LL_DMA_PERIPH_NOINCREMENT);
+  LL_DMA_SetMemoryIncMode(DMA1, LL_DMA_CHANNEL_2, LL_DMA_MEMORY_INCREMENT);
+  LL_DMA_SetPeriphSize(DMA1, LL_DMA_CHANNEL_2, LL_DMA_PDATAALIGN_BYTE);
+  LL_DMA_SetMemorySize(DMA1, LL_DMA_CHANNEL_2, LL_DMA_MDATAALIGN_BYTE);
+  
+  // 设置外设地址
+  LL_DMA_SetPeriphAddress(DMA1, LL_DMA_CHANNEL_2, LL_USART_DMA_GetRegAddr(USART3, LL_USART_DMA_REG_DATA_TRANSMIT));
+  
+  // 使能DMA传输完成中断
+  LL_DMA_EnableIT_TC(DMA1, LL_DMA_CHANNEL_2);
+  
+  // 配置DMA中断优先级
+  NVIC_SetPriority(DMA1_Channel2_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 8, 0));
+  NVIC_EnableIRQ(DMA1_Channel2_IRQn);
+  
+  // 使能USART的DMA发送
+  LL_USART_EnableDMAReq_TX(USART3);
 }
 
 void UART_Send_IT(USART_TypeDef *USARTx, uint8_t *pData, uint16_t Size)
@@ -77,6 +119,29 @@ void UART_Send_IT(USART_TypeDef *USARTx, uint8_t *pData, uint16_t Size)
     }
 }
 
+// DMA发送函数
+void UART_Send_DMA(USART_TypeDef *USARTx, uint8_t *pData, uint16_t Size)
+{
+  if (Size > UART3_TX_BUF_SIZE) Size = UART3_TX_BUF_SIZE;
+  
+  // 等待上次DMA传输完成，使用信号量等待，超时100ms
+  if (xSemaphoreTake(dma_tx_sem, pdMS_TO_TICKS(100)) != pdTRUE)
+  {
+    // 如果超时，强制停止DMA传输
+    LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_2);
+  }
+  
+  // 复制数据到DMA缓冲区
+  memcpy(dma_tx_buffer, pData, Size);
+  
+  // 设置DMA内存地址和传输数据长度
+  LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_2, (uint32_t)dma_tx_buffer);
+  LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_2, Size);
+  
+  // 使能DMA通道开始传输
+  LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_2);
+}
+
 void fr_printf(const char *format, ...)
 {
   char buffer[UART3_TX_BUF_SIZE];
@@ -95,6 +160,26 @@ void fr_printf(const char *format, ...)
     }
 
   UART_Send_IT(USART3, (uint8_t *)buffer, len);
+}
+
+void dma_printf(const char *format, ...)
+{
+  char buffer[UART3_TX_BUF_SIZE];
+  va_list args;
+  va_start(args, format);
+  vsnprintf(buffer, sizeof(buffer), format, args);
+  va_end(args);
+
+  // 添加\r\n确保换行
+  size_t len = strlen(buffer);
+  if (len < sizeof(buffer) - 2)
+    {
+      buffer[len++] = '\r';
+      buffer[len++] = '\n';
+      buffer[len] = '\0';
+    }
+
+  UART_Send_DMA(USART3, (uint8_t *)buffer, len);
 }
 
 void UART_Init(void)
@@ -178,3 +263,23 @@ void USART3_IRQHandler(void)
         }
     }
 }
+
+// DMA发送中断处理函数
+void DMA1_Channel2_IRQHandler(void)
+{
+  // 检查是否传输完成中断
+  if (LL_DMA_IsActiveFlag_TC2(DMA1))
+  {
+    // 清除中断标志
+    LL_DMA_ClearFlag_TC2(DMA1);
+    
+    // 禁用DMA通道
+    LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_2);
+    
+    // 给信号量发送一个令牌，表示DMA传输完成
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    xSemaphoreGiveFromISR(dma_tx_sem, &xHigherPriorityTaskWoken);
+    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+  }
+}
+

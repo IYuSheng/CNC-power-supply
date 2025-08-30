@@ -104,11 +104,6 @@ void TriggerCommandProcessing(const char* cmdLine)
 
     /* 处理基本命令（如SetA、SetB等） */
     ProcessCommand(cmdLine);
-
-		/* 处理系统监视 */
-#if Monitor_Flag
-		vSystemMonitorTask(NULL);
-#endif
 }
 
 

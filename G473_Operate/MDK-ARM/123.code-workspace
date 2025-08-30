@@ -16,7 +16,8 @@
             "init.h": "c",
             "commandhandlers.h": "c",
             "uart_debug.h": "c",
-            "lv_port_disp.h": "c"
+            "lv_port_disp.h": "c",
+            "monitor.h": "c"
         }
     },
     "extensions": {}

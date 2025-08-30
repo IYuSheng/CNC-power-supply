@@ -1,7 +1,10 @@
 >>> cc
 
-
+".\..\bsp\Task_init.c", line 144: Warning:  #177-D: variable "cycle_count"  was declared but never referenced
+    uint8_t cycle_count = 0;
+            ^
+.\..\bsp\Task_init.c: 1 warning, 0 errors
 
 >>> ld
 
-Program Size: Code=175176 RO-data=128076 RW-data=1100 ZI-data=106140  
+Program Size: Code=175076 RO-data=128076 RW-data=1100 ZI-data=96924  

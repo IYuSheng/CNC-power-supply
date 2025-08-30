@@ -1,4 +1,4 @@
-arm-none-eabi-objcopy --update-section ER_IROM1="C:\Users\admin\AppData\Local\Temp\\123_S3M1K916.bin" "c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\build\123/123.axf" "c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\build\123/123.elf"
+arm-none-eabi-objcopy --update-section ER_IROM1="C:\Users\admin\AppData\Local\Temp\\123_4CIo1JK3.bin" "c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\build\123/123.axf" "c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\build\123/123.elf"
 
 arm-none-eabi-objcopy: c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\build\123/123.elf: warning: allocated section `RW_IRAM1' not in segment
 

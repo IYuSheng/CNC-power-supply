@@ -15,7 +15,7 @@
 #define configTICK_RATE_HZ				( ( TickType_t ) 1000 )
 #define configMAX_PRIORITIES			( 5 )	//定义系统支持的任务优先级数量。
 #define configMINIMAL_STACK_SIZE		( ( unsigned short ) 128 )	//空闲任务的最小堆栈大小
-#define configTOTAL_HEAP_SIZE			( ( size_t ) ( 40 * 1024 ) )	//FreeRTOS 动态内存池的总大小
+#define configTOTAL_HEAP_SIZE			( ( size_t ) ( 36 * 1024 ) )	//FreeRTOS 动态内存池的总大小
 #define configMAX_TASK_NAME_LEN			( 16 )
 #define configUSE_TRACE_FACILITY		1
 #define configUSE_16_BIT_TICKS			0
@@ -28,6 +28,8 @@
 #define configUSE_APPLICATION_TASK_TAG	0
 #define configUSE_COUNTING_SEMAPHORES	1
 
+#define INCLUDE_uxTaskGetStackHighWaterMark    1
+
 #define configGENERATE_RUN_TIME_STATS	0	//启用任务 CPU 使用率统计
 #if configGENERATE_RUN_TIME_STATS
 extern void configureTimerForRuntimeStats(void);
@@ -35,6 +37,7 @@ extern uint32_t getRuntimeCounterValue(void);
 #define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() configureTimerForRuntimeStats()
 #define portGET_RUN_TIME_COUNTER_VALUE() getRuntimeCounterValue()
 #define configUSE_STATS_FORMATTING_FUNCTIONS 1
+#define INCLUDE_xTaskGetIdleTaskHandle 1
 #endif
 
 
@@ -42,7 +45,7 @@ extern uint32_t getRuntimeCounterValue(void);
 #define configUSE_TIMERS				1		//启用软件定时器功能
 #define configTIMER_TASK_PRIORITY		( 2 )		//定时器服务任务的优先级
 #define configTIMER_QUEUE_LENGTH		10		//定时器命令队列长度
-#define configTIMER_TASK_STACK_DEPTH	( configMINIMAL_STACK_SIZE * 2 )	//定时器任务的堆栈大小
+#define configTIMER_TASK_STACK_DEPTH	( configMINIMAL_STACK_SIZE )	//定时器任务的堆栈大小
 
 /* Set the following definitions to 1 to include the API function, or zero
 to exclude the API function. */

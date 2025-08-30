@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\build\123\123.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\build\123\123.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Aug 30 00:19:07 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Aug 30 15:43:06 2025
 <BR><P>
-<H3>Maximum Stack Usage =       1144 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =       1296 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; Init_App &rArr; Gui_Init &rArr; create_splash_screen &rArr; lv_refr_now &rArr; _lv_disp_refr_timer &rArr; refr_invalid_areas &rArr; refr_area &rArr; refr_area_part &rArr; lv_draw_img &rArr; decode_and_draw &rArr; show_error &rArr; lv_draw_label &rArr; lv_txt_get_size &rArr; _lv_txt_get_next_line &rArr; lv_txt_get_next_word &rArr; lv_font_get_glyph_width &rArr; lv_font_get_glyph_dsc
+__rt_entry_main &rArr; main &rArr; vTaskStartScheduler &rArr; xTimerCreateTimerTask &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 <P>
 <H3>
 Functions with no stack information
@@ -635,8 +635,8 @@ Global Symbols
 <P><STRONG><a name="[628]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[155]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1144 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; Init_App &rArr; Gui_Init &rArr; create_splash_screen &rArr; lv_refr_now &rArr; _lv_disp_refr_timer &rArr; refr_invalid_areas &rArr; refr_area &rArr; refr_area_part &rArr; lv_draw_img &rArr; decode_and_draw &rArr; show_error &rArr; lv_draw_label &rArr; lv_txt_get_size &rArr; _lv_txt_get_next_line &rArr; lv_txt_get_next_word &rArr; lv_font_get_glyph_width &rArr; lv_font_get_glyph_dsc
+<BR><BR>[Stack]<UL><LI>Max Depth = 1296 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; vTaskStartScheduler &rArr; xTimerCreateTimerTask &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -670,7 +670,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[2c]"></a>PendSV_Handler</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, port.o(.emb_text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 680 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1192 + Unknown Stack Size
 <LI>Call Chain = PendSV_Handler &rArr; vTaskSwitchContext &rArr; vApplicationStackOverflowHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSwitchContext
@@ -969,9 +969,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sputc
 <LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vRunTimeTimerCallback
+<BR>[Called By]<UL><LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_ProcessOne
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vRunTimeTimerCallback
 <LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gui_Event_Data
-<LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_ProcessOne
 <LI><a href="#[3f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_y_ticks
 <LI><a href="#[3f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_x_ticks
 </UL>
@@ -1023,8 +1023,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
 <LI>Call Chain = __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_is_digit
-<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_percent
+<BR>[Calls]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_percent
+<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_is_digit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
 </UL>
@@ -1071,11 +1071,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[252]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_uart_rx_data
-<LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
+<BR><BR>[Called By]<UL><LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
 <LI><a href="#[251]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Parse_Data
 <LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_IT
 <LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_DMA
+<LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_uart_rx_data
 <LI><a href="#[5b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
 <LI><a href="#[5b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataFromQueue
 </UL>
@@ -1122,16 +1122,16 @@ Global Symbols
 <P><STRONG><a name="[1a2]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = __aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
+<BR>[Called By]<UL><LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Exti_Init
+<LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_uart_rx_data
+<LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
 <LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
 <LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM2_Init
 <LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
 <LI><a href="#[212]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C1_Init
 <LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
-<LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_uart_rx_data
-<LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Exti_Init
-<LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CommandProcessorInit
 <LI><a href="#[298]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refr_sync_areas
 <LI><a href="#[360]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_bg
@@ -1151,10 +1151,10 @@ Global Symbols
 <LI><a href="#[2b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_cache_match
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_decoder_built_in_open
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_decoder_built_in_info
-<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_event
 <LI><a href="#[3bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_main
 <LI><a href="#[2dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;allocate_btn_areas_and_controls
+<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[423]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;insert_handler
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_ctype
 <LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_numeric
@@ -1504,12 +1504,12 @@ Global Symbols
 <P><STRONG><a name="[18f]"></a>_scanf_really_real</STRONG> (Thumb, 684 bytes, Stack size 120 bytes, scanf_fp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 340<LI>Call Chain = _scanf_really_real &rArr; _fp_value &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
 </UL>
-<BR>[Calls]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_is_digit
-<LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_infnan
+<BR>[Calls]<UL><LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_infnan
 <LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_hex_real
 <LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_value
 <LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_narrow
 <LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_locale
+<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_is_digit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_scanf_real
 </UL>
@@ -1644,7 +1644,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g473xx.o(RESET)
 </UL>
 <P><STRONG><a name="[19d]"></a>Comm_task_create</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, Task_init.o(i.Comm_task_create))
-<BR><BR>[Stack]<UL><LI>Max Depth = 760 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1272 + Unknown Stack Size
 <LI>Call Chain = Comm_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -1663,7 +1663,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1a3]"></a>Control_task_create</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, Task_init.o(i.Control_task_create))
-<BR><BR>[Stack]<UL><LI>Max Depth = 760 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1272 + Unknown Stack Size
 <LI>Call Chain = Control_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -1733,7 +1733,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g473xx.o(RESET)
 </UL>
 <P><STRONG><a name="[1ac]"></a>Debug_uart_task_create</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, Task_init.o(i.Debug_uart_task_create))
-<BR><BR>[Stack]<UL><LI>Max Depth = 760 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1272 + Unknown Stack Size
 <LI>Call Chain = Debug_uart_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -1744,7 +1744,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1c]"></a>DefaultErrorHandler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, Debug.o(i.DefaultErrorHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 672 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1184 + Unknown Stack Size
 <LI>Call Chain = DefaultErrorHandler &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -1769,7 +1769,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1b5]"></a>Encoder_Init</STRONG> (Thumb, 96 bytes, Stack size 16 bytes, Encoder.o(i.Encoder_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 736 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1248 + Unknown Stack Size
 <LI>Call Chain = Encoder_Init &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_GPIO_IsInputPinSet
@@ -1789,7 +1789,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1b8]"></a>Encoder_task_create</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, Task_init.o(i.Encoder_task_create))
-<BR><BR>[Stack]<UL><LI>Max Depth = 760 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1272 + Unknown Stack Size
 <LI>Call Chain = Encoder_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -1800,7 +1800,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1a0]"></a>Error_Handler</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, Init.o(i.Error_Handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 672 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1184 + Unknown Stack Size
 <LI>Call Chain = Error_Handler &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -1900,7 +1900,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1cf]"></a>HAL_PCDEx_LPM_Callback</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, usbd_conf.o(i.HAL_PCDEx_LPM_Callback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 704 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1216 + Unknown Stack Size
 <LI>Call Chain = HAL_PCDEx_LPM_Callback &rArr; SystemClock_Config &rArr; Error_Handler &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
@@ -1982,7 +1982,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1e6]"></a>HAL_PCD_IRQHandler</STRONG> (Thumb, 330 bytes, Stack size 8 bytes, stm32g4xx_hal_pcd.o(i.HAL_PCD_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 712 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1224 + Unknown Stack Size
 <LI>Call Chain = HAL_PCD_IRQHandler &rArr; HAL_PCDEx_LPM_Callback &rArr; SystemClock_Config &rArr; Error_Handler &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USB_ReadInterrupts
@@ -2018,7 +2018,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1e9]"></a>HAL_PCD_ResetCallback</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, usbd_conf.o(i.HAL_PCD_ResetCallback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 688 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1200 + Unknown Stack Size
 <LI>Call Chain = HAL_PCD_ResetCallback &rArr; Error_Handler &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
@@ -2029,7 +2029,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1eb]"></a>HAL_PCD_ResumeCallback</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, usbd_conf.o(i.HAL_PCD_ResumeCallback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 696 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1208 + Unknown Stack Size
 <LI>Call Chain = HAL_PCD_ResumeCallback &rArr; SystemClock_Config &rArr; Error_Handler &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
@@ -2093,7 +2093,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1fd]"></a>HandleSetDAC</STRONG> (Thumb, 74 bytes, Stack size 24 bytes, Control.o(i.HandleSetDAC))
-<BR><BR>[Stack]<UL><LI>Max Depth = 696 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1208 + Unknown Stack Size
 <LI>Call Chain = HandleSetDAC &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -2126,25 +2126,28 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[207]"></a>Init_App</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, Init.o(i.Init_App))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1144 + Unknown Stack Size
-<LI>Call Chain = Init_App &rArr; Gui_Init &rArr; create_splash_screen &rArr; lv_refr_now &rArr; _lv_disp_refr_timer &rArr; refr_invalid_areas &rArr; refr_area &rArr; refr_area_part &rArr; lv_draw_img &rArr; decode_and_draw &rArr; show_error &rArr; lv_draw_label &rArr; lv_txt_get_size &rArr; _lv_txt_get_next_line &rArr; lv_txt_get_next_word &rArr; lv_font_get_glyph_width &rArr; lv_font_get_glyph_dsc
+<BR><BR>[Stack]<UL><LI>Max Depth = 1256 + Unknown Stack Size
+<LI>Call Chain = Init_App &rArr; Encoder_Init &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
 <LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RegisterAllCommands
-<LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IWDG_Init
-<LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gui_Init
 <LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Init
 <LI><a href="#[1b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Init
+<LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IWDG_Init
+<LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gui_Init
 <LI><a href="#[1a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CommandProcessorInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[20b]"></a>Init_Hardware</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, Init.o(i.Init_Hardware))
-<BR><BR>[Stack]<UL><LI>Max Depth = 744 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1256 + Unknown Stack Size
 <LI>Call Chain = Init_Hardware &rArr; UART1_Init &rArr; Uart1VarInit &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
+<LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Init
+<LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
+<LI><a href="#[215]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Init
 <LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
@@ -2152,9 +2155,6 @@ Global Symbols
 <LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
 <LI><a href="#[212]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C1_Init
 <LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
-<LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Init
-<LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
-<LI><a href="#[215]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DWT_Init
 <LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USB_Device_Init
 <LI><a href="#[1aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_Init
 </UL>
@@ -2172,7 +2172,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[209]"></a>Key_Init</STRONG> (Thumb, 152 bytes, Stack size 16 bytes, Key.o(i.Key_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 728 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1240 + Unknown Stack Size
 <LI>Call Chain = Key_Init &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[21a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_GPIO_IsInputPinSet
@@ -2191,8 +2191,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyScanTask
 </UL>
 
-<P><STRONG><a name="[21e]"></a>Key_task_create</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, Task_init.o(i.Key_task_create))
-<BR><BR>[Stack]<UL><LI>Max Depth = 760 + Unknown Stack Size
+<P><STRONG><a name="[21e]"></a>Key_task_create</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, Task_init.o(i.Key_task_create))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1272 + Unknown Stack Size
 <LI>Call Chain = Key_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -2211,14 +2211,14 @@ Global Symbols
 <P><STRONG><a name="[1b0]"></a>LL_GPIO_Init</STRONG> (Thumb, 310 bytes, Stack size 20 bytes, stm32g4xx_ll_gpio.o(i.LL_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = LL_GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
+<BR>[Called By]<UL><LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Exti_Init
+<LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
 <LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
 <LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM2_Init
 <LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
 <LI><a href="#[212]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_I2C1_Init
 <LI><a href="#[20c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
-<LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_Exti_Init
 </UL>
 
 <P><STRONG><a name="[22a]"></a>LL_I2C_Init</STRONG> (Thumb, 104 bytes, Stack size 8 bytes, stm32g4xx_ll_i2c.o(i.LL_I2C_Init))
@@ -2353,8 +2353,8 @@ Global Symbols
 <LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_GPIO_Init
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Hardware
-<LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Init
+<BR>[Called By]<UL><LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Init
+<LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Hardware
 </UL>
 
 <P><STRONG><a name="[237]"></a>MX_USART3_UART_Init</STRONG> (Thumb, 218 bytes, Stack size 88 bytes, usart.o(i.MX_USART3_UART_Init))
@@ -2372,7 +2372,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[211]"></a>MX_USB_Device_Init</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, usb_device.o(i.MX_USB_Device_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 688 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1200 + Unknown Stack Size
 <LI>Call Chain = MX_USB_Device_Init &rArr; USBD_Init &rArr; USBD_LL_Init &rArr; Error_Handler &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
@@ -2468,7 +2468,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[247]"></a>Storage_task_create</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, Task_init.o(i.Storage_task_create))
-<BR><BR>[Stack]<UL><LI>Max Depth = 760 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1272 + Unknown Stack Size
 <LI>Call Chain = Storage_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -2486,7 +2486,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g473xx.o(RESET)
 </UL>
 <P><STRONG><a name="[1d1]"></a>SystemClock_Config</STRONG> (Thumb, 200 bytes, Stack size 16 bytes, Init.o(i.SystemClock_Config))
-<BR><BR>[Stack]<UL><LI>Max Depth = 688 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1200 + Unknown Stack Size
 <LI>Call Chain = SystemClock_Config &rArr; Error_Handler &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
@@ -2503,7 +2503,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g473xx.o(.text)
 </UL>
 <P><STRONG><a name="[24b]"></a>TFT_task_create</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, Task_init.o(i.TFT_task_create))
-<BR><BR>[Stack]<UL><LI>Max Depth = 760 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1272 + Unknown Stack Size
 <LI>Call Chain = TFT_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -2514,7 +2514,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[24c]"></a>Test_task_create</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, Task_init.o(i.Test_task_create))
-<BR><BR>[Stack]<UL><LI>Max Depth = 760 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1272 + Unknown Stack Size
 <LI>Call Chain = Test_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -2525,7 +2525,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[24d]"></a>Timer_Init</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, GUI_Change.o(i.Timer_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 768 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1280 + Unknown Stack Size
 <LI>Call Chain = Timer_Init &rArr; xTimerCreate &rArr; prvCheckForValidListAndQueue &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreate
@@ -2551,15 +2551,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[20e]"></a>UART1_Init</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, Uart_comm.o(i.UART1_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 736 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1248 + Unknown Stack Size
 <LI>Call Chain = UART1_Init &rArr; Uart1VarInit &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
-<LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitUartDma
+<BR>[Calls]<UL><LI><a href="#[203]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitUartDma
 <LI><a href="#[205]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
 <LI><a href="#[206]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
 <LI><a href="#[250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart1VarInit
 <LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EncodePriority
+<LI><a href="#[210]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Hardware
 </UL>
@@ -2575,7 +2575,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[255]"></a>UART1_Send_IT</STRONG> (Thumb, 174 bytes, Stack size 32 bytes, Uart_comm.o(i.UART1_Send_IT))
-<BR><BR>[Stack]<UL><LI>Max Depth = 704 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1216 + Unknown Stack Size
 <LI>Call Chain = UART1_Send_IT &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -2588,7 +2588,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[257]"></a>UART1_Send_Struct</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, Uart_comm.o(i.UART1_Send_Struct))
-<BR><BR>[Stack]<UL><LI>Max Depth = 728 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1240 + Unknown Stack Size
 <LI>Call Chain = UART1_Send_Struct &rArr; UART1_Send_IT &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
@@ -2597,15 +2597,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[20d]"></a>UART_Init</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, Uart_Debug.o(i.UART_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 736 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1248 + Unknown Stack Size
 <LI>Call Chain = UART_Init &rArr; UartVarInit &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
-<LI><a href="#[216]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_UartDma
+<BR>[Calls]<UL><LI><a href="#[216]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_UartDma
 <LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
 <LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
 <LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UartVarInit
 <LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EncodePriority
+<LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[20b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Hardware
 </UL>
@@ -2777,7 +2777,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[238]"></a>USBD_Init</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, usbd_core.o(i.USBD_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 680 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1192 + Unknown Stack Size
 <LI>Call Chain = USBD_Init &rArr; USBD_LL_Init &rArr; Error_Handler &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[26c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_LL_Init
@@ -2824,7 +2824,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[26c]"></a>USBD_LL_Init</STRONG> (Thumb, 108 bytes, Stack size 8 bytes, usbd_conf.o(i.USBD_LL_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 680 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1192 + Unknown Stack Size
 <LI>Call Chain = USBD_LL_Init &rArr; Error_Handler &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_Init
@@ -3063,7 +3063,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[42]"></a>USB_LP_IRQHandler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32g4xx_it.o(i.USB_LP_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 712 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1224 + Unknown Stack Size
 <LI>Call Chain = USB_LP_IRQHandler &rArr; HAL_PCD_IRQHandler &rArr; HAL_PCDEx_LPM_Callback &rArr; SystemClock_Config &rArr; Error_Handler &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_IRQHandler
@@ -3100,7 +3100,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g473xx.o(RESET)
 </UL>
 <P><STRONG><a name="[27c]"></a>Watchdog_task_create</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, Task_init.o(i.Watchdog_task_create))
-<BR><BR>[Stack]<UL><LI>Max Depth = 760 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1272 + Unknown Stack Size
 <LI>Call Chain = Watchdog_task_create &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -3839,8 +3839,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gui_Init
 </UL>
 
-<P><STRONG><a name="[1ff]"></a>dma_printf</STRONG> (Thumb, 76 bytes, Stack size 536 bytes, Uart_Debug.o(i.dma_printf))
-<BR><BR>[Stack]<UL><LI>Max Depth = 664 + Unknown Stack Size
+<P><STRONG><a name="[1ff]"></a>dma_printf</STRONG> (Thumb, 82 bytes, Stack size 1048 bytes, Uart_Debug.o(i.dma_printf))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1176 + Unknown Stack Size
 <LI>Call Chain = dma_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_DMA
@@ -3873,8 +3873,8 @@ Global Symbols
 <LI><a href="#[376]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_border
 </UL>
 
-<P><STRONG><a name="[19f]"></a>fr_printf</STRONG> (Thumb, 76 bytes, Stack size 536 bytes, Uart_Debug.o(i.fr_printf))
-<BR><BR>[Stack]<UL><LI>Max Depth = 672 + Unknown Stack Size
+<P><STRONG><a name="[19f]"></a>fr_printf</STRONG> (Thumb, 82 bytes, Stack size 1048 bytes, Uart_Debug.o(i.fr_printf))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1184 + Unknown Stack Size
 <LI>Call Chain = fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_IT
@@ -3885,6 +3885,9 @@ Global Symbols
 <LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HandleSetVoltage
 <LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HandleSetGather
 <LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HandleSetCurrent
+<LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
+<LI><a href="#[250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart1VarInit
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;splash_timer_cb
 <LI><a href="#[27c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Watchdog_task_create
 <LI><a href="#[24c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Test_task_create
 <LI><a href="#[24b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFT_task_create
@@ -3898,9 +3901,6 @@ Global Symbols
 <LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Comm_task_create
 <LI><a href="#[5de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationStackOverflowHook
 <LI><a href="#[5ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationMallocFailedHook
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;splash_timer_cb
-<LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
-<LI><a href="#[250]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart1VarInit
 <LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 <LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DefaultErrorHandler
 </UL>
@@ -3927,7 +3927,6 @@ Global Symbols
 <LI><a href="#[252]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gui_Event_Data
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPrintTask
 </UL>
 
 <P><STRONG><a name="[1bd]"></a>get_uart_tx_data</STRONG> (Thumb, 58 bytes, Stack size 24 bytes, Uart_comm.o(i.get_uart_tx_data))
@@ -4144,8 +4143,8 @@ Global Symbols
 <LI><a href="#[5d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refr_area_part
 <LI><a href="#[5cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refr_area
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_draw_sw_letter
-<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_arc_event
+<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 </UL>
 
 <P><STRONG><a name="[af]"></a>lv_area_set_height</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, lv_area.o(i.lv_area_set_height))
@@ -4235,8 +4234,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[45d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_clear_btn_ctrl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[464]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
-<LI><a href="#[463]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;make_one_button_checked
+<BR>[Called By]<UL><LI><a href="#[463]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;make_one_button_checked
+<LI><a href="#[464]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
 </UL>
 
 <P><STRONG><a name="[5ac]"></a>lv_btnmatrix_has_btn_ctrl</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, lv_btnmatrix.o(i.lv_btnmatrix_has_btn_ctrl))
@@ -4285,12 +4284,12 @@ Global Symbols
 <LI><a href="#[2c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_ll_get_len
 <LI><a href="#[39d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_top
 <LI><a href="#[39c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_left
-<LI><a href="#[3e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_get_x_start_point
 <LI><a href="#[39b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_top
 <LI><a href="#[39a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_left
 <LI><a href="#[3e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_column
 <LI><a href="#[399]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_border_width
 <LI><a href="#[3ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_map
+<LI><a href="#[3e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_get_x_start_point
 </UL>
 <BR>[Called By]<UL><LI><a href="#[390]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_cursors
 </UL>
@@ -5285,10 +5284,10 @@ Global Symbols
 <LI><a href="#[434]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;layer_alpha_test
 <LI><a href="#[4a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_move_to_index
 <LI><a href="#[4f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obj_del_core
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
-<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[421]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;item_repos
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;grid_update
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
+<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_event
 <LI><a href="#[3f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_y_ticks
 <LI><a href="#[3f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_x_ticks
@@ -6210,7 +6209,6 @@ Global Symbols
 <LI><a href="#[4bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_decoder_built_in_line_alpha
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_draw_sw_polygon
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_draw_sw_img_decoded
-<LI><a href="#[3fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_track_end
 <LI><a href="#[377]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_border_generic
 <LI><a href="#[3f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shadow_draw_corner_buf
 <LI><a href="#[5d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shadow_blur_corner
@@ -6222,6 +6220,7 @@ Global Symbols
 <LI><a href="#[3b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_letter_normal
 <LI><a href="#[304]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calc_rows
 <LI><a href="#[305]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calc_cols
+<LI><a href="#[3fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_track_end
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_main
 <LI><a href="#[557]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_roller_set_options
 <LI><a href="#[2e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwd_char_hider
@@ -6237,8 +6236,6 @@ Global Symbols
 <LI><a href="#[4bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_decoder_built_in_line_alpha
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_draw_sw_polygon
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_draw_sw_img_decoded
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
-<LI><a href="#[3fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_track_end
 <LI><a href="#[377]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_border_generic
 <LI><a href="#[3f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shadow_draw_corner_buf
 <LI><a href="#[5d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shadow_blur_corner
@@ -6249,6 +6246,8 @@ Global Symbols
 <LI><a href="#[3b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_line_hor
 <LI><a href="#[3b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_letter_normal
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;grid_update
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
+<LI><a href="#[3fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_track_end
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_main
 <LI><a href="#[557]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_roller_set_options
 <LI><a href="#[2e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwd_char_hider
@@ -6353,9 +6352,9 @@ Global Symbols
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;kill_oldest_item
 <LI><a href="#[48f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;map_normal
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_draw_sw_buffer_copy
-<LI><a href="#[3fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_track_end
 <LI><a href="#[5d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shadow_blur_corner
 <LI><a href="#[3ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_shadow
+<LI><a href="#[3fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_track_end
 <LI><a href="#[390]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_cursors
 <LI><a href="#[4dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_tlsf_realloc
 <LI><a href="#[4b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_fs_read_cached
@@ -6464,13 +6463,13 @@ Global Symbols
 <LI><a href="#[3e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scrollbar_area
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_splash_screen
-<LI><a href="#[464]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btn_constructor
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_arc_constructor
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_constructor
 <LI><a href="#[2fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_dropdown_close
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_dropdownlist_constructor
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_dropdown_constructor
+<LI><a href="#[464]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_switch_constructor
 <LI><a href="#[5a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_cursor_position_on_click
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_textarea_constructor
@@ -6572,7 +6571,6 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 172<LI>Call Chain = lv_obj_calculate_ext_draw_size &rArr; lv_obj_get_style_shadow_width &rArr; lv_obj_get_style_prop &rArr; get_prop_core &rArr; lv_style_get_prop &rArr; lv_style_get_prop_inlined &rArr; lv_style_prop_get_default &rArr; lv_color_make
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_shadow_width
-<LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 <LI><a href="#[4eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_shadow_spread
 <LI><a href="#[4ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_shadow_opa
 <LI><a href="#[4ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_shadow_ofs_y
@@ -6580,6 +6578,7 @@ Global Symbols
 <LI><a href="#[4ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_outline_width
 <LI><a href="#[4f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_outline_pad
 <LI><a href="#[4ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_outline_opa
+<LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_event
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_bar_event
@@ -6771,11 +6770,11 @@ Global Symbols
 <P><STRONG><a name="[303]"></a>lv_obj_get_child</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, lv_obj_tree.o(i.lv_obj_get_child))
 <BR><BR>[Called By]<UL><LI><a href="#[509]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_index
 <LI><a href="#[4f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;obj_del_core
-<LI><a href="#[3fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_track_end
-<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[304]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calc_rows
 <LI><a href="#[305]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calc_cols
 <LI><a href="#[302]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calc
+<LI><a href="#[3fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_track_end
+<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[37c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_label
 <LI><a href="#[3cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_label
 </UL>
@@ -6840,9 +6839,9 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_refr_size
 <LI><a href="#[43a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_refr_pos
 <LI><a href="#[4a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_align_to
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
 <LI><a href="#[304]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calc_rows
 <LI><a href="#[302]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calc
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
 <LI><a href="#[396]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_get_point_pos_by_id
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_event
 <LI><a href="#[3f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_y_ticks
@@ -6850,9 +6849,9 @@ Global Symbols
 <LI><a href="#[3ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_series_line
 <LI><a href="#[3e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_series_bar
 <LI><a href="#[398]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_div_lines
-<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_event
 <LI><a href="#[49d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;position_to_selected
+<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[55a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refr_position
 <LI><a href="#[422]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inf_normalize
 <LI><a href="#[595]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_textarea_set_cursor_pos
@@ -6869,10 +6868,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_refr_size
 <LI><a href="#[43a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_refr_pos
 <LI><a href="#[4a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_align_to
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
-<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[305]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calc_cols
 <LI><a href="#[302]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calc
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
+<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[396]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_get_point_pos_by_id
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_event
 <LI><a href="#[42d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invalidate_point
@@ -6961,9 +6960,9 @@ Global Symbols
 <LI><a href="#[2cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_obj_style_create_transition
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_event
 <LI><a href="#[50b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_bottom
-<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[421]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;item_repos
 <LI><a href="#[304]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calc_rows
+<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[402]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_button_from_point
 <LI><a href="#[406]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_center
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_event
@@ -7029,8 +7028,8 @@ Global Symbols
 <LI><a href="#[5d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refr_obj_and_children
 <LI><a href="#[4a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_move_to_index
 <LI><a href="#[509]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_index
-<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[421]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;item_repos
+<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;theme_apply
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scroll_anim_ready_cb
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_roller_label_event
@@ -7165,8 +7164,8 @@ Global Symbols
 <LI><a href="#[4e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_right
 <LI><a href="#[39c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_left
 <LI><a href="#[53a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_scroll_by_bounded
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;grid_update
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
 <LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_line_event
 <LI><a href="#[416]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_pressed_cell
 <LI><a href="#[405]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_cell_area
@@ -7182,8 +7181,8 @@ Global Symbols
 <LI><a href="#[52d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_scroll_by
 <LI><a href="#[50b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_bottom
 <LI><a href="#[53a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_scroll_by_bounded
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;grid_update
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
 <LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_line_event
 <LI><a href="#[416]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_pressed_cell
 <LI><a href="#[405]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_cell_area
@@ -7333,13 +7332,6 @@ Global Symbols
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;trans_anim_start_cb
 <LI><a href="#[518]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_opa
 <LI><a href="#[530]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refr_obj
-<LI><a href="#[3fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_column
-<LI><a href="#[3fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_height
-<LI><a href="#[32c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_flex_grow
-<LI><a href="#[32a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_base_dir
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
-<LI><a href="#[3fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_track_end
-<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[309]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_width
 <LI><a href="#[307]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_row
 <LI><a href="#[306]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_column
@@ -7356,6 +7348,13 @@ Global Symbols
 <LI><a href="#[302]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calc
 <LI><a href="#[3fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_width
 <LI><a href="#[3fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_row
+<LI><a href="#[3fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_column
+<LI><a href="#[3fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_height
+<LI><a href="#[32c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_flex_grow
+<LI><a href="#[32a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_base_dir
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
+<LI><a href="#[3fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_track_end
+<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[394]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_width
 <LI><a href="#[39b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_top
 <LI><a href="#[39f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_right
@@ -7366,7 +7365,6 @@ Global Symbols
 <LI><a href="#[399]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_border_width
 <LI><a href="#[42d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invalidate_point
 <LI><a href="#[398]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_div_lines
-<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[3be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_top
 <LI><a href="#[403]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_row
 <LI><a href="#[3c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_right
@@ -7395,6 +7393,7 @@ Global Symbols
 <LI><a href="#[3c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_top
 <LI><a href="#[3c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_border_width
 <LI><a href="#[3c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_main
+<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[58f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_switch_trigger_anim
 <LI><a href="#[3d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_top
 <LI><a href="#[3d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_right
@@ -7468,9 +7467,9 @@ Global Symbols
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_event
 <LI><a href="#[4e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_right
 <LI><a href="#[39c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_left
-<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[421]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;item_repos
 <LI><a href="#[305]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calc_cols
+<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[402]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_button_from_point
 <LI><a href="#[406]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_center
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_event
@@ -7539,11 +7538,11 @@ Global Symbols
 <LI><a href="#[4e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_right
 <LI><a href="#[39c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_left
 <LI><a href="#[50b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_bottom
-<LI><a href="#[3fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_track_end
-<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[421]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;item_repos
 <LI><a href="#[304]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calc_rows
 <LI><a href="#[305]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calc_cols
+<LI><a href="#[3fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_track_end
+<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 </UL>
 
 <P><STRONG><a name="[4df]"></a>lv_obj_has_state</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, lv_obj.o(i.lv_obj_has_state))
@@ -7554,8 +7553,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = lv_obj_init_draw_arc_dsc &rArr; _lv_obj_style_apply_color_filter &rArr; lv_obj_get_style_prop &rArr; get_prop_core &rArr; lv_style_get_prop &rArr; lv_style_get_prop_inlined &rArr; lv_style_prop_get_default &rArr; lv_color_make
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_obj_style_apply_color_filter
-<LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 <LI><a href="#[514]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_blend_mode
+<LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 <LI><a href="#[519]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_opa_recursive
 </UL>
 <BR>[Called By]<UL><LI><a href="#[448]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_arc_draw
@@ -7565,8 +7564,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = lv_obj_init_draw_img_dsc &rArr; _lv_obj_style_apply_color_filter &rArr; lv_obj_get_style_prop &rArr; get_prop_core &rArr; lv_style_get_prop &rArr; lv_style_get_prop_inlined &rArr; lv_style_prop_get_default &rArr; lv_color_make
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_obj_style_apply_color_filter
-<LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 <LI><a href="#[514]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_blend_mode
+<LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 <LI><a href="#[519]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_opa_recursive
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_img
@@ -7578,8 +7577,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[521]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_text_font
 <LI><a href="#[520]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_text_color_filtered
-<LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 <LI><a href="#[514]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_blend_mode
+<LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 <LI><a href="#[519]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_opa_recursive
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_y_ticks
@@ -7600,8 +7599,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = lv_obj_init_draw_line_dsc &rArr; _lv_obj_style_apply_color_filter &rArr; lv_obj_get_style_prop &rArr; get_prop_core &rArr; lv_style_get_prop &rArr; lv_style_get_prop_inlined &rArr; lv_style_prop_get_default &rArr; lv_color_make
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_obj_style_apply_color_filter
-<LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 <LI><a href="#[514]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_blend_mode
+<LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 <LI><a href="#[519]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_opa_recursive
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_y_ticks
@@ -7622,7 +7621,6 @@ Global Symbols
 <LI><a href="#[521]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_text_font
 <LI><a href="#[520]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_text_color_filtered
 <LI><a href="#[4e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_shadow_width
-<LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 <LI><a href="#[4eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_shadow_spread
 <LI><a href="#[4ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_shadow_opa
 <LI><a href="#[4ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_shadow_ofs_y
@@ -7632,6 +7630,7 @@ Global Symbols
 <LI><a href="#[4ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_outline_opa
 <LI><a href="#[514]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_blend_mode
 <LI><a href="#[513]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_bg_color_filtered
+<LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 <LI><a href="#[519]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_opa_recursive
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_draw
@@ -7680,10 +7679,9 @@ Global Symbols
 <LI><a href="#[534]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refresh_children_style
 <LI><a href="#[2ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_label_set_text_fmt
 <LI><a href="#[4a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_move_to_index
-<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[421]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;item_repos
+<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[42d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invalidate_point
-<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[45a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_bar_set_value_with_anim
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_bar_anim_ready
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_bar_anim
@@ -7694,6 +7692,7 @@ Global Symbols
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_dropdown_list_event
 <LI><a href="#[440]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;list_release_handler
 <LI><a href="#[2f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;btn_release_handler
+<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_switch_event
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_switch_anim_ready
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_switch_anim_exec_cb
@@ -7802,8 +7801,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[52b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_move_to
 <LI><a href="#[2c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_move_children_by
 <LI><a href="#[2c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_obj_scroll_by_raw
-<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[421]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;item_repos
+<LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 </UL>
 
 <P><STRONG><a name="[52b]"></a>lv_obj_move_to</STRONG> (Thumb, 282 bytes, Stack size 48 bytes, lv_obj_pos.o(i.lv_obj_move_to))
@@ -7921,8 +7920,8 @@ Global Symbols
 <LI><a href="#[39c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_left
 </UL>
 <BR>[Called By]<UL><LI><a href="#[439]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;layout_update_core
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;grid_update
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
 </UL>
 
 <P><STRONG><a name="[45e]"></a>lv_obj_refresh_ext_draw_size</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, lv_obj_draw.o(i.lv_obj_refresh_ext_draw_size))
@@ -7939,10 +7938,10 @@ Global Symbols
 <LI><a href="#[3ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_refr_size
 <LI><a href="#[4e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_refresh_style
 <LI><a href="#[4e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_state
-<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
-<LI><a href="#[464]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
 <LI><a href="#[45d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_clear_btn_ctrl
 <LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_event
+<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
+<LI><a href="#[464]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_slider_event
 <LI><a href="#[557]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_roller_set_options
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_roller_event
@@ -9627,8 +9626,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[156]"></a>main</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1144 + Unknown Stack Size
-<LI>Call Chain = main &rArr; Init_App &rArr; Gui_Init &rArr; create_splash_screen &rArr; lv_refr_now &rArr; _lv_disp_refr_timer &rArr; refr_invalid_areas &rArr; refr_area &rArr; refr_area_part &rArr; lv_draw_img &rArr; decode_and_draw &rArr; show_error &rArr; lv_draw_label &rArr; lv_txt_get_size &rArr; _lv_txt_get_next_line &rArr; lv_txt_get_next_word &rArr; lv_font_get_glyph_width &rArr; lv_font_get_glyph_dsc
+<BR><BR>[Stack]<UL><LI>Max Depth = 1296 + Unknown Stack Size
+<LI>Call Chain = main &rArr; vTaskStartScheduler &rArr; xTimerCreateTimerTask &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 <LI><a href="#[27c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Watchdog_task_create
@@ -9649,7 +9648,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5cb]"></a>pvPortMalloc</STRONG> (Thumb, 200 bytes, Stack size 16 bytes, heap_4.o(i.pvPortMalloc))
-<BR><BR>[Stack]<UL><LI>Max Depth = 688 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1200 + Unknown Stack Size
 <LI>Call Chain = pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationMallocFailedHook
@@ -9658,8 +9657,8 @@ Global Symbols
 <LI><a href="#[5cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
 <LI><a href="#[5cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvHeapInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreate
-<LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Called By]<UL><LI><a href="#[19e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreate
 <LI><a href="#[21b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
 </UL>
 
@@ -9698,7 +9697,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5ce]"></a>vApplicationMallocFailedHook</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(i.vApplicationMallocFailedHook))
-<BR><BR>[Stack]<UL><LI>Max Depth = 672 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1184 + Unknown Stack Size
 <LI>Call Chain = vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -9707,7 +9706,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5de]"></a>vApplicationStackOverflowHook</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(i.vApplicationStackOverflowHook))
-<BR><BR>[Stack]<UL><LI>Max Depth = 672 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1184 + Unknown Stack Size
 <LI>Call Chain = vApplicationStackOverflowHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -9740,9 +9739,9 @@ Global Symbols
  + In Cycle
 <LI>Call Chain = vKeyScanTask &rArr;  vKeyScanTask (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyScanTask
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyScanTask
 <LI><a href="#[21d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Scan
+<LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyScanTask
 </UL>
@@ -9755,8 +9754,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5bb]"></a>vListInitialiseItem</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, list.o(i.vListInitialiseItem))
-<BR><BR>[Called By]<UL><LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreate
-<LI><a href="#[5ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<BR><BR>[Called By]<UL><LI><a href="#[5ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreate
 </UL>
 
 <P><STRONG><a name="[5b0]"></a>vListInsert</STRONG> (Thumb, 48 bytes, Stack size 12 bytes, list.o(i.vListInsert))
@@ -9826,12 +9825,11 @@ Global Symbols
 <LI><a href="#[5ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
 </UL>
 
-<P><STRONG><a name="[9a]"></a>vPrintTask</STRONG> (Thumb, 122 bytes, Stack size 104 bytes, Task_init.o(i.vPrintTask))
-<BR><BR>[Stack]<UL><LI>Max Depth = 768 + Unknown Stack Size
+<P><STRONG><a name="[9a]"></a>vPrintTask</STRONG> (Thumb, 42 bytes, Stack size 64 bytes, Task_init.o(i.vPrintTask))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1240 + Unknown Stack Size
 <LI>Call Chain = vPrintTask &rArr; dma_printf &rArr; vsnprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dma_printf
-<LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_uart_rx_data
 <LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[5c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
 </UL>
@@ -9871,7 +9869,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> Task_init.o(i.Storage_task_create)
 </UL>
 <P><STRONG><a name="[99]"></a>vTFTTask</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, st7789.o(i.vTFTTask))
-<BR><BR>[Stack]<UL><LI>Max Depth = 768 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1280 + Unknown Stack Size
 <LI>Call Chain = vTFTTask &rArr; Timer_Init &rArr; xTimerCreate &rArr; prvCheckForValidListAndQueue &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer_Init
@@ -9888,14 +9886,14 @@ Global Symbols
 <LI><a href="#[5c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 <LI><a href="#[5c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vWatchdogTask
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControlTask
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vUart1ProcessTask
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vUart1ProcessTask
 <LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vUartProcessTask
 <LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_IT
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyScanTask
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vEncoderTask
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vWatchdogTask
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vControlTask
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTFTTask
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vStorageTask
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPrintTask
@@ -9940,7 +9938,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5ab]"></a>vTaskStartScheduler</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, tasks.o(i.vTaskStartScheduler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 784 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1296 + Unknown Stack Size
 <LI>Call Chain = vTaskStartScheduler &rArr; xTimerCreateTimerTask &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
@@ -9951,8 +9949,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5c5]"></a>vTaskSuspendAll</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, tasks.o(i.vTaskSuspendAll))
-<BR><BR>[Called By]<UL><LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[5c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
+<BR><BR>[Called By]<UL><LI><a href="#[5c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
+<LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[5b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[5cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 <LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
@@ -9961,7 +9959,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[15c]"></a>vTaskSwitchContext</STRONG> (Thumb, 126 bytes, Stack size 8 bytes, tasks.o(i.vTaskSwitchContext))
-<BR><BR>[Stack]<UL><LI>Max Depth = 680 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1192 + Unknown Stack Size
 <LI>Call Chain = vTaskSwitchContext &rArr; vApplicationStackOverflowHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationStackOverflowHook
@@ -9970,20 +9968,20 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[93]"></a>vUart1ProcessTask</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, Uart_comm.o(i.vUart1ProcessTask))
-<BR><BR>[Stack]<UL><LI>Max Depth = 728 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1240 + Unknown Stack Size
 <LI>Call Chain = vUart1ProcessTask &rArr; UART1_Send_Struct &rArr; UART1_Send_IT &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[257]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_Struct
+<BR>[Calls]<UL><LI><a href="#[257]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_Struct
 <LI><a href="#[251]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Parse_Data
+<LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> Task_init.o(i.Comm_task_create)
 </UL>
 <P><STRONG><a name="[95]"></a>vUartProcessTask</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, Uart_Debug.o(i.vUartProcessTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vUartProcessTask &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[24f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TriggerCommandProcessing
+<BR>[Calls]<UL><LI><a href="#[24f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TriggerCommandProcessing
+<LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[254]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[253]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 <LI><a href="#[27b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
@@ -10008,7 +10006,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1b6]"></a>xQueueCreateMutex</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, queue.o(i.xQueueCreateMutex))
-<BR><BR>[Stack]<UL><LI>Max Depth = 720 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1232 + Unknown Stack Size
 <LI>Call Chain = xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
@@ -10020,7 +10018,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[21b]"></a>xQueueGenericCreate</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, queue.o(i.xQueueGenericCreate))
-<BR><BR>[Stack]<UL><LI>Max Depth = 712 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1224 + Unknown Stack Size
 <LI>Call Chain = xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
@@ -10058,16 +10056,16 @@ Global Symbols
 <LI><a href="#[5b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
 <LI><a href="#[5ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetSchedulerState
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerGenericCommand
+<BR>[Called By]<UL><LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
+<LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_IT
+<LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UartVarInit
+<LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_ProcessOne
+<LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerGenericCommand
 <LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_uart_rx_data
 <LI><a href="#[5d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_uart_tx_data
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_uart_tx_data
 <LI><a href="#[1b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_SetData
 <LI><a href="#[1b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_GetData
-<LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
-<LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_IT
-<LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UartVarInit
-<LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_ProcessOne
 <LI><a href="#[1b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueCreateMutex
 </UL>
 
@@ -10130,14 +10128,14 @@ Global Symbols
 <LI><a href="#[5be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
 <LI><a href="#[5ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetSchedulerState
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_uart_rx_data
+<BR>[Called By]<UL><LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
+<LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_IT
+<LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_DMA
+<LI><a href="#[1ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_uart_rx_data
 <LI><a href="#[5d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_uart_tx_data
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_uart_tx_data
 <LI><a href="#[1b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_SetData
 <LI><a href="#[1b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Encoder_GetData
-<LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Send_IT
-<LI><a href="#[25a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_IT
-<LI><a href="#[259]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Send_DMA
 </UL>
 
 <P><STRONG><a name="[5ee]"></a>xTaskCheckForTimeOut</STRONG> (Thumb, 118 bytes, Stack size 24 bytes, tasks.o(i.xTaskCheckForTimeOut))
@@ -10153,7 +10151,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[19e]"></a>xTaskCreate</STRONG> (Thumb, 92 bytes, Stack size 56 bytes, tasks.o(i.xTaskCreate))
-<BR><BR>[Stack]<UL><LI>Max Depth = 744 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1256 + Unknown Stack Size
 <LI>Call Chain = xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
@@ -10162,7 +10160,8 @@ Global Symbols
 <LI><a href="#[5cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<BR>[Called By]<UL><LI><a href="#[5e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
+<LI><a href="#[5ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 <LI><a href="#[27c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Watchdog_task_create
 <LI><a href="#[24c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Test_task_create
 <LI><a href="#[24b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TFT_task_create
@@ -10172,7 +10171,6 @@ Global Symbols
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Debug_uart_task_create
 <LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_task_create
 <LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Comm_task_create
-<LI><a href="#[5e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
 </UL>
 
 <P><STRONG><a name="[5ec]"></a>xTaskGetSchedulerState</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, tasks.o(i.xTaskGetSchedulerState))
@@ -10183,9 +10181,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1c2]"></a>xTaskGetTickCount</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, tasks.o(i.xTaskGetTickCount))
-<BR><BR>[Called By]<UL><LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gui_Event_Data
-<LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_ProcessOne
+<BR><BR>[Called By]<UL><LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_ProcessOne
 <LI><a href="#[5c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
+<LI><a href="#[1b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gui_Event_Data
 </UL>
 
 <P><STRONG><a name="[248]"></a>xTaskIncrementTick</STRONG> (Thumb, 304 bytes, Stack size 24 bytes, tasks.o(i.xTaskIncrementTick))
@@ -10233,8 +10231,8 @@ Global Symbols
 <LI><a href="#[253]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 <LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[5c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
+<BR>[Called By]<UL><LI><a href="#[5c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
+<LI><a href="#[256]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[5b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 <LI><a href="#[5cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 <LI><a href="#[1b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueSemaphoreTake
@@ -10243,7 +10241,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[24e]"></a>xTimerCreate</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, timers.o(i.xTimerCreate))
-<BR><BR>[Stack]<UL><LI>Max Depth = 752 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1264 + Unknown Stack Size
 <LI>Call Chain = xTimerCreate &rArr; prvCheckForValidListAndQueue &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckForValidListAndQueue
@@ -10254,7 +10252,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5e6]"></a>xTimerCreateTimerTask</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, timers.o(i.xTimerCreateTimerTask))
-<BR><BR>[Stack]<UL><LI>Max Depth = 760 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1272 + Unknown Stack Size
 <LI>Call Chain = xTimerCreateTimerTask &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckForValidListAndQueue
@@ -10466,7 +10464,7 @@ Global Symbols
 Local Symbols
 </H3>
 <P><STRONG><a name="[3]"></a>HandleSetA</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, CommandHandlers.o(i.HandleSetA))
-<BR><BR>[Stack]<UL><LI>Max Depth = 696 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1208 + Unknown Stack Size
 <LI>Call Chain = HandleSetA &rArr; HandleSetDAC &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HandleSetDAC
@@ -10474,7 +10472,7 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> CommandHandlers.o(.data)
 </UL>
 <P><STRONG><a name="[4]"></a>HandleSetB</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, CommandHandlers.o(i.HandleSetB))
-<BR><BR>[Stack]<UL><LI>Max Depth = 696 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1208 + Unknown Stack Size
 <LI>Call Chain = HandleSetB &rArr; HandleSetDAC &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HandleSetDAC
@@ -10482,7 +10480,7 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> CommandHandlers.o(.data)
 </UL>
 <P><STRONG><a name="[7]"></a>HandleSetCurrent</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, CommandHandlers.o(i.HandleSetCurrent))
-<BR><BR>[Stack]<UL><LI>Max Depth = 688 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1200 + Unknown Stack Size
 <LI>Call Chain = HandleSetCurrent &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -10494,7 +10492,7 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> CommandHandlers.o(.data)
 </UL>
 <P><STRONG><a name="[5]"></a>HandleSetGather</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, CommandHandlers.o(i.HandleSetGather))
-<BR><BR>[Stack]<UL><LI>Max Depth = 680 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1192 + Unknown Stack Size
 <LI>Call Chain = HandleSetGather &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -10503,7 +10501,7 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> CommandHandlers.o(.data)
 </UL>
 <P><STRONG><a name="[6]"></a>HandleSetVoltage</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, CommandHandlers.o(i.HandleSetVoltage))
-<BR><BR>[Stack]<UL><LI>Max Depth = 688 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1200 + Unknown Stack Size
 <LI>Call Chain = HandleSetVoltage &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -10623,7 +10621,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[b3]"></a>splash_timer_cb</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, LVGL_Init.o(i.splash_timer_cb))
-<BR><BR>[Stack]<UL><LI>Max Depth = 688 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1200 + Unknown Stack Size
 <LI>Call Chain = splash_timer_cb &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -10888,7 +10886,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[5b3]"></a>prvCheckForValidListAndQueue</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, timers.o(i.prvCheckForValidListAndQueue))
-<BR><BR>[Stack]<UL><LI>Max Depth = 720 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1232 + Unknown Stack Size
 <LI>Call Chain = prvCheckForValidListAndQueue &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[254]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
@@ -10897,8 +10895,8 @@ Local Symbols
 <LI><a href="#[5b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueAddToRegistry
 <LI><a href="#[5b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
 </UL>
-<BR>[Called By]<UL><LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreate
-<LI><a href="#[5e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
+<BR>[Called By]<UL><LI><a href="#[5e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
+<LI><a href="#[24e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreate
 </UL>
 
 <P><STRONG><a name="[5bd]"></a>prvInsertTimerInActiveList</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, timers.o(i.prvInsertTimerInActiveList))
@@ -10957,8 +10955,8 @@ Local Symbols
 <P><STRONG><a name="[5c2]"></a>prvSampleTimeNow</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, timers.o(i.prvSampleTimeNow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = prvSampleTimeNow &rArr; prvProcessExpiredTimer &rArr; prvReloadTimer &rArr; prvInsertTimerInActiveList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
-<LI><a href="#[5bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessExpiredTimer
+<BR>[Calls]<UL><LI><a href="#[5bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessExpiredTimer
+<LI><a href="#[1c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
 <LI><a href="#[5c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
@@ -11020,7 +11018,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[258]"></a>UartVarInit</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, Uart_Debug.o(i.UartVarInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 728 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1240 + Unknown Stack Size
 <LI>Call Chain = UartVarInit &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
@@ -11049,7 +11047,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[250]"></a>Uart1VarInit</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, Uart_comm.o(i.Uart1VarInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 728 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1240 + Unknown Stack Size
 <LI>Call Chain = Uart1VarInit &rArr; xQueueCreateMutex &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; fr_printf &rArr; UART_Send_IT &rArr; xQueueGenericSend &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[19f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fr_printf
@@ -12995,10 +12993,10 @@ Local Symbols
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_height
 <LI><a href="#[311]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_has_flag_any
 <LI><a href="#[303]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_child
+<LI><a href="#[32b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;place_content
 <LI><a href="#[32c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_flex_grow
 <LI><a href="#[32a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_base_dir
 <LI><a href="#[32e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_next_item
-<LI><a href="#[32b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;place_content
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
 </UL>
@@ -13013,10 +13011,10 @@ Local Symbols
 <LI><a href="#[310]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_mem_buf_get
 <LI><a href="#[311]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_has_flag_any
 <LI><a href="#[303]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_child
+<LI><a href="#[3fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_width
 <LI><a href="#[3fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_height
 <LI><a href="#[32c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_flex_grow
 <LI><a href="#[32e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_next_item
-<LI><a href="#[3fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_width
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
 </UL>
@@ -13032,14 +13030,14 @@ Local Symbols
 <LI><a href="#[3da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_y
 <LI><a href="#[3db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_x
 <LI><a href="#[331]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_mem_buf_release
+<LI><a href="#[32b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;place_content
+<LI><a href="#[3fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_width
+<LI><a href="#[3fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_row
 <LI><a href="#[3fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_column
 <LI><a href="#[3fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_height
 <LI><a href="#[32a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_base_dir
 <LI><a href="#[3fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_track_end
 <LI><a href="#[329]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
-<LI><a href="#[32b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;place_content
-<LI><a href="#[3fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_width
-<LI><a href="#[3fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_row
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> lv_flex.o(i.lv_flex_init)
 </UL>
@@ -13515,11 +13513,11 @@ Local Symbols
 <LI><a href="#[37f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_draw_rect
 <LI><a href="#[39d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_top
 <LI><a href="#[39c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_left
-<LI><a href="#[3e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_get_x_start_point
 <LI><a href="#[39b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_top
 <LI><a href="#[39a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_left
 <LI><a href="#[3e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_column
 <LI><a href="#[399]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_border_width
+<LI><a href="#[3e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_get_x_start_point
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_event
 </UL>
@@ -13542,12 +13540,12 @@ Local Symbols
 <LI><a href="#[39c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_left
 <LI><a href="#[392]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_draw_line_dsc_init
 <LI><a href="#[397]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_draw_line
-<LI><a href="#[3e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_get_x_start_point
 <LI><a href="#[394]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_width
 <LI><a href="#[39b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_top
 <LI><a href="#[39a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_left
 <LI><a href="#[3eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_height
 <LI><a href="#[399]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_border_width
+<LI><a href="#[3e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_get_x_start_point
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_event
 </UL>
@@ -13570,13 +13568,13 @@ Local Symbols
 <LI><a href="#[39c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scroll_left
 <LI><a href="#[392]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_draw_line_dsc_init
 <LI><a href="#[397]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_draw_line
-<LI><a href="#[3e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_get_x_start_point
 <LI><a href="#[394]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_width
 <LI><a href="#[39b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_top
 <LI><a href="#[39a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_left
 <LI><a href="#[3eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_height
 <LI><a href="#[399]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_border_width
 <LI><a href="#[3ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_map
+<LI><a href="#[3e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_get_x_start_point
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_event
 </UL>
@@ -14599,9 +14597,9 @@ Local Symbols
 <LI><a href="#[404]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_column
 <LI><a href="#[3c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_area_copy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[464]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
-<LI><a href="#[45d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_clear_btn_ctrl
+<BR>[Called By]<UL><LI><a href="#[45d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_clear_btn_ctrl
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_event
+<LI><a href="#[464]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
 </UL>
 
 <P><STRONG><a name="[3c2]"></a>lv_area_copy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, lv_btnmatrix.o(i.lv_area_copy))
@@ -14641,12 +14639,12 @@ Local Symbols
 <LI><a href="#[38b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_event_get_target
 <LI><a href="#[3a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_event_get_param
 <LI><a href="#[3a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_event_get_code
-<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[463]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;make_one_button_checked
 <LI><a href="#[404]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_pad_column
 <LI><a href="#[42a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invalidate_button_area
 <LI><a href="#[402]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_button_from_point
 <LI><a href="#[3bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_main
+<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[201]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> lv_btnmatrix.o(.constdata)
@@ -14665,10 +14663,10 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 </UL>
-<BR>[Called By]<UL><LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_event
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_event
 <LI><a href="#[42a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invalidate_button_area
 <LI><a href="#[402]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_button_from_point
+<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 </UL>
 
 <P><STRONG><a name="[3c0]"></a>lv_obj_get_style_pad_left</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, lv_btnmatrix.o(i.lv_obj_get_style_pad_left))
@@ -14676,9 +14674,9 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 </UL>
-<BR>[Called By]<UL><LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
-<LI><a href="#[402]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_button_from_point
+<BR>[Called By]<UL><LI><a href="#[402]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_button_from_point
 <LI><a href="#[3bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_main
+<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 </UL>
 
 <P><STRONG><a name="[3c1]"></a>lv_obj_get_style_pad_right</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, lv_btnmatrix.o(i.lv_obj_get_style_pad_right))
@@ -14695,9 +14693,9 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 </UL>
-<BR>[Called By]<UL><LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
-<LI><a href="#[42a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invalidate_button_area
+<BR>[Called By]<UL><LI><a href="#[42a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invalidate_button_area
 <LI><a href="#[402]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_button_from_point
+<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 </UL>
 
 <P><STRONG><a name="[3be]"></a>lv_obj_get_style_pad_top</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, lv_btnmatrix.o(i.lv_obj_get_style_pad_top))
@@ -14705,17 +14703,17 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 </UL>
-<BR>[Called By]<UL><LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
-<LI><a href="#[402]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_button_from_point
+<BR>[Called By]<UL><LI><a href="#[402]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_button_from_point
 <LI><a href="#[3bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_main
+<LI><a href="#[460]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 </UL>
 
 <P><STRONG><a name="[463]"></a>make_one_button_checked</STRONG> (Thumb, 50 bytes, Stack size 24 bytes, lv_btnmatrix.o(i.make_one_button_checked))
 <BR><BR>[Stack]<UL><LI>Max Depth = 460<LI>Call Chain = make_one_button_checked &rArr; lv_btnmatrix_set_btn_ctrl &rArr; lv_obj_add_flag &rArr; lv_group_focus_next &rArr; focus_next_core &rArr; lv_obj_invalidate &rArr; lv_obj_invalidate_area &rArr; lv_obj_area_is_visible &rArr; lv_obj_get_transformed_area &rArr; lv_obj_transform_point &rArr;  lv_obj_transform_point (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[464]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
+<BR>[Calls]<UL><LI><a href="#[45f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_clear_btn_ctrl_all
+<LI><a href="#[464]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
 <LI><a href="#[5ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_has_btn_ctrl
-<LI><a href="#[45f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_clear_btn_ctrl_all
 </UL>
 <BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_event
 </UL>

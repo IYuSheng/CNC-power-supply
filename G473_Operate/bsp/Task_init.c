@@ -9,7 +9,7 @@ extern void Error_Handler(void);
   */
 void Debug_uart_task_create(void)
 {
-  xReturn = xTaskCreate(vUartProcessTask, "UartProc", 1024,
+  xReturn = xTaskCreate(vUartProcessTask, "UartProc", 512,
                         NULL, TASK_PRIO_UART, NULL);
   if (xReturn != pdPASS)
     {
@@ -28,7 +28,7 @@ void Monitor_task_create(void)
   /* 初始化运行时间统计定时器 */
   configureTimerForRuntimeStats();
   /* 创建系统监控任务 */
-  xReturn = xTaskCreate(vSystemMonitorTask, "Monitor", 256,
+  xReturn = xTaskCreate(vSystemMonitorTask, "Monitor", 512,
                         NULL, TASK_PRIO_MONITOR, NULL);
   if (xReturn != pdPASS)
     {
@@ -44,7 +44,7 @@ void Monitor_task_create(void)
   */
 void Comm_task_create(void)
 {
-  xReturn = xTaskCreate(vUart1ProcessTask, "Comm", 1024,
+  xReturn = xTaskCreate(vUart1ProcessTask, "Comm", 512,
                         NULL, TASK_PRIO_Comm, NULL);
   if (xReturn != pdPASS)
     {
@@ -72,7 +72,7 @@ void Watchdog_task_create(void)
   */
 void Key_task_create(void)
 {
-  xReturn = xTaskCreate(vKeyScanTask, "Key", 256,
+  xReturn = xTaskCreate(vKeyScanTask, "Key", 128,
                         NULL, TASK_PRIO_KEY, NULL);
   if (xReturn != pdPASS)
     {
@@ -86,7 +86,7 @@ void Key_task_create(void)
   */
 void TFT_task_create(void)
 {
-  xReturn = xTaskCreate(vTFTTask, "TFT", 1024 * 4,
+  xReturn = xTaskCreate(vTFTTask, "TFT", 1024,
                         NULL,TASK_PRIO_TFT, NULL);
   if (xReturn != pdPASS)
     {
@@ -152,27 +152,27 @@ void vPrintTask(void *pvParameters)
         }
 
       // 获取数据
-      UART_RxStruct comm_data = get_uart_rx_data();
+      // UART_RxStruct comm_data = get_uart_rx_data();
 
-      // 发送给上位机
-      dma_printf("%d,%d",
-                 comm_data.voltage_out,
-                 comm_data.current_out);
+      // // 发送给上位机
+      // dma_printf("%d,%d",
+      //            comm_data.voltage_out,
+      //            comm_data.current_out);
 
-      // 实时性要求不高，每20次发送完整数据
-      if (++cycle_count >= 20)
-        {
-          dma_printf(",%d,%d,%d,%d,%d,%d,%d,%d",
-                     comm_data.voltage_in,
-                     comm_data.current_in,
-                     comm_data.adc_tmp1,
-                     comm_data.adc_tmp2,
-                     comm_data.voltage_12V_in,
-                     comm_data.voltage_5V_in,
-                     comm_data.mode_stop,
-                     comm_data.mode_flag);
-          cycle_count = 0;
-        }
+      // // 实时性要求不高，每20次发送完整数据
+      // if (++cycle_count >= 20)
+      //   {
+      //     dma_printf(",%d,%d,%d,%d,%d,%d,%d,%d",
+      //                comm_data.voltage_in,
+      //                comm_data.current_in,
+      //                comm_data.adc_tmp1,
+      //                comm_data.adc_tmp2,
+      //                comm_data.voltage_12V_in,
+      //                comm_data.voltage_5V_in,
+      //                comm_data.mode_stop,
+      //                comm_data.mode_flag);
+      //     cycle_count = 0;
+      //   }
       vTaskDelay(pdMS_TO_TICKS(1));
     }
 }

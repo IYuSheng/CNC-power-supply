@@ -1,15 +1,5 @@
 #include "Monitor.h"
 
-#if Monitor_Flag
-/* 系统监控任务相关变量 */
-static TaskStatus_t prevTaskStatusArray[10] = {0};
-static uint32_t prevTotalRuntime = 0;
-static UBaseType_t prevNumTasks = 0;
-
-/* 系统监控任务函数 */
-void vSystemMonitorTask(void *pvParameters);
-#endif
-
 /**
   * @brief  获取TIM4计数器值（用于FreeRTOS运行时间统计）
   */
@@ -27,9 +17,9 @@ void configureTimerForRuntimeStats(void)
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM4);
 
   LL_TIM_InitTypeDef TIM_InitStruct = {0};
-  TIM_InitStruct.Prescaler = 169;
+  TIM_InitStruct.Prescaler = 8499;   // 20KHz
   TIM_InitStruct.CounterMode = LL_TIM_COUNTERMODE_UP;
-  TIM_InitStruct.Autoreload = 0xFFFFFFFF;         // 最大计数范围
+  TIM_InitStruct.Autoreload = 0xFFFF;         // 最大计数范围
   TIM_InitStruct.ClockDivision = LL_TIM_CLOCKDIVISION_DIV1;
 
   LL_TIM_Init(TIM4, &TIM_InitStruct);
@@ -38,70 +28,67 @@ void configureTimerForRuntimeStats(void)
 }
 
 #if Monitor_Flag
-/**
-  * @brief  系统监控任务（打印任务状态、CPU占用率）
-  */
 void vSystemMonitorTask(void *pvParameters)
 {
-
-  const UBaseType_t maxTasks = 10;
-  TaskStatus_t *taskStatusArray = pvPortMalloc(maxTasks * sizeof(TaskStatus_t));
-
-  if (!taskStatusArray)
-    {
-      vTaskDelete(NULL);
-      return;
-    }
+  #define MAX_TASKS 15  // 最大任务数
+  static TaskStatus_t currentTaskStatusArray[MAX_TASKS];
+  static TaskStatus_t prevTaskStatusArray[MAX_TASKS];
+  static uint32_t prevTotalRuntime = 0;
+  static UBaseType_t prevNumTasks = 0;
 
   for(;;)
     {
-      UBaseType_t numTasks = uxTaskGetSystemState(taskStatusArray, maxTasks, NULL);
-      if (numTasks > maxTasks) numTasks = maxTasks;
-
-      // 计算总运行时间
-      uint32_t currentTotalRuntime = 0;
-      for (UBaseType_t i = 0; i < numTasks; i++)
-        {
-          currentTotalRuntime += taskStatusArray[i].ulRunTimeCounter;
-        }
+      uint32_t currentTotalRuntime;
+      UBaseType_t numTasks = uxTaskGetSystemState(currentTaskStatusArray, MAX_TASKS, &currentTotalRuntime);
+      
+      // 错误处理
+      if (numTasks == 0 || numTasks > MAX_TASKS) {
+        if (numTasks > MAX_TASKS) numTasks = MAX_TASKS;
+        dma_printf("\r\nError: uxTaskGetSystemState() returned %d", numTasks);
+        vTaskDelay(pdMS_TO_TICKS(10000)); // 出错时等待更长时间
+        continue;
+      }
 
       /* 状态变化检测与打印 */
       if (prevNumTasks != 0)
         {
+          // 溢出处理
           uint32_t deltaTotal = currentTotalRuntime - prevTotalRuntime;
-          if (deltaTotal > 0)
+          
+          // 范围检查
+          if (deltaTotal > 20000 && deltaTotal < 60000)
             {
-              char buffer[128];
-              UART_Send_IT(USART3, (uint8_t*)"\r\n", 1);
+              dma_printf("\r\nTask:         CPU:      Stack:");
 
               /* 遍历所有任务计算CPU占用率 */
               for (UBaseType_t i = 0; i < numTasks; i++)
                 {
-                  for (UBaseType_t j = 0; j < prevNumTasks; j++)
+                  if (i < prevNumTasks && currentTaskStatusArray[i].xHandle == prevTaskStatusArray[i].xHandle)
                     {
-                      if (taskStatusArray[i].xHandle == prevTaskStatusArray[j].xHandle)
-                        {
-                          uint32_t deltaTask = taskStatusArray[i].ulRunTimeCounter - prevTaskStatusArray[j].ulRunTimeCounter;
-                          float percent = (100.0f * deltaTask) / deltaTotal;
-                          snprintf(buffer, sizeof(buffer),
-                                   "%-12s CPU:%5.2f%% Stack:%5u\r\n",
-                                   taskStatusArray[i].pcTaskName,
-                                   percent,
-                                   taskStatusArray[i].usStackHighWaterMark);
-                          UART_Send_IT(USART3, (uint8_t*)buffer, strlen(buffer));
-                          break;
-                        }
+                      uint32_t deltaTask = currentTaskStatusArray[i].ulRunTimeCounter - prevTaskStatusArray[i].ulRunTimeCounter;
+                      
+                      // CPU使用率计算
+                      float percent = (deltaTotal > 0) ? ((100.0f * deltaTask) / deltaTotal) : 0.0f;
+                      
+                      dma_printf("%-12s %6.2f%% %6u",
+                               currentTaskStatusArray[i].pcTaskName,
+                               percent,
+                               (unsigned int)currentTaskStatusArray[i].usStackHighWaterMark);
                     }
                 }
+                // 打印系统堆内存使用情况
+                dma_printf("Used:        %6.2f%%   %6u",((float)(configTOTAL_HEAP_SIZE - xPortGetFreeHeapSize()) / (float)configTOTAL_HEAP_SIZE) * 100.0f, xPortGetFreeHeapSize());
             }
         }
 
       /* 保存当前状态用于下次对比 */
-      memcpy(prevTaskStatusArray, taskStatusArray, numTasks * sizeof(TaskStatus_t));
+      // 内存复制
+      UBaseType_t copyTasks = (numTasks < MAX_TASKS) ? numTasks : MAX_TASKS;
+      memcpy(prevTaskStatusArray, currentTaskStatusArray, copyTasks * sizeof(TaskStatus_t));
       prevTotalRuntime = currentTotalRuntime;
-      prevNumTasks = numTasks;
+      prevNumTasks = copyTasks;
 
-      vTaskDelay(pdMS_TO_TICKS(2000)); /* 2秒更新一次 */
+      vTaskDelay(pdMS_TO_TICKS(2000)); // 每2秒检查一次
     }
 }
 #endif

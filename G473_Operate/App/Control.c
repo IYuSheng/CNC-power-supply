@@ -23,7 +23,7 @@ static inline float LimitValue(float value, float min, float max)
 void vControlTask(void *argument)
 {
   Encoder_HandleTypeDef tim2_data, tim3_data;
-  char msg[64];
+  // char msg[64];
   float last_dac_a = 0.0f, last_dac_b = 0.0f;
   float tp1, tp2;
   const int32_t zero_count = 0;
@@ -64,8 +64,8 @@ void vControlTask(void *argument)
       float temp_b = LimitValue(TransformVoltage(tp2), 0.0f, Limit_DACB);
 
       // 仅当值变化时发送
-      if (fabs(temp_a - last_dac_a) > 1e-6f ||
-          fabs(temp_b - last_dac_b) > 1e-6f)
+      if (fabsf(temp_a - last_dac_a) > 1e-6f ||
+          fabsf(temp_b - last_dac_b) > 1e-6f)
         {
           // 使用 set_uart_tx_data 函数更新 send_gather
           UART_TxStruct temp_tx_data = get_uart_tx_data();
@@ -73,12 +73,12 @@ void vControlTask(void *argument)
           temp_tx_data.dac_b = temp_b;
           set_uart_tx_data(&temp_tx_data);
 
-          // 格式化消息
-          snprintf(msg, sizeof(msg), "Current=%.2fA, Voltage=%.2fV\n",
-                   tp1, tp2);
+          // // 格式化消息
+          // snprintf(msg, sizeof(msg), "Current=%.2fA, Voltage=%.2fV\n",
+          //          tp1, tp2);
 
-          // 发送到消息队列
-          xQueueSend(control_msg_queue, msg, pdMS_TO_TICKS(1));
+          // // 发送到消息队列
+          // xQueueSend(control_msg_queue, msg, pdMS_TO_TICKS(1));
 
           // 更新历史值
           last_dac_a = temp_a;

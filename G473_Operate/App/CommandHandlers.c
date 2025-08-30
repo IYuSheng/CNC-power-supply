@@ -26,11 +26,11 @@ static void HandleSetVoltage(const char* param)
     {
       send_gather.dac_b = TransformVoltage(value);  //将电压转换为DAC输出电压值
 
-      fr_printf("V_Set updated to: %.6f", send_gather.dac_b);
+      dma_printf("V_Set updated to: %.6f", send_gather.dac_b);
     }
   else
     {
-      fr_printf("V_Set: invalid parameter");
+      dma_printf("V_Set: invalid parameter");
     }
 }
 
@@ -44,11 +44,11 @@ static void HandleSetCurrent(const char* param)
   if (endPtr != param && *endPtr == '\0')
     {
       send_gather.dac_a = TransformCurrent(value);
-      fr_printf("A_Set updated to: %.6f", send_gather.dac_a);
+      dma_printf("A_Set updated to: %.6f", send_gather.dac_a);
     }
   else
     {
-      fr_printf("A_Set: invalid parameter");
+      dma_printf("A_Set: invalid parameter");
     }
 }
 

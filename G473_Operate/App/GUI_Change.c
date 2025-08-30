@@ -62,7 +62,7 @@ void Gui_Event_Data(void)
     power_out = voltage_out * current_out;
 
     // 更新当前输出电压显示（仅在变化时）
-    if (last_voltage_out != voltage_out)
+    if (fabsf(voltage_out - last_voltage_out) > FLOAT_TOLERANCE)
     {
         last_voltage_out = voltage_out;
         lv_snprintf(buffer, sizeof(buffer), "%.3f", voltage_out);
@@ -76,7 +76,7 @@ void Gui_Event_Data(void)
     }
         
     // 更新当前输出电流显示（仅在变化时）
-    if (last_current_out != current_out)
+    if (fabsf(current_out - last_current_out) > FLOAT_TOLERANCE)
     {
         last_current_out = current_out;
         lv_snprintf(buffer, sizeof(buffer), "%.3f", current_out);
@@ -90,7 +90,8 @@ void Gui_Event_Data(void)
     }
 
     // 功率数据显示（仅在变化时）
-    if (last_power_out != power_out) {
+    if (fabsf(power_out - last_power_out) > FLOAT_TOLERANCE)
+    {
         last_power_out = power_out;
         if(power_out <= 10.0f)
         {
@@ -112,7 +113,8 @@ void Gui_Event_Data(void)
     }
 
     // 能量数据显示（仅在变化时）
-    if (last_energy_out != energy_out) {
+    if (fabsf(energy_out - last_energy_out) > FLOAT_TOLERANCE)
+    {
         last_energy_out = energy_out;
         if(energy_out <= 10.0f)
         {
@@ -126,21 +128,24 @@ void Gui_Event_Data(void)
     }
 
     // 输入电压显示（仅在变化时）
-    if (last_voltage_in != voltage_in) {
+    if (fabsf(voltage_in - last_voltage_in) > FLOAT_TOLERANCE)
+    {
         last_voltage_in = voltage_in;
         lv_snprintf(buffer, sizeof(buffer), "%.2fV", voltage_in);
         lv_label_set_text(g_ui.screen_label_in_v, buffer);
     }
 
     // 输入电流显示（仅在变化时）
-    if (last_current_in != current_in) {
+    if (fabsf(current_in - last_current_in) > FLOAT_TOLERANCE)
+    {
         last_current_in = current_in;
         lv_snprintf(buffer, sizeof(buffer), "%.2fA", current_in);
         lv_label_set_text(g_ui.screen_label_in_a, buffer);
     }
         
     // 温度显示（仅在变化时）
-    if (last_temperature != temperature) {
+    if (fabsf(temperature - last_temperature) > FLOAT_TOLERANCE)
+    {
         last_temperature = temperature;
         lv_snprintf(buffer, sizeof(buffer), "%.1f°C", temperature);
         lv_label_set_text(g_ui.screen_label_Temperature, buffer);
@@ -155,14 +160,16 @@ void Gui_Event_Data(void)
     current_set = (tx_data.dac_a - 1.65f) * 21.0f;
 
     // 显示设定电压（仅在变化时）
-    if (last_voltage_set != voltage_set) {
+    if (fabsf(voltage_set - last_voltage_set) > FLOAT_TOLERANCE)
+    {
         last_voltage_set = voltage_set;
         lv_snprintf(buffer, sizeof(buffer), "%.3fV", voltage_set);
         lv_label_set_text(g_ui.screen_label_Voltage_Set, buffer);
     }
     
     // 显示设定电流（仅在变化时）
-    if (last_current_set != current_set) {
+    if (fabsf(current_set - last_current_set) > FLOAT_TOLERANCE)
+    {
         last_current_set = current_set;
         lv_snprintf(buffer, sizeof(buffer), "%.3fA", current_set);
         lv_label_set_text(g_ui.screen_label_Current_Set, buffer);

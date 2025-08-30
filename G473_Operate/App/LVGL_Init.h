@@ -6,7 +6,7 @@
 #include "lv_port_disp.h"
 #include "st7789.h"
 
-#define LVGL_TICK_PERIOD_MS 30 // LVGL定时器周期，单位为毫秒
+#define LVGL_TICK_PERIOD_MS 50 // LVGL定时器周期，单位为毫秒
 #define Tran_mWh 0.001389f     // 充电能量转换系数
 
 // UI界面结构体定义

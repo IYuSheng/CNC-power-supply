@@ -343,8 +343,6 @@ void DMA1_Channel3_IRQHandler(void)
     if(current_drv != NULL)
     {
       lv_disp_flush_ready(current_drv);
-      current_drv = NULL;
-      current_area = NULL;
     }
   }
 }

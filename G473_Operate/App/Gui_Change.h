@@ -12,6 +12,8 @@
 #include "timers.h"
 #include <string.h>
 
+#define FLOAT_TOLERANCE 0.001f  // 容差值
+
 // 控制模式枚举（电压环/电流环）
 typedef enum {
   Disable_LOOP = 0,  // 关闭环路模式

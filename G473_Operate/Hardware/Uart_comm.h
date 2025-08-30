@@ -13,7 +13,7 @@
 #include "Uart_Debug.h"
 
 #define UART1_TX_BUF_SIZE	256
-#define UART1_RX_BUF_SIZE	512
+#define UART1_RX_BUF_SIZE	2048
 
 /* 发送结构体：包含启停指令及附加参数（均为uint8_t） */
 typedef struct

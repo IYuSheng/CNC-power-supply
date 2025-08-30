@@ -305,18 +305,7 @@ void vUart1ProcessTask(void *pvParameters)
     {
       UART1_Send_Struct(&send_gather);
       UART1_Parse_Data(); // 解析接收数据
-      // 发送给上位机
-      dma_printf("%d,%d,%d,%d,%d,%d,%d,%d,%d,%d",
-                 uart_rx_data.voltage_out,
-                 uart_rx_data.current_out,
-                 uart_rx_data.voltage_in,
-                 uart_rx_data.current_in,
-                 uart_rx_data.adc_tmp1,
-                 uart_rx_data.adc_tmp2,
-                 uart_rx_data.voltage_12V_in,
-                 uart_rx_data.voltage_5V_in,
-                 uart_rx_data.mode_stop,
-                 uart_rx_data.mode_flag);
+      
       vTaskDelay(pdMS_TO_TICKS(1));
     }
 }

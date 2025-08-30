@@ -131,12 +131,12 @@ void UART_Send_DMA(USART_TypeDef *USARTx, uint8_t *pData, uint16_t Size)
     LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_2);
   }
   
-  // 复制数据到DMA缓冲区
-  memcpy(dma_tx_buffer, pData, Size);
-  
   // 设置DMA内存地址和传输数据长度
   LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_2, (uint32_t)dma_tx_buffer);
   LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_2, Size);
+
+  // 复制数据到DMA缓冲区
+  memcpy(dma_tx_buffer, pData, Size);
   
   // 使能DMA通道开始传输
   LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_2);

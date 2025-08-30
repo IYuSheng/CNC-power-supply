@@ -8,6 +8,11 @@ static SemaphoreHandle_t enc_mutex;
 #define S4_PIN       LL_GPIO_PIN_15
 #define PB_PORT      GPIOB
 
+// 外部中断编码器添加专用变量，避免在中断中访问数组
+static volatile uint32_t ss2_total_count = 0;
+static volatile uint8_t last_s3_level = 0;
+static volatile uint8_t last_s4_level = 0;
+
 /**
  * @brief 初始化所有外部中断引脚
  */
@@ -58,29 +63,33 @@ void EXTI15_10_IRQHandler(void)
   if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_14))
     {
       LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_14);
-      xSemaphoreTakeFromISR(enc_mutex, &xHigherPriorityTaskWoken);
-      encoders[ENCODER_SS2].last_s3_level = LL_GPIO_IsInputPinSet(PB_PORT, S3_PIN);
+      last_s3_level = LL_GPIO_IsInputPinSet(PB_PORT, S3_PIN);
 
       uint8_t s4_level = LL_GPIO_IsInputPinSet(PB_PORT, S4_PIN);
       if (s4_level)
         {
-          encoders[ENCODER_SS2].total_count++;
+          ss2_total_count++;
         }
-      xSemaphoreGiveFromISR(enc_mutex, &xHigherPriorityTaskWoken);
+      else
+        {
+          ss2_total_count--;
+        }
     }
 
   // 处理PB15(EXTI15)中断
   if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_15))
     {
       LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_15);
-      xSemaphoreTakeFromISR(enc_mutex, &xHigherPriorityTaskWoken);
-      encoders[ENCODER_SS2].last_s4_level = LL_GPIO_IsInputPinSet(PB_PORT, S4_PIN);
+      last_s4_level = LL_GPIO_IsInputPinSet(PB_PORT, S4_PIN);
       uint8_t s3_level = LL_GPIO_IsInputPinSet(PB_PORT, S3_PIN);
       if (s3_level)
         {
-          encoders[ENCODER_SS2].total_count--;
+          ss2_total_count--;
         }
-      xSemaphoreGiveFromISR(enc_mutex, &xHigherPriorityTaskWoken);
+      else
+        {
+          ss2_total_count++;
+        }
     }
   portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 }
@@ -94,7 +103,7 @@ void Encoder_Init(void)
   enc_mutex = xSemaphoreCreateMutex();
   configASSERT(enc_mutex != NULL);
 
-  // 初始化TIM3
+  // 初始化TIM2和TIM3
   LL_TIM_EnableCounter(TIM2);
   encoders[ENCODER_TIM2].last_cnt = LL_TIM_GetCounter(TIM2);
 	
@@ -105,8 +114,9 @@ void Encoder_Init(void)
   Encoder_Exti_Init();
 
   // 初始化引脚电平
-  encoders[ENCODER_SS2].last_s3_level = LL_GPIO_IsInputPinSet(PB_PORT, S3_PIN);
-  encoders[ENCODER_SS2].last_s4_level = LL_GPIO_IsInputPinSet(PB_PORT, S4_PIN);
+  last_s3_level = LL_GPIO_IsInputPinSet(PB_PORT, S3_PIN);
+  last_s4_level = LL_GPIO_IsInputPinSet(PB_PORT, S4_PIN);
+  ss2_total_count = 0;
 }
 
 /**
@@ -115,7 +125,7 @@ void Encoder_Init(void)
 static void Encoder_ProcessTIM2(void)
 {
   uint32_t current_cnt = LL_TIM_GetCounter(TIM2);
-  int16_t diff = current_cnt - encoders[ENCODER_TIM2].last_cnt;
+  int16_t diff = (int16_t)(current_cnt - encoders[ENCODER_TIM2].last_cnt);
 
   encoders[ENCODER_TIM2].total_count += diff;
   encoders[ENCODER_TIM2].last_cnt = current_cnt;
@@ -127,7 +137,7 @@ static void Encoder_ProcessTIM2(void)
 static void Encoder_ProcessTIM3(void)
 {
   uint32_t current_cnt = LL_TIM_GetCounter(TIM3);
-  int16_t diff = current_cnt - encoders[ENCODER_TIM3].last_cnt;
+  int16_t diff = (int16_t)(current_cnt - encoders[ENCODER_TIM3].last_cnt);
 
   encoders[ENCODER_TIM3].total_count += diff;
   encoders[ENCODER_TIM3].last_cnt = current_cnt;
@@ -152,7 +162,7 @@ uint32_t Encoder_GetRawCount(Encoder_ID id)
           raw_cnt = LL_TIM_GetCounter(TIM3);
           break;
 				case ENCODER_SS2:
-          raw_cnt = encoders[ENCODER_SS2].total_count;
+          raw_cnt = ss2_total_count;
 					break;
         default:
           raw_cnt = 0;
@@ -164,24 +174,6 @@ uint32_t Encoder_GetRawCount(Encoder_ID id)
 }
 
 /**
- * @brief 编码器处理任务
- */
-void vEncoderTask(void *argument)
-{
-  for (;;)
-    {
-      if (xSemaphoreTake(enc_mutex, portMAX_DELAY) == pdTRUE)
-        {
-					Encoder_ProcessTIM2();
-          Encoder_ProcessTIM3();
-          xSemaphoreGive(enc_mutex);
-        }
-		
-      vTaskDelay(pdMS_TO_TICKS(10));
-    }
-}
-
-/**
  * @brief 获取编码器数据
  */
 void Encoder_GetData(Encoder_ID id, Encoder_HandleTypeDef *data)
@@ -190,6 +182,14 @@ void Encoder_GetData(Encoder_ID id, Encoder_HandleTypeDef *data)
   if (xSemaphoreTake(enc_mutex, portMAX_DELAY) == pdTRUE)
     {
       *data = encoders[id];
+      
+      // 对于外部中断编码器，需要从专用变量复制数据
+      if (id == ENCODER_SS2) {
+        data->total_count = ss2_total_count;
+        data->last_s3_level = last_s3_level;
+        data->last_s4_level = last_s4_level;
+      }
+      
       xSemaphoreGive(enc_mutex);
     }
 }
@@ -219,7 +219,12 @@ void Encoder_SetData(Encoder_ID id, const Encoder_HandleTypeDef *data)
         break;
 
       case ENCODER_SS2:  // 外部中断型编码器（SS2）
-        // 无硬件定时器，直接更新累计计数和引脚电平历史
+        // 更新专用变量
+        ss2_total_count = data->total_count;
+        last_s3_level = data->last_s3_level;
+        last_s4_level = data->last_s4_level;
+        
+        // 同时更新数组中的副本
         encoders[id].total_count = data->total_count;
         encoders[id].last_s3_level = data->last_s3_level;
         encoders[id].last_s4_level = data->last_s4_level;
@@ -230,4 +235,18 @@ void Encoder_SetData(Encoder_ID id, const Encoder_HandleTypeDef *data)
     }
     xSemaphoreGive(enc_mutex);  // 释放锁
   }
+}
+
+/**
+ * @brief 编码器处理任务
+ */
+void vEncoderTask(void *argument)
+{
+  for (;;)
+    {
+      Encoder_ProcessTIM2();
+      Encoder_ProcessTIM3();
+		
+      vTaskDelay(pdMS_TO_TICKS(20));
+    }
 }

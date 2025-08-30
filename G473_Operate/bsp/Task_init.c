@@ -141,13 +141,39 @@ void Control_task_create(void)
 void vPrintTask(void *pvParameters)
 {
   char msg[64];
+  uint8_t cycle_count = 0;
+  vTaskDelay(pdMS_TO_TICKS(4000)); // 等待系统稳定
   for (;;)
     {
       // 等待队列消息（阻塞，直到有消息）
-      if (xQueueReceive(control_msg_queue, msg, portMAX_DELAY) == pdPASS)
+      if (xQueueReceive(control_msg_queue, msg, pdMS_TO_TICKS(1)) == pdPASS)
         {
-          fr_printf("%s", msg);  // 在这里执行打印
+          dma_printf("%s", msg);  // 在这里执行打印
         }
+
+      // 获取数据
+      UART_RxStruct comm_data = get_uart_rx_data();
+
+      // 发送给上位机
+      dma_printf("%d,%d",
+                 comm_data.voltage_out,
+                 comm_data.current_out);
+
+      // 实时性要求不高，每20次发送完整数据
+      if (++cycle_count >= 20)
+        {
+          dma_printf(",%d,%d,%d,%d,%d,%d,%d,%d",
+                     comm_data.voltage_in,
+                     comm_data.current_in,
+                     comm_data.adc_tmp1,
+                     comm_data.adc_tmp2,
+                     comm_data.voltage_12V_in,
+                     comm_data.voltage_5V_in,
+                     comm_data.mode_stop,
+                     comm_data.mode_flag);
+          cycle_count = 0;
+        }
+      vTaskDelay(pdMS_TO_TICKS(1));
     }
 }
 
@@ -156,7 +182,7 @@ void vPrintTask(void *pvParameters)
   */
 void Test_task_create(void)
 {
-  xReturn = xTaskCreate(vPrintTask, "Print", 256,
+  xReturn = xTaskCreate(vPrintTask, "Print", 512,
                         NULL, TASK_PRIO_Print, NULL);
   if (xReturn != pdPASS)
     {

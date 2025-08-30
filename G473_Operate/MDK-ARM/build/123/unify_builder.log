@@ -12533,3 +12533,745 @@ These source files will be recompiled
 [2025-08-26 23:12:08]	[done]
 	build successfully !
 
+[2025-08-29 22:32:48]	[done]
+	build successfully !
+
+[2025-08-29 22:34:55]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-29 22:34:56]	[done]
+	build successfully !
+
+[2025-08-29 22:42:20]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-29 22:42:21]	[done]
+	build successfully !
+
+[2025-08-29 22:44:27]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-29 22:44:28]	[done]
+	build successfully !
+
+[2025-08-29 22:56:07]	[info] incremental build: 24 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\Hardware\Uart_comm.h' has been changed.
+
+[2025-08-29 22:56:10]	[done]
+	build successfully !
+
+[2025-08-29 23:00:53]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-29 23:00:54]	[done]
+	build successfully !
+
+[2025-08-29 23:01:40]	[info] incremental build: 24 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+
+[2025-08-29 23:01:42]	[done]
+	build successfully !
+
+[2025-08-29 23:02:23]	[info] incremental build: 24 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+
+[2025-08-29 23:02:26]	[done]
+	build successfully !
+
+[2025-08-29 23:03:36]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+
+[2025-08-29 23:03:37]	[done]
+	build successfully !
+
+[2025-08-29 23:05:35]	[info] incremental build: 24 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\bsp\Task_init.h' has been changed.
+
+[2025-08-29 23:05:37]	[done]
+	build successfully !
+
+[2025-08-29 23:06:03]	[info] incremental build: 33 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\port\heap_4.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\port\port.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\croutine.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\event_groups.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\list.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\queue.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\stream_buffer.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\tasks.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\timers.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+
+[2025-08-29 23:06:05]	[done]
+	build successfully !
+
+[2025-08-29 23:06:10]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-29 23:06:11]	[done]
+	build successfully !
+
+[2025-08-29 23:07:29]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': source file has been changed.
+
+[2025-08-29 23:07:30]	[done]
+	build successfully !
+
+[2025-08-29 23:08:43]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-29 23:08:44]	[done]
+	build successfully !
+
+[2025-08-29 23:22:12]	[info] incremental build: 33 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\port\heap_4.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\port\port.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\croutine.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\event_groups.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\list.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\queue.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\stream_buffer.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\tasks.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\FreeRTOS\src\timers.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\FreeRTOS\FreeRTOSConfig.h' has been changed.
+
+[2025-08-29 23:22:16]	[done]
+	build successfully !
+
+[2025-08-29 23:23:15]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-29 23:23:16]	[done]
+	build successfully !
+
+[2025-08-29 23:27:45]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-29 23:27:47]	[done]
+	build successfully !
+
+[2025-08-29 23:28:10]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-29 23:28:11]	[done]
+	build successfully !
+
+[2025-08-29 23:29:26]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': source file has been changed.
+
+[2025-08-29 23:29:28]	[done]
+	build successfully !
+
+[2025-08-29 23:30:01]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-29 23:30:03]	[done]
+	build successfully !
+
+[2025-08-29 23:30:49]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-29 23:30:51]	[done]
+	build successfully !
+
+[2025-08-29 23:31:00]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+
+[2025-08-29 23:31:01]	[done]
+	build successfully !
+
+[2025-08-29 23:31:47]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-29 23:31:48]	[done]
+	build successfully !
+
+[2025-08-29 23:32:17]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-29 23:32:18]	[done]
+	build successfully !
+
+[2025-08-29 23:35:43]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-29 23:35:45]	[done]
+	build successfully !
+
+[2025-08-29 23:40:58]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-29 23:40:59]	[done]
+	build successfully !
+
+[2025-08-29 23:41:12]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-29 23:41:13]	[done]
+	build successfully !
+
+[2025-08-29 23:46:45]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-29 23:46:46]	[done]
+	build successfully !
+
+[2025-08-29 23:48:24]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': source file has been changed.
+
+[2025-08-29 23:48:25]	[done]
+	build successfully !
+
+[2025-08-29 23:48:45]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': source file has been changed.
+
+[2025-08-29 23:48:46]	[done]
+	build successfully !
+
+[2025-08-29 23:49:17]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': source file has been changed.
+
+[2025-08-29 23:49:18]	[done]
+	build successfully !
+
+[2025-08-29 23:49:55]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': source file has been changed.
+
+[2025-08-29 23:49:56]	[done]
+	build successfully !
+
+[2025-08-29 23:54:12]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-29 23:54:13]	[done]
+	build successfully !
+
+[2025-08-29 23:54:53]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-29 23:54:55]	[done]
+	build successfully !
+
+[2025-08-30 00:00:37]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-30 00:00:38]	[done]
+	build successfully !
+
+[2025-08-30 00:06:06]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': source file has been changed.
+
+[2025-08-30 00:06:07]	[done]
+	build successfully !
+
+[2025-08-30 00:12:25]	[info] incremental build: 24 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': source file has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\Gui_Change.h' has been changed.
+
+[2025-08-30 00:12:27]	[done]
+	build successfully !
+
+[2025-08-30 00:16:05]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': source file has been changed.
+
+[2025-08-30 00:16:06]	[done]
+	build successfully !
+
+[2025-08-30 00:18:09]	[info] incremental build: 218 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\core\lv_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\core\lv_event.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\core\lv_group.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\core\lv_indev.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\core\lv_indev_scroll.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\core\lv_obj.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\core\lv_obj_class.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\core\lv_obj_draw.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\core\lv_obj_pos.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\core\lv_obj_scroll.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\core\lv_obj_style.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\core\lv_obj_style_gen.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\core\lv_obj_tree.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\core\lv_refr.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\core\lv_theme.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\arm2d\lv_gpu_arm2d.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\lv_draw.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\lv_draw_arc.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\lv_draw_img.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\lv_draw_label.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\lv_draw_layer.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\lv_draw_line.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\lv_draw_mask.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\lv_draw_rect.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\lv_draw_transform.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\lv_draw_triangle.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\lv_img_buf.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\lv_img_cache.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\lv_img_decoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\nxp\pxp\lv_draw_pxp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\nxp\pxp\lv_draw_pxp_blend.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\nxp\pxp\lv_gpu_nxp_pxp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\nxp\pxp\lv_gpu_nxp_pxp_osa.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\nxp\vglite\lv_draw_vglite.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\nxp\vglite\lv_draw_vglite_arc.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\nxp\vglite\lv_draw_vglite_blend.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\nxp\vglite\lv_draw_vglite_line.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\nxp\vglite\lv_draw_vglite_rect.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\nxp\vglite\lv_vglite_buf.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\nxp\vglite\lv_vglite_utils.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\renesas\lv_gpu_d2_draw_label.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\renesas\lv_gpu_d2_ra6m3.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sdl\lv_draw_sdl.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sdl\lv_draw_sdl_arc.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sdl\lv_draw_sdl_bg.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sdl\lv_draw_sdl_composite.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sdl\lv_draw_sdl_img.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sdl\lv_draw_sdl_label.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sdl\lv_draw_sdl_layer.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sdl\lv_draw_sdl_line.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sdl\lv_draw_sdl_mask.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sdl\lv_draw_sdl_polygon.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sdl\lv_draw_sdl_rect.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sdl\lv_draw_sdl_stack_blur.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sdl\lv_draw_sdl_texture_cache.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sdl\lv_draw_sdl_utils.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\stm32_dma2d\lv_gpu_stm32_dma2d.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sw\lv_draw_sw.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sw\lv_draw_sw_arc.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sw\lv_draw_sw_blend.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sw\lv_draw_sw_dither.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sw\lv_draw_sw_gradient.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sw\lv_draw_sw_img.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sw\lv_draw_sw_layer.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sw\lv_draw_sw_letter.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sw\lv_draw_sw_line.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sw\lv_draw_sw_polygon.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sw\lv_draw_sw_rect.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\sw\lv_draw_sw_transform.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\draw\swm341_dma2d\lv_gpu_swm341_dma2d.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\layouts\flex\lv_flex.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\layouts\grid\lv_grid.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\bmp\lv_bmp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\ffmpeg\lv_ffmpeg.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\freetype\lv_freetype.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\fsdrv\lv_fs_fatfs.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\fsdrv\lv_fs_littlefs.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\fsdrv\lv_fs_posix.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\fsdrv\lv_fs_stdio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\fsdrv\lv_fs_win32.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\gif\gifdec.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\gif\lv_gif.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\png\lodepng.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\png\lv_png.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\qrcode\lv_qrcode.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\qrcode\qrcodegen.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\rlottie\lv_rlottie.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\sjpg\lv_sjpg.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\sjpg\tjpgd.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\libs\tiny_ttf\lv_tiny_ttf.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\lv_extra.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\others\fragment\lv_fragment.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\others\fragment\lv_fragment_manager.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\others\gridnav\lv_gridnav.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\others\ime\lv_ime_pinyin.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\others\imgfont\lv_imgfont.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\others\monkey\lv_monkey.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\others\msg\lv_msg.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\others\snapshot\lv_snapshot.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\themes\basic\lv_theme_basic.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\themes\default\lv_theme_default.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\themes\mono\lv_theme_mono.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\animimg\lv_animimg.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\calendar\lv_calendar.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\calendar\lv_calendar_header_arrow.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\calendar\lv_calendar_header_dropdown.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\chart\lv_chart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\colorwheel\lv_colorwheel.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\imgbtn\lv_imgbtn.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\keyboard\lv_keyboard.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\led\lv_led.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\list\lv_list.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\menu\lv_menu.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\meter\lv_meter.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\msgbox\lv_msgbox.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\span\lv_span.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\spinbox\lv_spinbox.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\spinner\lv_spinner.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\tabview\lv_tabview.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\tileview\lv_tileview.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\extra\widgets\win\lv_win.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\My_GUI_13.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\My_GUI_73.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\My_GUI_Chinese.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\My_start_26.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\My_start_30.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_dejavu_16_persian_hebrew.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_fmt_txt.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_loader.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_10.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_12.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_12_subpx.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_14.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_18.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_20.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_22.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_24.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_26.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_28.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_28_compressed.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_30.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_32.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_34.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_36.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_38.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_40.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_42.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_44.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_46.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_48.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_montserrat_8.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_simsun_16_cjk.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_unscii_16.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\lv_font_unscii_8.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\font\start_haibara.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\hal\lv_hal_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\hal\lv_hal_indev.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\hal\lv_hal_tick.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_anim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_anim_timeline.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_area.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_async.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_bidi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_color.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_fs.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_gc.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_ll.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_log.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_lru.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_math.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_mem.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_printf.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_style.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_style_gen.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_timer.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_tlsf.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_txt.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\misc\lv_txt_ap.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\widgets\lv_arc.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\widgets\lv_bar.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\widgets\lv_btn.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\widgets\lv_btnmatrix.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\widgets\lv_canvas.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\widgets\lv_checkbox.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\widgets\lv_dropdown.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\widgets\lv_img.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\widgets\lv_label.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\widgets\lv_line.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\widgets\lv_roller.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\widgets\lv_slider.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\widgets\lv_switch.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\widgets\lv_table.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\src\widgets\lv_textarea.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\lvgl\examples\porting\..\..\lv_conf.h' has been changed.
+
+[2025-08-30 00:18:15]	[done]
+	build successfully !
+
+[2025-08-30 00:19:05]	[info] incremental build: 24 source files changed
+These source files will be recompiled
+---
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\CommandHandlers.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Control.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\GUI_Change.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\LVGL_Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\App\Watchdog.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\gpio.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\i2c.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\main.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\spi.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_hal_msp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\stm32g4xx_it.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\tim.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Core\Src\usart.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Encoder.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Key.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\Uart_comm.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\m24c64.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\Hardware\st7789.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Debug.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Monitor.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\bsp\Task_init.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+'c:\Users\admin\Desktop\CNC power supply\G473_Operate\lvgl\examples\porting\lv_port_disp.c': dependence 'c:\Users\admin\Desktop\CNC power supply\G473_Operate\MDK-ARM\..\App\LVGL_Init.h' has been changed.
+
+[2025-08-30 00:19:07]	[done]
+	build successfully !
+

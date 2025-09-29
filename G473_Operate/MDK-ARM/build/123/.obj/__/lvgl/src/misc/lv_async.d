@@ -1,9 +1,0 @@
-.\build\123\.obj\__\lvgl\src\misc\lv_async.o: .\..\lvgl\src\misc\lv_async.c
-.\build\123\.obj\__\lvgl\src\misc\lv_async.o: .\..\lvgl\src\misc\lv_async.h
-.\build\123\.obj\__\lvgl\src\misc\lv_async.o: .\..\lvgl\src\misc\lv_types.h
-.\build\123\.obj\__\lvgl\src\misc\lv_async.o: .\..\lvgl\src\misc\lv_mem.h
-.\build\123\.obj\__\lvgl\src\misc\lv_async.o: .\..\lvgl\src\misc\../lv_conf_internal.h
-.\build\123\.obj\__\lvgl\src\misc\lv_async.o: .\..\lvgl\src\misc\../lv_conf_kconfig.h
-.\build\123\.obj\__\lvgl\src\misc\lv_async.o: ../lvgl/examples/porting/../../lv_conf.h
-.\build\123\.obj\__\lvgl\src\misc\lv_async.o: .\..\lvgl\src\misc\lv_timer.h
-.\build\123\.obj\__\lvgl\src\misc\lv_async.o: .\..\lvgl\src\misc\../hal/lv_hal_tick.h

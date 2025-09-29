@@ -1,6 +1,0 @@
-tool: AC5
-fileName: '123.map'
-elfName: '123.axf'
-compilerName: 'ARM Compiler'
-compilerFullName: 'Component: ARM Compiler 5.06 update 6 (build 750)'
-compilerPath: 'D:\Keilv5\ARM\ARMCC\bin\armcc.exe'

@@ -1,0 +1,1 @@
+GEN_CSRCS += _background_320x240.c _start_haibara_alpha_133x150.c

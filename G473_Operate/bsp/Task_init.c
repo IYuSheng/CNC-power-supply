@@ -141,7 +141,7 @@ void Control_task_create(void)
 void vPrintTask(void *pvParameters)
 {
   char msg[64];
-  uint8_t cycle_count = 0;
+//  uint8_t cycle_count = 0;
   vTaskDelay(pdMS_TO_TICKS(4000)); // 等待系统稳定
   for (;;)
     {
@@ -191,4 +191,25 @@ void Test_task_create(void)
     }
 }
 
+void vUSBTask(void *pvParameters)
+{
+  // USB任务处理逻辑
+  for (;;)
+    {
+      uint8_t message[] = "Your data here";
+      CDC_Transmit_FS(message, strlen((char*)message));
+      
+      vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+}
 
+void USB_task_create(void)
+{
+  xReturn = xTaskCreate(vUSBTask, "USB", 512,
+                        NULL, TASK_PRIO_USB, NULL);
+  if (xReturn != pdPASS)
+    {
+      fr_printf("USB task create Failed");
+      Error_Handler();
+    }
+}

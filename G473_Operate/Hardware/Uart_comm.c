@@ -305,6 +305,8 @@ void vUart1ProcessTask(void *pvParameters)
     {
       UART1_Send_Struct(&send_gather);
       UART1_Parse_Data(); // 解析接收数据
+
+//      dma_printf("%d,%d", uart_rx_data.voltage_out, uart_rx_data.current_out);
       
       vTaskDelay(pdMS_TO_TICKS(1));
     }

@@ -1,9 +1,0 @@
-.\build\123\.obj\__\FreeRTOS\src\list.o: .\..\FreeRTOS\src\list.c
-.\build\123\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/inc/FreeRTOS.h
-.\build\123\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/FreeRTOSConfig.h
-.\build\123\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/inc/projdefs.h
-.\build\123\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/inc/portable.h
-.\build\123\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/inc/deprecated_definitions.h
-.\build\123\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/port/portmacro.h
-.\build\123\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/inc/mpu_wrappers.h
-.\build\123\.obj\__\FreeRTOS\src\list.o: ../FreeRTOS/inc/list.h

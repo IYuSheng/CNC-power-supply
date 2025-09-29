@@ -15,7 +15,7 @@
 
 version: "2.1"
 options:
-    "123":
+    Operator:
         files: {}
         virtualPathFiles:
             <virtual_root>/Application/User/Core/i2c.c: ""
@@ -48,8 +48,6 @@ options:
             <virtual_root>/Application/User/USB_Device/Target/usbd_conf.c: ""
             <virtual_root>/Application/User/USB_Device/App/usb_device.c: ""
             <virtual_root>/Application/User/USB_Device/App/usbd_desc.c: ""
-            <virtual_root>/Application/User/USB_Device/App/usbd_custom_hid_if.c: ""
             <virtual_root>/Middlewares/USB_Device_Library/usbd_core.c: ""
             <virtual_root>/Middlewares/USB_Device_Library/usbd_ctlreq.c: ""
             <virtual_root>/Middlewares/USB_Device_Library/usbd_ioreq.c: ""
-            <virtual_root>/Middlewares/USB_Device_Library/usbd_customhid.c: ""

@@ -93,12 +93,12 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-//  LL_CRS_SetSyncDivider(LL_CRS_SYNC_DIV_1);
-//  LL_CRS_SetSyncPolarity(LL_CRS_SYNC_POLARITY_RISING);
-//  LL_CRS_SetSyncSignalSource(LL_CRS_SYNC_SOURCE_USB);
-//  LL_CRS_SetReloadCounter(__LL_CRS_CALC_CALCULATE_RELOADVALUE(48000000,1000));
-//  LL_CRS_SetFreqErrorLimit(34);
-//  LL_CRS_SetHSI48SmoothTrimming(32);
+  LL_CRS_SetSyncDivider(LL_CRS_SYNC_DIV_1);
+  LL_CRS_SetSyncPolarity(LL_CRS_SYNC_POLARITY_RISING);
+  LL_CRS_SetSyncSignalSource(LL_CRS_SYNC_SOURCE_USB);
+  LL_CRS_SetReloadCounter(__LL_CRS_CALC_CALCULATE_RELOADVALUE(48000000,1000));
+  LL_CRS_SetFreqErrorLimit(34);
+  LL_CRS_SetHSI48SmoothTrimming(32);
 }
 
 void Error_Handler(void)

@@ -1,0 +1,13 @@
+.\g473_operate\croutine.o: ..\FreeRTOS\src\croutine.c
+.\g473_operate\croutine.o: ..\FreeRTOS\inc\FreeRTOS.h
+.\g473_operate\croutine.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
+.\g473_operate\croutine.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdint.h
+.\g473_operate\croutine.o: ..\FreeRTOS\FreeRTOSConfig.h
+.\g473_operate\croutine.o: ..\FreeRTOS\inc\projdefs.h
+.\g473_operate\croutine.o: ..\FreeRTOS\inc\portable.h
+.\g473_operate\croutine.o: ..\FreeRTOS\inc\deprecated_definitions.h
+.\g473_operate\croutine.o: ..\FreeRTOS\port\portmacro.h
+.\g473_operate\croutine.o: ..\FreeRTOS\inc\mpu_wrappers.h
+.\g473_operate\croutine.o: ..\FreeRTOS\inc\task.h
+.\g473_operate\croutine.o: ..\FreeRTOS\inc\list.h
+.\g473_operate\croutine.o: ..\FreeRTOS\inc\croutine.h

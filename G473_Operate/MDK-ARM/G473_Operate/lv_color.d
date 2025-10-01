@@ -1,0 +1,13 @@
+.\g473_operate\lv_color.o: ..\lvgl\src\misc\lv_color.c
+.\g473_operate\lv_color.o: ..\lvgl\src\misc\lv_color.h
+.\g473_operate\lv_color.o: ..\lvgl\src\misc\../lv_conf_internal.h
+.\g473_operate\lv_color.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdint.h
+.\g473_operate\lv_color.o: ..\lvgl\src\misc\../lv_conf_kconfig.h
+.\g473_operate\lv_color.o: ..\lvgl\examples\porting\../../lv_conf.h
+.\g473_operate\lv_color.o: ..\lvgl\src\misc\lv_assert.h
+.\g473_operate\lv_color.o: ..\lvgl\src\misc\lv_log.h
+.\g473_operate\lv_color.o: ..\lvgl\src\misc\lv_types.h
+.\g473_operate\lv_color.o: ..\lvgl\src\misc\lv_mem.h
+.\g473_operate\lv_color.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
+.\g473_operate\lv_color.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
+.\g473_operate\lv_color.o: ..\lvgl\src\misc\lv_math.h

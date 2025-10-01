@@ -20,6 +20,8 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "usbd_cdc_if.h"
+#include <stdarg.h>
+#include <stdio.h>
 
 /* USER CODE BEGIN INCLUDE */
 
@@ -289,6 +291,37 @@ uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len)
   USBD_CDC_SetTxBuffer(&hUsbDeviceFS, Buf, Len);
   result = USBD_CDC_TransmitPacket(&hUsbDeviceFS);
   /* USER CODE END 7 */
+  return result;
+}
+
+uint8_t CDC_printf(const char *format, ...)
+{
+  char buf[512];  // 缓冲区，预留2字节给\r\n
+  va_list args;
+  uint16_t len;
+  uint8_t result;
+
+  // 初始化可变参数列表
+  va_start(args, format);
+  
+  // 格式化字符串（预留2字节给\r\n和1字节给终止符，避免溢出）
+  len = vsnprintf(buf, sizeof(buf) - 3, format, args);  // 减3：\r\n(2) + \0(1)
+  
+  // 结束可变参数处理
+  va_end(args);
+
+  // 修正实际长度（vsnprintf返回值可能超过缓冲区，取有效值）
+  if (len < 0 || len >= sizeof(buf) - 3) {
+    len = sizeof(buf) - 3;  // 截断到安全长度
+  }
+
+  // 追加\r\n
+  strcat(buf, "\r\n");
+  len += 2;  // 长度增加2字节（\r和\n）
+
+  // 调用CDC发送函数
+  result = CDC_Transmit_FS((uint8_t*)buf, len);
+  
   return result;
 }
 

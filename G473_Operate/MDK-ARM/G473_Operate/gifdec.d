@@ -1,0 +1,16 @@
+.\g473_operate\gifdec.o: ..\lvgl\src\extra\libs\gif\gifdec.c
+.\g473_operate\gifdec.o: ..\lvgl\src\extra\libs\gif\gifdec.h
+.\g473_operate\gifdec.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdint.h
+.\g473_operate\gifdec.o: ..\lvgl\src\extra\libs\gif\../../../misc/lv_fs.h
+.\g473_operate\gifdec.o: ..\lvgl\src\extra\libs\gif\../../../misc/../lv_conf_internal.h
+.\g473_operate\gifdec.o: ..\lvgl\src\extra\libs\gif\../../../misc/../lv_conf_kconfig.h
+.\g473_operate\gifdec.o: ..\lvgl\examples\porting\../../lv_conf.h
+.\g473_operate\gifdec.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\g473_operate\gifdec.o: ..\lvgl\src\extra\libs\gif\../../../misc/lv_log.h
+.\g473_operate\gifdec.o: ..\lvgl\src\extra\libs\gif\../../../misc/lv_types.h
+.\g473_operate\gifdec.o: ..\lvgl\src\extra\libs\gif\../../../misc/lv_mem.h
+.\g473_operate\gifdec.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
+.\g473_operate\gifdec.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
+.\g473_operate\gifdec.o: ..\lvgl\src\extra\libs\gif\../../../misc/lv_color.h
+.\g473_operate\gifdec.o: ..\lvgl\src\extra\libs\gif\../../../misc/lv_assert.h
+.\g473_operate\gifdec.o: ..\lvgl\src\extra\libs\gif\../../../misc/lv_math.h

@@ -137,42 +137,43 @@ void Control_task_create(void)
     }
 }
 
-// 新增打印任务（专门处理打印，避免阻塞扫描）
+// 上位机通信任务（专门处理打印，避免阻塞扫描）
 void vPrintTask(void *pvParameters)
 {
   char msg[64];
-//  uint8_t cycle_count = 0;
-  vTaskDelay(pdMS_TO_TICKS(4000)); // 等待系统稳定
+  uint8_t cycle_count = 0;  // 恢复循环计数器
+  vTaskDelay(pdMS_TO_TICKS(1000)); // 等待系统稳定
+
   for (;;)
     {
       // 等待队列消息（阻塞，直到有消息）
       if (xQueueReceive(control_msg_queue, msg, pdMS_TO_TICKS(1)) == pdPASS)
         {
-          dma_printf("%s", msg);  // 在这里执行打印
+          // 通过CDC发送队列消息
+          CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
         }
 
-      // 获取数据
-      // UART_RxStruct comm_data = get_uart_rx_data();
+      // 获取UART接收的数据
+      UART_RxStruct comm_data = get_uart_rx_data();
 
-      // // 发送给上位机
-      // dma_printf("%d,%d",
-      //            comm_data.voltage_out,
-      //            comm_data.current_out);
+      CDC_printf("%d,%d", comm_data.voltage_out, comm_data.current_out);
 
-      // // 实时性要求不高，每20次发送完整数据
-      // if (++cycle_count >= 20)
-      //   {
-      //     dma_printf(",%d,%d,%d,%d,%d,%d,%d,%d",
-      //                comm_data.voltage_in,
-      //                comm_data.current_in,
-      //                comm_data.adc_tmp1,
-      //                comm_data.adc_tmp2,
-      //                comm_data.voltage_12V_in,
-      //                comm_data.voltage_5V_in,
-      //                comm_data.mode_stop,
-      //                comm_data.mode_flag);
-      //     cycle_count = 0;
-      //   }
+      if (++cycle_count >= 20)
+        {
+          CDC_printf("%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\r\n",
+                     comm_data.voltage_out,
+                     comm_data.current_out,
+                     comm_data.voltage_in,
+                     comm_data.current_in,
+                     comm_data.adc_tmp1,
+                     comm_data.adc_tmp2,
+                     comm_data.voltage_12V_in,
+                     comm_data.voltage_5V_in,
+                     comm_data.mode_stop,
+                     comm_data.mode_flag);
+          cycle_count = 0;
+        }
+
       vTaskDelay(pdMS_TO_TICKS(1));
     }
 }
@@ -196,9 +197,9 @@ void vUSBTask(void *pvParameters)
   // USB任务处理逻辑
   for (;;)
     {
-      uint8_t message[] = "Your data here";
-      CDC_Transmit_FS(message, strlen((char*)message));
-      
+//      uint8_t message[] = "Your data here";
+//      CDC_Transmit_FS(message, strlen((char*)message));
+
       vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }

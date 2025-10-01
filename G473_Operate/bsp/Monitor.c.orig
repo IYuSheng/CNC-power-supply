@@ -1,17 +1,7 @@
 #include "Monitor.h"
 
-#if Monitor_Flag
-/* ÏµÍ³¼à¿ØÈÎÎñÏà¹Ø±äÁ¿ */
-static TaskStatus_t prevTaskStatusArray[10] = {0};
-static uint32_t prevTotalRuntime = 0;
-static UBaseType_t prevNumTasks = 0;
-
-/* ÏµÍ³¼à¿ØÈÎÎñº¯Êı */
-void vSystemMonitorTask(void *pvParameters);
-#endif
-
 /**
-  * @brief  »ñÈ¡TIM4¼ÆÊıÆ÷Öµ£¨ÓÃÓÚFreeRTOSÔËĞĞÊ±¼äÍ³¼Æ£©
+  * @brief  è·å–TIM4è®¡æ•°å™¨å€¼ï¼ˆç”¨äºFreeRTOSè¿è¡Œæ—¶é—´ç»Ÿè®¡ï¼‰
   */
 uint32_t getRuntimeCounterValue(void)
 {
@@ -19,89 +9,86 @@ uint32_t getRuntimeCounterValue(void)
 }
 
 /**
-  * @brief  ÅäÖÃTIM4ÎªFreeRTOSÔËĞĞÊ±¼äÍ³¼ÆÊ±ÖÓ
+  * @brief  é…ç½®TIM4ä¸ºFreeRTOSè¿è¡Œæ—¶é—´ç»Ÿè®¡æ—¶é’Ÿ
   */
 void configureTimerForRuntimeStats(void)
 {
-  // ÆôÓÃTIM4Ê±ÖÓ£¨G473µÄTIM4ÊôÓÚAPB1ÍâÉè£©
+  // å¯ç”¨TIM4æ—¶é’Ÿï¼ˆG473çš„TIM4å±äºAPB1å¤–è®¾ï¼‰
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM4);
 
-  // ÅäÖÃÊ±»ù£¨85MHzÊ±ÖÓ£¬Ô¤·ÖÆµ84£º¼ÆÊıÆµÂÊ1MHz£¬1us¼ÆÊı1´Î£©
   LL_TIM_InitTypeDef TIM_InitStruct = {0};
-  TIM_InitStruct.Prescaler = 84;                  // 85MHz / (84+1) = 1MHz
+  TIM_InitStruct.Prescaler = 8499;   // 20KHz
   TIM_InitStruct.CounterMode = LL_TIM_COUNTERMODE_UP;
-  TIM_InitStruct.Autoreload = 0xFFFFFFFF;         // ×î´ó¼ÆÊı·¶Î§
+  TIM_InitStruct.Autoreload = 0xFFFF;         // æœ€å¤§è®¡æ•°èŒƒå›´
   TIM_InitStruct.ClockDivision = LL_TIM_CLOCKDIVISION_DIV1;
-  
+
   LL_TIM_Init(TIM4, &TIM_InitStruct);
   LL_TIM_DisableARRPreload(TIM4);
   LL_TIM_EnableCounter(TIM4);
 }
 
 #if Monitor_Flag
-/**
-  * @brief  ÏµÍ³¼à¿ØÈÎÎñ£¨´òÓ¡ÈÎÎñ×´Ì¬¡¢CPUÕ¼ÓÃÂÊ£©
-  */
 void vSystemMonitorTask(void *pvParameters)
 {
-  const UBaseType_t maxTasks = 10;
-  TaskStatus_t *taskStatusArray = pvPortMalloc(maxTasks * sizeof(TaskStatus_t));
+  #define MAX_TASKS 15  // æœ€å¤§ä»»åŠ¡æ•°
+  static TaskStatus_t currentTaskStatusArray[MAX_TASKS];
+  static TaskStatus_t prevTaskStatusArray[MAX_TASKS];
+  static uint32_t prevTotalRuntime = 0;
+  static UBaseType_t prevNumTasks = 0;
 
-  if (!taskStatusArray)
-  {
-    vTaskDelete(NULL);
-    return;
-  }
-
-  while (1)
-  {
-    UBaseType_t numTasks = uxTaskGetSystemState(taskStatusArray, maxTasks, NULL);
-    if (numTasks > maxTasks) numTasks = maxTasks;
-
-    // ¼ÆËã×ÜÔËĞĞÊ±¼ä
-    uint32_t currentTotalRuntime = 0;
-    for (UBaseType_t i = 0; i < numTasks; i++)
+  for(;;)
     {
-      currentTotalRuntime += taskStatusArray[i].ulRunTimeCounter;
-    }
-
-    /* ×´Ì¬±ä»¯¼ì²âÓë´òÓ¡ */
-    if (prevNumTasks != 0)
-    {
-      uint32_t deltaTotal = currentTotalRuntime - prevTotalRuntime;
-      if (deltaTotal > 0)
-      {
-        char buffer[128];
-        //UART_Send_IT(USART3, (uint8_t*)"\r\n=== System Status ===\r\n", 23);
-        
-        /* ±éÀúËùÓĞÈÎÎñ¼ÆËãCPUÕ¼ÓÃÂÊ */
-        for (UBaseType_t i = 0; i < numTasks; i++)
-        {
-          for (UBaseType_t j = 0; j < prevNumTasks; j++)
-          {
-            if (taskStatusArray[i].xHandle == prevTaskStatusArray[j].xHandle)
-            {
-              uint32_t deltaTask = taskStatusArray[i].ulRunTimeCounter - prevTaskStatusArray[j].ulRunTimeCounter;
-              float percent = (100.0f * deltaTask) / deltaTotal;
-              snprintf(buffer, sizeof(buffer),
-                       "%-12s CPU:%5.2f%% Stack:%5u\r\n",
-                       taskStatusArray[i].pcTaskName,
-                       percent,
-                       taskStatusArray[i].usStackHighWaterMark);
-              UART_Send_IT(USART3, (uint8_t*)buffer, strlen(buffer));
-              break;
-            }
-          }
-        }
+      uint32_t currentTotalRuntime;
+      UBaseType_t numTasks = uxTaskGetSystemState(currentTaskStatusArray, MAX_TASKS, &currentTotalRuntime);
+      
+      // é”™è¯¯å¤„ç†
+      if (numTasks == 0 || numTasks > MAX_TASKS) {
+        if (numTasks > MAX_TASKS) numTasks = MAX_TASKS;
+        dma_printf("\r\nError: uxTaskGetSystemState() returned %d", numTasks);
+        vTaskDelay(pdMS_TO_TICKS(10000)); // å‡ºé”™æ—¶ç­‰å¾…æ›´é•¿æ—¶é—´
+        continue;
       }
+
+      /* çŠ¶æ€å˜åŒ–æ£€æµ‹ä¸æ‰“å° */
+      if (prevNumTasks != 0)
+        {
+          // æº¢å‡ºå¤„ç†
+          uint32_t deltaTotal = currentTotalRuntime - prevTotalRuntime;
+          
+          // èŒƒå›´æ£€æŸ¥
+          if (deltaTotal > 20000 && deltaTotal < 60000)
+            {
+              dma_printf("\r\nTask:         CPU:      Stack:");
+
+              /* éå†æ‰€æœ‰ä»»åŠ¡è®¡ç®—CPUå ç”¨ç‡ */
+              for (UBaseType_t i = 0; i < numTasks; i++)
+                {
+                  if (i < prevNumTasks && currentTaskStatusArray[i].xHandle == prevTaskStatusArray[i].xHandle)
+                    {
+                      uint32_t deltaTask = currentTaskStatusArray[i].ulRunTimeCounter - prevTaskStatusArray[i].ulRunTimeCounter;
+                      
+                      // CPUä½¿ç”¨ç‡è®¡ç®—
+                      float percent = (deltaTotal > 0) ? ((100.0f * deltaTask) / deltaTotal) : 0.0f;
+                      
+                      dma_printf("%-12s %6.2f%% %6u",
+                               currentTaskStatusArray[i].pcTaskName,
+                               percent,
+                               (unsigned int)currentTaskStatusArray[i].usStackHighWaterMark);
+                    }
+                }
+                // æ‰“å°ç³»ç»Ÿå †å†…å­˜ä½¿ç”¨æƒ…å†µ
+                dma_printf("Used:        %6.2f%%   %6u",((float)(configTOTAL_HEAP_SIZE - xPortGetFreeHeapSize()) / (float)configTOTAL_HEAP_SIZE) * 100.0f, xPortGetFreeHeapSize());
+            }
+        }
+
+      /* ä¿å­˜å½“å‰çŠ¶æ€ç”¨äºä¸‹æ¬¡å¯¹æ¯” */
+      // å†…å­˜å¤åˆ¶
+      UBaseType_t copyTasks = (numTasks < MAX_TASKS) ? numTasks : MAX_TASKS;
+      memcpy(prevTaskStatusArray, currentTaskStatusArray, copyTasks * sizeof(TaskStatus_t));
+      prevTotalRuntime = currentTotalRuntime;
+      prevNumTasks = copyTasks;
+
+      vTaskDelay(pdMS_TO_TICKS(2000)); // æ¯2ç§’æ£€æŸ¥ä¸€æ¬¡
     }
-
-    /* ±£´æµ±Ç°×´Ì¬ÓÃÓÚÏÂ´Î¶Ô±È */
-    memcpy(prevTaskStatusArray, taskStatusArray, numTasks * sizeof(TaskStatus_t));
-    prevTotalRuntime = currentTotalRuntime;
-    prevNumTasks = numTasks;
-
-    vTaskDelay(pdMS_TO_TICKS(500)); /* 5Ãë¸üĞÂÒ»´Î */
-  }
 }
 #endif

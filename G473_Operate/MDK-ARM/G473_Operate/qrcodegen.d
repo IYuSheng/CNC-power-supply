@@ -1,0 +1,15 @@
+.\g473_operate\qrcodegen.o: ..\lvgl\src\extra\libs\qrcode\qrcodegen.c
+.\g473_operate\qrcodegen.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\limits.h
+.\g473_operate\qrcodegen.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\g473_operate\qrcodegen.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
+.\g473_operate\qrcodegen.o: ..\lvgl\src\extra\libs\qrcode\qrcodegen.h
+.\g473_operate\qrcodegen.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\g473_operate\qrcodegen.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
+.\g473_operate\qrcodegen.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdint.h
+.\g473_operate\qrcodegen.o: ..\lvgl\src\extra\libs\qrcode\../../../misc/lv_assert.h
+.\g473_operate\qrcodegen.o: ..\lvgl\src\extra\libs\qrcode\../../../misc/../lv_conf_internal.h
+.\g473_operate\qrcodegen.o: ..\lvgl\src\extra\libs\qrcode\../../../misc/../lv_conf_kconfig.h
+.\g473_operate\qrcodegen.o: ..\lvgl\examples\porting\../../lv_conf.h
+.\g473_operate\qrcodegen.o: ..\lvgl\src\extra\libs\qrcode\../../../misc/lv_log.h
+.\g473_operate\qrcodegen.o: ..\lvgl\src\extra\libs\qrcode\../../../misc/lv_types.h
+.\g473_operate\qrcodegen.o: ..\lvgl\src\extra\libs\qrcode\../../../misc/lv_mem.h

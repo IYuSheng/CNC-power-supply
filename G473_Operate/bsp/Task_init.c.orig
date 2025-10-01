@@ -1,7 +1,6 @@
 #include "Task_init.h"
 
 BaseType_t xReturn;  /* 保存xTaskCreate返回值 */
-QueueHandle_t encoder_msg_queue;
 
 extern void Error_Handler(void);
 
@@ -10,16 +9,12 @@ extern void Error_Handler(void);
   */
 void Debug_uart_task_create(void)
 {
-  xReturn = xTaskCreate(vUartProcessTask, "UartProc", 1024,
+  xReturn = xTaskCreate(vUartProcessTask, "UartProc", 512,
                         NULL, TASK_PRIO_UART, NULL);
   if (xReturn != pdPASS)
     {
       fr_printf("Debug task create Failed");
       Error_Handler();
-    }
-  else
-    {
-      fr_printf("Debug task create Success");
     }
 }
 
@@ -33,16 +28,12 @@ void Monitor_task_create(void)
   /* 初始化运行时间统计定时器 */
   configureTimerForRuntimeStats();
   /* 创建系统监控任务 */
-  xReturn = xTaskCreate(vSystemMonitorTask, "Monitor", 256,
+  xReturn = xTaskCreate(vSystemMonitorTask, "Monitor", 512,
                         NULL, TASK_PRIO_MONITOR, NULL);
   if (xReturn != pdPASS)
     {
       fr_printf("Monitor task create Failed");
       Error_Handler();
-    }
-  else
-    {
-      fr_printf("Monitor task create Success");
     }
 
 #endif
@@ -53,16 +44,12 @@ void Monitor_task_create(void)
   */
 void Comm_task_create(void)
 {
-  xReturn = xTaskCreate(vUart1ProcessTask, "Comm", 1024,
+  xReturn = xTaskCreate(vUart1ProcessTask, "Comm", 512,
                         NULL, TASK_PRIO_Comm, NULL);
   if (xReturn != pdPASS)
     {
       fr_printf("Comm task create Failed");
       Error_Handler();
-    }
-  else
-    {
-      fr_printf("Comm task create Success");
     }
 }
 
@@ -71,18 +58,12 @@ void Comm_task_create(void)
   */
 void Watchdog_task_create(void)
 {
-  IWDG_Init(3000); // 3000ms超时
-
   xReturn = xTaskCreate(vWatchdogTask, "Watchdog", 64,
                         NULL, TASK_PRIO_WATCHDOG, NULL);
   if (xReturn != pdPASS)
     {
       fr_printf("Watchdog task create Failed");
       Error_Handler();
-    }
-  else
-    {
-      fr_printf("Watchdog task create Success");
     }
 }
 
@@ -91,16 +72,12 @@ void Watchdog_task_create(void)
   */
 void Key_task_create(void)
 {
-  xReturn = xTaskCreate(vKeyScanTask, "Key", 256,
+  xReturn = xTaskCreate(vKeyScanTask, "Key", 128,
                         NULL, TASK_PRIO_KEY, NULL);
   if (xReturn != pdPASS)
     {
       fr_printf("Key task create Failed");
       Error_Handler();
-    }
-  else
-    {
-      fr_printf("Key task create Success");
     }
 }
 
@@ -116,10 +93,6 @@ void TFT_task_create(void)
       fr_printf("TFT task create Failed");
       Error_Handler();
     }
-  else
-    {
-      fr_printf("TFT task create Success");
-    }
 }
 
 /**
@@ -133,10 +106,6 @@ void Storage_task_create(void)
     {
       fr_printf("Storage task create Failed");
       Error_Handler();
-    }
-  else
-    {
-      fr_printf("Storage task create Success");
     }
 }
 
@@ -152,10 +121,6 @@ void Encoder_task_create(void)
       fr_printf("Encoder task create Failed");
       Error_Handler();
     }
-  else
-    {
-      fr_printf("Encoder task create Success");
-    }
 }
 
 /**
@@ -163,16 +128,12 @@ void Encoder_task_create(void)
   */
 void Control_task_create(void)
 {
-  xReturn = xTaskCreate(vControlTask, "Control", 256,
-                        NULL, 3, NULL);
+  xReturn = xTaskCreate(vControlTask, "Control", 512,
+                        NULL, TASK_PRIO_CONTROL, NULL);
   if (xReturn != pdPASS)
     {
       fr_printf("Control task create Failed");
       Error_Handler();
-    }
-  else
-    {
-      fr_printf("Control task create Success");
     }
 }
 
@@ -180,14 +141,41 @@ void Control_task_create(void)
 void vPrintTask(void *pvParameters)
 {
   char msg[64];
+  uint8_t cycle_count = 0;  // 恢复循环计数器
+  vTaskDelay(pdMS_TO_TICKS(4000)); // 等待系统稳定
+
   for (;;)
+  {
+    // 等待队列消息（阻塞，直到有消息）
+    if (xQueueReceive(control_msg_queue, msg, pdMS_TO_TICKS(1)) == pdPASS)
     {
-      // 等待队列消息（阻塞，直到有消息）
-      if (xQueueReceive(key_msg_queue, msg, portMAX_DELAY) == pdPASS)
-        {
-          fr_printf("%s", msg);  // 在这里执行打印
-        }
+      // 通过CDC发送队列消息
+      CDC_Transmit_FS((uint8_t*)msg, strlen(msg));
     }
+
+    // 获取UART接收的数据
+    UART_RxStruct comm_data = get_uart_rx_data();
+
+    CDC_printf("%d,%d", comm_data.voltage_out, comm_data.current_out);
+
+// 完整数据帧示例
+if (++cycle_count >= 20) {
+  CDC_printf("%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\r\n",
+             comm_data.voltage_out,
+             comm_data.current_out,
+             comm_data.voltage_in,
+             comm_data.current_in,
+             comm_data.adc_tmp1,
+             comm_data.adc_tmp2,
+             comm_data.voltage_12V_in,
+             comm_data.voltage_5V_in,
+             comm_data.mode_stop,
+             comm_data.mode_flag);
+  cycle_count = 0;
+}
+
+    vTaskDelay(pdMS_TO_TICKS(1));
+  }
 }
 
 /**
@@ -195,22 +183,34 @@ void vPrintTask(void *pvParameters)
   */
 void Test_task_create(void)
 {
-	encoder_msg_queue = xQueueCreate(10, sizeof(UART_TxStruct));
-    if (encoder_msg_queue == NULL) {
-        fr_printf("encoder_msg_queue create failed!\n");
-        Error_Handler();
-    }
-  xReturn = xTaskCreate(vPrintTask, "Print", 256,
-                        NULL, 3, NULL);
+  xReturn = xTaskCreate(vPrintTask, "Print", 512,
+                        NULL, TASK_PRIO_Print, NULL);
   if (xReturn != pdPASS)
     {
       fr_printf("Test task create Failed");
       Error_Handler();
     }
-  else
+}
+
+void vUSBTask(void *pvParameters)
+{
+  // USB任务处理逻辑
+  for (;;)
     {
-      fr_printf("Test task create Success");
+//      uint8_t message[] = "Your data here";
+//      CDC_Transmit_FS(message, strlen((char*)message));
+      
+      vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }
 
-
+void USB_task_create(void)
+{
+  xReturn = xTaskCreate(vUSBTask, "USB", 512,
+                        NULL, TASK_PRIO_USB, NULL);
+  if (xReturn != pdPASS)
+    {
+      fr_printf("USB task create Failed");
+      Error_Handler();
+    }
+}

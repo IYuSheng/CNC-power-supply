@@ -1,0 +1,12 @@
+.\g473_operate\list.o: ..\FreeRTOS\src\list.c
+.\g473_operate\list.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\g473_operate\list.o: ..\FreeRTOS\inc\FreeRTOS.h
+.\g473_operate\list.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
+.\g473_operate\list.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdint.h
+.\g473_operate\list.o: ..\FreeRTOS\FreeRTOSConfig.h
+.\g473_operate\list.o: ..\FreeRTOS\inc\projdefs.h
+.\g473_operate\list.o: ..\FreeRTOS\inc\portable.h
+.\g473_operate\list.o: ..\FreeRTOS\inc\deprecated_definitions.h
+.\g473_operate\list.o: ..\FreeRTOS\port\portmacro.h
+.\g473_operate\list.o: ..\FreeRTOS\inc\mpu_wrappers.h
+.\g473_operate\list.o: ..\FreeRTOS\inc\list.h

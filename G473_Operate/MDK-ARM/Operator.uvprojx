@@ -2275,7 +2275,7 @@
             <File>
               <FileName>usbd_cdc_if.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\G473_Operate\USB_Device\App\usbd_cdc_if.c</FilePath>
+              <FilePath>..\USB_Device\App\usbd_cdc_if.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2522,7 +2522,7 @@
             <File>
               <FileName>usbd_cdc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\G473_Operate\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src\usbd_cdc.c</FilePath>
+              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Src\usbd_cdc.c</FilePath>
             </File>
           </Files>
         </Group>

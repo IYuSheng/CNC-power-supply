@@ -99,11 +99,11 @@ void ProcessCommand(const char* cmdLine)
 /* 触发命令处理（统一接口，处理所有类型的命令） */
 void TriggerCommandProcessing(const char* cmdLine)
 {
-    if (cmdLine == NULL || *cmdLine == '\0')
-        return;
+  if (cmdLine == NULL || *cmdLine == '\0')
+    return;
 
-    /* 处理基本命令（如SetA、SetB等） */
-    ProcessCommand(cmdLine);
+  /* 处理基本命令（如SetA、SetB等） */
+  ProcessCommand(cmdLine);
 }
 
 

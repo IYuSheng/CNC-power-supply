@@ -1,0 +1,13 @@
+.\g473_operate\lv_tlsf.o: ..\lvgl\src\misc\lv_tlsf.c
+.\g473_operate\lv_tlsf.o: ..\lvgl\src\misc\../lv_conf_internal.h
+.\g473_operate\lv_tlsf.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdint.h
+.\g473_operate\lv_tlsf.o: ..\lvgl\src\misc\../lv_conf_kconfig.h
+.\g473_operate\lv_tlsf.o: ..\lvgl\examples\porting\../../lv_conf.h
+.\g473_operate\lv_tlsf.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\limits.h
+.\g473_operate\lv_tlsf.o: ..\lvgl\src\misc\lv_tlsf.h
+.\g473_operate\lv_tlsf.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
+.\g473_operate\lv_tlsf.o: ..\lvgl\src\misc\lv_mem.h
+.\g473_operate\lv_tlsf.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h
+.\g473_operate\lv_tlsf.o: ..\lvgl\src\misc\lv_types.h
+.\g473_operate\lv_tlsf.o: ..\lvgl\src\misc\lv_log.h
+.\g473_operate\lv_tlsf.o: ..\lvgl\src\misc\lv_assert.h

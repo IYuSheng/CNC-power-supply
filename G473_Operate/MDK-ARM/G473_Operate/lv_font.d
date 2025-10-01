@@ -1,0 +1,17 @@
+.\g473_operate\lv_font.o: ..\lvgl\src\font\lv_font.c
+.\g473_operate\lv_font.o: ..\lvgl\src\font\lv_font.h
+.\g473_operate\lv_font.o: ..\lvgl\src\font\../lv_conf_internal.h
+.\g473_operate\lv_font.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdint.h
+.\g473_operate\lv_font.o: ..\lvgl\src\font\../lv_conf_kconfig.h
+.\g473_operate\lv_font.o: ..\lvgl\examples\porting\../../lv_conf.h
+.\g473_operate\lv_font.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stddef.h
+.\g473_operate\lv_font.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\g473_operate\lv_font.o: ..\lvgl\lv_conf.h
+.\g473_operate\lv_font.o: ..\lvgl\src\font\lv_symbol_def.h
+.\g473_operate\lv_font.o: ..\lvgl\src\font\../misc/lv_area.h
+.\g473_operate\lv_font.o: ..\lvgl\src\font\../misc/lv_utils.h
+.\g473_operate\lv_font.o: ..\lvgl\src\font\../misc/lv_log.h
+.\g473_operate\lv_font.o: ..\lvgl\src\font\../misc/lv_types.h
+.\g473_operate\lv_font.o: ..\lvgl\src\font\../misc/lv_assert.h
+.\g473_operate\lv_font.o: ..\lvgl\src\font\../misc/lv_mem.h
+.\g473_operate\lv_font.o: D:\Keilv5\ARM\ARMCC\Bin\..\include\string.h

@@ -30,7 +30,7 @@ void configureTimerForRuntimeStats(void)
 #if Monitor_Flag
 void vSystemMonitorTask(void *pvParameters)
 {
-  #define MAX_TASKS 15  // 最大任务数
+#define MAX_TASKS 15  // 最大任务数
   static TaskStatus_t currentTaskStatusArray[MAX_TASKS];
   static TaskStatus_t prevTaskStatusArray[MAX_TASKS];
   static uint32_t prevTotalRuntime = 0;
@@ -40,21 +40,22 @@ void vSystemMonitorTask(void *pvParameters)
     {
       uint32_t currentTotalRuntime;
       UBaseType_t numTasks = uxTaskGetSystemState(currentTaskStatusArray, MAX_TASKS, &currentTotalRuntime);
-      
+
       // 错误处理
-      if (numTasks == 0 || numTasks > MAX_TASKS) {
-        if (numTasks > MAX_TASKS) numTasks = MAX_TASKS;
-        dma_printf("\r\nError: uxTaskGetSystemState() returned %d", numTasks);
-        vTaskDelay(pdMS_TO_TICKS(10000)); // 出错时等待更长时间
-        continue;
-      }
+      if (numTasks == 0 || numTasks > MAX_TASKS)
+        {
+          if (numTasks > MAX_TASKS) numTasks = MAX_TASKS;
+          dma_printf("\r\nError: uxTaskGetSystemState() returned %d", numTasks);
+          vTaskDelay(pdMS_TO_TICKS(10000)); // 出错时等待更长时间
+          continue;
+        }
 
       /* 状态变化检测与打印 */
       if (prevNumTasks != 0)
         {
           // 溢出处理
           uint32_t deltaTotal = currentTotalRuntime - prevTotalRuntime;
-          
+
           // 范围检查
           if (deltaTotal > 20000 && deltaTotal < 60000)
             {
@@ -66,18 +67,18 @@ void vSystemMonitorTask(void *pvParameters)
                   if (i < prevNumTasks && currentTaskStatusArray[i].xHandle == prevTaskStatusArray[i].xHandle)
                     {
                       uint32_t deltaTask = currentTaskStatusArray[i].ulRunTimeCounter - prevTaskStatusArray[i].ulRunTimeCounter;
-                      
+
                       // CPU使用率计算
                       float percent = (deltaTotal > 0) ? ((100.0f * deltaTask) / deltaTotal) : 0.0f;
-                      
+
                       dma_printf("%-12s %6.2f%% %6u",
-                               currentTaskStatusArray[i].pcTaskName,
-                               percent,
-                               (unsigned int)currentTaskStatusArray[i].usStackHighWaterMark);
+                                 currentTaskStatusArray[i].pcTaskName,
+                                 percent,
+                                 (unsigned int)currentTaskStatusArray[i].usStackHighWaterMark);
                     }
                 }
-                // 打印系统堆内存使用情况
-                dma_printf("Used:        %6.2f%%   %6u",((float)(configTOTAL_HEAP_SIZE - xPortGetFreeHeapSize()) / (float)configTOTAL_HEAP_SIZE) * 100.0f, xPortGetFreeHeapSize());
+              // 打印系统堆内存使用情况
+              dma_printf("Used:        %6.2f%%   %6u",((float)(configTOTAL_HEAP_SIZE - xPortGetFreeHeapSize()) / (float)configTOTAL_HEAP_SIZE) * 100.0f, xPortGetFreeHeapSize());
             }
         }
 
